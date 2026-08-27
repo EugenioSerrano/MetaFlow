@@ -5519,42 +5519,34 @@
  like every other project file. Within the same major, they advance
  **intact**: `schema_version` is the `<major>.0` of the family (§3.12), so a
  4.x bump changes no manifest value at all and no conversion runs. Across a
-@@ -4759,33 +4755,32 @@
+@@ -4758,34 +4754,12 @@
+ 
  Conversion follows the lossless rule of §3.12: add the fields the new schema
  introduces — `null` wherever the value was never captured — apply its renames,
- and carry every recorded value across untouched. `3.0` → `4.0` is exactly this
+-and carry every recorded value across untouched. `3.0` → `4.0` is exactly this
 -shape: the timing fields (`review_ready_at`, `review_started_at` and the Bolt's
-+shape: the timing fields (`review_ready_at`, `review_started_at` and the TASK's
- `acceptance` object) did not exist in `3.0`, so they arrive as `null`, and the
+-`acceptance` object) did not exist in `3.0`, so they arrive as `null`, and the
 -manifest moves from the `metrics/` root to `metrics/bolts/`. Every value the
 -manifest already recorded under `bolt`, `spec_revisions[]`, `v_bounces[]` and
 -`hitl_approvals[]` crosses unchanged. Anything that cannot be converted under
-+manifest moves from the `23-metrics/` root to `23-metrics/tasks/`. Every value the
-+manifest already recorded under `task`, `spec_revisions[]`, `delivery_loops[]` and
-+`checkpoint_approvals[]` crosses unchanged. Anything that cannot be converted under
- that rule is **unresolved** — reported, never guessed (G36).
- 
- `4.0` → `5.0` is a rename with a shape change: the approval array
+-that rule is **unresolved** — reported, never guessed (G36).
+-
+-`4.0` → `5.0` is a rename with a shape change: the approval array
 -`hitl_approvals[]` becomes `checkpoint_approvals[]` with a richer approver.
-+`checkpoint_approvals[]` gains a richer approver shape.
- Every `4.0` approval was recorded by a human (agents did not exist in `4.0`), so
- each entry converts its `decided_by` `{user, role}` → `{actor: "human:<user>",
- role, model: null}`; likewise `created_by` becomes `human:<user>` and every
- `runs[]` entry gains `agent: null` — the actor grammar (§3.0).
- The checkpoint **name** in each converted entry is **re-expressed** in the
+-Every `4.0` approval was recorded by a human (agents did not exist in `4.0`), so
+-each entry converts its `decided_by` `{user, role}` → `{actor: "human:<user>",
+-role, model: null}`; likewise `created_by` becomes `human:<user>` and every
+-`runs[]` entry gains `agent: null` — the actor grammar (§3.0).
+-The checkpoint **name** in each converted entry is **re-expressed** in the
 -  current vocabulary (`HITL-<CODE>-Approval` → `AITL-<CODE>-Approval`): the decision — actor, timestamp, outcome — is immutable, only the
 -vocabulary label tracks the version, and because AITL ⊇ HITL the label becomes
 -truer, not falser (a historical `HITL-MEM-Approval` *is* an `AITL-MEM-Approval`
 -in human mode). The v5 `checkpoint` enum accepts **only** `AITL-*`; a v4 manifest
 -validates against the frozen v4 schema, which keeps `HITL-*`. G36 still forbids
-+current vocabulary (`CP-<CODE>-Approval`): the decision — actor, timestamp,
-+outcome — is immutable; only the vocabulary label tracks the version. The v1
-+`checkpoint` enum accepts **only** `CP-*`; a manifest of the previous family
-+validates against its own frozen schema, which keeps the legacy names. G36 still forbids
- altering the recorded actor, timestamp, outcome or evidence, or rewriting an
+-altering the recorded actor, timestamp, outcome or evidence, or rewriting an
 -approved MEM/ADR body. `schema_version` becomes `"5.0"`; every other value
-+approved MEM/ADR body. `schema_version` becomes `"1.0"`; every other value
- crosses unchanged.
+-crosses unchanged.
++and carry every recorded value across untouched. **History of the previous family (not applicable to MetaFlow v1.1):** the earlier lineage migrated manifests `3.0` → `4.0` → `5.0` (timing fields arriving as `null`, the approval array gaining a richer approver shape, the actor grammar). Under MetaFlow v1.1 the family is v1: a conversion adds the new schema's fields as `null`, applies its renames, and keeps `schema_version` at `"1.0"` with checkpoints `CP-*`. G36 still forbids altering the recorded actor, timestamp, outcome or evidence, or rewriting an approved MEM/ADR body. Every other value crosses unchanged.
  
  **A manifest level the old version lacked is reconstructed from the
  repository's own evidence.** A new version may introduce a level that did not
@@ -5564,7 +5556,7 @@
  those gaps would render every migrated US and TC formally nonexistent the
  moment `VERSION` is written, so the migration creates them, deriving every
  field from something already in the repository:
-@@ -4801,8 +4796,8 @@
+@@ -4801,8 +4775,8 @@
  | `review_ready_at`, `review_started_at` | the frontmatter `review_ready_at:` and `review.started_at` |
  | `checkpoint_approvals[]` | the document's `review:` contract, through the standard manifest projection (§3.0) — reviewers as `human:<user>` actors |
  | `story_points` (US) | the frontmatter `story_points:` |
@@ -5575,7 +5567,7 @@
  
  Every one of those is transcription. A field with no such source — a document
  carrying no `sources:`, an artifact whose `created_at` cannot be established —
-@@ -4813,7 +4808,7 @@
+@@ -4813,7 +4787,7 @@
  
  **Rebuild every `INDEX.md` after the copy, from the migrated files
  themselves** — never from the old INDEX, which may itself be stale. Every
@@ -5584,7 +5576,7 @@
  classified by reading its own frontmatter `status` against the new version's
  section structure and status vocabulary (§3.15). An INDEX left with the
  template's empty placeholder rows while its folder holds migrated artifacts is
-@@ -4832,47 +4827,47 @@
+@@ -4832,47 +4806,47 @@
  with how many entries; the `LANGUAGE` value preserved; and, explicitly,
  **anything that could not be classified or converted**.
  
@@ -5645,7 +5637,7 @@
    <https://aws.amazon.com/es/blogs/devops/ai-driven-development-life-cycle/>
  
  - **Amershi, S., Begel, A., Bird, C., DeLine, R., Gall, H., Kamar, E., Nagappan, N., Nushi, B., & Zimmermann, T.** (2019). Software engineering for machine learning: A case study. *2019 IEEE/ACM 41st International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP)*, 291–300. IEEE. <https://doi.org/10.1109/ICSE-SEIP.2019.00042>
-@@ -4881,15 +4876,11 @@
+@@ -4881,15 +4855,11 @@
  
  - **Cucumber.** (2025, January 26). *Gherkin reference*. <https://cucumber.io/docs/gherkin/reference/>
  

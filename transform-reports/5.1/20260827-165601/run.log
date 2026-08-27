@@ -83,7 +83,7 @@ output: D:\MetaFlow\distribution-kit
   [ok]       devflow/analysis/vision/INDEX.md -> metaflow\02-analysis\vision\INDEX.md (reglas: V1x1)
   [ok]       devflow/analysis/vision/README.md -> metaflow\02-analysis\vision\README.md (reglas: B1bx1, M15x1, M2x1, N01x4, N12x2, V1x1)
   [ok]       devflow/analysis/vision/TEMPLATE-VISION.md -> metaflow\02-analysis\vision\TEMPLATE-VISION.md (reglas: M15x1, N01x2)
-  [ok]       devflow/avenga-devflow/Avenga-DevFlow.md -> metaflow\ai-sdlc\MetaFlow.md (reglas: A1x1, A2x1, B12x2, B14x6, B15ax4, B15bx20, B1ax151, B1bx590, B2x45, B2cx1, B3ax25, B3bx34, B6x60, B7x29, C1ax1, C1bx358, C1ex2, C2ax1, C2bx1, C3ax1, C3bx1, C4x60, C4bx5, C7x3, D1x223, D2x34, D3x18, D8x2, D9x27, M10x3, M12x1, M13x1, M15x79, M16x11, M2x16, M3x29, M6bx8, M7bx2, N01x38, N02x54, N03x5, N11x6, N12x24, N13x3, N21x8, N22x9, N23x24, N24x10, N31x3, N32x5, N33x4, N34x3, N35x3, N41x3, N42x7, N51x13, N52x7, N53x2, R10-1x1, R10-4x1, R10-5x1, R10-7x1, R10-9x1, R13-1x4, R13-2x4, R13-5x4, R15-1x1, R15-2x1, R15-3x1, R17-1x1, R20-1x1, R20-2x1, R21-1x1, R7-1x1, R7-2x1, R7-3x1, R7-4x1, R7-5x1, R7-6x1, S1x15, S3x1; remociones: R1ax1, R1bx1, R2ax3, R2bx1)
+  [ok]       devflow/avenga-devflow/Avenga-DevFlow.md -> metaflow\ai-sdlc\MetaFlow.md (reglas: A1x1, A2x1, B12x2, B14x6, B15ax4, B15bx20, B1ax151, B1bx590, B2x45, B2cx1, B3ax25, B3bx34, B6x60, B7x29, C1ax1, C1bx358, C1ex2, C2ax1, C2bx1, C3ax1, C3bx1, C4x60, C4bx5, C7x3, D1x223, D2x34, D3x18, D8x2, D9x27, M10x3, M12x1, M13x1, M15x79, M16x11, M2x16, M3x29, M6bx8, M7bx2, N01x38, N02x54, N03x5, N11x6, N12x24, N13x3, N21x8, N22x9, N23x24, N24x10, N31x3, N32x5, N33x4, N34x3, N35x3, N41x3, N42x7, N51x13, N52x7, N53x2, R10-1x1, R10-4x1, R10-5x1, R10-7x1, R10-9x1, R13-1x4, R13-2x4, R13-5x4, R15-1x1, R15-2x1, R15-3x1, R17-1x1, R20-1x1, R20-2x1, R21-1x1, R24-1x1, R7-1x1, R7-2x1, R7-3x1, R7-4x1, R7-5x1, R7-6x1, S1x15, S3x1; remociones: R1ax1, R1bx1, R2ax3, R2bx1)
   [ok]       devflow/avenga-devflow/INDEX.md -> metaflow\ai-sdlc\INDEX.md (reglas: B1bx3, B2x2, C4x2, D1x1, D9x1, M2x2, M7bx1, M7cx1, R10-1x1, V1x1, V6x1)
   [ok]       devflow/avenga-devflow/README.md -> metaflow\ai-sdlc\README.md (reglas: B14x1, B1ax1, B1bx1, B6x2, B7x1, C1bx10, C4x5, D1x2, D9x1, M15x1, M7bx2, N02x2, N11x1, N21x1, V1x1)
   [ok]       devflow/bugs/INDEX.md -> metaflow\13-bugs\INDEX.md (reglas: B1bx4, C1bx2, D1x1, V1x1)
@@ -152,5 +152,5 @@ output: D:\MetaFlow\distribution-kit
   [ok]       devflow/tests/uat/TEMPLATE-UAT.md -> metaflow\24-tests\uat\TEMPLATE-UAT.md (reglas: B1ax5, B1bx4, B2x3, B3ax2, B7x1, C1bx5, D1x1, M15x1, M2x1, N02x2, N12x1, N22x1, N24x1)
   [ok]       devflow/VERSION -> metaflow\VERSION (reglas: V0x1)
 ---
-total: 149 archivos, 66 carpetas, 0 binarios copiados, 1 excluidos, 7553 reglas aplicadas, 26 remociones
-purgadas (retención 2 por versión): 20260827-103254
+total: 149 archivos, 66 carpetas, 0 binarios copiados, 1 excluidos, 7554 reglas aplicadas, 26 remociones
+purgadas (retención 2 por versión): 20260827-103325
