@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.0",
+  "task": {
+    "id": "US-001.TASK-006",
+    "type": "functional",
+    "ref": "metaflow/12-functional/tasks/US-001.TASK-006-fix-numeracion-plataforma.md",
+    "sources": [
+      "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md",
+      "metaflow/13-bugs/BUG-001-numeracion-plataforma.md",
+      "metaflow/11-adrs/ADR-003-ajuste-numeracion-32-adv-reviews.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-27T03:04:43-03:00",
+      "created_by": "human:eugenioserrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek/deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-27T03:04:43-03:00",
+    "review_started_at": "2026-08-27T03:05:50-03:00",
+    "acceptance": {
+      "review_ready_at": null,
+      "review_started_at": null
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "metaflow/21-spec/SPEC-260827-0305-bolt006-fix-numeracion-plataforma.md",
+      "sources": [
+        "metaflow/12-functional/tasks/US-001.TASK-006-fix-numeracion-plataforma.md",
+        "metaflow/13-bugs/BUG-001-numeracion-plataforma.md",
+        "metaflow/11-adrs/ADR-003-ajuste-numeracion-32-adv-reviews.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-27T03:06:52-03:00",
+        "created_by": "human:eugenioserrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek/deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-27T03:05:50-03:00",
+      "review_started_at": "2026-08-27T03:06:52-03:00"
+    }
+  ],
+  "delivery_loops": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-27T03:08:13-03:00",
+        "created_by": "human:eugenioserrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek/deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "metaflow/22-memory/MEM-260827-0308-bolt006-fix-numeracion-plataforma.md",
+        "generation": {
+          "created_at": "2026-08-27T03:08:13-03:00",
+          "created_by": "human:eugenioserrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek/deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-27T03:08:13-03:00",
+      "review_started_at": "2026-08-27T03:09:09-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "CP-US-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T01:17:43-03:00",
+      "comment": "Origen: US-001 aprobada (5 SP)"
+    },
+    {
+      "checkpoint": "CP-BUG-Approval",
+      "subject": {
+        "ref": "metaflow/13-bugs/BUG-001-numeracion-plataforma.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T03:04:43-03:00",
+      "comment": "Origen: BUG-001 aprobado (severity high, functional) — defecto confirmado por smoke test"
+    },
+    {
+      "checkpoint": "CP-TASK-READY-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/tasks/US-001.TASK-006-fix-numeracion-plataforma.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T03:05:50-03:00",
+      "comment": "DoR verificado: US-001 aprobada, BUG-001 aprobado, ADR-003 accepted, TASK-004/005 Done; riesgo low confirmado"
+    },
+    {
+      "checkpoint": "CP-SPEC-Approval",
+      "subject": {
+        "ref": "metaflow/21-spec/SPEC-260827-0305-bolt006-fix-numeracion-plataforma.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T03:06:52-03:00",
+      "comment": "Aprobación sin hallazgos; autoriza el V-Bounce 6 de TASK-006 (TDD estricto)"
+    },
+    {
+      "checkpoint": "CP-MEM-Approval",
+      "subject": {
+        "ref": "metaflow/22-memory/MEM-260827-0308-bolt006-fix-numeracion-plataforma.md",
+        "delivery_loop": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T03:09:09-03:00",
+      "comment": "Aprobación sin hallazgos — RED/GREEN registrados, plataforma restaurada, tests 73/73; TASK-006 Development Completed"
+    }
+  ]
+}

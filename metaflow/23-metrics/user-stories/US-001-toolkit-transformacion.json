@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "us": {
+    "id": "US-001",
+    "ref": "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md",
+    "sources": [
+      "metaflow/02-analysis/scope/mvp-scope.md",
+      "metaflow/02-analysis/glossary/metaflow.md",
+      "metaflow/02-analysis/process/PROC-001-transformacion-kit.md",
+      "metaflow/02-analysis/user-journeys/publicar-nueva-version.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-27T01:14:34-03:00",
+      "created_by": "human:eugenioserrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek/deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-27T01:14:34-03:00",
+    "review_started_at": "2026-08-27T01:17:43-03:00"
+  },
+  "story_points": 5,
+  "tasks": [
+    "metaflow/12-functional/tasks/US-001.TASK-001-engine-transformacion.md",
+    "metaflow/12-functional/tasks/US-001.TASK-002-verificador-reporte.md",
+    "metaflow/12-functional/tasks/US-001.TASK-003-versionado-y-limpieza.md",
+    "metaflow/12-functional/tasks/US-001.TASK-004-numeracion-carpetas-kit.md",
+    "metaflow/12-functional/tasks/US-001.TASK-005-correccion-numeracion.md",
+    "metaflow/12-functional/tasks/US-001.TASK-006-fix-numeracion-plataforma.md",
+    "metaflow/12-functional/tasks/US-001.TASK-007-fix-schema-version-metodologia.md",
+    "metaflow/12-functional/tasks/US-001.TASK-008-fix-schema-version-agentes.md",
+    "metaflow/12-functional/tasks/US-001.TASK-009-fix-schema-version-contradicciones.md",
+    "metaflow/12-functional/tasks/US-001.TASK-010-fix-naming-familia-v1.md",
+    "metaflow/12-functional/tasks/US-001.TASK-011-fix-placeholders-g05.md",
+    "metaflow/12-functional/tasks/US-001.TASK-012-fix-prefijo-citl.md",
+    "metaflow/12-functional/tasks/US-001.TASK-013-fix-rutas-agentes.md",
+    "metaflow/12-functional/tasks/US-001.TASK-014-fix-template-report.md",
+    "metaflow/12-functional/tasks/US-001.TASK-015-fix-frontmatter-cita.md",
+    "metaflow/12-functional/tasks/US-001.TASK-016-fix-mem-campos-manifest.md",
+    "metaflow/12-functional/tasks/US-001.TASK-017-fix-ejemplos-inconsistentes.md",
+    "metaflow/12-functional/tasks/US-001.TASK-018-fix-migracion-agentes.md",
+    "metaflow/12-functional/tasks/US-001.TASK-019-fix-g05-wrappers.md",
+    "metaflow/12-functional/tasks/US-001.TASK-020-fix-tautologias-citl.md",
+    "metaflow/12-functional/tasks/US-001.TASK-021-fix-template-report-anuncios.md",
+    "metaflow/12-functional/tasks/US-001.TASK-022-fix-citl-asterisco.md",
+    "metaflow/12-functional/tasks/US-001.TASK-023-fix-g05-pre-v5.md",
+    "metaflow/12-functional/tasks/US-001.TASK-024-fix-516-linaje.md"
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "CP-US-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T01:17:43-03:00",
+      "comment": "Aprobación del propietario (Functional Analyst autoasignado) sin hallazgos; story_points confirmados en 5"
+    },
+    {
+      "checkpoint": "CP-US-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T01:23:11-03:00",
+      "comment": "Revalidación de la Revisión 4 (AC-11 evidencia persistente por run, R6 transform-reports/ nunca borrada)"
+    },
+    {
+      "checkpoint": "CP-US-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T02:03:08-03:00",
+      "comment": "Revalidación de la Revisión 5 (R6: retención acotada a las 2 corridas más recientes por versión en transform-reports/)"
+    }
+  ]
+}

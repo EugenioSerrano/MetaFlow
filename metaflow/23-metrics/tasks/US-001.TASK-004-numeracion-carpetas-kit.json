@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0",
+  "task": {
+    "id": "US-001.TASK-004",
+    "type": "functional",
+    "ref": "metaflow/12-functional/tasks/US-001.TASK-004-numeracion-carpetas-kit.md",
+    "sources": [
+      "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md",
+      "metaflow/11-adrs/ADR-001-toolkit-transformacion.md",
+      "metaflow/11-adrs/ADR-002-numeracion-carpetas-kit.md",
+      "metaflow/31-reviews/REV-001-renombrado-carpetas-metaflow.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-27T02:37:29-03:00",
+      "created_by": "human:eugenioserrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek/deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-27T02:37:29-03:00",
+    "review_started_at": "2026-08-27T02:39:49-03:00",
+    "acceptance": {
+      "review_ready_at": null,
+      "review_started_at": null
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "metaflow/21-spec/SPEC-260827-0239-bolt004-numeracion-carpetas.md",
+      "sources": [
+        "metaflow/12-functional/tasks/US-001.TASK-004-numeracion-carpetas-kit.md",
+        "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md",
+        "metaflow/11-adrs/ADR-001-toolkit-transformacion.md",
+        "metaflow/11-adrs/ADR-002-numeracion-carpetas-kit.md",
+        "metaflow/31-reviews/REV-001-renombrado-carpetas-metaflow.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-27T02:41:57-03:00",
+        "created_by": "human:eugenioserrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek/deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-27T02:39:49-03:00",
+      "review_started_at": "2026-08-27T02:41:57-03:00"
+    }
+  ],
+  "delivery_loops": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-27T02:44:50-03:00",
+        "created_by": "human:eugenioserrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek/deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "metaflow/22-memory/MEM-260827-0244-bolt004-numeracion-carpetas.md",
+        "generation": {
+          "created_at": "2026-08-27T02:44:50-03:00",
+          "created_by": "human:eugenioserrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek/deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-27T02:44:50-03:00",
+      "review_started_at": "2026-08-27T02:46:11-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "CP-US-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T01:17:43-03:00",
+      "comment": "Origen: US-001 aprobada (5 SP)"
+    },
+    {
+      "checkpoint": "CP-TASK-READY-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/tasks/US-001.TASK-004-numeracion-carpetas-kit.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T02:39:49-03:00",
+      "comment": "DoR verificado: ADR-002 aceptada, US-001 aprobada, REV-001 aprobado (Plan B), TASK-001..003 Done, OQs cerradas; riesgo low confirmado"
+    },
+    {
+      "checkpoint": "CP-SPEC-Approval",
+      "subject": {
+        "ref": "metaflow/21-spec/SPEC-260827-0239-bolt004-numeracion-carpetas.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T02:41:57-03:00",
+      "comment": "Aprobación sin hallazgos; autoriza el V-Bounce 4 de TASK-004"
+    },
+    {
+      "checkpoint": "CP-MEM-Approval",
+      "subject": {
+        "ref": "metaflow/22-memory/MEM-260827-0244-bolt004-numeracion-carpetas.md",
+        "delivery_loop": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T02:46:11-03:00",
+      "comment": "Aprobación sin hallazgos — numeración ADR-002 aplicada, 0 refs viejas, 0 links rotos; tests 72/72; TASK-004 Development Completed"
+    }
+  ]
+}
