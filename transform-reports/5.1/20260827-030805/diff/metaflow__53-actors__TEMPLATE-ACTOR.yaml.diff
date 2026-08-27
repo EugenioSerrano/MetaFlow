@@ -1,0 +1,44 @@
+--- devflow/actors/TEMPLATE-ACTOR.yaml
++++ metaflow/53-actors/TEMPLATE-ACTOR.yaml
+@@ -1,6 +1,6 @@
+ # TEMPLATE-ACTOR — create an actor file
+ #
+-# Copy this file to `actors/<actor-id>.yaml` (naming N-rule), fill every
++# Copy this file to `53-actors/<actor-id>.yaml` (naming N-rule), fill every
+ # field, and LIST THE ACTOR IN `roster.yaml` — the team list is the
+ # membership authority: an actor file not listed there is not in the
+ # team. The schema (`roster.schema.yaml`) validates the result.
+@@ -9,8 +9,8 @@
+ #   - Authority lives in these structured fields, NEVER in prose.
+ #   - The authority fields (`modes: [approver]`, `approves`) are written
+ #     by a HUMAN — an agent never enables its own approval.
+-#   - `approves` only real checkpoint codes (US, BUG, TC, BOLT-READY,
+-#     BOLT-DONE, ADR, SPEC, MEM, DISC, REV, AREV-CRITIQUE, AREV-DEFENSE,
++#   - `approves` only real checkpoint codes (US, BUG, TC, TASK-READY,
++#     TASK-DONE, ADR, SPEC, MEM, DISC, REV, AREV-CRITIQUE, AREV-DEFENSE,
+ #     AREV-VERDICT).
+ #   - APPROVER CEILING: an actor acting as approver runs at T0 (at most
+ #     T1 pinned), no write paths, no transactional MCPs — a methodology
+@@ -25,7 +25,7 @@
+ name: <project-chosen-name>  # free label, e.g. "Arq Juan", ".NET Architect"
+ role: <role>                 # open archetype: functional-analyst · architect ·
+                              # developer · qa · reviewer · project-defined…
+-model: inherit               # DevFlow Agent actors ONLY (humans omit this
++model: inherit               # MetaFlow Agent actors ONLY (humans omit this
+                              # field — human:<user> → model null, §3.0.1).
+                              # Per-instance, authoritative — follow the session
+                              # model, or pick any model from the platform catalog
+@@ -34,10 +34,10 @@
+                              # (a non-empty approves REQUIRES approver in modes —
+                              # and approver in modes REQUIRES a non-empty approves)
+ 
+-# DevFlow Agent actors only (humans omit this block AND the model field):
+-definition: <agents/squad/<id>/agent.yaml>   # the reusable blueprint
++# MetaFlow Agent actors only (humans omit this block AND the model field):
++definition: <51-agents/squad/<id>/agent.yaml>   # the reusable blueprint
+                                              # (N actors : 1 definition) — always
+-                                             # a live agent in agents/squad/,
++                                             # a live agent in 51-agents/squad/,
+                                              # never an example
+ escalation:
+   - "<your escalation trigger 1>"

@@ -1,0 +1,74 @@
+--- devflow/analysis/business-context/README.md
++++ metaflow/02-analysis/business-context/README.md
+@@ -1,6 +1,6 @@
+ # Business Context
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -25,18 +25,18 @@
+ | **Compliance**       | Applicable regulations (GDPR, HIPAA, SOX, ISO, PCI-DSS, etc.)    |
+ | **Business model**   | How we monetize / why this product exists                        |
+ | **Success metrics**  | NSM, KPIs, OKRs at the business level                            |
+-| **Business risks**   | Strategic / market / regulation / adoption threats. **Live in** [`../business-risks/`](../business-risks/) as `BR-NNN-<description>.md` files. Project / technical / team / dependency risks live in [`../../risks/`](../../risks/) (see below). |
++| **Business risks**   | Strategic / market / regulation / adoption threats. **Live in** [`../business-risks/`](../business-risks/) as `BR-NNN-<description>.md` files. Project / technical / team / dependency risks live in [`../../33-risks/`](../../33-risks/) (see below). |
+ 
+ > **Business risks vs. project risks.** Business risks (the kind that put
+ > the *product idea* at risk: market, regulation, adoption, business model)
+ > live in [`../business-risks/`](../business-risks/) as `BR-NNN-<description>.md` files.
+ > Risks about *executing* the project
+ > (technology, integrations, team capacity, dependencies, security exposure,
+-> schedule) live in the transversal register [`../../risks/`](../../risks/).
++> schedule) live in the transversal register [`../../33-risks/`](../../33-risks/).
+ > A single interview can surface both — in that case record each in its
+ > proper place and cross-link. See the
+ > [routing table in `../README.md`](../README.md) and
+-> [`../../risks/README.md`](../../risks/README.md) for the full rules.
++> [`../../33-risks/README.md`](../../33-risks/README.md) for the full rules.
+ 
+ ---
+ 
+@@ -45,12 +45,12 @@
+ ```
+ vision/ + business-context/
+        └─► domain-model/ + process/
+-              └─► functional/ (US + Bolts)
+-              └─► metrics (DORA + business)
++              └─► 12-functional/ (US + TASKs)
++              └─► metrics (Delivery Flow + business)
+ ```
+ 
+ The business metrics defined here **must link to** the delivery metrics in
+-the methodology (Avenga DevFlow §3.7): an improvement in lead-time or
++the methodology (MetaFlow §3.7): an improvement in lead-time or
+ deployment-frequency must be traceable to a business KPI.
+ 
+ ---
+@@ -59,7 +59,7 @@
+ 
+ One Markdown file per topic; YAML frontmatter with `author`, `date`,
+ `status`. Diagrams in **Mermaid**. Prose in the project's `content_language`
+-(see devflow/README.md -> Language policy, §3.15).
++(see metaflow/README.md -> Language policy, §3.15).
+ 
+ ```
+ business-context/
+@@ -81,8 +81,8 @@
+ 
+ ## How to draft it with AI
+ 
+-1. Feed the agent every transcript in `input/interviews/`, public briefings
+-   and any `input/documentation/` material (decks, prior strategy docs).
++1. Feed the agent every transcript in `01-input/interviews/`, public briefings
++   and any `01-input/documentation/` material (decks, prior strategy docs).
+ 2. Ask for one section at a time:
+    - *"Extract every stakeholder mentioned. Classify by role
+      (sponsor / user / impacted / regulator)."*
+@@ -114,4 +114,4 @@
+ YAML keys, status enums, and IDs stay in **English**
+ (the schema). Section headings and all prose — descriptions, context,
+ rationale, findings — go in the project's content_language (see
+-[devflow/README.md](../../README.md) -> Language policy, §3.15).
++[metaflow/README.md](../../README.md) -> Language policy, §3.15).

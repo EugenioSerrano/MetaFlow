@@ -1,0 +1,63 @@
+--- devflow/metrics/manifest-v5-tc.schema.json
++++ metaflow/23-metrics/manifest-v1-tc.schema.json
+@@ -1,19 +1,19 @@
+ {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+-  "$id": "urn:avenga:devflow:manifest:tc:v5",
+-  "title": "Avenga DevFlow Test Case Manifest v5",
++  "$id": "urn:metaflow:metaflow:manifest:tc:v1",
++  "title": "MetaFlow Test Case Manifest v1",
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+     "schema_version",
+     "tc",
+     "verifies",
+-    "test_bolts",
++    "test_tasks",
+     "checkpoint_approvals"
+   ],
+   "properties": {
+     "schema_version": {
+-      "const": "5.0"
++      "const": "1.0"
+     },
+     "tc": {
+       "type": "object",
+@@ -52,14 +52,14 @@
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+-        "source_bolt",
++        "source_task",
+         "source_us",
+         "covered_acs"
+       ],
+       "properties": {
+-        "source_bolt": {
+-          "type": "string",
+-          "pattern": "^US-[0-9]{3}\\.BOLT-[0-9]{3,4}$"
++        "source_task": {
++          "type": "string",
++          "pattern": "^US-[0-9]{3}\\.TASK-[0-9]{3,4}$"
+         },
+         "source_us": {
+           "type": "string",
+@@ -75,7 +75,7 @@
+         }
+       }
+     },
+-    "test_bolts": {
++    "test_tasks": {
+       "type": "array",
+       "items": {
+         "$ref": "#/$defs/repositoryRef"
+@@ -321,7 +321,7 @@
+       ],
+       "properties": {
+         "checkpoint": {
+-          "enum": ["AITL-TC-Approval"]
++          "enum": ["CP-TC-Approval"]
+         },
+         "subject": {
+           "type": "object",

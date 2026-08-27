@@ -1,0 +1,274 @@
+--- devflow/memory/README.md
++++ metaflow/22-memory/README.md
+@@ -1,6 +1,6 @@
+ # Memory (Project Memory)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -12,7 +12,7 @@
+ (→ Specs) or what was DECIDED at an architectural level (→ ADRs). It
+ documents what **actually happened**.
+ 
+-"Knowledge is product." — Avenga DevFlow §3.1.
++"Knowledge is product." — MetaFlow §3.1.
+ 
+ ---
+ 
+@@ -21,35 +21,35 @@
+ Each MEM is the final output of this chain:
+ 
+ ```
+-functional/bolts/     → defines Bolts (US-NNN.BOLT-NNN / US-000.BOLT-NNN / TC-NNN.BOLT-NNN)
+-  └─ spec/SPEC-YYMMDD  → V-Bounce input (WHAT + HOW, AITL-SPEC-Approval)
+-       └─ V-Bounce     → agent generates code + tests (exactly ONE MEM per V-Bounce)
+-            └─ memory/MEM-YYMMDD-HHmm  → narrative record of that V-Bounce
+-                 └─ metrics/bolts/US-NNN.BOLT-NNN-desc.json  → manifest v_bounces[] entry
++12-functional/tasks/     → defines TASKs (US-NNN.TASK-NNN / US-000.TASK-NNN / TC-NNN.TASK-NNN)
++  └─ 21-spec/SPEC-YYMMDD  → Delivery Loop input (WHAT + HOW, CP-SPEC-Approval)
++       └─ Delivery Loop     → agent generates code + tests (exactly ONE MEM per Delivery Loop)
++            └─ 22-memory/MEM-YYMMDD-HHmm  → narrative record of that Delivery Loop
++                 └─ 23-metrics/tasks/US-NNN.TASK-NNN-desc.json  → manifest delivery_loops[] entry
+ ```
+ 
+ - **`MEM-YYMMDD-HHmm-<description>.md`** — Narrative document: what was
+-  implemented, decisions, tests, outcome. Exactly one per V-Bounce.
+-- **Bolt manifest** — Mechanical traceability (JSON) of the Bolt: origin,
+-  SPEC revisions, V-Bounces, AITL decisions. Lives in `devflow/metrics/bolts/`
+-  (one per Bolt, append-only, updated after every MEM). See Avenga DevFlow
++  implemented, decisions, tests, outcome. Exactly one per Delivery Loop.
++- **TASK manifest** — Mechanical traceability (JSON) of the TASK: origin,
++  SPEC revisions, Delivery Loops, CITL decisions. Lives in `metaflow/23-metrics/tasks/`
++  (one per TASK, append-only, updated after every MEM). See MetaFlow
+   §3.12.
+ 
+-> A Bolt without a manifest in `devflow/metrics/bolts/` **does not exist** (§0
+-> non-negotiable). The MEM is **not** optional either: a V-Bounce without
+-> exactly one complete MEM cannot enter `AITL-MEM-Approval` (§2.12, §3.3).
++> A TASK without a manifest in `metaflow/23-metrics/tasks/` **does not exist** (§0
++> non-negotiable). The MEM is **not** optional either: a Delivery Loop without
++> exactly one complete MEM cannot enter `CP-MEM-Approval` (§2.12, §3.3).
+ 
+ ---
+ 
+ ## What documents belong here?
+ 
+-- Summary of the executed V-Bounce.
++- Summary of the executed Delivery Loop.
+ - List of files created/modified/renamed/deleted and their purpose.
+-- Repository baseline (git commit) of the V-Bounce.
++- Repository baseline (git commit) of the Delivery Loop.
+ - Design decisions made during implementation.
+ - Deviations from the SPEC and assumptions.
+ - Test and gate results with evidence.
+-- Red/green evidence for BUG V-Bounces (recorded separately, §3.3.1).
++- Red/green evidence for BUG Delivery Loops (recorded separately, §3.3.1).
+ - Manual interventions (human patches) — measured, not hidden.
+ - Evidence links (diff/commit/PR + cumulative manifest entry).
+ - Risks, pending items or stubs for future work.
+@@ -57,9 +57,9 @@
+ 
+ > **Mandatory post-execution sequence (§3.3, G17):** Record outcome →
+ > Create exactly one MEM → Update manifest → **PAUSE at
+-> `AITL-MEM-Approval`**. Never continue to a new V-Bounce or merge without
++> `CP-MEM-Approval`**. Never continue to a new Delivery Loop or merge without
+ > the human decision. The agent never self-approves; the human records
+-> `AITL-MEM-Approval` in both the MEM and the manifest (§3.0).
++> `CP-MEM-Approval` in both the MEM and the manifest (§3.0).
+ 
+ ---
+ 
+@@ -74,8 +74,8 @@
+ - `YYMMDD` — Creation date (2-digit year, month, day).
+ - `HHmm` — Creation time (hour, minutes).
+ - `short-description` — **Stable kebab-case slug**: all MEMs for the same
+-  Bolt and canonical SPEC reuse the identical slug; only the timestamp
+-  changes across V-Bounces (§2.12). Never append `v2`, `retry`, `fix`, or
++  TASK and canonical SPEC reuse the identical slug; only the timestamp
++  changes across Delivery Loops (§2.12). Never append `v2`, `retry`, `fix`, or
+   `bounce-2` suffixes.
+ - `.md` — Markdown extension.
+ 
+@@ -85,7 +85,7 @@
+ forbidden.
+ 
+ **Example:** `MEM-260802-1015-invoice-download.md`, then
+-`MEM-260802-1128-invoice-download.md` for the next V-Bounce of the same Bolt.
++`MEM-260802-1128-invoice-download.md` for the next Delivery Loop of the same TASK.
+ 
+ > ⚠️ **IMPORTANT — System timestamp:** The `YYMMDD` and `HHmm` values MUST
+ > be obtained from the ACTUAL system date and time when the file is created.
+@@ -106,8 +106,8 @@
+ 
+ - **Frontmatter** — ID (MEM-YYMMDD-HHmm), name, date, author (local part of
+   `git config user.email`, §3.0), references. The MEM has **no status field**
+-  — its review state is derived from `AITL-MEM-Approval` (§2.12).
+-1. **Executive summary** — Narrative of what the V-Bounce delivered
++  — its review state is derived from `CP-MEM-Approval` (§2.12).
++1. **Executive summary** — Narrative of what the Delivery Loop delivered
+    (3–5 sentences minimum, never a bullet list).
+ 2. **Implemented phases** — What was built and how (per SPEC phase).
+ 3. **Files created** — Every added file, with path and purpose.
+@@ -119,17 +119,17 @@
+ 8. **Deviations and assumptions** — Honest record of deviations from
+    the SPEC.
+ 9. **Verification evidence** — Build + tests + gates, with commands and
+-   results (red/green separately for BUG V-Bounces).
++   results (red/green separately for BUG Delivery Loops).
+ 10. **Manual interventions** — Anything a human did by hand during the
+-    V-Bounce.
+-11. **Evidence links** — Diff/commit/PR and the cumulative Bolt manifest
++    Delivery Loop.
++11. **Evidence links** — Diff/commit/PR and the cumulative TASK manifest
+     entry (§2.12).
+-12. **Metrics** — the AI-native and AITL numbers of this V-Bounce (AI
+-    generation time, V-Bounce number, tests created, first-pass approval).
+-    **No DORA here:** the DORA Five are computed at deployment level from
++12. **Metrics** — the AI-native and CITL numbers of this Delivery Loop (AI
++    generation time, Delivery Loop number, tests created, first-pass approval).
++    **No Delivery Flow here:** the Delivery Flow Five are computed at deployment level from
+     CI/CD and incidents, never from a MEM (§3.7.1 — see *Metrics* below).
+ 13. **Pending items and stubs** — What remains for future work.
+-14. **AITL-MEM-Approval record** — Reviewer, role, timestamps, decision,
++14. **CP-MEM-Approval record** — Reviewer, role, timestamps, decision,
+     review evidence, comments and findings (§2.12, §3.0).
+ 
+ ### Diagrams and visual elements
+@@ -144,7 +144,7 @@
+ - **Continuity**: resume work without loss of context.
+ - **Context for AI**: agents read Memory to understand patterns and history.
+ - **Onboarding**: new team members understand implementation history.
+-- **Traceability**: SPEC revision → MEM → code → manifest `v_bounces[]`.
++- **Traceability**: SPEC revision → MEM → code → manifest `delivery_loops[]`.
+ 
+ ---
+ 
+@@ -176,7 +176,7 @@
+    flow does it complete?
+ 5. **Tests with results** — Not just "3 tests". State what they verify and
+    the overall suite result (regressions, total passing). For BUG
+-   V-Bounces, record red and green evidence **separately** (§3.3.1).
++   Delivery Loops, record red and green evidence **separately** (§3.3.1).
+ 
+ ### Anti-patterns (DO NOT)
+ 
+@@ -196,7 +196,7 @@
+ - Do I understand why each decision was made? → If not, decisions are
+   missing.
+ - Do I know what broke or was found during implementation? → If not,
+-  bugs/issues are missing.
++  13-bugs/issues are missing.
+ - Can a new developer understand what exists now? → If not, explanation
+   is missing.
+ 
+@@ -205,20 +205,20 @@
+ ## MEM lifecycle
+ 
+ A MEM has **no mutable status** (§2.12): its review state is derived from
+-the associated `AITL-MEM-Approval` — no decision means pending review,
+-`approved` means an approved V-Bounce, `changes_requested` or `rejected`
++the associated `CP-MEM-Approval` — no decision means pending review,
++`approved` means an approved Delivery Loop, `changes_requested` or `rejected`
+ means an immutable historical attempt that did not advance. After the human
+ decision, the MEM is **immutable history**; the next agent execution is a
+-NEW V-Bounce with a NEW MEM.
+-
+-An approved MEM for the latest V-Bounce marks the Bolt
+-**`Development Completed`** — it does **not** make the Bolt `Done`;
+-acceptance remains governed by `AITL-BOLT-DONE-Approval` (§2.12,
++NEW Delivery Loop with a NEW MEM.
++
++An approved MEM for the latest Delivery Loop marks the TASK
++**`Development Completed`** — it does **not** make the TASK `Done`;
++acceptance remains governed by `CP-TASK-DONE-Approval` (§2.12,
+ §3.0).
+ 
+ This folder has **no `INDEX.md`** (§5.15): the `YYMMDD-HHmm` timestamp already
+ assigns and orders every MEM, so no central allocator is needed — and no
+-shared file has to be edited on every V-Bounce, which would conflict on every
++shared file has to be edited on every Delivery Loop, which would conflict on every
+ concurrent branch.
+ 
+ ---
+@@ -232,36 +232,36 @@
+ 
+ ---
+ 
+-## Metrics (DORA + AI-native + AITL)
+-
+-The Avenga DevFlow methodology defines key metrics to measure development
++## Metrics (Delivery Flow + AI-native + CITL)
++
++The MetaFlow methodology defines key metrics to measure development
+ health (§3.7). **The MEM provides narrative context; the metrics are
+-computed from the Bolt manifest and deployment telemetry** — the manifest
+-family deliberately does not duplicate DORA, gates, or cost data (§3.12).
+-
+-### DORA metrics connection
+-
+-DORA is computed at **deployment level** from CI/CD deployment events,
++computed from the TASK manifest and deployment telemetry** — the manifest
++family deliberately does not duplicate Delivery Flow, gates, or cost data (§3.12).
++
++### Delivery Flow metrics connection
++
++Delivery Flow is computed at **deployment level** from CI/CD deployment events,
+ incidents and production-fix deployments (§3.7.1) — **not** from MEMs or
+-the Bolt manifest. The MEM only records the narrative of what was
++the TASK manifest. The MEM only records the narrative of what was
+ implemented.
+ 
+ ### AI-native flow metrics (§3.7.2)
+ 
+ | Metric | What it measures | Source |
+ |--------|-----------------|--------|
+-| **Model runs per Bolt** | `runs[]` across Bolt/SPEC/code/MEM generation | manifest generation blocks |
+-| **V-Bounces per Bolt** | Packages submitted for human validation | `v_bounces[]` count |
++| **Model runs per TASK** | `runs[]` across TASK/SPEC/code/MEM generation | manifest generation blocks |
++| **Delivery Loops per TASK** | Packages submitted for human validation | `delivery_loops[]` count |
+ | **Spec Drift** | Agent questions + material SPEC revisions | `spec_revisions[]` + agent questions |
+-| **Manual Intervention Rate** | % of Bolts whose MEMs report direct human code changes | MEMs (recorded in narrative, not the manifest) |
+-| **SPEC first-review approval rate** | SPEC revisions whose first `AITL-SPEC-Approval` is approved | `checkpoint_approvals[]` |
+-| **V-Bounce first-review approval rate** | Bolts whose first V-Bounce MEM is approved | `checkpoint_approvals[]` |
+-
+-### AITL governance metrics (§3.7.3)
++| **Manual Intervention Rate** | % of TASKs whose MEMs report direct human code changes | MEMs (recorded in narrative, not the manifest) |
++| **SPEC first-review approval rate** | SPEC revisions whose first `CP-SPEC-Approval` is approved | `checkpoint_approvals[]` |
++| **Delivery Loop first-review approval rate** | TASKs whose first Delivery Loop MEM is approved | `checkpoint_approvals[]` |
++
++### CITL governance metrics (§3.7.3)
+ 
+ | Metric | What it measures | Source |
+ |--------|-----------------|--------|
+-| **AITL Coverage** | % of Bolts with all required named checkpoints signed with evidence | Manifest `checkpoint_approvals[]` + governed artifacts |
++| **CITL Coverage** | % of TASKs with all required named checkpoints signed with evidence | Manifest `checkpoint_approvals[]` + governed artifacts |
+ | **Time-to-Human-Review** | `review_ready_at` → `review.started_at` (agent completion → human starts) | Artifact review contract + telemetry |
+ | **Approval-without-Comment Rate** | % of approved decisions with empty findings | Artifact `review.findings` |
+ 
+@@ -272,19 +272,19 @@
+ 
+ | Metric | Value |
+ |--------|-------|
+-| Lead Time (AITL-BOLT-READY-Approval → AITL-BOLT-DONE-Approval) | 5h total (ai: 47min · review: 35min · wait: 3h 38min) |
++| Lead Time (CP-TASK-READY-Approval → CP-TASK-DONE-Approval) | 5h total (ai: 47min · review: 35min · wait: 3h 38min) |
+ | AI generation time | 47min |
+-| V-Bounces | 1 |
++| Delivery Loops | 1 |
+ | Tests created | 17 (10 unit + 4 integration + 3 e2e) |
+ | AI-generated code | 100% |
+ | First-pass approval | yes |
+ ```
+ 
+ > **Note:** Aggregated project metrics (dashboards, trends) are computed
+-> from Bolt manifest data in `devflow/metrics/bolts/` and deployment telemetry,
+-> never from MEM narratives alone (§3.12). Bolt Lead Time is decomposed
++> from TASK manifest data in `metaflow/23-metrics/tasks/` and deployment telemetry,
++> never from MEM narratives alone (§3.12). TASK Lead Time is decomposed
+ > into `ai_generation_minutes | human_review_minutes | wait_minutes`
+-> (§3.7.1) and is never reported as DORA Change Lead Time.
++> (§3.7.1) and is never reported as Delivery Flow Change Lead Time.
+ 
+ ---
+ 

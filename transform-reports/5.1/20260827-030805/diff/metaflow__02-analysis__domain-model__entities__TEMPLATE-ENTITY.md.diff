@@ -1,0 +1,24 @@
+--- devflow/analysis/domain-model/entities/TEMPLATE-ENTITY.md
++++ metaflow/02-analysis/domain-model/entities/TEMPLATE-ENTITY.md
+@@ -15,8 +15,8 @@
+   (the schema). Section
+   headings (##) follow the project's content_language. All prose — descriptions,
+   properties, business rules — goes in the project's content_language.
+-  See devflow/README.md -> Language policy.
+-  `AITL-*-Approval` codes are never translated.
++  See metaflow/README.md -> Language policy.
++  `CP-*-Approval` codes are never translated.
+ -->
+ 
+ # EntityName
+@@ -71,8 +71,8 @@
+ 
+ | Source | Where |
+ |--------|-------|
+-| INT-NNN | `../../../input/interviews/INT-NNN.md` |
+-| Doc    | `../../../input/documentation/...`     |
++| INT-NNN | `../../../01-input/interviews/INT-NNN.md` |
++| Doc    | `../../../01-input/documentation/...`     |
+ 
+ ## 7. History
+ 

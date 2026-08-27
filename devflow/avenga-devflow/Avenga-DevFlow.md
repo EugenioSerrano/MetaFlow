@@ -1,6 +1,6 @@
 ---
 title: Avenga DevFlow — AI-Native SDLC
-version: "5.0"
+version: "5.1"
 ---
 
 # 0 — Quick Start
@@ -232,9 +232,11 @@ new MEM.
 
 Conceptually derived from the **V-Model** by making verification and
 validation explicit, V-Bounce maps the established life cycle processes. Its
-core is **human-in-the-loop as validator**, ensuring end-to-end quality,
-robustness and traceability. Management is anchored in **flow metrics** (lead
-time, throughput and commitment rate) consistent with delivery-performance
+core is **actor-in-the-loop as validator** — a human by default, a virtual
+DevFlow Agent only by explicit, valid configuration — ensuring end-to-end
+quality, robustness and traceability. Management is anchored in **flow
+metrics** (lead time, throughput and commitment rate) consistent with
+delivery-performance
 evidence (*Accelerate* / DORA).
 
 > **Foundational principle (Actor-in-the-Loop — AITL, non-negotiable):** The AI
@@ -1355,8 +1357,8 @@ definition, targets, slicing rules and decision logic live in **§3.7**.
 - **A. DORA software-delivery metrics (primary, mandatory)** — delivery
   performance using the current five-metric model.
 - **B. AI-native flow metrics (secondary)** — methodology health.
-- **C. AITL governance metrics (mandatory)** — proof that human-in-the-loop
-  is real, not nominal.
+- **C. AITL governance metrics (mandatory)** — proof that human-by-default
+  governance is real, not nominal.
 
 See §3.7 for the full tables and decision rules.
 
@@ -1764,6 +1766,59 @@ rewritten.
   feature US approval (or US-000 routing), Bolt approval, SPEC approval and
   the same V-Bounce/MEM/acceptance path; checkpoints are never silently
   skipped.
+
+### 3.0.1 The Actor
+
+An **Actor** is a **member of the team** with two responsibilities: it
+**produces** the governed artifacts its role owns — functional analyst →
+US, architect → ADR, developer → SPEC + code, QA → TC/tests — in
+**executor** mode; and it **participates** in AITL approvals in
+**approver** mode when configured, under the independence floor. By
+default an Actor is a **human**; a **virtual DevFlow Agent** participates
+only by explicit, valid project configuration. **HITL is the default case
+inside AITL** (actor = human): with no agents configured every checkpoint
+is a human approval and **no AI-signed approval is possible** (the
+safe-default invariant). An Actor's relationship to a checkpoint is
+**executor**, **approver** or **neither** — e.g. the Coordinator routes
+and records but never signs. The Actor is not merely a checkpoint
+participant: **production is first-class** — the AI generates, the human
+governs at every checkpoint.
+
+**Identity and grammar.** Identity belongs to the **actor**, never to the
+model: a human actor is recorded `human:<user>`, a DevFlow Agent actor
+`agent:<id>`; the model is an **attribute** of the agent actor (`model: null`
+for humans).
+
+**Independence layers.** Approval independence is measured first on the
+actor: `approver.id ≠ executor.id` — the **actor floor**, generalizing the
+human handoff rule (§3.3). At `high` risk it is hardened at the model level:
+`approver.model ≠ executor.model`. At `critical`/`regulatory` the ceiling is
+**human-only**, regardless of roster contents.
+
+**Roles are open.** The methodology does not freeze a role enum; the kit
+names recommended archetypes as examples — coordinator, functional-analyst,
+architect, developer, qa, reviewer, project-defined… Independence is always
+measured on the actor `id`, never on the role taxonomy.
+
+**Safe default.** With no virtual agents configured — no roster entry, or
+no schema-valid approver entry — every checkpoint resolves to a human
+actor (zero-config = pure HITL). Enabling virtual approvers is always a
+**human configuration act — a schema-valid roster entry granting the
+checkpoint class** (`modes: [approver]` + a non-empty `approves`, listed
+in the team's `roster.yaml`, `devflow/actors/`) — never a silent flag,
+never the agent's own act.
+
+```mermaid
+flowchart TB
+    R[("Roster: actors + roles + models<br/>humans + DevFlow Agents")]
+    R --> A["Actor — carries a role<br/>FA · architect · developer · qa · reviewer · …"]
+    A -->|"executor mode"| P["Produces the artifact its role owns<br/>US · ADR · SPEC · code · tests"]
+    P --> K{"AITL checkpoint pause"}
+    K -->|"approver mode · different actor<br/>approver.id ≠ executor.id"| D["Approve / request changes"]
+    K -.->|"no valid config → human by default<br/>zero-config = pure HITL"| D
+    D --> M[("checkpoint_approvals[]<br/>actor + model + mode")]
+    D -.->|"independence layers"| I["actor floor · model hardening @ high<br/>human ceiling @ critical / regulatory"]
+```
 
 ## 3.1 Principles (non-negotiable)
 
@@ -2502,7 +2557,7 @@ as DORA Change Lead Time.
 
 ### 3.7.3 AITL governance metrics (mandatory)
 
-These exist to **prove that human-in-the-loop is real**, not nominal:
+These exist to **prove that human-by-default governance is real**, not nominal:
 
 | Metric | Definition | Target |
 |--------|-----------|--------|
@@ -4157,6 +4212,7 @@ for the tool the team uses, installed wherever that tool expects it (§5.2).
     ├── functional/
     │   ├── user-stories/
     │   └── bolts/
+    ├── actors/                 ← who is in the team: the roster home (humans + DevFlow Agents as actors; §3.0.1)
     ├── adrs/
     ├── spec/
     ├── memory/

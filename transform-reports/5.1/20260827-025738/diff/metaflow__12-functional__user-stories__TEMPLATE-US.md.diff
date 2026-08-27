@@ -1,0 +1,143 @@
+--- devflow/functional/user-stories/TEMPLATE-US.md
++++ metaflow/12-functional/user-stories/TEMPLATE-US.md
+@@ -9,18 +9,18 @@
+ unit: "" # Unit or epic (e.g. "1 — Payments Module")
+ story_points: null # Fibonacci 1|2|3|5|8|13 — relative functional complexity
+                    # (ACs, rules, flows, integrations, unknowns), NEVER time.
+-                   # Proposed by the agent, confirmed at AITL-US-Approval (§2.6).
++                   # Proposed by the agent, confirmed at CP-US-Approval (§2.6).
+                    # Informational only: no gate, no velocity, no hour conversion.
+                    # Scoring: use the §2.6 rubric — score the HIGHEST dimension,
+                    # never the average; compare against approved USs in INDEX.md
+                    # when they exist; open OQs targeting this US = unknowns.
+                    # 13 = splitting signal: propose decomposition before approval.
+ adrs: [] # Related ADRs
+-sources: [] # evidence the US was derived from — input/ refs, REV-NNN, AREV-NNN, interviews (required, min 1)
++sources: [] # evidence the US was derived from — 01-input/ refs, REV-NNN, AREV-NNN, interviews (required, min 1)
+ stakeholders: []
+ tags: []
+ review_ready_at: "" # When this version is submitted for review (§3.0)
+-review: # AITL-US-Approval — filled by the human reviewer (§3.0)
++review: # CP-US-Approval — filled by the human reviewer (§3.0)
+   decision: "" # approved | changes_requested | rejected
+   reviewers: [] # [{actor, role, model}]
+   started_at: ""
+@@ -35,18 +35,18 @@
+   (the schema). Section
+   headings (##) follow the project's content_language. All prose — descriptions,
+   acceptance criteria, scenarios — goes in the project's content_language
+-  (declared in devflow/LANGUAGE).
+-  `AITL-*-Approval` codes are never translated.
++  (declared in metaflow/LANGUAGE).
++  `CP-*-Approval` codes are never translated.
+ 
+-  ⚠️ AITL-US-Approval (§2.6, §3.0): a feature US remains DRAFT until a
+-  Functional Analyst records AITL-US-Approval. Only then may it be
+-  decomposed into candidate functional Bolts. US-000 is outside this
++  ⚠️ CP-US-Approval (§2.6, §3.0): a feature US remains DRAFT until a
++  Functional Analyst records CP-US-Approval. Only then may it be
++  decomposed into candidate functional TASKs. US-000 is outside this
+   lifecycle. Approval is never inherited from related artifacts.
+ 
+-  ⚠️ Manifest v5 (§3.12, G33): when creating this feature US, create its
+-  manifest JSON in devflow/metrics/user-stories/ (schema_version "5.0", us,
+-  story_points, bolts: [], checkpoint_approvals: []). A feature US without
+-  its manifest does not exist. Validate against manifest-v5-us.schema.json.
++  ⚠️ Manifest v1 (§3.12, G33): when creating this feature US, create its
++  manifest JSON in metaflow/23-metrics/user-stories/ (schema_version "5.0", us,
++  story_points, tasks: [], checkpoint_approvals: []). A feature US without
++  its manifest does not exist. Validate against manifest-v1-us.schema.json.
+   US-000 has no manifest — it is a permanent container with no approval
+   lifecycle.
+ -->
+@@ -54,7 +54,7 @@
+ > **Naming convention (mandatory):** Files go in `user-stories/` with the
+ > format `US-NNN-<description>.md`. Example: `US-001-payment-processing.md`.
+ > The `US-NNN` prefix is required for traceability across ADRs, SPECs, MEMs,
+-> BUGs, and Bolt manifests.
++> BUGs, and TASK manifests.
+ 
+ # US-NNN — [User Story title]
+ 
+@@ -78,27 +78,27 @@
+ > ACs are verifiable functional criteria only — non-functional constraints
+ > live in ADRs (§2.7).
+ 
+-## 2. Bolts
++## 2. TASKs
+ 
+-| # | Bolt | Type | Layer | Description | Est. active delivery |
++| # | TASK | Type | Layer | Description | Est. active delivery |
+ |---|------|------|-------|-------------|----------------------|
+-| 1 | `BOLT-001` (`../bolts/US-NNN.BOLT-001-short-title.md`) | functional | Backend | [Description] | 3h |
+-| 2 | `BOLT-002` (`../bolts/US-NNN.BOLT-002-short-title.md`) | functional | Frontend | [Description] | 4h |
++| 1 | `TASK-001` (`../tasks/US-NNN.TASK-001-short-title.md`) | functional | Backend | [Description] | 3h |
++| 2 | `TASK-002` (`../tasks/US-NNN.TASK-002-short-title.md`) | functional | Frontend | [Description] | 4h |
+ 
+-> **Note:** Bolts are detailed in separate documents using
+-> [TEMPLATE-BOLT.md](../bolts/TEMPLATE-BOLT.md) and MUST be placed in the
+-> `bolts/` subfolder with the naming convention
+-> `US-NNN.BOLT-NNN-<description>.md`. Only approved USs decompose into
+-> candidate functional Bolts. Each Bolt has its own `AITL-BOLT-READY-Approval`,
++> **Note:** TASKs are detailed in separate documents using
++> [TEMPLATE-TASK.md](../tasks/TEMPLATE-TASK.md) and MUST be placed in the
++> `tasks/` subfolder with the naming convention
++> `US-NNN.TASK-NNN-<description>.md`. Only approved USs decompose into
++> candidate functional TASKs. Each TASK has its own `CP-TASK-READY-Approval`,
+ > DoR (validated within it) and DoD.
+ >
+ > **Estimation:** the `Est. active delivery` column follows the AI-native
+-> estimation rule (§2.4) — composed from expected V-Bounces, review budgets
++> estimation rule (§2.4) — composed from expected Delivery Loops, review budgets
+ > per risk_class and setup/integration overhead, never from manual coding
+-> effort. Typical low/medium Bolts: 1–4h.
++> effort. Typical low/medium TASKs: 1–4h.
+ >
+-> **Plausibility check (§2.6):** the Bolt count should roughly match the
+-> US's story points band (1–2 SP → 1–2 Bolts; 3–5 → 2–4; 8 → 4+). Far
++> **Plausibility check (§2.6):** the TASK count should roughly match the
++> US's story points band (1–2 SP → 1–2 TASKs; 3–5 → 2–4; 8 → 4+). Far
+ > outside the band → re-examine the score or the slicing — never force a
+ > decomposition to fit the band, and never convert points to hours (W18).
+ 
+@@ -136,13 +136,13 @@
+ 
+ ---
+ 
+-## 7. AITL-US-Approval
++## 7. CP-US-Approval
+ 
+-> **Avenga DevFlow §2.6, §3.0.** This feature US remains a draft until a
+-> Functional Analyst records `AITL-US-Approval` (recorded in the `review`
++> **MetaFlow §2.6, §3.0.** This feature US remains a draft until a
++> Functional Analyst records `CP-US-Approval` (recorded in the `review`
+ > frontmatter block), confirming that the US and its ACs faithfully
+-> represent the evidence in `input/` and the analysis in `analysis/`.
+-> Only then may it be decomposed into candidate functional Bolts. US-000
++> represent the evidence in `01-input/` and the analysis in `02-analysis/`.
++> Only then may it be decomposed into candidate functional TASKs. US-000
+ > is outside this lifecycle.
+ 
+ ---
+@@ -150,15 +150,15 @@
+ ## 8. Manifest creation (mandatory)
+ 
+ > ⚠️ **MANDATORY** — When this feature US is created, also create its
+-> manifest JSON in `devflow/metrics/user-stories/` with the same name
+-> (`.md` → `.json`): `schema_version: "5.0"`, the
++> manifest JSON in `metaflow/23-metrics/user-stories/` with the same name
++> (`.md` → `.json`): `schema_version: "1.0"`, the
+ > `us{id,ref,sources,generation,review_ready_at,review_started_at}`
+-> block, `story_points`, and empty `bolts` / `checkpoint_approvals`
++> block, `story_points`, and empty `tasks` / `checkpoint_approvals`
+ > arrays. A feature US without its manifest **does not exist** (§3.12,
+ > G33). Validate against
+-> [`devflow/metrics/manifest-v5-us.schema.json`](../../metrics/manifest-v5-us.schema.json);
+-> use [`TEMPLATE-MANIFEST-US.json`](../../metrics/TEMPLATE-MANIFEST-US.json)
+-> as the example. The agent appends `bolts[]` and the `AITL-US-Approval`
++> [`metaflow/23-metrics/manifest-v1-us.schema.json`](../../23-metrics/manifest-v1-us.schema.json);
++> use [`TEMPLATE-MANIFEST-US.json`](../../23-metrics/TEMPLATE-MANIFEST-US.json)
++> as the example. The agent appends `tasks[]` and the `CP-US-Approval`
+ > decision — with its `review_ready_at`, `review_started_at` and
+ > `decided_at` timings — as the lifecycle progresses.
+ >

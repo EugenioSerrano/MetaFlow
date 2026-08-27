@@ -1,6 +1,6 @@
 # Methodology — Index
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 Avenga DevFlow methodology (AI-native SDLC): process, roles, artifacts, AITL
 checkpoints, quality gates and metrics that govern the entire project life
@@ -10,7 +10,7 @@ cycle. Travels with the code and is accessible to the whole team.
 
 | Document | Description |
 |----------|-------------|
-| [Avenga-DevFlow](Avenga-DevFlow.md) | Avenga DevFlow v5.0 — the complete methodology: three Bolt types (functional / non-functional / test), named AITL checkpoints (US, BUG, TC, BOLT-READY, BOLT-DONE, ADR, SPEC, MEM, DISC, REV, AREV-CRITIQUE/DEFENSE/VERDICT), canonical one-SPEC-per-Bolt, V-Bounce with mandatory MEM, Manifest family v5 (US/Bolt/TC + step timings), sprint reports, DORA Five metrics, quality gates and end-to-end flow |
+| [Avenga-DevFlow](Avenga-DevFlow.md) | Avenga DevFlow v5.1 — the complete methodology: three Bolt types (functional / non-functional / test), named AITL checkpoints (US, BUG, TC, BOLT-READY, BOLT-DONE, ADR, SPEC, MEM, DISC, REV, AREV-CRITIQUE/DEFENSE/VERDICT), canonical one-SPEC-per-Bolt, V-Bounce with mandatory MEM, Manifest family v5 (US/Bolt/TC + step timings), sprint reports, DORA Five metrics, quality gates and end-to-end flow |
 
 > This family carries no `status` vocabulary in §3.15 — the methodology has
 > no lifecycle: this index is a curated inventory of the current version.

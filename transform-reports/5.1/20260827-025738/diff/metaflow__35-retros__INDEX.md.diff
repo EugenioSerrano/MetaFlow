@@ -1,0 +1,30 @@
+--- devflow/retros/INDEX.md
++++ metaflow/35-retros/INDEX.md
+@@ -1,22 +1,22 @@
+ # Retros — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+-Weekly retrospectives: metrics-first review of DORA Five, AITL governance
+-and AI-native flow indicators. Each retro produces improvement Bolts and,
++Weekly retrospectives: metrics-first review of Delivery Flow Five, CITL governance
++and AI-native flow indicators. Each retro produces improvement TASKs and,
+ when applicable, proposed ADRs.
+ 
+ ---
+ 
+ ## 🟡 Draft
+ 
+-| ID | Week | D1 freq | D2 lead | D3 recovery | D4 change-fail | D5 rework | AITL Cov |
++| ID | Week | D1 freq | D2 lead | D3 recovery | D4 change-fail | D5 rework | CITL Cov |
+ |----|------|---------|---------|-------------|--------|-----------|----------|
+ | —  | —    | —       | —       | —           | —      | —         | —        |
+ 
+ ## 🏁 Final
+ 
+-| ID | Week | D1 freq | D2 lead | D3 recovery | D4 change-fail | D5 rework | AITL Cov |
++| ID | Week | D1 freq | D2 lead | D3 recovery | D4 change-fail | D5 rework | CITL Cov |
+ |----|------|---------|---------|-------------|--------|-----------|----------|
+ | —  | —    | —       | —       | —           | —      | —         | —        |
+ 

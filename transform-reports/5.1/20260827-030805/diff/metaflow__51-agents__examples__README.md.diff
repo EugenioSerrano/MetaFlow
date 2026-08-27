@@ -1,0 +1,13 @@
+--- devflow/agents/examples/README.md
++++ metaflow/51-agents/examples/README.md
+@@ -10,8 +10,8 @@
+   own agent by copying the closest example (or
+   [`../TEMPLATE-new-role/`](../TEMPLATE-new-role/)) into
+   [`../squad/`](../squad/) and adapting it there.
+-- **Never referenced by the roster.** The roster's (`actors/`)
+-  `definition:` pointers reference `agents/squad/<id>/…` only — an example
++- **Never referenced by the roster.** The roster's (`53-actors/`)
++  `definition:` pointers reference `51-agents/squad/<id>/…` only — an example
+   carries no identity in your team.
+ - **Never installed.** The Coordinator projects wrappers from `squad/`,
+   not from here.

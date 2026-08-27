@@ -1,0 +1,34 @@
+--- devflow/analysis/personas/README.md
++++ metaflow/02-analysis/personas/README.md
+@@ -1,6 +1,6 @@
+ # Personas
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -74,7 +74,7 @@
+ 
+ ### When you have interviews
+ 
+-1. Feed the agent all transcripts in `../../input/interviews/`.
++1. Feed the agent all transcripts in `../../01-input/interviews/`.
+ 2. Ask: *"Identify the real individuals mentioned in these interviews who are
+    end-users of the product. For each person: extract their name, age range,
+    role, top 3 goals, top 3 pain points, context of use, digital literacy,
+@@ -112,7 +112,7 @@
+ - **Always set `persona_type`** explicitly. The template defaults to `archetype`
+   as the safer choice.
+ - **Language:** YAML keys and status enums in English. Section headings and
+-  prose in the project's `content_language` (see devflow/README.md ->
++  prose in the project's `content_language` (see metaflow/README.md ->
+   Language policy, §3.15).
+ 
+ ---
+@@ -134,4 +134,4 @@
+ YAML keys, status enums, and IDs stay in **English**
+ (the schema). Section headings and all prose — descriptions, context,
+ rationale, findings — go in the project's content_language (see
+-[devflow/README.md](../../README.md) -> Language policy, §3.15).
++[metaflow/README.md](../../README.md) -> Language policy, §3.15).

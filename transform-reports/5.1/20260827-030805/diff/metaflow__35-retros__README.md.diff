@@ -1,0 +1,124 @@
+--- devflow/retros/README.md
++++ metaflow/35-retros/README.md
+@@ -1,28 +1,28 @@
+ # Retros
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+ This folder contains **weekly retrospectives**. Every retro opens with the
+-**DORA Five + AITL Coverage** metrics (Avenga DevFlow §3.7.4): without that
++**Delivery Flow Five + CITL Coverage** metrics (MetaFlow §3.7.4): without that
+ reading, there is no retro.
+ 
+ ---
+ 
+ ## What belongs here?
+ 
+-- One `RETRO-NNN` per week with DORA metrics, AI-native flow indicators
++- One `RETRO-NNN` per week with Delivery Flow metrics, AI-native flow indicators
+   and improvement actions.
+ - Trend analysis: current week vs. previous week with deltas.
+-- Actionable items that become improvement Bolts.
++- Actionable items that become improvement TASKs.
+ - Proposed ADRs when decisions are material.
+ 
+ ## What does NOT belong here?
+ 
+-- Production incident post-mortems → `incidents/` (`INC-NNN`).
+-- Individual bug records → `bugs/` (`BUG-NNN`).
+-- Architectural decisions → `adrs/` (`ADR-NNN`, linked from here).
++- Production incident post-mortems → `34-incidents/` (`INC-NNN`).
++- Individual bug records → `13-bugs/` (`BUG-NNN`).
++- Architectural decisions → `11-adrs/` (`ADR-NNN`, linked from here).
+ 
+ ---
+ 
+@@ -41,36 +41,36 @@
+ ## Rules
+ 
+ 1. **Weekly cadence.** One `RETRO-NNN` per week — no exceptions.
+-2. **Metrics-first opening.** The retro MUST open with the DORA Five
+-   dashboard (§3.7.1) + AITL governance metrics (§3.7.3) + AI-native
++2. **Metrics-first opening.** The retro MUST open with the Delivery Flow Five
++   dashboard (§3.7.1) + CITL governance metrics (§3.7.3) + AI-native
+    flow metrics (§3.7.2). Without data, there is no retro.
+ 3. **Delta tracking.** Every metric includes current value, previous value
+-   and delta. If any DORA metric worsens vs. the previous week, an
++   and delta. If any Delivery Flow metric worsens vs. the previous week, an
+    actionable item is mandatory.
+-4. **Improvement Bolts.** Actions are tracked as Bolts — process
++4. **Improvement TASKs.** Actions are tracked as TASKs — process
+    improvements, gate additions, prompt refinements, DoR/DoD updates —
+-   using the normal Bolt lifecycle (non-functional under `US-000` with
+-   `work_category: hardening`, approved at `AITL-BOLT-READY-Approval`).
++   using the normal TASK lifecycle (non-functional under `US-000` with
++   `work_category: hardening`, approved at `CP-TASK-READY-Approval`).
+ 5. **Material decisions → ADR.** If the retro produces a significant
+    architectural or process decision, it becomes an ADR (approved at
+-   `AITL-ADR-Approval`).
+-6. **Diagnostic slicing, not attribution.** DORA is computed at deployment
+-   level (§3.7.1). When reviewing DORA, deployments may be joined to their
+-   included Bolts and model runs **only for diagnostic slicing** — a
+-   deployment with several Bolts/models is classified `model_mix`, never
++   `CP-ADR-Approval`).
++6. **Diagnostic slicing, not attribution.** Delivery Flow is computed at deployment
++   level (§3.7.1). When reviewing Delivery Flow, deployments may be joined to their
++   included TASKs and model runs **only for diagnostic slicing** — a
++   deployment with several TASKs/models is classified `model_mix`, never
+    attributed to one model without an unambiguous causal link.
+ 
+ ---
+ 
+ ## Recommended structure (per retro)
+ 
+-1. **DORA Five** — Mandatory opening dashboard with week-over-week deltas
++1. **Delivery Flow Five** — Mandatory opening dashboard with week-over-week deltas
+    and the team's own baseline bands.
+-2. **AITL governance** — Coverage, time-to-review, override rates (§3.7.3).
+-3. **AI-native flow** — Throughput, V-Bounces, first-review approval rates
+-   (SPEC + V-Bounce), Rework Ratio, spec drift (§3.7.2).
++2. **CITL governance** — Coverage, time-to-review, override rates (§3.7.3).
++3. **AI-native flow** — Throughput, Delivery Loops, first-review approval rates
++   (SPEC + Delivery Loop), Rework Ratio, spec drift (§3.7.2).
+ 4. **What worked / what didn't** — Qualitative observations.
+-5. **Decisions & actions** — Improvement Bolts with owners.
++5. **Decisions & actions** — Improvement TASKs with owners.
+ 6. **Proposed ADRs** — If any decision is material.
+ 
+ ### Diagrams and visual elements
+@@ -91,12 +91,12 @@
+ > retro is a **minute of a dated event**, not a living document. It is never
+ > revised into a newer truth and never becomes deprecated — a later retro
+ > does not supersede an earlier one, both remain valid records of their own
+-> week. Its improvement actions live on as Bolts, not as edits to the retro.
+-> Same precedent as `process/`'s `active` and `spec/`'s `blocked | obsolete`:
++> week. Its improvement actions live on as TASKs, not as edits to the retro.
++> Same precedent as `process/`'s `active` and `21-spec/`'s `blocked | obsolete`:
+ > an artifact-specific document status, with the `review.decision` enum
+ > unchanged (§3.0, W11).
+ 
+-## DORA Five reference (§3.7.1)
++## Delivery Flow Five reference (§3.7.1)
+ 
+ | Metric | What it measures | Source of truth |
+ |--------|------------------|-----------------|
+@@ -107,11 +107,11 @@
+ | D5 Deployment Rework Rate | % of deployments that are unplanned production rework | CI/CD classified planned vs rework |
+ 
+ Teams define their own internal baselines and improvement objectives from
+-their project context and review them in each retro. DevFlow does not label
+-fixed thresholds as universal DORA "Elite" targets and does not turn a DORA
+-metric into an individual performance target (§3.7.1). **Bolt Lead Time**
+-(from `AITL-BOLT-READY-Approval` to `AITL-BOLT-DONE-Approval`) is a separate
+-flow metric — never reported as DORA D2.
++their project context and review them in each retro. MetaFlow does not label
++fixed thresholds as universal Delivery Flow "Elite" targets and does not turn a Delivery Flow
++metric into an individual performance target (§3.7.1). **TASK Lead Time**
++(from `CP-TASK-READY-Approval` to `CP-TASK-DONE-Approval`) is a separate
++flow metric — never reported as Delivery Flow D2.
+ 
+ ---
+ 

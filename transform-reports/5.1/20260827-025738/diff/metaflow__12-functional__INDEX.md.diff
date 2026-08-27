@@ -1,0 +1,69 @@
+--- devflow/functional/INDEX.md
++++ metaflow/12-functional/INDEX.md
+@@ -1,17 +1,17 @@
+ # Functional — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+-Work definition: feature User Stories (approved at `AITL-US-Approval`),
++Work definition: feature User Stories (approved at `CP-US-Approval`),
+ the permanent `US-000-non-functional.md` container (no approval lifecycle),
+-and the three canonical Bolt types (functional / non-functional / test).
+-Mandatory structure: User Stories in `user-stories/`, Bolts in `bolts/`.
++and the three canonical TASK types (functional / non-functional / test).
++Mandatory structure: User Stories in `user-stories/`, TASKs in `tasks/`.
+ Integration with external SDLC tools (Azure DevOps, Jira, etc.) is team
+ configuration — the methodology prescribes no mechanism (see README).
+ 
+ ---
+ 
+-## 🟡 Draft feature USs (pending AITL-US-Approval)
++## 🟡 Draft feature USs (pending CP-US-Approval)
+ 
+ | ID | Document | Description |
+ |----|----------|-------------|
+@@ -31,26 +31,26 @@
+ 
+ ---
+ 
+-## Bolts
++## TASKs
+ 
+-> **Source of the next `NNN`.** Sequential Bolt numbers are scoped to their
+-> parent and come from these tables (N02–N04). Check the highest `BOLT-NNN`
++> **Source of the next `NNN`.** Sequential TASK numbers are scoped to their
++> parent and come from these tables (N02–N04). Check the highest `TASK-NNN`
+ > under the same parent before creating a new one; archived IDs are never
+ > reused.
+ 
+-### Functional Bolts (`US-NNN.BOLT-NNN`)
++### Functional TASKs (`US-NNN.TASK-NNN`)
+ 
+ | ID | Document | Parent US | State |
+ |----|----------|-----------|-------|
+ | —  | —        | —         | —     |
+ 
+-### Non-functional Bolts (`US-000.BOLT-NNN`)
++### Non-functional TASKs (`US-000.TASK-NNN`)
+ 
+ | ID | Document | State |
+ |----|----------|-------|
+ | —  | —        | —     |
+ 
+-### Test Bolts (`TC-NNN.BOLT-NNN`)
++### Test TASKs (`TC-NNN.TASK-NNN`)
+ 
+ | ID | Document | Parent TC | State |
+ |----|----------|-----------|-------|
+@@ -58,8 +58,8 @@
+ 
+ > State is derived, never stored in the manifest: `In Development` ·
+ > `Development Completed` (latest MEM approved) · `Done`
+-> (`AITL-BOLT-DONE-Approval`). Candidate Bolts awaiting
+-> `AITL-BOLT-READY-Approval` are listed with state `candidate`.
++> (`CP-TASK-DONE-Approval`). Candidate TASKs awaiting
++> `CP-TASK-READY-Approval` are listed with state `candidate`.
+ 
+ ---
+ 

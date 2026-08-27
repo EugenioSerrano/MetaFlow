@@ -1,0 +1,10 @@
+--- devflow/risks/INDEX.md
++++ metaflow/33-risks/INDEX.md
+@@ -1,6 +1,6 @@
+ # Risks — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ Identified threats that could impact project success, quality or timelines.
+ Each risk has its own document (RISK-NNN-*.md) with probability, impact,

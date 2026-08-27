@@ -6,13 +6,13 @@
 
 | Document | Milestone | Linked vision outcomes |
 |----------|-----------|------------------------|
-| *(use TEMPLATE-SCOPE.md to add scope documents)* |  |  |
+| *(empty — validated 2026-08-27)* | — | — |
 
 ## ✅ Stable
 
 | Document | Milestone | Linked vision outcomes |
 |----------|-----------|------------------------|
-|  |  |  |
+| [mvp-scope.md](mvp-scope.md) | MVP | O1, O2, O3 |
 
 ## ⛔ Superseded
 

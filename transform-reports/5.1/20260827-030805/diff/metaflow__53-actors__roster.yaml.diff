@@ -1,0 +1,24 @@
+--- devflow/actors/roster.yaml
++++ metaflow/53-actors/roster.yaml
+@@ -1,13 +1,13 @@
+ # roster.yaml — the team list (the single membership authority)
+ #
+-# One entry per actor, referencing its file (`actors/<actor-id>.yaml`).
++# One entry per actor, referencing its file (`53-actors/<actor-id>.yaml`).
+ # An actor file NOT listed here is not in the team — drafts and retired
+ # actors carry no authority. Listing an actor (and writing its authority
+ # fields, `modes: [approver]` + `approves`) is a HUMAN configuration act:
+ # the git history is the record; an agent never enables its own approval.
+ #
+ # The schema-valid, human-authored roster entry IS the explicit
+-# configuration that lets a DevFlow Agent occupy the AITL checkpoint
++# configuration that lets a MetaFlow Agent occupy the CITL checkpoint
+ # classes its `approves` grants — exactly like a human, under the
+ # independence rules. No entry (or an invalid one) → the safe default:
+ # every checkpoint resolves to humans.
+@@ -17,4 +17,4 @@
+ 
+ actors: []
+ # actors:
+-#   - example-qa        # → actors/example-qa.yaml (created from TEMPLATE-ACTOR.yaml)
++#   - example-qa        # → 53-actors/example-qa.yaml (created from TEMPLATE-ACTOR.yaml)

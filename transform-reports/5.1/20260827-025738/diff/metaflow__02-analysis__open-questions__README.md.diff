@@ -1,0 +1,125 @@
+--- devflow/analysis/open-questions/README.md
++++ metaflow/02-analysis/open-questions/README.md
+@@ -1,6 +1,6 @@
+ # Open Questions (analysis-phase question tracker)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -39,8 +39,8 @@
+   it has been **propagated to the canonical artifact** (the entity, the
+   process, the persona…). The OQ file is the *tracker*, not the *home* of the
+   answer.
+-- **Sunset on purpose.** Once analysis closes for a Bolt's parent (readiness
+-  for `AITL-BOLT-READY-Approval`, G35), the OQs targeting that parent and its
++- **Sunset on purpose.** Once analysis closes for a TASK's parent (readiness
++  for `CP-TASK-READY-Approval`, G35), the OQs targeting that parent and its
+   governing artifacts must be `answered`, `deferred` or `dropped`. No `open`
+   OQs survive into delivery as analysis questions — they get converted into
+   project risks, ADRs or product backlog.
+@@ -66,12 +66,12 @@
+ 
+ | It's actually a…              | Goes to                                              |
+ |-------------------------------|------------------------------------------------------|
+-| Project / technical / team risk | [`../../risks/`](../../risks/)                     |
++| Project / technical / team risk | [`../../33-risks/`](../../33-risks/)                     |
+ | Business risk                  | [`../business-risks/`](../business-risks/) |
+-| Architectural decision         | [`../../adrs/`](../../adrs/)                         |
+-| Legacy-system / DB / API gap   | [`../../discovery/`](../../discovery/)               |
+-| Bug in delivered code          | [`../../bugs/`](../../bugs/)                         |
+-| Feature request / scope item   | [`../../functional/`](../../functional/)             |
++| Architectural decision         | [`../../11-adrs/`](../../11-adrs/)                         |
++| Legacy-system / DB / API gap   | [`../../03-discovery/`](../../03-discovery/)               |
++| Bug in delivered code          | [`../../13-bugs/`](../../13-bugs/)                         |
++| Feature request / scope item   | [`../../12-functional/`](../../12-functional/)             |
+ 
+ Rule of thumb: if it's a **question about what we are building** during
+ analysis → here. If it's a **decision, risk, bug or scope item** → its own
+@@ -108,9 +108,9 @@
+ > **Hard rule:** Analysis cannot be marked **stable** for a scope milestone
+ > while any OQ tied to that milestone's artifacts is still `open` or
+ > `in-validation`. All related OQs must be `answered`, `deferred` (with
+-> revisit trigger) or `dropped` (with reason). Per Bolt, the same rule is
++> revisit trigger) or `dropped` (with reason). Per TASK, the same rule is
+ > enforced at readiness by G35 (§2.9, §3.2) — the practical effect at the
+-> first Bolt of a milestone is the same.
++> first TASK of a milestone is the same.
+ 
+ ---
+ 
+@@ -124,7 +124,7 @@
+ 4. **Fill the frontmatter**: `status: open`, `owner` (who will chase the
+    answer), `priority` (`P0` blocks analysis closure / `P1` blocks a specific
+    artifact / `P2` nice-to-have), `targets` (the canonical artifacts that
+-   will absorb the answer), `sources` (input/interview/document where the
++   will absorb the answer), `sources` (01-input/interview/document where the
+    gap surfaced).
+ 5. **Write the question once, sharp and atomic.** One OQ = one question.
+    Compound questions get split.
+@@ -163,19 +163,19 @@
+    *History* table updated. INDEX row moved to the matching closed section —
+    "Answered" or "Dropped" (still visible — we never delete).
+ 
+-**Sunset rule for the folder (normative — part of the Bolt DoR):** before
+-recording `AITL-BOLT-READY-Approval`, the approver confirms that no OQ whose
+-`targets` include that Bolt's parent US or one of its governing artifacts is
+-still `open` or `in-validation`. If any is, `AITL-BOLT-READY-Approval`
+-**cannot be recorded** — the Bolt is not ready. Each blocking OQ must first be
++**Sunset rule for the folder (normative — part of the TASK DoR):** before
++recording `CP-TASK-READY-Approval`, the approver confirms that no OQ whose
++`targets` include that TASK's parent US or one of its governing artifacts is
++still `open` or `in-validation`. If any is, `CP-TASK-READY-Approval`
++**cannot be recorded** — the TASK is not ready. Each blocking OQ must first be
+ `answered` and propagated to its target, `deferred` with a revisit trigger, or
+ `dropped` with a reason.
+ 
+ This is a DoR criterion, not a separate checkpoint: an unanswered question
+-about the Bolt's parent is missing context by definition. See Avenga DevFlow
++about the TASK's parent is missing context by definition. See MetaFlow
+ **§2.9** and **§3.2** (DoR) and **G35** in `GUARDRAILS.md`. The scope is the
+-Bolt's own governing artifacts rather than a Unit, because `units/` governance
+-remains reserved (§3.11); the practical effect at the first Bolt of a Unit is
++TASK's own governing artifacts rather than a Unit, because `units/` governance
++remains reserved (§3.11); the practical effect at the first TASK of a Unit is
+ the same.
+ 
+ ---
+@@ -197,12 +197,12 @@
+ 
+ | Folder                                      | Relation |
+ |---------------------------------------------|----------|
+-| `../vision/`, `../business-context/`, `../scope/`, `../ui/` | The four templates with their own *Open questions* section; it just links back here, never duplicating the text. Every other `analysis/` artifact has no such section — its gaps live here from the start, referenced through `targets`. |
+-| [`../../input/interviews/`](../../input/interviews/) | OQs are **fed from** these and **resolved through** new interviews recorded here. |
+-| [`../../risks/`](../../risks/)              | If an OQ turns out to be a real project risk, it is **converted** (new RISK created, OQ dropped with reason = "promoted to RISK-NNN"). |
+-| [`../../adrs/`](../../adrs/)                | If answering an OQ requires an architectural decision, an ADR is opened and the OQ closes by linking to it. |
+-| [`../../discovery/`](../../discovery/)      | If an OQ is actually a tech / legacy gap, it is **moved** to a DISC and the OQ is dropped. |
+-| [`../../functional/`](../../functional/)    | Once analysis closes, US/Bolts assume all OQs are resolved. An OQ should never block a Bolt in flight — that becomes a risk or a Spec defect. |
++| `../vision/`, `../business-context/`, `../scope/`, `../ui/` | The four templates with their own *Open questions* section; it just links back here, never duplicating the text. Every other `02-analysis/` artifact has no such section — its gaps live here from the start, referenced through `targets`. |
++| [`../../01-input/interviews/`](../../01-input/interviews/) | OQs are **fed from** these and **resolved through** new interviews recorded here. |
++| [`../../33-risks/`](../../33-risks/)              | If an OQ turns out to be a real project risk, it is **converted** (new RISK created, OQ dropped with reason = "promoted to RISK-NNN"). |
++| [`../../11-adrs/`](../../11-adrs/)                | If answering an OQ requires an architectural decision, an ADR is opened and the OQ closes by linking to it. |
++| [`../../03-discovery/`](../../03-discovery/)      | If an OQ is actually a tech / legacy gap, it is **moved** to a DISC and the OQ is dropped. |
++| [`../../12-functional/`](../../12-functional/)    | Once analysis closes, US/TASKs assume all OQs are resolved. An OQ should never block a TASK in flight — that becomes a risk or a Spec defect. |
+ 
+ ---
+ 
+@@ -224,7 +224,7 @@
+   `## Resolución` instead of `## Resolution`) and prose (question,
+   context, hypothesis, options, resolution) in the project's
+   `content_language`. See
+-  [`../../LANGUAGE` → *Language declaration*](../../LANGUAGE) and Avenga DevFlow
++  [`../../LANGUAGE` → *Language declaration*](../../LANGUAGE) and MetaFlow
+   **§3.15**.
+ 
+ ---
+@@ -240,7 +240,7 @@
+ YAML keys, status enums, and IDs stay in **English**
+ (the schema). Section headings and all prose — descriptions, context,
+ rationale, findings — go in the project's content_language (see
+-[devflow/README.md](../../README.md) -> Language policy, §3.15).
++[metaflow/README.md](../../README.md) -> Language policy, §3.15).
+ 
+ ---
+ 

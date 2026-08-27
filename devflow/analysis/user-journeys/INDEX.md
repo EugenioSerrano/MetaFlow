@@ -4,7 +4,7 @@
 
 | Journey | Persona | Goal | Status |
 |---------|---------|------|--------|
-| *(use TEMPLATE-JOURNEY.md to add journeys)* |  |  |  |
+| [publicar-nueva-version.md](publicar-nueva-version.md) | MetaFlowMaintainer | Publicar una versión MetaFlow a partir de una nueva versión de AvengaDevFlow | stable |
 
 > Status: `draft` | `stable` | `deprecated`.
 

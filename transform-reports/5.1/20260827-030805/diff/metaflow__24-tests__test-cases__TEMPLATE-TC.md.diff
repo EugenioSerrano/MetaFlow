@@ -1,0 +1,102 @@
+--- devflow/tests/test-cases/TEMPLATE-TC.md
++++ metaflow/24-tests/test-cases/TEMPLATE-TC.md
+@@ -7,13 +7,13 @@
+ llm: ""                    # LLM used for the first draft (if any)
+ status: "draft"            # draft | approved | deprecated
+ owner: ""                  # QA / Analyst — per §2.6.1 minimum metadata
+-source_bolt: ""            # ⚠️ MANDATORY — the EXACT approved product Bolt this TC verifies
++source_task: ""            # ⚠️ MANDATORY — the EXACT approved product TASK this TC verifies
+ source_us: ""              # US-NNN for functional TCs (US-000 for non-functional — traceability only)
+ covered_acs: []            # ACs covered (functional TCs)
+ governing_sources: []      # ADRs / technical sources governing a non-functional TC
+ related_bugs: []           # BUG-NNN if this case came from a defect
+ review_ready_at: ""        # When this version is submitted for review (§3.0)
+-review: # AITL-TC-Approval — filled by the human reviewer (§3.0)
++review: # CP-TC-Approval — filled by the human reviewer (§3.0)
+   decision: "" # approved | changes_requested | rejected
+   reviewers: [] # [{actor, role, model}]
+   started_at: ""
+@@ -29,19 +29,19 @@
+   (the schema). Section
+   headings (##) follow the project's content_language. All prose — steps,
+   expected results — goes in the project's content_language (declared in
+-  devflow/LANGUAGE).
+-  `AITL-*-Approval` codes are never translated.
++  metaflow/LANGUAGE).
++  `CP-*-Approval` codes are never translated.
+ 
+   ⚠️ TEST-BASIS RULE (§2.6.1): expected results derive from APPROVED
+-  INTENT (US/ACs + approved source Bolt, or non-functional Bolt + ADRs),
++  INTENT (US/ACs + approved source TASK, or non-functional TASK + ADRs),
+   NEVER from the current implementation as oracle (G06).
+-  ⚠️ AITL-TC-Approval: a draft TC cannot govern a SPEC or originate Test
+-  Bolts (TC-NNN.BOLT-NNN). Approval is recorded in the review block.
++  ⚠️ CP-TC-Approval: a draft TC cannot govern a SPEC or originate Test
++  TASKs (TC-NNN.TASK-NNN). Approval is recorded in the review block.
+ 
+-  ⚠️ Manifest v5 (§3.12, G33): when creating this TC, create its manifest
+-  JSON in devflow/metrics/test-cases/ (schema_version "5.0", tc, verifies,
+-  test_bolts: [], checkpoint_approvals: []). A TC without its manifest does not exist.
+-  Validate against manifest-v5-tc.schema.json.
++  ⚠️ Manifest v1 (§3.12, G33): when creating this TC, create its manifest
++  JSON in metaflow/23-metrics/test-cases/ (schema_version "5.0", tc, verifies,
++  test_tasks: [], checkpoint_approvals: []). A TC without its manifest does not exist.
++  Validate against manifest-v1-tc.schema.json.
+ -->
+ 
+ # TC-NNN — [Short title]
+@@ -49,7 +49,7 @@
+ | Field | Value |
+ |-------|-------|
+ | **Type** | [functional / non-functional] |
+-| **Source Bolt** | [US-NNN.BOLT-NNN / US-000.BOLT-NNN] |
++| **Source TASK** | [US-NNN.TASK-NNN / US-000.TASK-NNN] |
+ | **Source US / ACs** | [US-NNN + AC list, or US-000 + governing ADRs] |
+ | **Status** | [draft / approved / deprecated] |
+ 
+@@ -87,7 +87,7 @@
+ 
+ ## 7. Traceability
+ 
+-- **Source Bolt:** US-NNN.BOLT-NNN (or US-000.BOLT-NNN) — exactly one approved product Bolt
++- **Source TASK:** US-NNN.TASK-NNN (or US-000.TASK-NNN) — exactly one approved product TASK
+ - **Source US / ACs:** US-NNN / AC-NNN (functional)
+ - **Governing sources:** ADR-NNN (non-functional)
+ - **Related bugs:** BUG-NNN
+@@ -106,10 +106,10 @@
+ |------|--------|--------|
+ | YYYY-MM-DD | Initial draft | @user |
+ 
+-## 10. AITL-TC-Approval
++## 10. CP-TC-Approval
+ 
+-> **Avenga DevFlow §2.6.1, §3.0.** This TC remains a draft until a qualified
+-> human records `AITL-TC-Approval` (in the `review` frontmatter block):
++> **MetaFlow §2.6.1, §3.0.** This TC remains a draft until a qualified
++> human records `CP-TC-Approval` (in the `review` frontmatter block):
+ > QA plus the Functional Analyst/domain owner for functional expectations,
+ > or QA plus the applicable technical owner for non-functional. Role routing is
+ > guidance, not a gate: if a named role has no holder, the available qualified
+@@ -122,15 +122,15 @@
+ ## 11. Manifest creation (mandatory)
+ 
+ > ⚠️ **MANDATORY** — When this TC is created, also create its manifest JSON
+-> in `devflow/metrics/test-cases/` with the same name (`.md` → `.json`):
+-> `schema_version: "5.0"`, the
++> in `metaflow/23-metrics/test-cases/` with the same name (`.md` → `.json`):
++> `schema_version: "1.0"`, the
+ > `tc{id,ref,sources,generation,review_ready_at,review_started_at}`
+-> block, the `verifies` block, and empty `test_bolts` / `checkpoint_approvals` arrays.
++> block, the `verifies` block, and empty `test_tasks` / `checkpoint_approvals` arrays.
+ > A TC without its manifest **does not exist** (§3.12, G33). Validate
+ > against
+-> [`devflow/metrics/manifest-v5-tc.schema.json`](../../metrics/manifest-v5-tc.schema.json);
+-> use [`TEMPLATE-MANIFEST-TC.json`](../../metrics/TEMPLATE-MANIFEST-TC.json)
+-> as the example. The agent appends `test_bolts[]` and the
+-> `AITL-TC-Approval` decision — with its `review_ready_at`,
++> [`metaflow/23-metrics/manifest-v1-tc.schema.json`](../../23-metrics/manifest-v1-tc.schema.json);
++> use [`TEMPLATE-MANIFEST-TC.json`](../../23-metrics/TEMPLATE-MANIFEST-TC.json)
++> as the example. The agent appends `test_tasks[]` and the
++> `CP-TC-Approval` decision — with its `review_ready_at`,
+ > `review_started_at` and `decided_at` timings — as the lifecycle
+ > progresses.

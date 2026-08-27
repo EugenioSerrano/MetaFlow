@@ -1,0 +1,24 @@
+--- devflow/analysis/business-context/TEMPLATE-BUSINESS-CONTEXT.md
++++ metaflow/02-analysis/business-context/TEMPLATE-BUSINESS-CONTEXT.md
+@@ -13,8 +13,8 @@
+   (the schema). Section
+   headings (##) follow the project's content_language. All prose — descriptions,
+   context, rationale, placeholder text — goes in the project's
+-  content_language. See devflow/README.md -> Language policy.
+-  `AITL-*-Approval` codes are never translated.
++  content_language. See metaflow/README.md -> Language policy.
++  `CP-*-Approval` codes are never translated.
+ -->
+ 
+ # [Topic] — [Short title]
+@@ -49,8 +49,8 @@
+ 
+ | Source | Where |
+ |--------|-------|
+-| INT-NNN | `input/interviews/INT-NNN.md` |
+-| Doc    | `input/documentation/...`     |
++| INT-NNN | `01-input/interviews/INT-NNN.md` |
++| Doc    | `01-input/documentation/...`     |
+ 
+ ## 4. Open questions / Follow-ups
+ 

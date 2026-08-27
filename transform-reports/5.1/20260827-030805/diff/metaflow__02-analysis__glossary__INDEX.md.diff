@@ -1,0 +1,10 @@
+--- devflow/analysis/glossary/INDEX.md
++++ metaflow/02-analysis/glossary/INDEX.md
+@@ -1,6 +1,6 @@
+ # Glossary — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ Ubiquitous language: business terms with agreed-on definitions.
+ 

@@ -1,0 +1,135 @@
+--- devflow/analysis/ui/README.md
++++ metaflow/02-analysis/ui/README.md
+@@ -1,13 +1,13 @@
+ # UI Analysis
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+ This folder holds the **visual and interaction half of the conceptual model**:
+ the surfaces the product presents, the patterns that govern them, the states
+ each one can be in, and the contracts that must hold between them. It is
+-written during analysis, from the evidence in `input/ui-ux/`, and it is
++written during analysis, from the evidence in `01-input/ui-ux/`, and it is
+ finished **before the first User Story is drafted**.
+ 
+ > **What surfaces does the product present, what patterns and states govern
+@@ -15,8 +15,8 @@
+ 
+ `domain-model/` and `ui/` are two halves of one conceptual model:
+ `domain-model/` answers *what things exist and how they relate*; `ui/` answers
+-*what the user sees and how it behaves*. Both are derived from `input/`, both
+-are finished before `functional/`, and a User Story that needs either one is
++*what the user sees and how it behaves*. Both are derived from `01-input/`, both
++are finished before `12-functional/`, and a User Story that needs either one is
+ not ready until it exists.
+ 
+ Where `scope/` decides **what** gets built and in which phase, `ui/` documents
+@@ -35,7 +35,7 @@
+ | **State catalogues** | The states each surface or pattern must present | loading, empty, partial, error, permission-denied |
+ | **Visual contracts** | Binding description of how one surface must match another — look, behaviour, states | "The successor must reproduce every filter combination the legacy grid accepts" |
+ | **Parity plans** | How parity between surfaces is reached, and in what order | "Grid first, then bulk actions, then export" |
+-| **Annotated references** | Wireframes or marked-up screens kept in-repo as analysis, derived from `input/ui-ux/` | An annotated legacy screen naming each region |
++| **Annotated references** | Wireframes or marked-up screens kept in-repo as analysis, derived from `01-input/ui-ux/` | An annotated legacy screen naming each region |
+ 
+ ---
+ 
+@@ -43,27 +43,27 @@
+ 
+ | Artifact | Where it lives |
+ |----------|----------------|
+-| Raw mockups, screenshots, exported designs | `input/ui-ux/` — human-deposited evidence, **read-only for agents** (§5.6, G31) |
+-| UI decisions: design system, component library, theming | `adrs/` (`ADR-NNN`) |
+-| Visual verification contracts | `tests/test-cases/` (`TC-NNN`) |
++| Raw mockups, screenshots, exported designs | `01-input/ui-ux/` — human-deposited evidence, **read-only for agents** (§5.6, G31) |
++| UI decisions: design system, component library, theming | `11-adrs/` (`ADR-NNN`) |
++| Visual verification contracts | `24-tests/test-cases/` (`TC-NNN`) |
+ | Research about people and how they work | `personas/`, `user-journeys/`, `process/` |
+ | Which UI work lands in which phase | `scope/` |
+ | The entities and relationships behind the screens | `domain-model/` |
+-| Component-level implementation detail | `spec/` |
++| Component-level implementation detail | `21-spec/` |
+ | Plain-language product narrative | `introduction/` |
+ 
+ ---
+ 
+ ## When to create a UI document
+ 
+-- **During analysis ingestion** — as soon as `input/ui-ux/` holds enough to
++- **During analysis ingestion** — as soon as `01-input/ui-ux/` holds enough to
+   enumerate surfaces. Counting them early is what turns *"we'll rebuild the
+   admin"* into a bounded piece of work.
+ - **Before the first User Story that touches a surface.** A US whose
+   acceptance criteria reference a state the catalogue does not define is not
+   ready: the state belongs here first.
+ - **When a surface is being replaced.** The legacy surface is evidence in
+-  `input/ui-ux/`; the parity contract derived from it is written **before** the
++  `01-input/ui-ux/`; the parity contract derived from it is written **before** the
+   US that replaces it, not after.
+ - **When a pattern changes during delivery** — update the gallery or contract
+   in the same pass (see *Lifecycle*).
+@@ -79,7 +79,7 @@
+ | `deprecated` | No longer valid — the surface it described is gone, or the pattern was abandoned |
+ 
+ These are **living documents**, and what they must stay true to is **the
+-surface they describe** — during analysis, the evidence in `input/ui-ux/`;
++surface they describe** — during analysis, the evidence in `01-input/ui-ux/`;
+ after delivery, the surface that shipped. A gallery describing a pattern
+ nobody implements anymore is worse than no gallery, so when the UI changes,
+ the document changes in the same pass.
+@@ -93,8 +93,8 @@
+ ## Governance
+ 
+ Documents here are **analysis documentation**. They may be cited as context in
+-SPECs, Bolts and ADRs like any other `analysis/` family, but they **carry no
+-approval**: there is no AITL checkpoint for them, the pre-SPEC evidence gate
++SPECs, TASKs and ADRs like any other `02-analysis/` family, but they **carry no
++approval**: there is no CITL checkpoint for them, the pre-SPEC evidence gate
+ does not wait on them (§2.4.1, G13), and they may be written, corrected or
+ discarded at any time.
+ 
+@@ -105,8 +105,8 @@
+ - One Markdown file per document, with YAML frontmatter.
+ - Descriptive **kebab-case** filenames, **no IDs** — the same rule as `scope/`
+   and `vision/` (§5.15). If a document starts to behave like a decision or a
+-  verification contract, it has outgrown this folder: it belongs in `adrs/` or
+-  `tests/test-cases/`.
++  verification contract, it has outgrown this folder: it belongs in `11-adrs/` or
++  `24-tests/test-cases/`.
+ - Use **[TEMPLATE-UI.md](TEMPLATE-UI.md)** as starting point.
+ - Diagrams in **Mermaid** where useful (state charts, surface maps). Embedded
+   images are raw material, never a substitute for a required diagram (W08).
+@@ -117,7 +117,7 @@
+ 
+ ## How to draft it with AI
+ 
+-1. Feed the agent everything in `input/ui-ux/`, plus the interview transcripts
++1. Feed the agent everything in `01-input/ui-ux/`, plus the interview transcripts
+    that describe how people work on the current surface.
+ 2. Ask in passes:
+    - *"Enumerate every distinct surface — view, dialog, page. For each: a
+@@ -142,10 +142,10 @@
+ ## Position in the flow
+ 
+ ```
+-input/ui-ux/       ─┐
+-input/interviews/  ─┴──►  analysis/ui/  ──►  functional/ (US + ACs)
++01-input/ui-ux/       ─┐
++01-input/interviews/  ─┴──►  02-analysis/ui/  ──►  12-functional/ (US + ACs)
+                                 │                    │
+-                          domain-model/              └──►  tests/test-cases/
++                          domain-model/              └──►  24-tests/test-cases/
+                        (the other half of the              (may reference here;
+                           conceptual model)                 never replaced by it)
+ ```
+@@ -166,7 +166,7 @@
+ 
+ YAML keys and status enums stay in **English** (the schema). Section headings
+ and all prose — descriptions, rationale, findings — go in the project's
+-`content_language` (see [devflow/README.md](../../README.md) → Language
++`content_language` (see [metaflow/README.md](../../README.md) → Language
+ policy, §3.15).
+ 
+ ---

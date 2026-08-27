@@ -1,0 +1,349 @@
+--- devflow/metrics/README.md
++++ metaflow/23-metrics/README.md
+@@ -1,34 +1,34 @@
+ # Metrics (Manifest Family v5)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+ This folder stores the **manifest family** — one machine-readable JSON file
+-per **User Story**, per **Bolt**, and per **Test Case** — as the mechanical
++per **User Story**, per **TASK**, and per **Test Case** — as the mechanical
+ traceability, timing, and AI-usage record of each artifact's lifecycle (see
+-§3.12 of [`../avenga-devflow/Avenga-DevFlow.md`](../avenga-devflow/Avenga-DevFlow.md)).
++§3.12 of [`../ai-sdlc/MetaFlow.md`](../ai-sdlc/MetaFlow.md)).
+ 
+ The manifest family records **only**:
+ 
+-1. the artifact (US, Bolt, or TC), its documentary sources and its
++1. the artifact (US, TASK, or TC), its documentary sources and its
+    AI-generation usage;
+-2. every material revision of the canonical SPEC (Bolt manifests), including
++2. every material revision of the canonical SPEC (TASK manifests), including
+    its sources and AI-generation usage;
+-3. every V-Bounce, the SPEC revision executed, its code-generation usage,
+-   outcome and mandatory MEM (Bolt manifests);
+-4. the AITL decisions directly associated with that artifact's lifecycle;
++3. every Delivery Loop, the SPEC revision executed, its code-generation usage,
++   outcome and mandatory MEM (TASK manifests);
++4. the CITL decisions directly associated with that artifact's lifecycle;
+ 5. the **timing of every step** (`created_at`, `review_ready_at`,
+    `review_started_at`, `decided_at`) so lead times, queue times and review
+    latencies are measurable.
+ 
+ It is **not** a duplicate project-management system, test report, deployment
+-log, DORA database or cost ledger. Tests, gates, DORA, deployment, incidents,
++log, Delivery Flow database or cost ledger. Tests, gates, Delivery Flow, deployment, incidents,
+ costs, AREV phases and review evidence live in their own artifacts.
+ 
+-Unlike `memory/` (narrative MEM documents), this folder contains
++Unlike `22-memory/` (narrative MEM documents), this folder contains
+ **machine-readable JSON** designed to be validated and aggregated
+-automatically by tooling — e.g. the sprint reports in `devflow/reports/`,
++automatically by tooling — e.g. the sprint reports in `metaflow/42-reports/`,
+ whose generator is planned with the tooling track. Recording the manifests
+ correctly is what makes those reports computable retroactively, so nothing
+ here waits on that tooling.
+@@ -39,17 +39,17 @@
+ 
+ | Level | Manifest | Folder | Covers | Schema |
+ |-------|----------|--------|--------|--------|
+-| **User Story** | `US-NNN-<description>.json` | `user-stories/` | story points, approval timing, child Bolts (ACs live in the US document, not the manifest) | [`manifest-v5-us.schema.json`](./manifest-v5-us.schema.json) |
+-| **Bolt** | `US-NNN.BOLT-NNN-<description>.json` / `TC-NNN.BOLT-NNN-<description>.json` | `bolts/` | SPEC revisions, V-Bounces, MEMs, AITL, tokens, timing | [`manifest-v5-bolt.schema.json`](./manifest-v5-bolt.schema.json) |
+-| **Test Case** | `TC-NNN-<description>.json` | `test-cases/` | covered ACs, approval timing, Test Bolts | [`manifest-v5-tc.schema.json`](./manifest-v5-tc.schema.json) |
+-
+-All three share `schema_version: "5.0"` — the `<major>.0` of the family:
++| **User Story** | `US-NNN-<description>.json` | `user-stories/` | story points, approval timing, child TASKs (ACs live in the US document, not the manifest) | [`manifest-v1-us.schema.json`](./manifest-v1-us.schema.json) |
++| **TASK** | `US-NNN.TASK-NNN-<description>.json` / `TC-NNN.TASK-NNN-<description>.json` | `tasks/` | SPEC revisions, Delivery Loops, MEMs, CITL, tokens, timing | [`manifest-v1-task.schema.json`](./manifest-v1-task.schema.json) |
++| **Test Case** | `TC-NNN-<description>.json` | `test-cases/` | covered ACs, approval timing, Test TASKs | [`manifest-v1-tc.schema.json`](./manifest-v1-tc.schema.json) |
++
++All three share `schema_version: "1.0"` — the `<major>.0` of the family:
+ every 4.x methodology version keeps it, and a schema change means a new
+ major (§3.12). `US-000`
+ is a container, not a feature US: it has **no** US manifest.
+ 
+ **One family per repository.** `schema_version` names the family that
+-`devflow/VERSION` declares by its **major**, so a repository never holds two
++`metaflow/VERSION` declares by its **major**, so a repository never holds two
+ at once. Within the same major, version upgrades leave manifests untouched —
+ no conversion, no field added. When the methodology is upgraded **across a
+ major**, every manifest is re-routed and converted forward as part of the
+@@ -64,12 +64,12 @@
+ 
+ | File | Role |
+ |------|------|
+-| [`manifest-v5-bolt.schema.json`](./manifest-v5-bolt.schema.json) | **Normative JSON Schema** (draft 2020-12) for Bolt manifests. Strict: `additionalProperties: false` — unknown fields fail validation. |
+-| [`manifest-v5-us.schema.json`](./manifest-v5-us.schema.json) | **Normative JSON Schema** for User Story manifests. |
+-| [`manifest-v5-tc.schema.json`](./manifest-v5-tc.schema.json) | **Normative JSON Schema** for Test Case manifests. |
+-| [`TEMPLATE-MANIFEST-BOLT.json`](./TEMPLATE-MANIFEST-BOLT.json) | Example Bolt manifest (**functional** Bolt, origin `AITL-US-Approval` recorded at creation). Copy the example matching your Bolt type and replace values. |
+-| [`TEMPLATE-MANIFEST-BOLT-NONFUNCTIONAL.json`](./TEMPLATE-MANIFEST-BOLT-NONFUNCTIONAL.json) | Example Bolt manifest (**non-functional** Bolt under `US-000`): `checkpoint_approvals[]` starts with **no origin decision** — US-000 has no approval lifecycle. |
+-| [`TEMPLATE-MANIFEST-BOLT-TEST.json`](./TEMPLATE-MANIFEST-BOLT-TEST.json) | Example Bolt manifest (**Test** Bolt under an approved `TC-NNN`): origin `AITL-TC-Approval` recorded at creation, QA-side approvers. |
++| [`manifest-v1-task.schema.json`](./manifest-v1-task.schema.json) | **Normative JSON Schema** (draft 2020-12) for TASK manifests. Strict: `additionalProperties: false` — unknown fields fail validation. |
++| [`manifest-v1-us.schema.json`](./manifest-v1-us.schema.json) | **Normative JSON Schema** for User Story manifests. |
++| [`manifest-v1-tc.schema.json`](./manifest-v1-tc.schema.json) | **Normative JSON Schema** for Test Case manifests. |
++| [`TEMPLATE-MANIFEST-TASK.json`](./TEMPLATE-MANIFEST-TASK.json) | Example TASK manifest (**functional** TASK, origin `CP-US-Approval` recorded at creation). Copy the example matching your TASK type and replace values. |
++| [`TEMPLATE-MANIFEST-TASK-NONFUNCTIONAL.json`](./TEMPLATE-MANIFEST-TASK-NONFUNCTIONAL.json) | Example TASK manifest (**non-functional** TASK under `US-000`): `checkpoint_approvals[]` starts with **no origin decision** — US-000 has no approval lifecycle. |
++| [`TEMPLATE-MANIFEST-TASK-TEST.json`](./TEMPLATE-MANIFEST-TASK-TEST.json) | Example TASK manifest (**Test** TASK under an approved `TC-NNN`): origin `CP-TC-Approval` recorded at creation, QA-side approvers. |
+ | [`TEMPLATE-MANIFEST-US.json`](./TEMPLATE-MANIFEST-US.json) | Example User Story manifest. |
+ | [`TEMPLATE-MANIFEST-TC.json`](./TEMPLATE-MANIFEST-TC.json) | Example Test Case manifest. |
+ 
+@@ -78,13 +78,13 @@
+ ## Naming conventions
+ 
+ ```
+-bolts/US-NNN.BOLT-NNN-<description>.json      (functional and non-functional Bolts)
+-bolts/TC-NNN.BOLT-NNN-<description>.json      (Test Bolts)
++tasks/US-NNN.TASK-NNN-<description>.json      (functional and non-functional TASKs)
++tasks/TC-NNN.TASK-NNN-<description>.json      (Test TASKs)
+ user-stories/US-NNN-<description>.json        (feature User Stories)
+ test-cases/TC-NNN-<description>.json          (Test Cases)
+ ```
+ 
+-The Bolt manifest filename is the Bolt filename with `.md` replaced by
++The TASK manifest filename is the TASK filename with `.md` replaced by
+ `.json`; the US and TC manifest filenames are their document filenames with
+ `.md` replaced by `.json`.
+ 
+@@ -100,9 +100,9 @@
+ 
+ | Step | Field | Where |
+ |------|-------|-------|
+-| Artifact created | `generation.created_at` | artifact object (US/Bolt/TC), SPEC revision, V-Bounce code, MEM |
+-| Ready for human review | `review_ready_at` | artifact object, each SPEC revision, each V-Bounce |
+-| Review started by the human | `review_started_at` | artifact object, each SPEC revision, each V-Bounce |
++| Artifact created | `generation.created_at` | artifact object (US/TASK/TC), SPEC revision, Delivery Loop code, MEM |
++| Ready for human review | `review_ready_at` | artifact object, each SPEC revision, each Delivery Loop |
++| Review started by the human | `review_started_at` | artifact object, each SPEC revision, each Delivery Loop |
+ | Decision recorded | `checkpoint_approvals[].decided_at` | approval array |
+ 
+ Fields are **required but nullable** (`null` until the step happens), forcing
+@@ -115,9 +115,9 @@
+ | Queue time (waiting for human) | `review_started_at` − `review_ready_at` (Time-to-Human-Review, target < 4 h, §3.0) |
+ | Active review time | `decided_at` − `review_started_at` |
+ | Total review latency | `decided_at` − `review_ready_at` (informational, no target) |
+-| Bolt lead time | BOLT-DONE `decided_at` − BOLT-READY `decided_at` (§3.7) |
+-| US lead time | last child Bolt BOLT-DONE `decided_at` − US `AITL-US-Approval` `decided_at` |
+-| V-Bounce cycle | MEM approval `decided_at` − code `generation.created_at` |
++| TASK lead time | TASK-DONE `decided_at` − TASK-READY `decided_at` (§3.7) |
++| US lead time | last child TASK TASK-DONE `decided_at` − US `CP-US-Approval` `decided_at` |
++| Delivery Loop cycle | MEM approval `decided_at` − code `generation.created_at` |
+ | AI generation time | `generation.duration_seconds` |
+ 
+ ---
+@@ -128,30 +128,30 @@
+ 
+ | Moment | Action |
+ |--------|--------|
+-| **US creation (draft)** | Copy [`TEMPLATE-MANIFEST-US.json`](./TEMPLATE-MANIFEST-US.json) and fill it — `us` (`id`, `ref`, `sources`, `generation`), `story_points: null`, empty `bolts` and empty `checkpoint_approvals`. Keep every field the template carries (*Complete from the first write*, below). |
++| **US creation (draft)** | Copy [`TEMPLATE-MANIFEST-US.json`](./TEMPLATE-MANIFEST-US.json) and fill it — `us` (`id`, `ref`, `sources`, `generation`), `story_points: null`, empty `tasks` and empty `checkpoint_approvals`. Keep every field the template carries (*Complete from the first write*, below). |
+ | **US ready for review** | Set `us.review_ready_at` when the US enters review. |
+-| **US review** | Set `us.review_started_at`; append the `AITL-US-Approval` decision; set `story_points` to the confirmed value. |
+-| **Each child Bolt created** | Append the Bolt's `ref` to `bolts[]`. |
+-
+-### Bolt (`bolts/*.json`)
++| **US review** | Set `us.review_started_at`; append the `CP-US-Approval` decision; set `story_points` to the confirmed value. |
++| **Each child TASK created** | Append the TASK's `ref` to `tasks[]`. |
++
++### TASK (`tasks/*.json`)
+ 
+ | Moment | Action |
+ |--------|--------|
+-| **Bolt creation** | Copy the matching `TEMPLATE-MANIFEST-BOLT*.json` and fill it — `bolt` (`id`, `type`, `ref`, `sources`, `generation`), empty `spec_revisions` and empty `v_bounces`. Keep every field the template carries, `bolt.acceptance` included (*Complete from the first write*, below). `checkpoint_approvals[]` carries the **origin decisions that already exist** at this point, one per Bolt type: `AITL-US-Approval` (functional), `AITL-TC-Approval` (test), none (non-functional under US-000). A BUG-driven Bolt additionally carries `AITL-BUG-Approval`. |
+-| **Bolt ready / review** | Set `bolt.review_ready_at`, then `bolt.review_started_at`; append `AITL-BOLT-READY-Approval`. Only an approved Bolt may enter SPEC generation. |
++| **TASK creation** | Copy the matching `TEMPLATE-MANIFEST-TASK*.json` and fill it — `task` (`id`, `type`, `ref`, `sources`, `generation`), empty `spec_revisions` and empty `delivery_loops`. Keep every field the template carries, `task.acceptance` included (*Complete from the first write*, below). `checkpoint_approvals[]` carries the **origin decisions that already exist** at this point, one per TASK type: `CP-US-Approval` (functional), `CP-TC-Approval` (test), none (non-functional under US-000). A BUG-driven TASK additionally carries `CP-BUG-Approval`. |
++| **TASK ready / review** | Set `task.review_ready_at`, then `task.review_started_at`; append `CP-TASK-READY-Approval`. Only an approved TASK may enter SPEC generation. |
+ | **SPEC generation or material revision** | Append one `spec_revisions[]` entry with its sources, repository baseline, generation usage and `review_ready_at`. |
+-| **SPEC review** | Set the revision's `review_started_at`; append the matching `AITL-SPEC-Approval` decision (with `subject.revision`). |
+-| **V-Bounce** | Append one `v_bounces[]` entry with its eight required fields: `number`, `spec_revision`, `git_commit`, `execution_outcome`, `code_generation`, `mem` (exactly one), `review_ready_at` and `review_started_at` — the last one `null` until the MEM review begins (§3.12). |
+-| **MEM review** | Append the matching `AITL-MEM-Approval` decision (with `subject.v_bounce`). |
+-| **Bolt acceptance** | Set `bolt.acceptance.review_ready_at`, then `bolt.acceptance.review_started_at`; append `AITL-BOLT-DONE-Approval` (the acceptance review is a second review of the same artifact — readiness and acceptance timings coexist, §3.0, §3.12). |
++| **SPEC review** | Set the revision's `review_started_at`; append the matching `CP-SPEC-Approval` decision (with `subject.revision`). |
++| **Delivery Loop** | Append one `delivery_loops[]` entry with its eight required fields: `number`, `spec_revision`, `git_commit`, `execution_outcome`, `code_generation`, `mem` (exactly one), `review_ready_at` and `review_started_at` — the last one `null` until the MEM review begins (§3.12). |
++| **MEM review** | Append the matching `CP-MEM-Approval` decision (with `subject.delivery_loop`). |
++| **TASK acceptance** | Set `task.acceptance.review_ready_at`, then `task.acceptance.review_started_at`; append `CP-TASK-DONE-Approval` (the acceptance review is a second review of the same artifact — readiness and acceptance timings coexist, §3.0, §3.12). |
+ 
+ ### Test Case (`test-cases/TC-NNN-*.json`)
+ 
+ | Moment | Action |
+ |--------|--------|
+-| **TC creation (draft)** | Copy [`TEMPLATE-MANIFEST-TC.json`](./TEMPLATE-MANIFEST-TC.json) and fill it — `tc` (`id`, `ref`, `sources`, `generation`), `verifies` (source Bolt + source US + covered ACs), empty `test_bolts` and empty `checkpoint_approvals`. Keep every field the template carries (*Complete from the first write*, below). |
+-| **TC ready / review** | Set `tc.review_ready_at`, then `tc.review_started_at`; append `AITL-TC-Approval`. |
+-| **Each Test Bolt created** | Append the Test Bolt's `ref` to `test_bolts[]`. |
++| **TC creation (draft)** | Copy [`TEMPLATE-MANIFEST-TC.json`](./TEMPLATE-MANIFEST-TC.json) and fill it — `tc` (`id`, `ref`, `sources`, `generation`), `verifies` (source TASK + source US + covered ACs), empty `test_tasks` and empty `checkpoint_approvals`. Keep every field the template carries (*Complete from the first write*, below). |
++| **TC ready / review** | Set `tc.review_ready_at`, then `tc.review_started_at`; append `CP-TC-Approval`. |
++| **Each Test TASK created** | Append the Test TASK's `ref` to `test_tasks[]`. |
+ 
+ **Complete from the first write:** every schema is
+ `additionalProperties: false` **and** lists its lifecycle fields as
+@@ -162,13 +162,13 @@
+ *"not yet"*, an absent field records nothing and is indistinguishable from
+ an oversight. The easiest to forget are the ones no lifecycle step has
+ touched at creation time: `review_ready_at` and `review_started_at` at every
+-level, and the Bolt's `acceptance` object with both of its own. Copy the
++level, and the TASK's `acceptance` object with both of its own. Copy the
+ matching `TEMPLATE-MANIFEST-*.json` and the shape is already right; the
+-three `manifest-v5*.schema.json` files remain the contract.
+-
+-**Append-only rule:** `spec_revisions[]`, `v_bounces[]`, `bolts[]`,
+-`test_bolts[]` and `checkpoint_approvals[]` are never rewritten. Corrections are
+-represented by new revisions, new V-Bounces or new decisions. Lifecycle
++three `manifest-v1*.schema.json` files remain the contract.
++
++**Append-only rule:** `spec_revisions[]`, `delivery_loops[]`, `tasks[]`,
++`test_tasks[]` and `checkpoint_approvals[]` are never rewritten. Corrections are
++represented by new revisions, new Delivery Loops or new decisions. Lifecycle
+ timestamps (`review_ready_at`, `review_started_at`) are written once, in
+ order; they are never backdated.
+ 
+@@ -176,12 +176,12 @@
+ 
+ ## Schema family v5 — structure
+ 
+-The normative contracts are the three `manifest-v5*.schema.json` files.
++The normative contracts are the three `manifest-v1*.schema.json` files.
+ Key shared structure:
+ 
+ ### Common (all three)
+ - `schema_version` — exactly `"5.0"`.
+-- Artifact object (`us` / `bolt` / `tc`): `id` (pattern per type), `ref`,
++- Artifact object (`us` / `task` / `tc`): `id` (pattern per type), `ref`,
+   `sources`, `generation`, `review_ready_at`, `review_started_at`.
+ - `generation` — `created_at` (ISO 8601), `created_by` (the human who
+   initiated/controlled the generation — never the model name),
+@@ -193,38 +193,38 @@
+ 
+ ### User Story manifest
+ - `story_points` — confirmed Fibonacci value `1|2|3|5|8|13`, or `null` until
+-  `AITL-US-Approval` (§2.6).
+-- `bolts[]` — refs of **every** child Bolt created under this US, BUG-driven
+-  ones included (a BUG-driven Bolt is still a child of the feature US).
+-- `checkpoint_approvals[]` — `AITL-US-Approval` decisions only.
+-
+-### Bolt manifest
+-- `bolt.type` — `functional` | `non-functional` | `test`; `id` pattern
++  `CP-US-Approval` (§2.6).
++- `tasks[]` — refs of **every** child TASK created under this US, BUG-driven
++  ones included (a BUG-driven TASK is still a child of the feature US).
++- `checkpoint_approvals[]` — `CP-US-Approval` decisions only.
++
++### TASK manifest
++- `task.type` — `functional` | `non-functional` | `test`; `id` pattern
+   enforced per type.
+ - `spec_revisions[]` — one entry per material revision (revision ≥ 1), with
+   `ref`, `sources`, `git_commit`, `generation`, `review_ready_at`,
+   `review_started_at`.
+-- `v_bounces[]` — `number`, `spec_revision`, `git_commit`,
++- `delivery_loops[]` — `number`, `spec_revision`, `git_commit`,
+   `execution_outcome` (`ready_for_review` | `failed` | `blocked` |
+   `cancelled`), `code_generation`, `mem` (exactly one: `ref` + `generation`),
+   `review_ready_at`, `review_started_at`. Internal autonomous retries stay
+-  inside the V-Bounce and accumulate in `code_generation`.
+-- `checkpoint_approvals[]` — Bolt-lifecycle decisions only: `AITL-US-Approval`,
+-  `AITL-BUG-Approval`, `AITL-TC-Approval`, `AITL-BOLT-READY-Approval`,
+-  `AITL-SPEC-Approval` (subject requires `revision`), `AITL-MEM-Approval`
+-  (subject requires `v_bounce`), `AITL-BOLT-DONE-Approval`.
++  inside the Delivery Loop and accumulate in `code_generation`.
++- `checkpoint_approvals[]` — TASK-lifecycle decisions only: `CP-US-Approval`,
++  `CP-BUG-Approval`, `CP-TC-Approval`, `CP-TASK-READY-Approval`,
++  `CP-SPEC-Approval` (subject requires `revision`), `CP-MEM-Approval`
++  (subject requires `delivery_loop`), `CP-TASK-DONE-Approval`.
+ 
+ ### Test Case manifest
+-- `verifies` — `source_bolt` (the exact product Bolt verified), `source_us`
++- `verifies` — `source_task` (the exact product TASK verified), `source_us`
+   (the US under verification) and `covered_acs[]`.
+   `source_us` is the **US identifier** (`US-NNN`, or `US-000` for
+   non-functional TCs) — it mirrors the TC document's frontmatter; the full
+   repository paths of the sources live in `tc.sources`. For a non-functional
+-  TC (derived from `US-000.BOLT-NNN` + governing technical sources) there
++  TC (derived from `US-000.TASK-NNN` + governing technical sources) there
+   are no ACs: `covered_acs` is then an empty array and the governing
+   sources appear in `tc.sources`.
+-- `test_bolts[]` — refs of the Test Bolts created from this TC.
+-- `checkpoint_approvals[]` — `AITL-TC-Approval` decisions only.
++- `test_tasks[]` — refs of the Test TASKs created from this TC.
++- `checkpoint_approvals[]` — `CP-TC-Approval` decisions only.
+ 
+ ---
+ 
+@@ -255,11 +255,11 @@
+ manifests:
+ 
+ - test and gate results, TDD evidence and modified-file lists → MEM and CI evidence;
+-- risk class, autonomy level and data classification → Bolt / SPEC frontmatter;
+-- DORA metrics, deployment, promotion, UAT and incident data → CI/CD, incidents/, tests/uat/;
++- risk class, autonomy level and data classification → TASK / SPEC frontmatter;
++- Delivery Flow metrics, deployment, promotion, UAT and incident data → CI/CD, 34-incidents/, 24-tests/uat/;
+ - pre-calculated monetary cost;
+-- AREV phases, selected agents/models and approvals → AREV artifacts;
+-- PR lists and any state already derivable from the artifacts and AITL decisions.
++- AREV phases, selected 51-agents/models and approvals → AREV artifacts;
++- PR lists and any state already derivable from the artifacts and CITL decisions.
+ 
+ ---
+ 
+@@ -269,9 +269,9 @@
+ 
+ | Artifact | State | Derived from |
+ |----------|-------|--------------|
+-| User Story | `draft` → `approved` → `in_progress` → `completed` | US approval; first child Bolt approved; all child Bolts `Done` |
+-| Bolt | `In Development` / `Development Completed` / `Done` | latest V-Bounce + MEM approval / BOLT-DONE approval |
+-| Test Case | `draft` → `approved` → `automated` | TC approval; any Test Bolt `Done` |
++| User Story | `draft` → `approved` → `in_progress` → `completed` | US approval; first child TASK approved; all child TASKs `Done` |
++| TASK | `In Development` / `Development Completed` / `Done` | latest Delivery Loop + MEM approval / TASK-DONE approval |
++| Test Case | `draft` → `approved` → `automated` | TC approval; any Test TASK `Done` |
+ 
+ These states are never duplicated as mutable manifest fields.
+ 
+@@ -281,14 +281,14 @@
+ 
+ ```
+ US-012 drafted → US manifest created with the document (draft, §3.12/G33)
+-   → US-012 approved (AITL-US-Approval) → US manifest updated
+-   → Bolt created in functional/bolts/ + manifest in metrics/bolts/
+-     (origin AITL-US-Approval already recorded)
+-   → AITL-BOLT-READY-Approval appended → SPEC generated → spec_revisions[1]
+-   → AITL-SPEC-Approval (changes_requested) → revision 2 → approved
+-   → V-Bounce 1 (spec_revision 2) → tests green → MEM → v_bounces[1]
+-   → AITL-MEM-Approval (approved) → Bolt = Development Completed
+-   → AITL-BOLT-DONE-Approval → Bolt = Done → US manifest reflects it
++   → US-012 approved (CP-US-Approval) → US manifest updated
++   → TASK created in 12-functional/tasks/ + manifest in 23-metrics/tasks/
++     (origin CP-US-Approval already recorded)
++   → CP-TASK-READY-Approval appended → SPEC generated → spec_revisions[1]
++   → CP-SPEC-Approval (changes_requested) → revision 2 → approved
++   → Delivery Loop 1 (spec_revision 2) → tests green → MEM → delivery_loops[1]
++   → CP-MEM-Approval (approved) → TASK = Development Completed
++   → CP-TASK-DONE-Approval → TASK = Done → US manifest reflects it
+ ```
+ 
+ See the five `TEMPLATE-MANIFEST*.json` files for complete worked examples.
+@@ -299,13 +299,13 @@
+ 
+ | Folder | Relationship |
+ |--------|-------------|
+-| `functional/user-stories/` | Defines the US → US manifest lives in `metrics/user-stories/` |
+-| `functional/bolts/` | Defines the Bolt → Bolt manifest lives in `metrics/bolts/` |
+-| `tests/test-cases/` | Defines the TC → TC manifest lives in `metrics/test-cases/` |
+-| `spec/` | Each canonical SPEC revision is recorded in `spec_revisions[]` |
+-| `memory/` | Each V-Bounce MEM is paired with a `v_bounces[]` entry |
+-| `reports/` | Sprint reports aggregate the whole family |
+-| `avenga-devflow/` | Methodology §3.12 defines this contract |
++| `12-functional/user-stories/` | Defines the US → US manifest lives in `23-metrics/user-stories/` |
++| `12-functional/tasks/` | Defines the TASK → TASK manifest lives in `23-metrics/tasks/` |
++| `24-tests/test-cases/` | Defines the TC → TC manifest lives in `23-metrics/test-cases/` |
++| `21-spec/` | Each canonical SPEC revision is recorded in `spec_revisions[]` |
++| `22-memory/` | Each Delivery Loop MEM is paired with a `delivery_loops[]` entry |
++| `42-reports/` | Sprint reports aggregate the whole family |
++| `ai-sdlc/` | Methodology §3.12 defines this contract |
+ 
+ ---
+ 
+@@ -313,4 +313,4 @@
+ 
+ JSON keys, enum values, and IDs stay in **English** (the schema). Free-text
+ fields (`comment`) go in the project's `content_language` (see
+-[`devflow/README.md`](../README.md) → Language policy, §3.15).
++[`metaflow/README.md`](../README.md) → Language policy, §3.15).

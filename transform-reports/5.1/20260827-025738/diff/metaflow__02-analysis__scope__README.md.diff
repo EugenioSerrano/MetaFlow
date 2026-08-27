@@ -1,0 +1,69 @@
+--- devflow/analysis/scope/README.md
++++ metaflow/02-analysis/scope/README.md
+@@ -1,11 +1,11 @@
+ # Scope
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+ This folder holds **scope and phasing decisions** — the bridge between the
+-high-level product vision and the detailed User Stories in `functional/`.
++high-level product vision and the detailed User Stories in `12-functional/`.
+ 
+ While `vision/` answers **what product we want to build** in 1–3 sentences
+ (plus a brief "Scope at a glance"), `scope/` answers:
+@@ -40,10 +40,10 @@
+ |----------|---------------|-------------------|
+ | **`vision/` §5** | Product-level scope at a glance (3–5 bullets) | Vision gives the *direction*; scope gives the *detail*. Vision §5 links here. |
+ | **`open-questions/`** | Unresolved questions and assumptions | If we don't know whether something is in scope → OQ. Once decided → scope. |
+-| **`functional/`** | User Stories + Bolts | Each in-scope item becomes one or more US/Bolts. `scope/` feeds `functional/`. |
+-| **`adrs/`** | Architectural decisions | If a scope decision has architectural impact (e.g. "we'll use event sourcing for Phase 2") → ADR. Scope doc links to the ADR. |
++| **`12-functional/`** | User Stories + TASKs | Each in-scope item becomes one or more US/TASKs. `scope/` feeds `12-functional/`. |
++| **`11-adrs/`** | Architectural decisions | If a scope decision has architectural impact (e.g. "we'll use event sourcing for Phase 2") → ADR. Scope doc links to the ADR. |
+ | **`business-context/`** | Market, stakeholders, compliance, business risks | Business constraints (e.g. "GDPR applies") may drive scope decisions. Cross-link. |
+-| **`risks/`** | Project/technical risk register | Cutting something from scope may introduce or mitigate a risk. Scope doc references RISK-NNN. |
++| **`33-risks/`** | Project/technical risk register | Cutting something from scope may introduce or mitigate a risk. Scope doc references RISK-NNN. |
+ 
+ ---
+ 
+@@ -65,7 +65,7 @@
+ | State | Meaning |
+ |-------|---------|
+ | `draft` | Proposed scope, not yet validated with stakeholders |
+-| `stable` | Validated — safe to derive US/Bolts from it |
++| `stable` | Validated — safe to derive US/TASKs from it |
+ | `superseded` | Replaced by a newer scope document (link to successor) |
+ 
+ Scope documents evolve across phases. An MVP scope document may be `stable`
+@@ -84,7 +84,7 @@
+ - **Language:** schema (frontmatter keys, status enums, IDs) in
+   **English**; section headings and prose follow the project's
+   `content_language`. See
+-  [`../../LANGUAGE` → *Language declaration*](../../LANGUAGE) and Avenga DevFlow
++  [`../../LANGUAGE` → *Language declaration*](../../LANGUAGE) and MetaFlow
+   **§3.15**.
+ 
+ ---
+@@ -92,9 +92,9 @@
+ ## Position in the flow
+ 
+ ```
+-vision/  ──►  scope/  ──►  functional/ (US + Bolts)
++vision/  ──►  scope/  ──►  12-functional/ (US + TASKs)
+   │                          │
+-  └── "Scope at a glance"    └── each in-scope item → one or more US/Bolts
++  └── "Scope at a glance"    └── each in-scope item → one or more US/TASKs
+       (summary, links here)
+ ```
+ 
+@@ -116,7 +116,7 @@
+ YAML keys, status enums, and IDs stay in **English**
+ (the schema). Section headings and all prose — descriptions, context,
+ rationale, findings — go in the project's content_language (see
+-[devflow/README.md](../../README.md) -> Language policy, §3.15).
++[metaflow/README.md](../../README.md) -> Language policy, §3.15).
+ 
+ ---
+ 

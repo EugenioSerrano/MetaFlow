@@ -1,0 +1,63 @@
+--- devflow/analysis/domain-model/README.md
++++ metaflow/02-analysis/domain-model/README.md
+@@ -1,6 +1,6 @@
+ # Domain Model (Human-readable)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -12,7 +12,7 @@
+ schemas and API contracts should follow this — not the other way around.
+ 
+ > The technical formalization (DB schema, ER diagram, JSON Schema, etc.)
+-> lives in `discovery/` (legacy mapping) or in `spec/` (target design).
++> lives in `03-discovery/` (legacy mapping) or in `21-spec/` (target design).
+ > `domain-model/` is the *business view*.
+ 
+ ---
+@@ -97,7 +97,7 @@
+   `enumerations/<EnumName>.md`.
+ - **Language:** YAML keys and status enums in English. Section headings,
+   entity descriptions and property documentation in the project's
+-  `content_language` (see devflow/README.md -> Language policy, §3.15).
++  `content_language` (see metaflow/README.md -> Language policy, §3.15).
+ 
+ ---
+ 
+@@ -115,8 +115,8 @@
+ 
+ ## How to draft with AI
+ 
+-1. Feed the agent every transcript in `input/interviews/` plus any business
+-   documents in `input/documentation/`.
++1. Feed the agent every transcript in `01-input/interviews/` plus any business
++   documents in `01-input/documentation/`.
+ 2. Ask in passes:
+    - *"List candidate entities. For each: a 1-line definition and the
+      interviews/docs where it was mentioned."*
+@@ -136,10 +136,10 @@
+ |---------------------|---------------------------------------------------------------------------|
+ | `../glossary/`      | Every entity name should match a glossary term                            |
+ | `../process/`       | Processes describe how entities flow; they reference entities defined here|
+-| `../../functional/` | User Stories use entity and property names from this model                |
+-| `../../adrs/`       | Structural decisions (entity split, rename, polymorphism) become ADRs     |
+-| `../../spec/`       | Specs implement what is modelled here                                     |
+-| `../../discovery/`  | Legacy DB / API mappings cross-link to entities here                      |
++| `../../12-functional/` | User Stories use entity and property names from this model                |
++| `../../11-adrs/`       | Structural decisions (entity split, rename, polymorphism) become ADRs     |
++| `../../21-spec/`       | Specs implement what is modelled here                                     |
++| `../../03-discovery/`  | Legacy DB / API mappings cross-link to entities here                      |
+ 
+ ---
+ 
+@@ -154,7 +154,7 @@
+ YAML keys, status enums, and IDs stay in **English**
+ (the schema). Section headings and all prose — descriptions, context,
+ rationale, findings — go in the project's content_language (see
+-[devflow/README.md](../../README.md) -> Language policy, §3.15).
++[metaflow/README.md](../../README.md) -> Language policy, §3.15).
+ 
+ ---
+ 

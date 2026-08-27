@@ -1,0 +1,232 @@
+--- devflow/reviews/README.md
++++ metaflow/31-reviews/README.md
+@@ -1,11 +1,11 @@
+ # Reviews (Open Structured Examination)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+ This folder contains **open, structured examinations** (`REV-NNN`) of any
+-functional or non-functional characteristic or artifact: User Stories, Bolts,
++functional or non-functional characteristic or artifact: User Stories, TASKs,
+ ADRs, SPECs, code, tests, architecture, security, performance, processes,
+ risks, documentation — or any other relevant concern (§2.14).
+ 
+@@ -26,14 +26,14 @@
+ its approval and traceability rules are mandatory:**
+ 
+ - Findings remain **draft** and cannot be used as governed input until a
+-  qualified human records `AITL-REV-Approval`.
+-- `AITL-REV-Approval` validates the Review and its findings (scope,
++  qualified human records `CP-REV-Approval`.
++- `CP-REV-Approval` validates the Review and its findings (scope,
+   supporting evidence, clarity, classification, actionability). It does
+   **not** approve any downstream artifact.
+ - Every artifact created or updated from an approved finding follows its
+-  **own lifecycle and applicable AITL approval**. If a finding requires a
++  **own lifecycle and applicable CITL approval**. If a finding requires a
+   code-related change, that change must be authorized by an **approved
+-  Bolt** before a SPEC or V-Bounce can begin.
++  TASK** before a SPEC or Delivery Loop can begin.
+ - A REV closes only when **all findings are routed** (operational folder
+   convention — §2.14 defines findings and approvals, not a closure status).
+ 
+@@ -41,7 +41,7 @@
+ flowchart TD
+     S["Any stakeholder starts a REV"] --> R["Review any artifact or concern"]
+     R --> F["Draft findings"]
+-    F --> H{"AITL-REV-Approval"}
++    F --> H{"CP-REV-Approval"}
+     H -->|"Changes requested"| R
+     H -->|"Approved"| A["Actionable approved findings"]
+     A --> D["Create or update affected artifacts"]
+@@ -54,11 +54,11 @@
+ 
+ | Dimension | Discovery (`DISC`) | Review (`REV`) / Adversarial Review (`AREV`) |
+ |-----------|--------------------|----------------------------------------------|
+-| Starting point | A material unanswered question **before** a US or Bolt is defined or refined | An existing project artifact, implementation, characteristic, or concern to inspect |
++| Starting point | A material unanswered question **before** a US or TASK is defined or refined | An existing project artifact, implementation, characteristic, or concern to inspect |
+ | Primary purpose | Learn, gather evidence, reduce uncertainty | Evaluate, challenge, identify findings |
+-| Typical subjects | External APIs, unfamiliar libraries, legacy behavior, technology options, data/integration constraints | Documentation, code, tests, USs, Bolts, ADRs, SPECs, architecture, security, performance, process |
++| Typical subjects | External APIs, unfamiliar libraries, legacy behavior, technology options, data/integration constraints | Documentation, code, tests, USs, TASKs, ADRs, SPECs, architecture, security, performance, process |
+ | Governed output | Approved evidence, assumptions, limits, conclusions | Approved findings; AREV exposes them only after its approved Verdict |
+-| AITL governance | `AITL-DISC-Approval` | `AITL-REV-Approval`, or the three sequential AREV phase approvals |
++| CITL governance | `CP-DISC-Approval` | `CP-REV-Approval`, or the three sequential AREV phase approvals |
+ | Downstream effect | Informs analysis and the creation/refinement of governed artifacts | May create or update any governed artifact |
+ 
+ > An AREV is a **specialized adversarial form of Review** (§2.13) — it
+@@ -81,17 +81,17 @@
+ - **Performance audits** — load tests, profiling, resource consumption.
+ - **Documentation audits** — are READMEs, ADRs, specs up to date?
+ - **Compliance reviews** — do we meet the standards we committed to?
+-- **DevFlow reviews** — is the team following the methodology? (AITL
+-  checkpoints, manifest quality, DORA reporting)
++- **MetaFlow reviews** — is the team following the methodology? (CITL
++  checkpoints, manifest quality, Delivery Flow reporting)
+ 
+ ## What does NOT go here
+ 
+-- **Material unknown investigation** — `discovery/` (`DISC-NNN`).
+-- **Confirmed defects** — `bugs/` (`BUG-NNN`). A review *surfaces*
++- **Material unknown investigation** — `03-discovery/` (`DISC-NNN`).
++- **Confirmed defects** — `13-bugs/` (`BUG-NNN`). A review *surfaces*
+   bugs; the bug itself is tracked there.
+-- **Architectural decisions** — `adrs/` (`ADR-NNN`). A review may
++- **Architectural decisions** — `11-adrs/` (`ADR-NNN`). A review may
+   recommend an ADR; the ADR lives there.
+-- **Adversarial AI-vs-AI debates** — `adversarial-reviews/`
++- **Adversarial AI-vs-AI debates** — `32-adv-reviews/`
+   (`AREV-NNN`). Those follow a different protocol (Critique, Defense,
+   Verdict) with their own sequential phase approvals.
+ 
+@@ -112,33 +112,33 @@
+ 
+ ```mermaid
+ flowchart LR
+-    REV["REV-NNN<br/>reviews/<br/>(AITL-REV-Approval)"]
+-
+-    REV -->|"Confirmed defect"| BUG["BUG-NNN<br/>bugs/ (AITL-BUG-Approval)"]
+-    REV -->|"Quality gap /<br/>improvement needed"| BOLT["BOLT (create)<br/>functional/bolts/ (AITL-BOLT-READY-Approval)"]
+-    REV -->|"Needs investigation"| DISC["DISC-NNN<br/>discovery/ (AITL-DISC-Approval)"]
+-    REV -->|"Design decision<br/>needed"| ADR["ADR-NNN<br/>adrs/ (AITL-ADR-Approval)"]
+-    REV -->|"Risk identified"| RISK["RISK-NNN<br/>risks/"]
+-
+-    BOLT --> SPEC["SPEC<br/>spec/ (AITL-SPEC-Approval)"]
+-    SPEC --> VBOUNCE["V-Bounce → MEM → manifest"]
+-```
+-
+-> **Bolt-first rule (T10):** When a review finding requires code changes, a
+-> Bolt **must** be created first — never REV → SPEC directly. The SPEC then
+-> references that Bolt (`bolt` field mandatory). Every downstream artifact
+-> follows its own lifecycle and AITL approval; nothing is implied by
+-> `AITL-REV-Approval`.
++    REV["REV-NNN<br/>31-reviews/<br/>(CP-REV-Approval)"]
++
++    REV -->|"Confirmed defect"| BUG["BUG-NNN<br/>13-bugs/ (CP-BUG-Approval)"]
++    REV -->|"Quality gap /<br/>improvement needed"| TASK["TASK (create)<br/>12-functional/tasks/ (CP-TASK-READY-Approval)"]
++    REV -->|"Needs investigation"| DISC["DISC-NNN<br/>03-discovery/ (CP-DISC-Approval)"]
++    REV -->|"Design decision<br/>needed"| ADR["ADR-NNN<br/>11-adrs/ (CP-ADR-Approval)"]
++    REV -->|"Risk identified"| RISK["RISK-NNN<br/>33-risks/"]
++
++    TASK --> SPEC["SPEC<br/>21-spec/ (CP-SPEC-Approval)"]
++    SPEC --> DELIVERYLOOP["Delivery Loop → MEM → manifest"]
++```
++
++> **TASK-first rule (T10):** When a review finding requires code changes, a
++> TASK **must** be created first — never REV → SPEC directly. The SPEC then
++> references that TASK (`task` field mandatory). Every downstream artifact
++> follows its own lifecycle and CITL approval; nothing is implied by
++> `CP-REV-Approval`.
+ 
+ ### Quick classification guide
+ 
+ | Finding type | Routes to | Example |
+ |-------------|-----------|---------|
+-| Runtime bug or incorrect logic | `bugs/` BUG-NNN (after AITL-BUG-Approval) | "Thread.Abort() throws in .NET 5+" |
+-| Quality gap, improvement needed | `functional/` → BOLT → `spec/` SPEC | "Missing validation on endpoint X" |
+-| Unknown area needing study | `discovery/` DISC-NNN | "We don't know how module Y behaves under load" |
+-| Pending technical decision | `adrs/` ADR-NNN | "Should we use distributed or local cache?" |
+-| Threat to the project | `risks/` RISK-NNN | "Dependency on API without defined SLA" |
++| Runtime bug or incorrect logic | `13-bugs/` BUG-NNN (after CP-BUG-Approval) | "Thread.Abort() throws in .NET 5+" |
++| Quality gap, improvement needed | `12-functional/` → TASK → `21-spec/` SPEC | "Missing validation on endpoint X" |
++| Unknown area needing study | `03-discovery/` DISC-NNN | "We don't know how module Y behaves under load" |
++| Pending technical decision | `11-adrs/` ADR-NNN | "Should we use distributed or local cache?" |
++| Threat to the project | `33-risks/` RISK-NNN | "Dependency on API without defined SLA" |
+ | Everything correct | Documented in the REV, no further action | "Audit found no actionable findings" |
+ 
+ ---
+@@ -152,7 +152,7 @@
+   security scan, coverage threshold.
+ - **AI-native gates** — prompt-injection scan, secret-leak, hallucination
+   lint, IP/license provenance, PII/DLP, dependency-confusion, test-first
+-  evidence, behavioral reproducibility, Bolt-manifest validation.
++  evidence, behavioral reproducibility, TASK-manifest validation.
+ 
+ A review should verify that **all applicable gates passed green** before
+ approving. If a gate failed and was waived, the review must confirm that a
+@@ -160,7 +160,7 @@
+ (§3.6). Applicable gates end `pass` or approved `waived`; `n/a` requires a
+ reason in the approved SPEC.
+ 
+-> **Rule (§3.6):** `fail` blocks merge, `AITL-MEM-Approval`, Bolt acceptance
++> **Rule (§3.6):** `fail` blocks merge, `CP-MEM-Approval`, TASK acceptance
+ > and promotion.
+ 
+ ---
+@@ -187,7 +187,7 @@
+ | Compliant / Documented deviation | ✅ | no BUG — recorded in the REV or the MEM |
+ 
+ The reporter proposes the severity; the approver confirms or corrects it at
+-`AITL-BUG-Approval`, because for a non-functional BUG that value recommends who
++`CP-BUG-Approval`, because for a non-functional BUG that value recommends who
+ should approve it (guidance, never a gate — any qualified team member, the
+ author included, may record it).
+ 
+@@ -198,8 +198,8 @@
+ | Status     | Meaning |
+ |------------|---------|
+ | **draft**  | Review in progress; findings not yet usable as governed input. |
+-| **approved** | `AITL-REV-Approval` recorded; findings are actionable. |
+-| **closed** | All findings routed to BUG / BOLT→SPEC / DISC / ADR / RISK. No pending actions. |
++| **approved** | `CP-REV-Approval` recorded; findings are actionable. |
++| **closed** | All findings routed to BUG / TASK→SPEC / DISC / ADR / RISK. No pending actions. |
+ 
+ `INDEX.md` reflects status: Draft / Approved / Closed (all routed).
+ 
+@@ -222,25 +222,25 @@
+ 
+ | Folder | Relation |
+ |--------|----------|
+-| `bugs/` | Confirmed defects found in review (after AITL-BUG-Approval) |
+-| `spec/` | Quality gaps become implementation specs (Bolt-first) |
+-| `discovery/` | Material unknowns trigger investigations |
+-| `adrs/` | Design decisions surfaced during review |
+-| `risks/` | Threats identified during review |
+-| `adversarial-reviews/` | AREV is a specialized adversarial form of Review — optional, stakeholder-triggered |
+-| `memory/` | MEM documents justified deviations found in reviews |
+-| `functional/` | US / AC quality is a reviewable artifact |
+-
+----
+-
+-## AITL-REV-Approval
+-
+-The Review's own checkpoint is **`AITL-REV-Approval`** (§2.14, §3.0) — a
++| `13-bugs/` | Confirmed defects found in review (after CP-BUG-Approval) |
++| `21-spec/` | Quality gaps become implementation specs (TASK-first) |
++| `03-discovery/` | Material unknowns trigger investigations |
++| `11-adrs/` | Design decisions surfaced during review |
++| `33-risks/` | Threats identified during review |
++| `32-adv-reviews/` | AREV is a specialized adversarial form of Review — optional, stakeholder-triggered |
++| `22-memory/` | MEM documents justified deviations found in reviews |
++| `12-functional/` | US / AC quality is a reviewable artifact |
++
++---
++
++## CP-REV-Approval
++
++The Review's own checkpoint is **`CP-REV-Approval`** (§2.14, §3.0) — a
+ qualified human validates scope, evidence, clarity, classification and
+-actionability of the findings. This is **separate from the V-Bounce
+-checkpoint**: V-Bounce output is approved at **`AITL-MEM-Approval`** (by the
+-Dev-validator who executed the Bolt, §3.0), which is recorded in the Bolt
+-manifest's `checkpoint_approvals[]` — not in the REV. A REV and a V-Bounce
++actionability of the findings. This is **separate from the Delivery Loop
++checkpoint**: Delivery Loop output is approved at **`CP-MEM-Approval`** (by the
++Dev-validator who executed the TASK, §3.0), which is recorded in the TASK
++manifest's `checkpoint_approvals[]` — not in the REV. A REV and a Delivery Loop
+ approval are different events; never conflate them.
+ 
+ | Field | Value |
+@@ -252,8 +252,8 @@
+ | **review.decided_at** | `YYYY-MM-DDTHH:mm:ss±HH:MM` |
+ | **Findings** | [findings or acknowledged_without_comment + reason] |
+ 
+-The **V-Bounce first-review approval rate** (§3.7.2) is computed from
+-`checkpoint_approvals[]` in the Bolt manifest, not from REV documents.
++The **Delivery Loop first-review approval rate** (§3.7.2) is computed from
++`checkpoint_approvals[]` in the TASK manifest, not from REV documents.
+ 
+ ---
+ 

@@ -1,0 +1,34 @@
+--- devflow/bugs/INDEX.md
++++ metaflow/13-bugs/INDEX.md
+@@ -1,24 +1,24 @@
+ # Bugs — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ Confirmed defects (`BUG-NNN`) with evidence, reproduction conditions,
+ expected/actual result, impact and severity. Each approved BUG has
+-**exactly one dedicated Bolt** and is fixed via strict TDD inside ONE
+-V-Bounce (red evidence → fix → green). No Bolt may be created before
+-`AITL-BUG-Approval`.
++**exactly one dedicated TASK** and is fixed via strict TDD inside ONE
++Delivery Loop (red evidence → fix → green). No TASK may be created before
++`CP-BUG-Approval`.
+ 
+ ---
+ 
+-## 🟡 Draft (pending AITL-BUG-Approval)
++## 🟡 Draft (pending CP-BUG-Approval)
+ 
+ | ID | Document | Severity | Nature | Detected in |
+ |----|----------|----------|--------|-------------|
+ | —  | —        | —        | —      | —           |
+ 
+-## ✅ Approved / 🔄 In-fix (Bolt created or executing)
++## ✅ Approved / 🔄 In-fix (TASK created or executing)
+ 
+-| ID | Document | Severity | Nature | Dedicated Bolt | Status |
++| ID | Document | Severity | Nature | Dedicated TASK | Status |
+ |----|----------|----------|--------|----------------|--------|
+ | —  | —        | —        | —      | —              | —      |
+ 

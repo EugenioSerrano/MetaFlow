@@ -1,0 +1,50 @@
+--- devflow/agents/INDEX.md
++++ metaflow/51-agents/INDEX.md
+@@ -1,14 +1,14 @@
+-# agents/ — Index
++# 51-agents/ — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+-The DevFlow Agent definitions family. The canonical contract and the
++The MetaFlow Agent definitions family. The canonical contract and the
+ create-your-own-agent guide live in [README.md](README.md); the
+ per-platform wrappers are projected by the **Coordinator** (the
+-AvengaDevFlow agent itself, one per tool) from the **live definitions in
++MetaFlow agent itself, one per tool) from the **live definitions in
+ [`squad/`](squad/)** into the project's platform folders
+-(`.claude/agents/`, `.opencode/agents/`, `.github/agents/`,
+-`.codex/agents/`) following the mapping in [VERIFICATION.md](VERIFICATION.md)
++(`.claude/51-agents/`, `.opencode/51-agents/`, `.github/51-agents/`,
++`.codex/51-agents/`) following the mapping in [VERIFICATION.md](VERIFICATION.md)
+ (N×4 parity verified) — the kit ships no pre-built role wrappers.
+ 
+ ## Examples (shipped — read-only references)
+@@ -33,13 +33,13 @@
+ 
+ > The Coordinator creates agents here and installs their wrappers — see
+ > [squad/README.md](squad/README.md). List each agent in this table and
+-> add its actor entry to the roster (`actors/`).
++> add its actor entry to the roster (`53-actors/`).
+ 
+ ## The Coordinator
+ 
+-**No separate folder** — the Coordinator is the Avenga DevFlow agent
+-itself, shipped per platform (`CLAUDE.md`, `.agents/skills/…`,
+-`.github/agents/…`, `.opencode/agents/…`) and **evolved** to act as the
++**No separate folder** — the Coordinator is the MetaFlow agent
++itself, shipped per platform (`CLAUDE.md`, `.51-agents/skills/…`,
++`.github/51-agents/…`, `.opencode/51-agents/…`) and **evolved** to act as the
+ orchestrator: the shared body carries the "The Coordinator (the
+ orchestrator)" paragraph (routes, delegates production, spawns approvers,
+ records — **never signs**, `approves: []`), and each platform preamble
+@@ -51,7 +51,7 @@
+ - **Examples are skeletons** — adopters copy them into `squad/` and
+   instantiate; they never edit the kit's examples in place.
+ - **Project-defined agents** live in `squad/` and are listed in the Squad
+-  table above (the adopter's `agents/` family grows with their team).
++  table above (the adopter's `51-agents/` family grows with their team).
+ - The **Coordinator is not generated** (MODEL Y): its projections are the
+   four platform agent files; only role agents get wrappers.
+ - Per-platform capability status: [VERIFICATION.md](VERIFICATION.md).

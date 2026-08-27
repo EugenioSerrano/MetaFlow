@@ -1,0 +1,21 @@
+--- devflow/actors/examples/example-human.yaml
++++ metaflow/53-actors/examples/example-human.yaml
+@@ -1,7 +1,7 @@
+ # Example actor — a HUMAN team member (worked example of TEMPLATE-ACTOR)
+ #
+ # Demonstrates the human shape: NO `model` and NO `definition` — those two
+-# fields belong to DevFlow Agent actors only (a human is recorded as
++# fields belong to MetaFlow Agent actors only (a human is recorded as
+ # `human:<user>` with model null, §3.0.1). Humans approve by default:
+ # `modes` carries `approver` and `approves` lists the checkpoint classes
+ # this person is the team's go-to approver for (role routing stays
+@@ -12,7 +12,7 @@
+ name: "Arq Juan"
+ role: architect
+ modes: [executor, approver]
+-approves: [ADR, BOLT-READY]
++approves: [ADR, TASK-READY]
+ escalation:
+   - "an ADR-class decision without an approved ADR"
+-write_paths: ["devflow/adrs/"]
++write_paths: ["metaflow/11-adrs/"]

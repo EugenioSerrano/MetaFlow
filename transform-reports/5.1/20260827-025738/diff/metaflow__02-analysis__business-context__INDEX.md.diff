@@ -1,0 +1,10 @@
+--- devflow/analysis/business-context/INDEX.md
++++ metaflow/02-analysis/business-context/INDEX.md
+@@ -1,6 +1,6 @@
+ # Business Context — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ | File | Topic | Status | Last updated |
+ |------|-------|--------|--------------|

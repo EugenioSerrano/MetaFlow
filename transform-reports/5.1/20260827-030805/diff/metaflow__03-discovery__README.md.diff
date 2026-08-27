@@ -1,0 +1,186 @@
+--- devflow/discovery/README.md
++++ metaflow/03-discovery/README.md
+@@ -1,11 +1,11 @@
+ # Discovery (Need-driven Investigation)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+ This folder stores **focused, traceable investigations** (`DISC-NNN`) used to
+-reduce an **important uncertainty before a User Story or Bolt is created or
++reduce an **important uncertainty before a User Story or TASK is created or
+ materially refined** (§2.13).
+ 
+ Typical Discoveries examine an external API, an unfamiliar library or
+@@ -21,35 +21,35 @@
+ 
+ ## Need-driven, not mandatory
+ 
+-A Discovery is **not required for every User Story or Bolt**. Any stakeholder
++A Discovery is **not required for every User Story or TASK**. Any stakeholder
+ or team member may initiate one when a material unknown would otherwise force
+ the team to guess.
+ 
+ **Once initiated, its governance is mandatory:**
+ 
+ - It remains a **draft** until a qualified human records
+-  `AITL-DISC-Approval`.
++  `CP-DISC-Approval`.
+ - Its conclusions **cannot be used as governed input** (analysis, USs,
+-  Bolts, ADRs, risks) until approved.
+-- `AITL-DISC-Approval` confirms the research question was answered with
++  TASKs, ADRs, risks) until approved.
++- `CP-DISC-Approval` confirms the research question was answered with
+   adequate evidence, the limits and assumptions are explicit, and the
+   conclusions are reliable enough to guide backlog or architecture work.
+-- It does **not** approve any downstream artifact — each US, Bolt, ADR or
+-  risk created from the Discovery follows its own lifecycle and AITL
++- It does **not** approve any downstream artifact — each US, TASK, ADR or
++  risk created from the Discovery follows its own lifecycle and CITL
+   approval.
+-- **No code without a Bolt:** if the research requires executable prototype
++- **No code without a TASK:** if the research requires executable prototype
+   or spike code, that experiment must be authorized by an **approved
+-  non-functional Bolt under `US-000-non-functional.md`** before any code is
++  non-functional TASK under `US-000-non-functional.md`** before any code is
+   generated.
+ 
+ ```mermaid
+ flowchart TD
+-    Q["Material unknown before a US or Bolt"] --> D["Run DISC investigation"]
++    Q["Material unknown before a US or TASK"] --> D["Run DISC investigation"]
+     D --> F["Document evidence, limits, and conclusions"]
+-    F --> H{"AITL-DISC-Approval"}
++    F --> H{"CP-DISC-Approval"}
+     H -->|"Changes requested"| D
+     H -->|"Approved"| A["Update analysis and inform backlog decisions"]
+-    A --> U["Create or refine USs, Bolts, ADRs, or risks"]
++    A --> U["Create or refine USs, TASKs, ADRs, or risks"]
+     U --> O["Each artifact follows its own approval lifecycle"]
+ ```
+ 
+@@ -59,16 +59,16 @@
+ 
+ | Dimension | Discovery (`DISC`) | Review (`REV`) / Adversarial Review (`AREV`) |
+ |-----------|--------------------|----------------------------------------------|
+-| Starting point | A material unanswered question **before** a US or Bolt is defined or refined | An existing project artifact, implementation, characteristic, or concern to inspect |
++| Starting point | A material unanswered question **before** a US or TASK is defined or refined | An existing project artifact, implementation, characteristic, or concern to inspect |
+ | Primary purpose | Learn, gather evidence, reduce uncertainty | Evaluate, challenge, identify findings |
+-| Typical subjects | External APIs, unfamiliar libraries, legacy behavior, technology options, data or integration constraints | Documentation, code, tests, USs, Bolts, ADRs, SPECs, architecture, security, performance, or process |
++| Typical subjects | External APIs, unfamiliar libraries, legacy behavior, technology options, data or integration constraints | Documentation, code, tests, USs, TASKs, ADRs, SPECs, architecture, security, performance, or process |
+ | Governed output | Approved evidence, assumptions, limits, conclusions | Approved findings; AREV exposes them only after its approved Verdict |
+-| AITL governance | `AITL-DISC-Approval` | `AITL-REV-Approval`, or the three sequential AREV phase approvals |
++| CITL governance | `CP-DISC-Approval` | `CP-REV-Approval`, or the three sequential AREV phase approvals |
+ | Downstream effect | Informs analysis and the creation/refinement of governed artifacts | May create or update any governed artifact |
+ 
+ > An AREV is a **specialized adversarial form of Review**, not a Discovery.
+ > A Discovery does not create an exception to the rule that no code-related
+-> change may exist without an approved Bolt (§2.13).
++> change may exist without an approved TASK (§2.13).
+ 
+ ---
+ 
+@@ -90,19 +90,19 @@
+   walkthroughs, configuration guides.
+ - **Regulatory / compliance research** — external regulation analysis
+   (the compliance *impact on our project* goes to
+-  `analysis/business-context/`).
++  `02-analysis/business-context/`).
+ 
+ ## What does NOT go here
+ 
+-- **Quality review of existing project artifacts** → `reviews/` (`REV-NNN`).
+-- **Adversarial debate** → `adversarial-reviews/` (`AREV-NNN`).
++- **Quality review of existing project artifacts** → `31-reviews/` (`REV-NNN`).
++- **Adversarial debate** → `32-adv-reviews/` (`AREV-NNN`).
+ - **Business analysis** (vision, personas, journeys, domain model)
+-  → `analysis/`.
+-- **Architectural decisions** → `adrs/` (`ADR-NNN`).
++  → `02-analysis/`.
++- **Architectural decisions** → `11-adrs/` (`ADR-NNN`).
+   A discovery *feeds* an ADR; it is not the decision itself.
+-- **Risks** → `risks/` (`RISK-NNN`). A discovery may
++- **Risks** → `33-risks/` (`RISK-NNN`). A discovery may
+   *surface* a risk, but the risk is tracked in the register.
+-- **Bug fixes** → `bugs/` (`BUG-NNN`).
++- **Bug fixes** → `13-bugs/` (`BUG-NNN`).
+ 
+ ---
+ 
+@@ -130,7 +130,7 @@
+ 8. **Conclusions and recommendations** — Next steps, ADRs needed, risks surfaced, estimated impact.
+ 9. **Sources** — Links to datasheets, external docs, vendor portals.
+ 10. **History** — Change log.
+-11. **`AITL-DISC-Approval`** — The checkpoint that makes the findings actionable.
++11. **`CP-DISC-Approval`** — The checkpoint that makes the findings actionable.
+ 
+ Diagrams in **Mermaid** (mandatory — no ASCII art or embedded images).
+ 
+@@ -140,19 +140,19 @@
+ 
+ ```mermaid
+ flowchart LR
+-    DISC["DISC-NNN<br/>discovery/<br/>(AITL-DISC-Approval)"]
++    DISC["DISC-NNN<br/>03-discovery/<br/>(CP-DISC-Approval)"]
+ 
+-    DISC -->|"Design decision needed"| ADR["ADR-NNN<br/>adrs/ (AITL-ADR-Approval)"]
+-    DISC -->|"Risk identified"| RISK["RISK-NNN<br/>risks/"]
+-    DISC -->|"Implementation task"| BOLT["BOLT<br/>functional/bolts/ (AITL-BOLT-READY-Approval)"]
+-    BOLT -->|"Blueprint"| SPEC["SPEC<br/>spec/ (AITL-SPEC-Approval)"]
+-    DISC -->|"Business behavior"| US["US-NNN<br/>functional/user-stories/ (AITL-US-Approval)"]
+-    DISC -->|"Needs internal review"| REV["REV-NNN<br/>reviews/ (AITL-REV-Approval)"]
+-    DISC -->|"Domain insight"| AN["analysis/<br/>(business-context,<br/>domain-model)"]
++    DISC -->|"Design decision needed"| ADR["ADR-NNN<br/>11-adrs/ (CP-ADR-Approval)"]
++    DISC -->|"Risk identified"| RISK["RISK-NNN<br/>33-risks/"]
++    DISC -->|"Implementation task"| TASK["TASK<br/>12-functional/tasks/ (CP-TASK-READY-Approval)"]
++    TASK -->|"Blueprint"| SPEC["SPEC<br/>21-spec/ (CP-SPEC-Approval)"]
++    DISC -->|"Business behavior"| US["US-NNN<br/>12-functional/user-stories/ (CP-US-Approval)"]
++    DISC -->|"Needs internal review"| REV["REV-NNN<br/>31-reviews/ (CP-REV-Approval)"]
++    DISC -->|"Domain insight"| AN["02-analysis/<br/>(business-context,<br/>domain-model)"]
+ ```
+ 
+-Each downstream artifact follows its own lifecycle and *applicable* AITL approval —
+-nothing is implied by `AITL-DISC-Approval` (RISK has no AITL checkpoint).
++Each downstream artifact follows its own lifecycle and *applicable* CITL approval —
++nothing is implied by `CP-DISC-Approval` (RISK has no CITL checkpoint).
+ 
+ ---
+ 
+@@ -161,7 +161,7 @@
+ | Status       | Meaning |
+ |--------------|---------|
+ | **draft**    | Investigation running; conclusions not yet usable as governed input. |
+-| **approved** | `AITL-DISC-Approval` recorded; conclusions may inform analysis and backlog decisions. |
++| **approved** | `CP-DISC-Approval` recorded; conclusions may inform analysis and backlog decisions. |
+ | **deprecated** | No longer relevant (legacy retired, technology discarded, API decommissioned). Kept as historical reference. |
+ 
+ `INDEX.md` reflects status: Draft / Approved / Deprecated.
+@@ -172,16 +172,16 @@
+ 
+ | Folder | Relation |
+ |--------|----------|
+-| `adrs/` | Discoveries feed architectural decisions (approved first) |
+-| `risks/` | Discoveries surface external risks (dependency, SLA, integration) |
+-| `functional/user-stories/` | Approved conclusions may support creation or refinement of feature USs (AITL-US-Approval) |
+-| `functional/bolts/` | Discoveries feed Bolts (Bolt-first rule) that produce SPECs |
+-| `spec/` | SPECs are created from Bolts triggered by discoveries |
+-| `reviews/` | A review may trigger a discovery (unknown external dep found); a discovery may trigger a review (external change requires internal audit) |
+-| `adversarial-reviews/` | AREV is a specialized form of Review — never a Discovery |
+-| `analysis/` | External findings may enrich business-context or domain-model |
+-| `memory/` | Implementation informed by discoveries is documented in MEM |
+-| `input/` | Raw external docs (datasheets, vendor manuals) live in `input/documentation/` |
++| `11-adrs/` | Discoveries feed architectural decisions (approved first) |
++| `33-risks/` | Discoveries surface external risks (dependency, SLA, integration) |
++| `12-functional/user-stories/` | Approved conclusions may support creation or refinement of feature USs (CP-US-Approval) |
++| `12-functional/tasks/` | Discoveries feed TASKs (TASK-first rule) that produce SPECs |
++| `21-spec/` | SPECs are created from TASKs triggered by discoveries |
++| `31-reviews/` | A review may trigger a discovery (unknown external dep found); a discovery may trigger a review (external change requires internal audit) |
++| `32-adv-reviews/` | AREV is a specialized form of Review — never a Discovery |
++| `02-analysis/` | External findings may enrich business-context or domain-model |
++| `22-memory/` | Implementation informed by discoveries is documented in MEM |
++| `01-input/` | Raw external docs (datasheets, vendor manuals) live in `01-input/documentation/` |
+ 
+ ---
+ 

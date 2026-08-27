@@ -1,0 +1,159 @@
+--- devflow/metrics/TEMPLATE-MANIFEST-BOLT.json
++++ metaflow/23-metrics/TEMPLATE-MANIFEST-TASK.json
+@@ -1,11 +1,11 @@
+ {
+-  "schema_version": "5.0",
+-  "bolt": {
+-    "id": "US-012.BOLT-003",
++  "schema_version": "1.0",
++  "task": {
++    "id": "US-012.TASK-003",
+     "type": "functional",
+-    "ref": "devflow/functional/bolts/US-012.BOLT-003-invoice-download.md",
++    "ref": "metaflow/12-functional/tasks/US-012.TASK-003-invoice-download.md",
+     "sources": [
+-      "devflow/functional/user-stories/US-012-invoices.md"
++      "metaflow/12-functional/user-stories/US-012-invoices.md"
+     ],
+     "generation": {
+       "created_at": "2026-08-02T10:15:00-03:00",
+@@ -36,12 +36,12 @@
+   "spec_revisions": [
+     {
+       "revision": 1,
+-      "ref": "devflow/spec/SPEC-260802-1042-invoice-download.md",
++      "ref": "metaflow/21-spec/SPEC-260802-1042-invoice-download.md",
+       "sources": [
+-        "devflow/functional/bolts/US-012.BOLT-003-invoice-download.md",
+-        "devflow/functional/user-stories/US-012-invoices.md",
+-        "devflow/tests/test-cases/TC-027-invoice-download.md",
+-        "devflow/adrs/ADR-009-billing-storage.md"
++        "metaflow/12-functional/tasks/US-012.TASK-003-invoice-download.md",
++        "metaflow/12-functional/user-stories/US-012-invoices.md",
++        "metaflow/24-tests/test-cases/TC-027-invoice-download.md",
++        "metaflow/11-adrs/ADR-009-billing-storage.md"
+       ],
+       "git_commit": "7f6c9a2",
+       "generation": {
+@@ -68,12 +68,12 @@
+     },
+     {
+       "revision": 2,
+-      "ref": "devflow/spec/SPEC-260802-1042-invoice-download.md",
++      "ref": "metaflow/21-spec/SPEC-260802-1042-invoice-download.md",
+       "sources": [
+-        "devflow/functional/bolts/US-012.BOLT-003-invoice-download.md",
+-        "devflow/functional/user-stories/US-012-invoices.md",
+-        "devflow/tests/test-cases/TC-027-invoice-download.md",
+-        "devflow/adrs/ADR-009-billing-storage.md"
++        "metaflow/12-functional/tasks/US-012.TASK-003-invoice-download.md",
++        "metaflow/12-functional/user-stories/US-012-invoices.md",
++        "metaflow/24-tests/test-cases/TC-027-invoice-download.md",
++        "metaflow/11-adrs/ADR-009-billing-storage.md"
+       ],
+       "git_commit": "7f6c9a2",
+       "generation": {
+@@ -99,7 +99,7 @@
+       "review_started_at": "2026-08-02T11:26:00-03:00"
+     }
+   ],
+-  "v_bounces": [
++  "delivery_loops": [
+     {
+       "number": 1,
+       "spec_revision": 2,
+@@ -125,7 +125,7 @@
+         "duration_seconds": 1220
+       },
+       "mem": {
+-        "ref": "devflow/memory/MEM-260802-1138-invoice-download.md",
++        "ref": "metaflow/22-memory/MEM-260802-1138-invoice-download.md",
+         "generation": {
+           "created_at": "2026-08-02T11:38:00-03:00",
+           "created_by": "agent:developer-agent",
+@@ -152,9 +152,9 @@
+   ],
+   "checkpoint_approvals": [
+     {
+-      "checkpoint": "AITL-US-Approval",
+-      "subject": {
+-        "ref": "devflow/functional/user-stories/US-012-invoices.md"
++      "checkpoint": "CP-US-Approval",
++      "subject": {
++        "ref": "metaflow/12-functional/user-stories/US-012-invoices.md"
+       },
+       "decision": "approved",
+       "decided_by": [
+@@ -168,9 +168,9 @@
+       "comment": null
+     },
+     {
+-      "checkpoint": "AITL-BOLT-READY-Approval",
+-      "subject": {
+-        "ref": "devflow/functional/bolts/US-012.BOLT-003-invoice-download.md"
++      "checkpoint": "CP-TASK-READY-Approval",
++      "subject": {
++        "ref": "metaflow/12-functional/tasks/US-012.TASK-003-invoice-download.md"
+       },
+       "decision": "approved",
+       "decided_by": [
+@@ -184,9 +184,9 @@
+       "comment": null
+     },
+     {
+-      "checkpoint": "AITL-SPEC-Approval",
+-      "subject": {
+-        "ref": "devflow/spec/SPEC-260802-1042-invoice-download.md",
++      "checkpoint": "CP-SPEC-Approval",
++      "subject": {
++        "ref": "metaflow/21-spec/SPEC-260802-1042-invoice-download.md",
+         "revision": 1
+       },
+       "decision": "changes_requested",
+@@ -206,9 +206,9 @@
+       "comment": "Add explicit concurrency handling."
+     },
+     {
+-      "checkpoint": "AITL-SPEC-Approval",
+-      "subject": {
+-        "ref": "devflow/spec/SPEC-260802-1042-invoice-download.md",
++      "checkpoint": "CP-SPEC-Approval",
++      "subject": {
++        "ref": "metaflow/21-spec/SPEC-260802-1042-invoice-download.md",
+         "revision": 2
+       },
+       "decision": "approved",
+@@ -228,10 +228,10 @@
+       "comment": null
+     },
+     {
+-      "checkpoint": "AITL-MEM-Approval",
+-      "subject": {
+-        "ref": "devflow/memory/MEM-260802-1138-invoice-download.md",
+-        "v_bounce": 1
++      "checkpoint": "CP-MEM-Approval",
++      "subject": {
++        "ref": "metaflow/22-memory/MEM-260802-1138-invoice-download.md",
++        "delivery_loop": 1
+       },
+       "decision": "approved",
+       "decided_by": [
+@@ -242,12 +242,12 @@
+         }
+       ],
+       "decided_at": "2026-08-02T12:10:00-03:00",
+-      "comment": "Virtual approval example (AITL): developer-agent executed the V-Bounce, qa-agent approved the MEM — approver actor != executor actor (the independence floor, §3.0). A virtual decision is derived from the agent: prefix; there is no stored mode field."
+-    },
+-    {
+-      "checkpoint": "AITL-BOLT-DONE-Approval",
+-      "subject": {
+-        "ref": "devflow/functional/bolts/US-012.BOLT-003-invoice-download.md"
++      "comment": "Virtual approval example (CITL): developer-agent executed the Delivery Loop, qa-agent approved the MEM — approver actor != executor actor (the independence floor, §3.0). A virtual decision is derived from the agent: prefix; there is no stored mode field."
++    },
++    {
++      "checkpoint": "CP-TASK-DONE-Approval",
++      "subject": {
++        "ref": "metaflow/12-functional/tasks/US-012.TASK-003-invoice-download.md"
+       },
+       "decision": "approved",
+       "decided_by": [

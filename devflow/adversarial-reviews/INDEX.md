@@ -1,6 +1,6 @@
 # Adversarial Reviews — Index
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 Structured adversarial debates: LLM models participate in a
 **Critique → Defense → Verdict** protocol to evaluate code against SPEC/ADRs,
@@ -34,14 +34,13 @@ never written to a Bolt manifest.
 
 | ID | Folder | Type | Focus | Verdict | SPEC / Area reviewed |
 |----|--------|------|-------|---------|---------------------|
-| AREV-003 | [AREV-003-v42-close-removal-traces-sweep](AREV-003-v42-close-removal-traces-sweep/) | themed | other | — | v4.2 close — removal traces |
+| —  | —      | —    | —     | —       | —                   |
 
 ## 🏁 Closed (all findings processed — fixed, routed or dismissed)
 
 | ID | Folder | Type | Focus | Verdict | SPEC / Area reviewed |
 |----|--------|------|-------|---------|---------------------|
-| AREV-001 | [AREV-001-role-availability-blockers-sweep](AREV-001-role-availability-blockers-sweep/) | themed | other | — | role-availability blockers |
-| AREV-002 | [AREV-002-single-operator-sweep](AREV-002-single-operator-sweep/) | themed | other | — | single-operator operability |
+| —  | —      | —    | —     | —       | —                   |
 
 ## ⛔ Cancelled (unrun — no neutral Verdict possible)
 

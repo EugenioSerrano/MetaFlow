@@ -1,0 +1,39 @@
+--- devflow/agents/squad/README.md
++++ metaflow/51-agents/squad/README.md
+@@ -1,21 +1,21 @@
+ # squad/ — your project's live agents
+ 
+-This is the **live workspace** of the `agents/` family: one folder per
++This is the **live workspace** of the `51-agents/` family: one folder per
+ agent (`squad/<agent-id>/` — `agent.yaml` + `prompt.md`, the same
+ definition contract as everywhere, see [`../README.md`](../README.md)).
+ 
+ **The rules:**
+ 
+-- **The Coordinator writes here.** Ask your AvengaDevFlow MainAgent to
++- **The Coordinator writes here.** Ask your MetaFlow MainAgent to
+   create an agent ("create me a reviewer agent") and it scaffolds the
+   definition from [`../TEMPLATE-new-role/`](../TEMPLATE-new-role/) + the
+   closest [`../examples/`](../examples/) reference into this folder — then
+   installs the platform wrapper into your tool's spawn folder
+-  (`.claude/agents/`, `.opencode/agents/`, `.github/agents/`,
+-  `.codex/agents/`) per the mapping in
++  (`.claude/51-agents/`, `.opencode/51-agents/`, `.github/51-agents/`,
++  `.codex/51-agents/`) per the mapping in
+   [`../VERIFICATION.md`](../VERIFICATION.md).
+-- **The only roster-referenced folder.** The roster's (`actors/`)
+-  `definition:` pointers reference `agents/squad/<id>/…` — never
++- **The only roster-referenced folder.** The roster's (`53-actors/`)
++  `definition:` pointers reference `51-agents/squad/<id>/…` — never
+   `examples/`.
+ - **Ships empty.** The kit delivers no live agents — your squad is yours.
+   List each agent in [`../INDEX.md`](../INDEX.md) and add its actor entry
+@@ -38,7 +38,7 @@
+ - **Every definition in `squad/`** has its row in [`../INDEX.md`](../INDEX.md)
+   and **≥1 actor** referencing it — zero referencing actors makes it a
+   deletion candidate (or it gets flagged; never a silent ghost).
+-- **Every agent actor** (`devflow/actors/<id>.yaml` with a `definition:`)
++- **Every agent actor** (`metaflow/53-actors/<id>.yaml` with a `definition:`)
+   is **listed in `roster.yaml`** — an unlisted actor file is not in the
+   team: flag it to the human, never silently adopt it.
+ 

@@ -1,0 +1,72 @@
+--- devflow/input/interviews/README.md
++++ metaflow/01-input/interviews/README.md
+@@ -1,6 +1,6 @@
+ # Interviews (Stakeholder Conversations)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -18,7 +18,7 @@
+ transcribe them and extract goals, constraints, risks, success metrics, and
+ open questions, but interview-derived conclusions must remain **traceable to
+ the original recording or transcript**. The transcript itself is raw input:
+-a **human deposits it here** — agents never write into `input/` or its
++a **human deposits it here** — agents never write into `01-input/` or its
+ subfolders, even when they produced the transcription (G31, §5.6). From them
+ the team proposes User
+ Stories, acceptance criteria (ACs), risks, ADR-defined constraints, domain
+@@ -35,7 +35,7 @@
+ - Any textual record of conversations with business people.
+ 
+ > **Note:** Original audio/video recordings (without transcription) go in the
+-> parent `input/` folder only as backup. Transcribed content always goes here —
++> parent `01-input/` folder only as backup. Transcribed content always goes here —
+ > deposited by a human; agents never write here, even when the AI produced
+ > the transcription (G31).
+ 
+@@ -112,17 +112,17 @@
+ ## Relationship to the flow
+ 
+ ```
+-Interviews → analysis/domain-model/ (entities) + analysis/process/ (BPMN)
+-           → functional/ (User Stories + Bolts)
++Interviews → 02-analysis/domain-model/ (entities) + 02-analysis/process/ (BPMN)
++           → 12-functional/ (User Stories + TASKs)
+ ```
+ 
+ Transcriptions directly feed into:
+-- `analysis/domain-model/` — Extraction of entities, properties, and relationships.
+-- `analysis/process/` — Identification of business processes (BPMN).
+-- `analysis/personas/` and `analysis/user-journeys/` — Who uses the product and how.
+-- `analysis/business-context/` + `analysis/business-risks/` — Business risks (BR-NNN).
+-- `risks/` — Project/technical risks (RISK-NNN) that surface from the conversation.
+-- `functional/` — Derivation of User Stories and acceptance criteria.
++- `02-analysis/domain-model/` — Extraction of entities, properties, and relationships.
++- `02-analysis/process/` — Identification of business processes (BPMN).
++- `02-analysis/personas/` and `02-analysis/user-journeys/` — Who uses the product and how.
++- `02-analysis/business-context/` + `02-analysis/business-risks/` — Business risks (BR-NNN).
++- `33-risks/` — Project/technical risks (RISK-NNN) that surface from the conversation.
++- `12-functional/` — Derivation of User Stories and acceptance criteria.
+ 
+ ### Mandatory inception outputs (§3.4)
+ 
+@@ -130,12 +130,12 @@
+ 
+ | Output | Destination | Description |
+ |--------|-------------|-------------|
+-| Prioritized backlog (US + ACs) | `functional/user-stories/` | User Stories with Given/When/Then ACs; feature USs stop at `AITL-US-Approval` |
+-| Units → Bolts map | `functional/INDEX.md` | Grouping of US into Units, initial Bolt breakdown |
+-| Initial Risk Register | `analysis/business-risks/` (BR-NNN) + `risks/` (RISK-NNN) | Business risks vs project/technical risks, routed per §5.7/§5.12 boundary |
+-| Demo criteria (first 1–2 weeks) | Bolt completion evidence | What to demo at `AITL-BOLT-DONE-Approval` for each initial Bolt |
++| Prioritized backlog (US + ACs) | `12-functional/user-stories/` | User Stories with Given/When/Then ACs; feature USs stop at `CP-US-Approval` |
++| Units → TASKs map | `12-functional/INDEX.md` | Grouping of US into Units, initial TASK breakdown |
++| Initial Risk Register | `02-analysis/business-risks/` (BR-NNN) + `33-risks/` (RISK-NNN) | Business risks vs project/technical risks, routed per §5.7/§5.12 boundary |
++| Demo criteria (first 1–2 weeks) | TASK completion evidence | What to demo at `CP-TASK-DONE-Approval` for each initial TASK |
+ 
+-These outputs are validated by the human before entering the V-Bounce cycle.
++These outputs are validated by the human before entering the Delivery Loop cycle.
+ 
+ ---
+ 

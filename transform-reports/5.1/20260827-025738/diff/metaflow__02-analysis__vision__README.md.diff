@@ -1,0 +1,64 @@
+--- devflow/analysis/vision/README.md
++++ metaflow/02-analysis/vision/README.md
+@@ -1,6 +1,6 @@
+ # Vision
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -13,7 +13,7 @@
+ plus an initial set of tentative success metrics that get refined as domain
+ knowledge grows.
+ 
+-> See Avenga DevFlow §2.2 *Intent*.
++> See MetaFlow §2.2 *Intent*.
+ 
+ ---
+ 
+@@ -36,13 +36,13 @@
+ ## Position in the flow
+ 
+ ```
+-input/ (interviews, exec briefs)
+-  → vision/  → business-context/  → domain-model/ + process/  → functional/
++01-input/ (interviews, exec briefs)
++  → vision/  → business-context/  → domain-model/ + process/  → 12-functional/
+                   │
+-                  └── scope/ (detailed phasing — bridges vision §5 to functional/)
++                  └── scope/ (detailed phasing — bridges vision §5 to 12-functional/)
+ ```
+ 
+-Every User Story / Bolt should trace back to a vision outcome. If a US
++Every User Story / TASK should trace back to a vision outcome. If a US
+ contributes to no outcome it is a candidate to be cut from scope **or** to
+ trigger a vision update (with an ADR). Detailed scope decisions per phase
+ are recorded in [`../scope/`](../scope/).
+@@ -65,7 +65,7 @@
+ ## How to draft it with AI
+ 
+ 1. Feed the agent the founders/exec interview transcripts and any
+-   pitch/briefing documents from `input/`.
++   pitch/briefing documents from `01-input/`.
+ 2. Ask for:
+    - 3 alternative vision statements (different tones / abstractions).
+    - Top 5 candidate outcomes with measurable signals.
+@@ -83,7 +83,7 @@
+ - **Very brief.** If it exceeds one page, it is poorly written.
+ - **Business language**, no technical jargon.
+ - Validate with stakeholders (record those sessions in
+-  [`../../input/interviews/`](../../input/interviews/)).
++  [`../../01-input/interviews/`](../../01-input/interviews/)).
+ 
+ ---
+ 
+@@ -99,7 +99,7 @@
+ YAML keys, status enums, and IDs stay in **English**
+ (the schema). Section headings and all prose — descriptions, context,
+ rationale, findings — go in the project's content_language (see
+-[devflow/README.md](../../README.md) -> Language policy, §3.15).
++[metaflow/README.md](../../README.md) -> Language policy, §3.15).
+ 
+ ---
+ 

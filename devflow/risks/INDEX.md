@@ -1,6 +1,6 @@
 # Risks — Index
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 Identified threats that could impact project success, quality or timelines.
 Each risk has its own document (RISK-NNN-*.md) with probability, impact,

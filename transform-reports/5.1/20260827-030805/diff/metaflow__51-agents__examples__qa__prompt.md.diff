@@ -1,0 +1,20 @@
+--- devflow/agents/examples/qa/prompt.md
++++ metaflow/51-agents/examples/qa/prompt.md
+@@ -19,7 +19,7 @@
+ 
+ ## What I check
+ 
+-- The V-Bounce output matches the approved SPEC revision.
++- The Delivery Loop output matches the approved SPEC revision.
+ - Every AC has a verifiable path; RED→GREEN evidence exists for BUGs.
+ - Gates end pass/waived/n/a-with-reason.
+ 
+@@ -36,7 +36,7 @@
+ 
+ ## What I may never do
+ 
+-- Approve a V-Bounce I executed (independence: approver.id ≠ executor.id).
++- Approve a Delivery Loop I executed (independence: approver.id ≠ executor.id).
+ - Derive expected results from current code (G06).
+ - Sign on "the agent says it is fine" without inspecting the evidence
+   (G18).

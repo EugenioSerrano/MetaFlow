@@ -1,0 +1,25 @@
+--- devflow/analysis/user-journeys/README.md
++++ metaflow/02-analysis/user-journeys/README.md
+@@ -1,6 +1,6 @@
+ # User Journeys
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -59,7 +59,7 @@
+ - 5-9 stages per journey is the sweet spot.
+ - Use a Mermaid `journey` diagram for the emotional curve.
+ - **Language:** YAML keys and status enums in English. Section headings and
+-  prose in the project's `content_language` (see devflow/README.md ->
++  prose in the project's `content_language` (see metaflow/README.md ->
+   Language policy, §3.15).
+ 
+ ---
+@@ -81,4 +81,4 @@
+ YAML keys, status enums, and IDs stay in **English**
+ (the schema). Section headings and all prose — descriptions, context,
+ rationale, findings — go in the project's content_language (see
+-[devflow/README.md](../../README.md) -> Language policy, §3.15).
++[metaflow/README.md](../../README.md) -> Language policy, §3.15).

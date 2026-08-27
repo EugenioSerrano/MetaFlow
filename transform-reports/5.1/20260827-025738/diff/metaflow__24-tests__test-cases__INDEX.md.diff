@@ -1,0 +1,30 @@
+--- devflow/tests/test-cases/INDEX.md
++++ metaflow/24-tests/test-cases/INDEX.md
+@@ -1,22 +1,22 @@
+ # Test Cases — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+-## 🟡 Draft (pending `AITL-TC-Approval`)
++## 🟡 Draft (pending `CP-TC-Approval`)
+ 
+-| ID | Title | Type | Source Bolt | Verifies (US / Bolt / Process) |
++| ID | Title | Type | Source TASK | Verifies (US / TASK / Process) |
+ |----|-------|------|-------------|---------------------------------|
+ | —  | —     | —    | —           | —                               |
+ 
+ ## ✅ Approved
+ 
+-| ID | Title | Type | Source Bolt | Verifies (US / Bolt / Process) |
++| ID | Title | Type | Source TASK | Verifies (US / TASK / Process) |
+ |----|-------|------|-------------|---------------------------------|
+ | —  | —     | —    | —           | —                               |
+ 
+ ## ⛔ Deprecated
+ 
+-| ID | Title | Type | Source Bolt | Verifies (US / Bolt / Process) |
++| ID | Title | Type | Source TASK | Verifies (US / TASK / Process) |
+ |----|-------|------|-------------|---------------------------------|
+ | —  | —     | —    | —           | —                               |
+ 

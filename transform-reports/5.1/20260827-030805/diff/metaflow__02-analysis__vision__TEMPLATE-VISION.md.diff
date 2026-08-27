@@ -1,0 +1,22 @@
+--- devflow/analysis/vision/TEMPLATE-VISION.md
++++ metaflow/02-analysis/vision/TEMPLATE-VISION.md
+@@ -14,7 +14,7 @@
+ <!--
+   LANGUAGE POLICY (§3.15): YAML keys, status enums and IDs stay in English
+   (the schema). Section headings (##) and all prose go in the project's
+-  content_language. See devflow/README.md -> Language policy.
++  content_language. See metaflow/README.md -> Language policy.
+ -->
+ 
+ # Product Vision — [Product name]
+@@ -73,8 +73,8 @@
+ 
+ | Source | Where |
+ |--------|-------|
+-| Interview INT-NNN | `input/interviews/INT-NNN.md` |
+-| Exec briefing | `input/documentation/...` |
++| Interview INT-NNN | `01-input/interviews/INT-NNN.md` |
++| Exec briefing | `01-input/documentation/...` |
+ 
+ ## 8. History
+ 

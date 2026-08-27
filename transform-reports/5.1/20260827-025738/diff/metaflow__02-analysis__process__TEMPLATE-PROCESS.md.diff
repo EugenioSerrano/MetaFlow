@@ -1,0 +1,22 @@
+--- devflow/analysis/process/TEMPLATE-PROCESS.md
++++ metaflow/02-analysis/process/TEMPLATE-PROCESS.md
+@@ -16,8 +16,8 @@
+   (the schema). Section
+   headings (##) follow the project's content_language. All prose — descriptions,
+   steps, decisions, exceptions — goes in the project's content_language.
+-  See devflow/README.md -> Language policy.
+-  `AITL-*-Approval` codes are never translated.
++  See metaflow/README.md -> Language policy.
++  `CP-*-Approval` codes are never translated.
+ -->
+ 
+ # PROC-NNN — [Process name]
+@@ -77,7 +77,7 @@
+ 
+ - **Derived User Stories:** US-NNN, US-NNN
+ - **Related ADRs:** ADR-NNN
+-- **Source interviews:** `../../input/interviews/INT-NNN.md`
++- **Source interviews:** `../../01-input/interviews/INT-NNN.md`
+ 
+ ## 10. History
+ 

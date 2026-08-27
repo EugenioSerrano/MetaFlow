@@ -1,6 +1,6 @@
 # Avenga DevFlow — Development Flow
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 ## Purpose
 
@@ -316,7 +316,7 @@ Every document references the documents it depends on:
 1. **Read the folder's README** before creating any document.
 2. **Use the template** (`TEMPLATE-*.md`) as your starting point.
 3. **The methodology governs** — `avenga-devflow/Avenga-DevFlow.md` is the single source of truth; §2/§3 own the rules, §4 is a walkthrough, §5 owns locations.
-4. **No code without an approved Bolt** — no exceptions; urgency and size create none.
+4. **No code without an approved Bolt** — no exceptions; urgency and size create none (the one scope-out, G07: the agent lifecycle within `devflow/agents/` + `devflow/actors/` is operational config — living data).
 5. **Every approval is a named human checkpoint** — `AITL-<CODE>-Approval`, with timestamps and review-quality evidence. The agent never self-approves.
 6. **One canonical SPEC per Bolt; exactly one MEM per V-Bounce** — previous MEMs are immutable history.
 7. **An artifact without its manifest does not exist** — every US, Bolt and TC has a manifest in `devflow/metrics/` that validates against its `manifest-v5*.schema.json`.

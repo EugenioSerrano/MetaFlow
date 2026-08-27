@@ -1,0 +1,22 @@
+--- devflow/analysis/personas/TEMPLATE-PERSONA.md
++++ metaflow/02-analysis/personas/TEMPLATE-PERSONA.md
+@@ -18,8 +18,8 @@
+   (the schema). Section
+   headings (##) follow the project's content_language. All prose — persona
+   descriptions, goals, pain points, quotes — goes in the project's
+-  content_language. See devflow/README.md -> Language policy.
+-  `AITL-*-Approval` codes are never translated.
++  content_language. See metaflow/README.md -> Language policy.
++  `CP-*-Approval` codes are never translated.
+ -->
+ 
+ <!--
+@@ -104,7 +104,7 @@
+ 
+ | Source  | Where |
+ |---------|-------|
+-| <!-- INT-NNN --> | `../../input/interviews/INT-NNN.md` |
++| <!-- INT-NNN --> | `../../01-input/interviews/INT-NNN.md` |
+ 
+ ## 10. History
+ 

@@ -1,6 +1,6 @@
 # Documentation — Index
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 Third-party reference documentation: API manuals, specifications, datasheets,
 and guides from external systems, libraries, and vendors. Read-only material —

@@ -1,0 +1,62 @@
+--- devflow/input/business/README.md
++++ metaflow/01-input/business/README.md
+@@ -1,6 +1,6 @@
+ # Input — Business (raw business context)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -31,12 +31,12 @@
+ 
+ ## What does NOT go here?
+ 
+-- Analysis or interpretation of the business material → `analysis/` (`business-context/`)
+-  and, for material unknowns, `discovery/DISC-NNN`.
+-- Domain model derived from this material → `analysis/domain-model/`.
+-- Business process diagrams (BPMN) → `analysis/process/`.
+-- User Stories derived from requirements → `functional/`.
+-- Technical decisions driven by constraints → `adrs/`.
++- Analysis or interpretation of the business material → `02-analysis/` (`business-context/`)
++  and, for material unknowns, `03-discovery/DISC-NNN`.
++- Domain model derived from this material → `02-analysis/domain-model/`.
++- Business process diagrams (BPMN) → `02-analysis/process/`.
++- User Stories derived from requirements → `12-functional/`.
++- Technical decisions driven by constraints → `11-adrs/`.
+ 
+ ---
+ 
+@@ -71,22 +71,22 @@
+ ## Flow
+ 
+ ```
+-input/business/  →  analysis/business-context/ (stakeholders, constraints, success metrics)
+-                 →  analysis/business-risks/ (BR-NNN — market, regulatory, adoption)
+-                 →  analysis/domain-model/ (ubiquitous language, business entities)
+-                 →  analysis/process/ (business processes)
++01-input/business/  →  02-analysis/business-context/ (stakeholders, constraints, success metrics)
++                 →  02-analysis/business-risks/ (BR-NNN — market, regulatory, adoption)
++                 →  02-analysis/domain-model/ (ubiquitous language, business entities)
++                 →  02-analysis/process/ (business processes)
+                                  ↓
+-                     analysis/ is the only path onward — raw input never
+-                     feeds functional/, adrs/ or risks/ directly (§2.1, §4.1)
++                     02-analysis/ is the only path onward — raw input never
++                     feeds 12-functional/, 11-adrs/ or 33-risks/ directly (§2.1, §4.1)
+                                  ↓
+-                 →  functional/ (User Stories, acceptance criteria)
+-                 →  adrs/ (architecture decisions driven by constraints)
+-                 →  risks/ (compliance risks, SLA risks)
++                 →  12-functional/ (User Stories, acceptance criteria)
++                 →  11-adrs/ (architecture decisions driven by constraints)
++                 →  33-risks/ (compliance risks, SLA risks)
+ ```
+ 
+ The business context captured here defines the boundaries within which all
+ subsequent design and implementation decisions must operate. It is the most
+-fundamental input layer of the Avenga DevFlow.
++fundamental input layer of the MetaFlow.
+ 
+ ---
+ 

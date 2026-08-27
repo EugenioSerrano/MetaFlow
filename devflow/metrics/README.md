@@ -1,6 +1,6 @@
 # Metrics (Manifest Family v5)
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 ## Purpose
 

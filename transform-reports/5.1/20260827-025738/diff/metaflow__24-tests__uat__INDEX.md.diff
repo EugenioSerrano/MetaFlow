@@ -1,0 +1,22 @@
+--- devflow/tests/uat/INDEX.md
++++ metaflow/24-tests/uat/INDEX.md
+@@ -1,8 +1,8 @@
+ # UAT — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+-> ⛔ **DORMANT / RESERVED (v4.2).** `AITL-UAT-Approval` is not an active
++> ⛔ **DORMANT / RESERVED (v4.2).** `CP-UAT-Approval` is not an active
+ > checkpoint in this release (the UNIT/UAT approval-and-release layer was
+ > removed). This folder is kept dormant for a redesigned model planned in a
+ > future version.
+@@ -25,7 +25,7 @@
+ |----|------|------------------|--------------|
+ | —  | —    | —                | —            |
+ 
+-> `AITL-UAT-Approval` is evidenced by these minutes (§3.0); the Bolt
++> `CP-UAT-Approval` is evidenced by these minutes (§3.0); the TASK
+ > manifest carries no UAT data (§3.12).
+ 
+ ---

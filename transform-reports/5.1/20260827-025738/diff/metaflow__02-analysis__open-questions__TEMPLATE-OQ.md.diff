@@ -1,0 +1,22 @@
+--- devflow/analysis/open-questions/TEMPLATE-OQ.md
++++ metaflow/02-analysis/open-questions/TEMPLATE-OQ.md
+@@ -11,7 +11,7 @@
+ targets:                  # canonical artifacts this OQ will update once answered
+   - "../domain-model/entities/Customer.md"
+ sources:                  # where the gap surfaced
+-  - "../../input/interviews/INT-007.md"
++  - "../../01-input/interviews/INT-007.md"
+ related: []               # other OQ-NNN / RISK-NNN / ADR-NNN / DISC-NNN
+ tags: []
+ revisit_on: ""            # only if status=deferred — date or trigger
+@@ -24,8 +24,8 @@
+   (the schema). Section
+   headings (##) follow the project's content_language. All prose — question text,
+   context, hypothesis, resolution — goes in the project's content_language.
+-  See devflow/README.md -> Language policy.
+-  `AITL-*-Approval` codes are never translated.
++  See metaflow/README.md -> Language policy.
++  `CP-*-Approval` codes are never translated.
+ -->
+ 
+ # OQ-NNN — [Title]

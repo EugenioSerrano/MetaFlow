@@ -1,0 +1,118 @@
+--- devflow/metrics/TEMPLATE-MANIFEST-BOLT-TEST.json
++++ metaflow/23-metrics/TEMPLATE-MANIFEST-TASK-TEST.json
+@@ -1,11 +1,11 @@
+ {
+-  "schema_version": "5.0",
+-  "bolt": {
+-    "id": "TC-027.BOLT-001",
++  "schema_version": "1.0",
++  "task": {
++    "id": "TC-027.TASK-001",
+     "type": "test",
+-    "ref": "devflow/functional/bolts/TC-027.BOLT-001-invoice-download-e2e.md",
++    "ref": "metaflow/12-functional/tasks/TC-027.TASK-001-invoice-download-e2e.md",
+     "sources": [
+-      "devflow/tests/test-cases/TC-027-invoice-download.md"
++      "metaflow/24-tests/test-cases/TC-027-invoice-download.md"
+     ],
+     "generation": {
+       "created_at": "2026-08-04T10:05:00-03:00",
+@@ -36,10 +36,10 @@
+   "spec_revisions": [
+     {
+       "revision": 1,
+-      "ref": "devflow/spec/SPEC-260804-1030-invoice-download-e2e.md",
++      "ref": "metaflow/21-spec/SPEC-260804-1030-invoice-download-e2e.md",
+       "sources": [
+-        "devflow/functional/bolts/TC-027.BOLT-001-invoice-download-e2e.md",
+-        "devflow/tests/test-cases/TC-027-invoice-download.md"
++        "metaflow/12-functional/tasks/TC-027.TASK-001-invoice-download-e2e.md",
++        "metaflow/24-tests/test-cases/TC-027-invoice-download.md"
+       ],
+       "git_commit": "9d8e7f6",
+       "generation": {
+@@ -65,7 +65,7 @@
+       "review_started_at": "2026-08-04T10:40:00-03:00"
+     }
+   ],
+-  "v_bounces": [
++  "delivery_loops": [
+     {
+       "number": 1,
+       "spec_revision": 1,
+@@ -91,7 +91,7 @@
+         "duration_seconds": 840
+       },
+       "mem": {
+-        "ref": "devflow/memory/MEM-260804-1152-invoice-download-e2e.md",
++        "ref": "metaflow/22-memory/MEM-260804-1152-invoice-download-e2e.md",
+         "generation": {
+           "created_at": "2026-08-04T11:52:00-03:00",
+           "created_by": "human:dev1",
+@@ -118,9 +118,9 @@
+   ],
+   "checkpoint_approvals": [
+     {
+-      "checkpoint": "AITL-TC-Approval",
+-      "subject": {
+-        "ref": "devflow/tests/test-cases/TC-027-invoice-download.md"
++      "checkpoint": "CP-TC-Approval",
++      "subject": {
++        "ref": "metaflow/24-tests/test-cases/TC-027-invoice-download.md"
+       },
+       "decision": "approved",
+       "decided_by": [
+@@ -139,9 +139,9 @@
+       "comment": null
+     },
+     {
+-      "checkpoint": "AITL-BOLT-READY-Approval",
+-      "subject": {
+-        "ref": "devflow/functional/bolts/TC-027.BOLT-001-invoice-download-e2e.md"
++      "checkpoint": "CP-TASK-READY-Approval",
++      "subject": {
++        "ref": "metaflow/12-functional/tasks/TC-027.TASK-001-invoice-download-e2e.md"
+       },
+       "decision": "approved",
+       "decided_by": [
+@@ -155,9 +155,9 @@
+       "comment": null
+     },
+     {
+-      "checkpoint": "AITL-SPEC-Approval",
+-      "subject": {
+-        "ref": "devflow/spec/SPEC-260804-1030-invoice-download-e2e.md",
++      "checkpoint": "CP-SPEC-Approval",
++      "subject": {
++        "ref": "metaflow/21-spec/SPEC-260804-1030-invoice-download-e2e.md",
+         "revision": 1
+       },
+       "decision": "approved",
+@@ -177,10 +177,10 @@
+       "comment": null
+     },
+     {
+-      "checkpoint": "AITL-MEM-Approval",
+-      "subject": {
+-        "ref": "devflow/memory/MEM-260804-1152-invoice-download-e2e.md",
+-        "v_bounce": 1
++      "checkpoint": "CP-MEM-Approval",
++      "subject": {
++        "ref": "metaflow/22-memory/MEM-260804-1152-invoice-download-e2e.md",
++        "delivery_loop": 1
+       },
+       "decision": "approved",
+       "decided_by": [
+@@ -194,9 +194,9 @@
+       "comment": null
+     },
+     {
+-      "checkpoint": "AITL-BOLT-DONE-Approval",
+-      "subject": {
+-        "ref": "devflow/functional/bolts/TC-027.BOLT-001-invoice-download-e2e.md"
++      "checkpoint": "CP-TASK-DONE-Approval",
++      "subject": {
++        "ref": "metaflow/12-functional/tasks/TC-027.TASK-001-invoice-download-e2e.md"
+       },
+       "decision": "approved",
+       "decided_by": [

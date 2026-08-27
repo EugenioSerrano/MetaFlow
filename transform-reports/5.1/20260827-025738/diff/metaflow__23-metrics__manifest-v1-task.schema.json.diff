@@ -1,0 +1,172 @@
+--- devflow/metrics/manifest-v5-bolt.schema.json
++++ metaflow/23-metrics/manifest-v1-task.schema.json
+@@ -1,21 +1,21 @@
+ {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+-  "$id": "urn:avenga:devflow:manifest:bolt:v5",
+-  "title": "Avenga DevFlow Bolt Manifest v5",
++  "$id": "urn:metaflow:metaflow:manifest:task:v1",
++  "title": "MetaFlow TASK Manifest v1",
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+     "schema_version",
+-    "bolt",
++    "task",
+     "spec_revisions",
+-    "v_bounces",
++    "delivery_loops",
+     "checkpoint_approvals"
+   ],
+   "properties": {
+     "schema_version": {
+-      "const": "5.0"
+-    },
+-    "bolt": {
++      "const": "1.0"
++    },
++    "task": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+@@ -31,7 +31,7 @@
+       "properties": {
+         "id": {
+           "type": "string",
+-          "pattern": "^(US|TC)-[0-9]{3}\\.BOLT-[0-9]{3,4}$"
++          "pattern": "^(US|TC)-[0-9]{3}\\.TASK-[0-9]{3,4}$"
+         },
+         "type": {
+           "enum": [
+@@ -113,7 +113,7 @@
+         }
+       }
+     },
+-    "v_bounces": {
++    "delivery_loops": {
+       "type": "array",
+       "items": {
+         "type": "object",
+@@ -187,7 +187,7 @@
+     {
+       "if": {
+         "properties": {
+-          "bolt": {
++          "task": {
+             "properties": {
+               "type": {
+                 "const": "functional"
+@@ -198,10 +198,10 @@
+       },
+       "then": {
+         "properties": {
+-          "bolt": {
++          "task": {
+             "properties": {
+               "id": {
+-                "pattern": "^US-(?!000)[0-9]{3}\\.BOLT-[0-9]{3,4}$"
++                "pattern": "^US-(?!000)[0-9]{3}\\.TASK-[0-9]{3,4}$"
+               }
+             }
+           }
+@@ -211,7 +211,7 @@
+     {
+       "if": {
+         "properties": {
+-          "bolt": {
++          "task": {
+             "properties": {
+               "type": {
+                 "const": "non-functional"
+@@ -222,10 +222,10 @@
+       },
+       "then": {
+         "properties": {
+-          "bolt": {
++          "task": {
+             "properties": {
+               "id": {
+-                "pattern": "^US-000\\.BOLT-[0-9]{3,4}$"
++                "pattern": "^US-000\\.TASK-[0-9]{3,4}$"
+               }
+             }
+           }
+@@ -235,7 +235,7 @@
+     {
+       "if": {
+         "properties": {
+-          "bolt": {
++          "task": {
+             "properties": {
+               "type": {
+                 "const": "test"
+@@ -246,10 +246,10 @@
+       },
+       "then": {
+         "properties": {
+-          "bolt": {
++          "task": {
+             "properties": {
+               "id": {
+-                "pattern": "^TC-[0-9]{3}\\.BOLT-[0-9]{3,4}$"
++                "pattern": "^TC-[0-9]{3}\\.TASK-[0-9]{3,4}$"
+               }
+             }
+           }
+@@ -474,7 +474,7 @@
+           "type": "integer",
+           "minimum": 1
+         },
+-        "v_bounce": {
++        "delivery_loop": {
+           "type": "integer",
+           "minimum": 1
+         }
+@@ -493,13 +493,13 @@
+       "properties": {
+         "checkpoint": {
+           "enum": [
+-            "AITL-US-Approval",
+-            "AITL-BUG-Approval",
+-            "AITL-TC-Approval",
+-            "AITL-BOLT-READY-Approval",
+-            "AITL-SPEC-Approval",
+-            "AITL-MEM-Approval",
+-            "AITL-BOLT-DONE-Approval"
++            "CP-US-Approval",
++            "CP-BUG-Approval",
++            "CP-TC-Approval",
++            "CP-TASK-READY-Approval",
++            "CP-SPEC-Approval",
++            "CP-MEM-Approval",
++            "CP-TASK-DONE-Approval"
+           ]
+         },
+         "subject": {
+@@ -540,7 +540,7 @@
+           "if": {
+             "properties": {
+               "checkpoint": {
+-                "enum": ["AITL-SPEC-Approval"]
++                "enum": ["CP-SPEC-Approval"]
+               }
+             }
+           },
+@@ -558,7 +558,7 @@
+           "if": {
+             "properties": {
+               "checkpoint": {
+-                "enum": ["AITL-MEM-Approval"]
++                "enum": ["CP-MEM-Approval"]
+               }
+             }
+           },
+@@ -566,7 +566,7 @@
+             "properties": {
+               "subject": {
+                 "required": [
+-                  "v_bounce"
++                  "delivery_loop"
+                 ]
+               }
+             }

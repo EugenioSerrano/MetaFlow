@@ -6,13 +6,13 @@
 
 | File | Version | Date | Notes |
 |------|---------|------|-------|
-| *(use TEMPLATE-VISION.md to create vision.md)* | — | — | Proposed vision, not yet reviewed (§3.15) |
+| *(empty — validated 2026-08-27)* | — | — | — |
 
 ## ✅ Stable
 
 | File | Version | Date | Notes |
 |------|---------|------|-------|
-| *(use TEMPLATE-VISION.md to create vision.md)* | — | — | Active product vision (placeholder) |
+| [vision.md](vision.md) | 1.0 | 2026-08-27 | Visión de MetaFlow — identidad propia, correspondencia 1:1 de versiones (salida = entrada − 4), cero contaminación de marca (stable) |
 
 ## ⛔ Superseded
 

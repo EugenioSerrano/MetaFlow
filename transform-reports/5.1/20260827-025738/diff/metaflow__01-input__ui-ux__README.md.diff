@@ -1,0 +1,48 @@
+--- devflow/input/ui-ux/README.md
++++ metaflow/01-input/ui-ux/README.md
+@@ -1,6 +1,6 @@
+ # Input — UI/UX (raw visual reference)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -27,12 +27,12 @@
+ ## What does NOT go here?
+ 
+ - New designs created by the team → those belong in the project's design repository
+-  or `analysis/` once formalized.
+-- Analysis or interpretation of the visual material → `analysis/ui/` (surfaces,
+-  patterns, states, parity contracts), `analysis/` (domain understanding) or
+-  `discovery/DISC-NNN` (material unknown).
+-- Design decisions for the new system → `adrs/`.
+-- UI component specifications for implementation → `spec/`.
++  or `02-analysis/` once formalized.
++- Analysis or interpretation of the visual material → `02-analysis/ui/` (surfaces,
++  patterns, states, parity contracts), `02-analysis/` (domain understanding) or
++  `03-discovery/DISC-NNN` (material unknown).
++- Design decisions for the new system → `11-adrs/`.
++- UI component specifications for implementation → `21-spec/`.
+ 
+ ---
+ 
+@@ -64,12 +64,12 @@
+ ## Flow
+ 
+ ```
+-input/ui-ux/  →  analysis/ui/ (surfaces, patterns, states, parity contracts)
+-              →  analysis/user-journeys/ + personas/ (experience understanding)
+-              →  analysis/process/ (workflows)
+-              →  discovery/DISC-NNN (material unknown, if any)
+-              →  functional/ (User Stories)
+-              →  spec/ (UI implementation specs)
++01-input/ui-ux/  →  02-analysis/ui/ (surfaces, patterns, states, parity contracts)
++              →  02-analysis/user-journeys/ + personas/ (experience understanding)
++              →  02-analysis/process/ (workflows)
++              →  03-discovery/DISC-NNN (material unknown, if any)
++              →  12-functional/ (User Stories)
++              →  21-spec/ (UI implementation specs)
+ ```
+ 
+ The visual evidence captured here feeds directly into understanding current user

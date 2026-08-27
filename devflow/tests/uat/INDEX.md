@@ -1,6 +1,6 @@
 # UAT — Index
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 > ⛔ **DORMANT / RESERVED (v4.2).** `AITL-UAT-Approval` is not an active
 > checkpoint in this release (the UNIT/UAT approval-and-release layer was

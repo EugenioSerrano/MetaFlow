@@ -1,0 +1,79 @@
+--- devflow/analysis/process/README.md
++++ metaflow/02-analysis/process/README.md
+@@ -1,6 +1,6 @@
+ # Process (Business Processes — BPMN)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -32,7 +32,7 @@
+ - One Markdown file per process, with YAML frontmatter.
+ - Diagrams in **Mermaid** (`flowchart TB` or BPMN-lite style).
+ - **Language:** YAML keys and status enums in English. Section headings and
+-  prose in the project's `content_language` (see devflow/README.md ->
++  prose in the project's `content_language` (see metaflow/README.md ->
+   Language policy, §3.15).
+ 
+ Use **Mermaid** for inline diagrams inside Markdown (renders in GitHub and
+@@ -60,8 +60,8 @@
+ 
+ ## File organization
+ 
+-**Flat, no subfolders.** The `devflow/` structure is canonical: creating a
+-folder inside `process/` (or anywhere else under `devflow/`) outside the
++**Flat, no subfolders.** The `metaflow/` structure is canonical: creating a
++folder inside `process/` (or anywhere else under `metaflow/`) outside the
+ structure defined in §5.1 is a **G30 violation**. Group by naming the file,
+ not by nesting it:
+ 
+@@ -87,8 +87,8 @@
+ 
+ ## How to draft with AI
+ 
+-1. Feed the agent all `input/interviews/` transcripts and any operational
+-   handbook in `input/documentation/`.
++1. Feed the agent all `01-input/interviews/` transcripts and any operational
++   handbook in `01-input/documentation/`.
+ 2. Ask in passes:
+    - *"List every business process mentioned. For each: trigger, actors,
+      end state and any cited rule."*
+@@ -104,8 +104,8 @@
+ ## How processes feed downstream
+ 
+ ```
+-input/interviews/  →  process/ (BPMN)  ┐
+-                                       ├─►  functional/ (US + AC)
++01-input/interviews/  →  process/ (BPMN)  ┐
++                                       ├─►  12-functional/ (US + AC)
+ domain-model/ (entities)               ┘
+ ```
+ 
+@@ -125,7 +125,7 @@
+ | `deprecated` | No longer reflects current operations. Kept as historical reference. |
+ 
+ > **Note:** `process/` uses `active` instead of the `stable` used by most
+-> other `analysis/` subfolders because processes describe *dynamic behaviour*
++> other `02-analysis/` subfolders because processes describe *dynamic behaviour*
+ > that is currently in effect, not a static reference that was reviewed once.
+ 
+ `INDEX.md` separates active from deprecated processes.
+@@ -143,7 +143,7 @@
+ 
+ ## References
+ 
+-- [BPMN 2.0 Specification (OMG)](https://www.omg.org/spec/BPMN/2.0/)
++- [BPMN 2.0 Specification (OMG)](https://www.omg.org/21-spec/BPMN/2.0/)
+ - [Mermaid Flowchart Syntax](https://mermaid.js.org/syntax/flowchart.html)
+ 
+ ---
+@@ -159,7 +159,7 @@
+ YAML keys, status enums, and IDs stay in **English**
+ (the schema). Section headings and all prose — descriptions, context,
+ rationale, findings — go in the project's content_language (see
+-[devflow/README.md](../../README.md) -> Language policy, §3.15).
++[metaflow/README.md](../../README.md) -> Language policy, §3.15).
+ 
+ ---
+ 

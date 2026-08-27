@@ -1,0 +1,20 @@
+--- devflow/analysis/business-risks/TEMPLATE-BR.md
++++ metaflow/02-analysis/business-risks/TEMPLATE-BR.md
+@@ -14,7 +14,7 @@
+   LANGUAGE POLICY: YAML keys, status enums and IDs stay in English (the
+   schema). Section headings (##) and all prose — risk descriptions, impact
+   analysis — go in the project's content_language.
+-  See devflow/README.md -> Language policy. `AITL-*-Approval` codes are never translated.
++  See metaflow/README.md -> Language policy. `CP-*-Approval` codes are never translated.
+ -->
+ 
+ # BR-NNN — [Title]
+@@ -45,7 +45,7 @@
+ ## 6. Sources
+ 
+ - INT-NNN (stakeholder interviews)
+-- Compliance documents in `input/business/compliance/`
++- Compliance documents in `01-input/business/compliance/`
+ 
+ ## 7. History
+ 

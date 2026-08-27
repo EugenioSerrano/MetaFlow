@@ -4,6 +4,7 @@
 
 | File | Topic | Status | Last updated |
 |------|-------|--------|--------------|
+| [business-context.md](business-context.md) | business-model — modelo de propiedad, partes interesadas y métricas de éxito de MetaFlow | stable | 2026-08-27 |
 | stakeholders.md   | Sponsors, users, impacted parties, regulators | — | — |
 | market.md         | Industry, region, segment                     | — | — |
 | competitors.md    | Existing alternatives, benchmarks              | — | — |

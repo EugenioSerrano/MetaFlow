@@ -1,0 +1,23 @@
+--- devflow/adrs/INDEX.md
++++ metaflow/11-adrs/INDEX.md
+@@ -1,17 +1,17 @@
+ # ADRs — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ Architecture Decision Records: brief, immutable documents that capture
+ significant architectural decisions, their context, alternatives considered
+-and consequences. An ADR becomes governing only after `AITL-ADR-Approval`
++and consequences. An ADR becomes governing only after `CP-ADR-Approval`
+ (Architect / Tech Lead). Source code is the definitive reference for the
+ current implementation state; the approved ADR is the governing reference
+ for the decisions it records.
+ 
+ ---
+ 
+-## 🟡 Draft (pending `AITL-ADR-Approval`)
++## 🟡 Draft (pending `CP-ADR-Approval`)
+ 
+ | ID | Document | Description |
+ |----|----------|-------------|

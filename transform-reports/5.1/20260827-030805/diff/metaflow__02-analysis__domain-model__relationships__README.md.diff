@@ -1,0 +1,15 @@
+--- devflow/analysis/domain-model/relationships/README.md
++++ metaflow/02-analysis/domain-model/relationships/README.md
+@@ -1,6 +1,6 @@
+ # Relationships
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -106,4 +106,4 @@
+ YAML keys, status enums, and IDs stay in **English**
+ (the schema). Section headings and all prose — descriptions, context,
+ rationale, findings — go in the project's content_language (see
+-[devflow/README.md](../../../README.md) -> Language policy, §3.15).+[metaflow/README.md](../../../README.md) -> Language policy, §3.15).

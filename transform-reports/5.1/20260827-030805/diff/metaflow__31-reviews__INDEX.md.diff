@@ -1,0 +1,22 @@
+--- devflow/reviews/INDEX.md
++++ metaflow/31-reviews/INDEX.md
+@@ -1,15 +1,15 @@
+ # Reviews — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ Open structured examinations (`REV-NNN`): evaluate code, architecture,
+ tests, US and documentation against ADRs and standards. Findings remain
+-draft until `AITL-REV-Approval`; approved findings are routed to
+-BUG / BOLT→SPEC / DISC / ADR / RISK — reviews never fix, only classify.
++draft until `CP-REV-Approval`; approved findings are routed to
++BUG / TASK→SPEC / DISC / ADR / RISK — reviews never fix, only classify.
+ 
+ ---
+ 
+-## 🟡 Draft (pending AITL-REV-Approval)
++## 🟡 Draft (pending CP-REV-Approval)
+ 
+ | ID | Document | Scope | Findings | Status |
+ |----|----------|-------|----------|--------|

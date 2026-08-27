@@ -1,6 +1,6 @@
 # Onboarding — Avenga DevFlow
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 > **Getting started.** Everything you need to know about how we work here and
 > how to take your first Bolt. If it is not in this document, it is in the
@@ -12,7 +12,7 @@ Avenga DevFlow is the project's AI-assisted development methodology: the **AI
 generates**, the **human governs** through mandatory approval checkpoints
 (AITL — an actor, human by default) at every step.
 
-- **Source of truth:** [`avenga-devflow/Avenga-DevFlow.md`](avenga-devflow/Avenga-DevFlow.md) (v5.0)
+- **Source of truth:** [`avenga-devflow/Avenga-DevFlow.md`](avenga-devflow/Avenga-DevFlow.md) (v5.1)
 - **Rules the agent enforces:** [`GUARDRAILS.md`](GUARDRAILS.md) (AITL stops, naming, traceability)
 
 ---
@@ -47,7 +47,7 @@ flowchart LR
 
 Golden rules of the path:
 
-- **No code without an approved Bolt** — not a typo, not a config value (G07).
+- **No code without an approved Bolt** — not a typo, not a config value (G07; its one scope-out: the agent lifecycle within `devflow/agents/` + `devflow/actors/` is operational config — living data).
 - **One V-Bounce = one MEM** — previous MEMs are immutable history; if you request changes, the next attempt is a new V-Bounce with a new MEM.
 - **The agent never self-approves** — `AITL-MEM-Approval` is signed by the Dev-validator who executed the Bolt (one approver, any risk; QA/Sec/domain reviewers optional).
 - **An artifact without its manifest does not exist** — every US, Bolt and TC has a JSON manifest in `metrics/` that validates against its `manifest-v5*.schema.json`.
@@ -66,6 +66,7 @@ Golden rules of the path:
 | **SPEC** | Implementation plan for one Bolt (one canonical SPEC per Bolt; versioned revisions). |
 | **MEM** | Narrative record of one V-Bounce: what was done, files with reasons, test evidence, decisions. |
 | **Manifest family** | One mechanical JSON per governed artifact, in three levels: feature US (`metrics/user-stories/`), Bolt (`metrics/bolts/`) and TC (`metrics/test-cases/`), each validated by its `manifest-v5*.schema.json`. Created with the document and updated at every step, recording origin, SPEC revisions, V-Bounces, AITL decisions and step timings (`created_at`, `review_ready_at`, `review_started_at`, `decided_at`). An artifact without its manifest does not exist (G23, G33). US-000 carries none. |
+| **Actor** | A member of the team who **produces** the governed artifacts its role owns (FA → US, architect → ADR, developer → SPEC + code, QA → TC/tests) as executor and **participates** in AITL approvals as approver when configured, under the independence floor — a **human by default**, a virtual **DevFlow Agent** only by explicit, valid configuration (§3.0.1). Recorded `human:<user>` / `agent:<id>`; the model is an attribute of the agent actor, never the identity. HITL is the default case inside AITL (actor = human); with no agents configured every checkpoint is a human approval and **no AI-signed approval is possible** (the safe-default invariant). |
 | **AITL checkpoint** | Mandatory human approval with name, timestamps and evidence: `AITL-US-Approval`, `AITL-BOLT-READY-Approval`, `AITL-BOLT-DONE-Approval`, `AITL-SPEC-Approval`, `AITL-MEM-Approval`, … (there is no `AITL-BOLT-Approval`: the Bolt has two distinct checkpoints, G05). The pre-v5 `HITL-*` prefix is invalid (G05). |
 | **DoR / DoD** | Definition of Ready (validated inside `AITL-BOLT-READY-Approval`) / Definition of Done (completion evidence, validated at acceptance). |
 | **ADR** | Immutable architecture decision (once approved, it is never edited). |
@@ -102,7 +103,10 @@ One approver at any risk; QA or Security may be added as optional reviewers, nev
 
 **Can I touch code without a Bolt?**
 No. It is a blocker (G07): code, tests, config, IaC, schemas and migrations
-require an approved Bolt. Urgency and size create no exception.
+require an approved Bolt. Urgency and size create no exception. The one
+scope-out: the agent lifecycle (installing/creating/deleting DevFlow Agents
+within `devflow/agents/` + `devflow/actors/`) is operational config —
+living data, not a code change.
 
 **Can I work on several Bolts at once?**
 Ideal WIP: **1 active Bolt per person/agent** (§3.2). No multitasking — if you

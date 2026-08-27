@@ -1,0 +1,13 @@
+--- devflow/analysis/glossary/TEMPLATE-GLOSSARY.md
++++ metaflow/02-analysis/glossary/TEMPLATE-GLOSSARY.md
+@@ -13,8 +13,8 @@
+   (the schema). Section
+   headings (##) follow the project's content_language. Term definitions and
+   descriptions go in the project's content_language. See
+-  devflow/README.md -> Language policy.
+-  `AITL-*-Approval` codes are never translated.
++  metaflow/README.md -> Language policy.
++  `CP-*-Approval` codes are never translated.
+ -->
+ 
+ # Glossary — [Module / Bounded Context]

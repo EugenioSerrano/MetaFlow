@@ -1,0 +1,51 @@
+--- devflow/analysis/glossary/README.md
++++ metaflow/02-analysis/glossary/README.md
+@@ -1,6 +1,6 @@
+ # Glossary (Ubiquitous Language)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -31,7 +31,7 @@
+ multiple files (one per module / bounded context) for larger ones.
+ **Language:** YAML keys and status enums in English. Section headings and
+ term definitions in the project's `content_language` (see
+-devflow/README.md -> Language policy, §3.15).
++metaflow/README.md -> Language policy, §3.15).
+ 
+ ### Entry shape
+ 
+@@ -90,7 +90,7 @@
+ 
+ ## How to build the glossary with AI
+ 
+-1. **Term extraction** — point the agent at `input/interviews/` and ask:
++1. **Term extraction** — point the agent at `01-input/interviews/` and ask:
+    > *"List every business term used. For each: best-guess definition,
+    > synonyms heard, conflicting definitions (if any), source interview."*
+ 2. **Conflict detection** — ask the agent to highlight terms used with
+@@ -106,10 +106,10 @@
+ ## Position in the flow
+ 
+ ```
+-input/interviews/  →  glossary/ (agreed terms)
++01-input/interviews/  →  glossary/ (agreed terms)
+                           ├─►  domain-model/ (formal model)
+-                          ├─►  functional/  (US use these terms)
+-                          └─►  spec/        (code uses these names)
++                          ├─►  12-functional/  (US use these terms)
++                          └─►  21-spec/        (code uses these names)
+ ```
+ 
+ The glossary is the bridge between business language and the technical
+@@ -140,7 +140,7 @@
+ YAML keys, status enums, and IDs stay in **English**
+ (the schema). Section headings and all prose — descriptions, context,
+ rationale, findings — go in the project's content_language (see
+-[devflow/README.md](../../README.md) -> Language policy, §3.15).
++[metaflow/README.md](../../README.md) -> Language policy, §3.15).
+ 
+ ---
+ 

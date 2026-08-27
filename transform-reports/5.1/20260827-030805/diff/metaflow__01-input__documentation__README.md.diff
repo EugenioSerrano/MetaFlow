@@ -1,0 +1,26 @@
+--- devflow/input/documentation/README.md
++++ metaflow/01-input/documentation/README.md
+@@ -1,6 +1,6 @@
+ # Input — Documentation (raw external reference)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -26,11 +26,11 @@
+ 
+ ## What does NOT go here?
+ 
+-- Analysis or interpretation of the material → `discovery/DISC-NNN` (material
+-  unknown) or `analysis/` (domain understanding).
+-- Integration decisions → `adrs/`.
++- Analysis or interpretation of the material → `03-discovery/DISC-NNN` (material
++  unknown) or `02-analysis/` (domain understanding).
++- Integration decisions → `11-adrs/`.
+ - Team-generated documentation (specs, ADRs, reviews, etc.) — lives in its
+-  corresponding folders within `devflow/`.
++  corresponding folders within `metaflow/`.
+ 
+ ---
+ 

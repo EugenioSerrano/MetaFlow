@@ -1,0 +1,40 @@
+--- devflow/input/source-code/README.md
++++ metaflow/01-input/source-code/README.md
+@@ -1,6 +1,6 @@
+ # Input — Source Code (raw legacy)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -19,11 +19,11 @@
+ 
+ ## What does NOT go here?
+ 
+-- Code for the **new product** — that lives outside `devflow/`, in the
++- Code for the **new product** — that lives outside `metaflow/`, in the
+   project's code repository.
+-- Legacy analysis conclusions → `discovery/DISC-NNN` (or `analysis/` when the
++- Legacy analysis conclusions → `03-discovery/DISC-NNN` (or `02-analysis/` when the
+   analysis is domain understanding, not a material unknown).
+-- Migration/rewrite decisions → `adrs/`.
++- Migration/rewrite decisions → `11-adrs/`.
+ - Credentials, tokens, files with secrets.
+ 
+ ---
+@@ -43,10 +43,10 @@
+ ## Flow
+ 
+ ```
+-input/source-code/  →  analysis/domain-model/ (entities, processes)
+-                    →  discovery/DISC-NNN (material unknown, e.g. legacy behavior)
+-                    →  adrs/
+-                    →  spec/ (migration guides)
++01-input/source-code/  →  02-analysis/domain-model/ (entities, processes)
++                    →  03-discovery/DISC-NNN (material unknown, e.g. legacy behavior)
++                    →  11-adrs/
++                    →  21-spec/ (migration guides)
+ ```
+ 
+ ---

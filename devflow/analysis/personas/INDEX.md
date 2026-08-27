@@ -4,7 +4,7 @@
 
 | Persona | Type | Role / archetype | Primary goal | Status |
 |---------|------|------------------|--------------|--------|
-| *(use TEMPLATE-PERSONA.md to add personas)* |  |  |  |  |
+| [MetaFlowMaintainer](MetaFlowMaintainer.md) | archetype | Propietario y mantenedor de MetaFlow | Publicar una versión MetaFlow por cada versión de AvengaDevFlow, verificada en cero tokens prohibidos | stable |
 
 > **Type:** `real` = grounded in actual interviews | `archetype` = role-based (no real person).
 > **Status:** `draft` | `stable` | `deprecated`.

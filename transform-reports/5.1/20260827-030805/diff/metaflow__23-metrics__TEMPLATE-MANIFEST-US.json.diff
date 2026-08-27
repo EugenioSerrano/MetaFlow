@@ -1,0 +1,39 @@
+--- devflow/metrics/TEMPLATE-MANIFEST-US.json
++++ metaflow/23-metrics/TEMPLATE-MANIFEST-US.json
+@@ -1,11 +1,11 @@
+ {
+-  "schema_version": "5.0",
++  "schema_version": "1.0",
+   "us": {
+     "id": "US-012",
+-    "ref": "devflow/functional/user-stories/US-012-invoices.md",
++    "ref": "metaflow/12-functional/user-stories/US-012-invoices.md",
+     "sources": [
+-      "devflow/analysis/glossary/glossary.md",
+-      "devflow/analysis/open-questions/OQ-003-invoices-pdf-format.md"
++      "metaflow/02-analysis/glossary/glossary.md",
++      "metaflow/02-analysis/open-questions/OQ-003-invoices-pdf-format.md"
+     ],
+     "generation": {
+       "created_at": "2026-08-02T09:00:00-03:00",
+@@ -30,15 +30,15 @@
+     "review_started_at": "2026-08-02T09:45:00-03:00"
+   },
+   "story_points": 5,
+-  "bolts": [
+-    "devflow/functional/bolts/US-012.BOLT-003-invoice-download.md",
+-    "devflow/functional/bolts/US-012.BOLT-004-invoice-search.md"
++  "tasks": [
++    "metaflow/12-functional/tasks/US-012.TASK-003-invoice-download.md",
++    "metaflow/12-functional/tasks/US-012.TASK-004-invoice-search.md"
+   ],
+   "checkpoint_approvals": [
+     {
+-      "checkpoint": "AITL-US-Approval",
++      "checkpoint": "CP-US-Approval",
+       "subject": {
+-        "ref": "devflow/functional/user-stories/US-012-invoices.md"
++        "ref": "metaflow/12-functional/user-stories/US-012-invoices.md"
+       },
+       "decision": "approved",
+       "decided_by": [

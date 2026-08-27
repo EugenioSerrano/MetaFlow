@@ -1,0 +1,10 @@
+--- devflow/input/documentation/INDEX.md
++++ metaflow/01-input/documentation/INDEX.md
+@@ -1,6 +1,6 @@
+ # Documentation — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ Third-party reference documentation: API manuals, specifications, datasheets,
+ and guides from external systems, libraries, and vendors. Read-only material —

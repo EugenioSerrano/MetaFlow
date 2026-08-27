@@ -1,0 +1,11 @@
+--- devflow/agents/TEMPLATE-new-role/prompt.md
++++ metaflow/51-agents/TEMPLATE-new-role/prompt.md
+@@ -9,7 +9,7 @@
+ - **<artifact 1>** — <what it is, where it lives>
+ - **<artifact 2>** — <what it is, where it lives>
+ 
+-(Every DevFlow Agent is a producer first — the executor side of the Actor,
++(Every MetaFlow Agent is a producer first — the executor side of the Actor,
+ §3.0.1. What you write IS your definition; approvals are a secondary role.)
+ 
+ ## What I check

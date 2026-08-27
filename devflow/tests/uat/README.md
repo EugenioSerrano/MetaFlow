@@ -1,6 +1,6 @@
 # UAT (User Acceptance Testing — per Unit / Milestone)
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 > ⛔ **DORMANT / RESERVED (v4.2).** The UNIT/UAT approval-and-release layer was
 > **removed from the active flow in v4.2** — `AITL-UAT-Approval` is **not an

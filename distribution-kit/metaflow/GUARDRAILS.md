@@ -1,0 +1,483 @@
+# GUARDRAILS — Agent Enforcement Rules
+
+**Enforcing:** MetaFlow v1.1
+
+> **Read this first.** These are the non-negotiable rules that the AI agent
+> MUST enforce before any code change, document creation, or workflow action.
+> If a developer attempts something that violates a guardrail, the agent MUST
+> block the action (🔴) or warn (🟡) and explain why.
+>
+> **Normative source:** [`ai-sdlc/MetaFlow.md`](ai-sdlc/MetaFlow.md)
+> is the single source of truth. Section references (§) point to it. If this
+> file ever diverges from the methodology, the methodology governs.
+
+---
+
+## 🧭 CITL checkpoint map (the actor stops the agent MUST respect)
+
+Every checkpoint is named `CP-<CODE>-Approval`, is occupied by an actor — a human by default, a virtual MetaFlow Agent only by explicit, valid configuration (§3.0); absent/invalid config → human-only, no AI-signed approval possible — and requires a named reviewer, review timestamps and
+review-quality evidence (§3.0).
+
+| Checkpoint | Owner | Gates what |
+|------------|-------|------------|
+| `CP-US-Approval` | Functional Analyst (or, if the named role has no holder, the available qualified human records it, noting the self-assigned role) | Feature US + ACs approved; only then decomposable into functional TASKs. Does not apply to US-000. |
+| `CP-BUG-Approval` | Functional Analyst (functional) / Architect or Tech Lead recommended when `severity: critical`, otherwise any team member (non-functional) — recommended only; guidance, never a gate: any qualified team member, the BUG's own author included, may record it at any severity | BUG confirmed, evidenced, classified; only then its one dedicated TASK may be created. |
+| `CP-TC-Approval` | QA + Functional Analyst/domain owner (functional) / QA + technical owner (non-functional) (or, if a named role has no holder, the available qualified human records it, noting the self-assigned role) | TC approved as independent verification contract; only then it may govern a SPEC or originate Test TASKs. |
+| `CP-TASK-READY-Approval` | Functional Analyst (functional) / Architect or Tech Lead (non-functional; except: a non-functional BUG's dedicated TASK mirrors the parent BUG's severity routing, §2.16) / QA Lead, QA Automation Lead, Architect or Tech Lead (test) (or, if a named role has no holder, the available qualified human records it, noting the self-assigned role) | TASK approved (includes DoR); authorizes SPEC preparation, not execution. |
+| `CP-ADR-Approval` | Architect / Tech Lead (or, if the named role has no holder, the available qualified human records it, noting the self-assigned role) | ADR accepted and immutable; governs SPECs, waivers and constraints. |
+| `CP-SPEC-Approval` | Dev-validator + applicable domain owner(s) (or, if a named role has no holder, the available qualified human records it, noting the self-assigned role) | Canonical SPEC (and every material revision) approved; authorizes the code-run / Delivery Loop. |
+| `CP-MEM-Approval` | Dev-validator who executed the TASK (one approver, any risk; QA/Sec/domain reviewers optional) | MEM + Delivery Loop approved; approves and completes the Delivery Loop. |
+| `CP-TASK-DONE-Approval` | PO/PM (functional) / routed technical owner (non-functional) / QA Lead or QA Automation Lead (test) (or, if a named role has no holder, the available qualified human records it, noting the self-assigned role) | TASK `Done` (after `Development Completed`). |
+| `CP-DISC-Approval` | Qualified human (research domain) | Discovery conclusions become governed input. |
+| `CP-REV-Approval` | Qualified human (Review) | Review findings become governed input. |
+| `CP-AREV-CRITIQUE-Approval` | Qualified human (AREV) | Critique approved; only then Defense begins. |
+| `CP-AREV-DEFENSE-Approval` | Qualified human (AREV) | Defense approved; only then Verdict begins. |
+| `CP-AREV-VERDICT-Approval` | Qualified human (AREV) | Verdict approved; only then findings are usable. |
+
+**Role routing is guidance, never a gate (§3.0):** the owner named above is the
+recommended approver; when the role has no holder, the available qualified
+human records the approval, noting the self-assigned role; one person may hold
+several roles. The identity-separation rules stay hard — the handoff
+incoming-executor rule, Judge-model neutrality (G37), and no AI self-approval
+(G18/G24).
+
+**Approval independence:** no approval is inherited from a related artifact.
+US/BUG/TC/TASK/ADR/SPEC/MEM each keep their own checkpoint. A material change
+to an approved artifact invalidates its approval and pauses dependent work.
+
+---
+
+## 🔴 BLOCKING (the agent MUST reject)
+
+### ORIGIN phase (US / BUG / TC)
+
+| # | If the developer attempts... | Agent response |
+|---|------------------------------|----------------|
+| G01 | Decompose a feature US into TASKs without `CP-US-Approval` | ❌ *"Feature US is draft. `CP-US-Approval` (Functional Analyst) is required before deriving functional TASKs (§2.6, §3.0). US-000 has no approval lifecycle."* |
+| G02 | Create a TASK for a BUG without `CP-BUG-Approval` | ❌ *"BUG is draft. Approve the BUG first (`CP-BUG-Approval`), then create its one dedicated TASK (§2.16, §3.0)."* |
+| G03 | Create a Test TASK without `CP-TC-Approval` on its exact parent TC | ❌ *"Parent TC is draft. `CP-TC-Approval` is required before a TC originates Test TASKs (§2.6.1)."* |
+| G04 | Fix a BUG under an unrelated TASK, directly from a ticket, or untracked in another Delivery Loop | ❌ *"Every approved BUG has exactly one dedicated TASK; the BUG and TASK reference each other. The BUG alone never authorizes code (§2.16)."* |
+| G05 | Use  (the ) or non-canonical `CITL-*` identifiers | ❌ *"Canonical checkpoints are `CP-<CODE>-Approval` with uppercase codes only. Legacy prefixes — the pre-v5 `CITL-*` names, preserved only in migrated history (G36) — are invalid for new approvals (§3.0)."* |
+| G06 | Derive a TC's expected results from current code behavior | ❌ *"Test-basis rule: TCs derive from approved intent (US/AC + approved TASK, or non-functional TASK + ADRs), never from the implementation as oracle (§2.6.1)."* |
+| G29 | Block a BUG's `CP-BUG-Approval` (or its dedicated TASK's `CP-TASK-READY-Approval`) for lack of the recommended-role approver, on account of severity, or by excluding the BUG's own author | ❌ *"Approval routing is guidance, never a gate (§2.16, §3.0). The recommended approver — Functional Analyst (functional); Architect or Tech Lead when `severity: critical`, otherwise any team member (non-functional) — is advice, not a precondition: any qualified team member, the BUG's own author included, may record `CP-BUG-Approval` at any severity, and the dedicated TASK's `CP-TASK-READY-Approval` follows the same rule. The AI self-approval prohibition (G18/G24) is a different axis and still holds."* |
+| G30 | Create a new folder inside `metaflow/` (or any of its subfolders) outside the canonical folder structure | ❌ *"The `metaflow/` folder structure is canonical (§5.12, `metaflow/README.md`). The only sanctioned agent-created areas are the per-agent folders under `52-agents-data/` — each agent creates its own on first use, is responsible for it, and may freely organize files and subfolders **within** it (§5.12) — the per-AREV folders `32-adv-reviews/AREV-NNN-<description>/` (§2.15), and the `_archive/` subfolders the agent creates when archiving closed documents (§5.4). Store non-governed agent knowledge in your `52-agents-data/<agent-name>/` folder instead of inventing a folder."* |
+| G31 | Write, save, or move files into `metaflow/01-input/` or any of its subfolders | ❌ *"`01-input/` is human-deposited raw evidence, read-only for agents (§5.6). Agents may read it as evidence but never create, modify, or move files into it — adding an input triggers an impact assessment."* |
+| G32 | Cite `52-agents-data/` content as the source or justification of a SPEC, TASK, ADR, US, TC, BUG, MEM, or any CITL checkpoint | ❌ *"`52-agents-data/` is agent working data, never governed input (§5.12). It has no approval checkpoint and is excluded from evidence scans; move anything that must be cited into the proper governed artifact first."* |
+| G33 | Create, approve, or advance a feature User Story or Test Case without its manifest, or with a manifest that does not validate against its schema | ❌ *"Every feature US and every TC has exactly one manifest in `23-metrics/user-stories/` or `23-metrics/test-cases/`, created with the document and updated at every lifecycle step — an artifact without its manifest does not exist (§3.12). US-000 is the exception: it is a permanent container with no approval lifecycle and carries no manifest."* |
+
+### TASK phase
+
+| # | If the developer attempts... | Agent response |
+|---|------------------------------|----------------|
+| G07 | Make any code-related change (code, tests, config, IaC, schemas, migrations, build scripts) without an approved TASK | ❌ *"No code without an approved TASK — urgency and size create no exception (§3.2). SCOPE: the agent lifecycle is operational configuration, not a code change — installing, creating or deleting MetaFlow Agents within the agent system (`metaflow/51-agents/` squad definitions and their platform wrappers; `metaflow/53-actors/` actor files and roster listings) is living data (§5.12 and the roster's living-data rule), bounded by the lifecycle consistency contract: never the shipped examples/templates edited in place, never outside the agent system, and approver authority always the human's roster act. Everything else this rule covers stays absolutely blocked."* |
+| G08 | Create a TASK with the wrong parent type | ❌ *"functional → approved feature US; non-functional → `US-000-non-functional.md`; test → exactly one approved TC. BUG and hotfix are conditions, not TASK types (§2.4, §3.8)."* |
+| G09 | Put implementation instructions, architecture decisions, technologies, endpoints, schemas or algorithms inside a TASK | ❌ *"TASK = what must be delivered and expected evidence, never how. Implementation detail belongs in the SPEC; durable decisions belong in an approved ADR (§2.4)."* |
+| G10 | Prepare a SPEC or execute a TASK without `CP-TASK-READY-Approval` | ❌ *"Candidate TASKs cannot enter SPEC preparation or execution. Record `CP-TASK-READY-Approval` first (§2.4, §3.0)."* |
+| G11 | Two developers/agents executing the same TASK simultaneously | ❌ *"Single active executor per TASK. Handoff is allowed only after the current Delivery Loop produced its MEM and manifest entry and paused at `CP-MEM-Approval` (§3.3)."* |
+| G35 | Record `CP-TASK-READY-Approval` while an `open` or `in-validation` `OQ-NNN` targets this TASK's parent US or one of its governing artifacts | ❌ *"Unresolved analysis questions block TASK readiness — this is part of the DoR (§2.9, §3.2), not a separate checkpoint. Every OQ in `02-analysis/open-questions/` whose `targets` include this TASK's parent or governing artifacts must first be `answered` and propagated to its target, `deferred` with a revisit trigger, or `dropped` with a reason (§5.7)."* |
+
+### SPEC phase
+
+| # | If the developer attempts... | Agent response |
+|---|------------------------------|----------------|
+| G12 | Create a SPEC without a `task` field, a second concurrent SPEC for the same TASK, or a SPEC spanning multiple TASKs | ❌ *"One TASK has exactly one current canonical SPEC; one SPEC references exactly one TASK (§2.4.1, §3.2.1)."* |
+| G13 | Generate a SPEC while any governed source it needs is draft, rejected, stale or missing its CITL approval | ❌ *"Pre-SPEC evidence gate failed. Emit a blocking report naming the artifact and required checkpoint — no partial or draft SPEC (§2.4.1, §3.2.1)."* |
+| G14 | Start a code-run / Delivery Loop before `CP-SPEC-Approval` | ❌ *"SPEC is draft. `CP-SPEC-Approval` (Dev-validator + applicable domain owners) authorizes execution; TASK approval alone is not enough (§3.2.1, §3.3)."* |
+| G15 | Continue executing after a material change to a governed source (BUG, TC, TASK, feature US/ACs, ADR, DISC/REV/AREV finding, code baseline) | ❌ *"Material source change invalidates the current SPEC approval. Stop, revise the canonical SPEC, append `spec_revisions[]`, and re-approve through `CP-SPEC-Approval` (§2.4.1, §3.3). Silent mid-run edits are forbidden."* |
+| G16 | Span one Delivery Loop across two SPEC revisions | ❌ *"One Delivery Loop never spans two SPEC revisions. Close the current Delivery Loop with its MEM (normally `execution_outcome: blocked\|cancelled`), revise, re-approve, then start a new Delivery Loop (§3.3)."* |
+
+### DELIVERY LOOP / MEM phase
+
+| # | If the developer attempts... | Agent response |
+|---|------------------------------|----------------|
+| G17 | Complete a Delivery Loop without exactly one MEM + manifest `delivery_loops[]` entry + PAUSE at `CP-MEM-Approval` | ❌ *"Mandatory sequence: record outcome → create exactly one MEM → update manifest → PAUSE. The MEM is mandatory even for failed, blocked or turn-budget-exhausted Delivery Loops (§2.12, §3.0)."* |
+| G18 | Self-approve the MEM (approver actor = executor actor), skip the review, or treat "AI says it's fine" as approval | ❌ *"The agent creates the MEM and never approves its own work. An AI actor may approve only under an explicit, valid virtual-approver configuration with independence (approver actor ≠ executor actor); absent or invalid config → human-only. The reviewing actor reads the actual diff + test/gate evidence + MEM + manifest; the record never fabricates a human — a virtual approval is `agent:<id>`/`model:<id>` (§3.0, §2.12)."* |
+| G19 | BUG Delivery Loop: modify production code before objective red evidence | ❌ *"Strict TDD in the same Delivery Loop: create/run the reproduction test, record red for the expected reason, only then change production code, then green. No red evidence → stop, MEM with blocker, no fix (§2.16, §3.3.1)."* |
+| G20 | Merge, promote, or accept a TASK without the applicable approvals | ❌ *"Merge/release require approved `CP-MEM-Approval`; acceptance requires `CP-TASK-DONE-Approval`. Release and promotion follow the adopting team's own process — MetaFlow does not prescribe Unit/UAT approval checkpoints in this release (§4.6; a redesigned model is planned for a future version)."* |
+| G21 | Override a failed quality gate without an ADR | ❌ *"Gate override requires an ADR approved through `CP-ADR-Approval` with reason, owner, compensating control and expiry date; the gate records `waived`, never `pass`. `n/a` requires a reason in the approved SPEC (§3.6)."* |
+| G22 | Mark a TASK `Done` without `CP-TASK-DONE-Approval` | ❌ *"`Development Completed` (latest MEM approved) is not `Done`. TASK `Done` requires acceptance (§2.9, §3.0, §3.12)."* |
+
+### GOVERN phase
+
+| # | If the developer attempts... | Agent response |
+|---|------------------------------|----------------|
+| G23 | Create a manifest that does not validate against its `manifest-v1*.schema.json` (`23-metrics/manifest-v1-task.schema.json`, `23-metrics/manifest-v1-us.schema.json`, `23-metrics/manifest-v1-tc.schema.json`), or with fields outside it (gates, Delivery Flow, cost, AREV, `manual_intervention`, `iterations`, `traceability.prs`…) | ❌ *"Manifest v1 is the minimal traceability and timing contract (schema_version, artifact, spec_revisions, delivery_loops, checkpoint_approvals, review timestamps). Unknown fields fail validation (§3.12)."* |
+| G24 | Delegate a checkpoint to an AI approver without explicit valid configuration (or without independence), or fabricate a reviewer decision | ❌ *"A checkpoint may be occupied by an AI actor only under an explicit, valid virtual-approver configuration with independence (§3.0); otherwise it is human-only. Approvals require a named actor (human by default), timestamps and evidence; a decision is never fabricated, and a virtual approval is never recorded under a human name (§3.0)."* |
+| G25 | Skip, reorder, or auto-switch an AREV phase | ❌ *"AREV phases are sequential and each requires its approval: Critique → `CP-AREV-CRITIQUE-Approval` → Defense → `CP-AREV-DEFENSE-Approval` → Verdict → `CP-AREV-VERDICT-Approval`. Agent/model selection between phases is a manual human action (§2.15, §3.13)."* |
+| G26 | Use a draft ADR as governing, or edit an approved ADR | ❌ *"ADRs are governing only after `CP-ADR-Approval` and are immutable afterwards; a reversed decision is a new ADR that supersedes the old one (§2.8, §3.5)."* |
+| G27 | Use DISC conclusions, REV findings or AREV findings as governed input without their approvals | ❌ *"DISC requires `CP-DISC-Approval`, REV requires `CP-REV-Approval`, AREV requires all three sequential phase approvals. Only an approved Verdict produces usable findings (§2.13–§2.15)."* |
+| G28 | Cite a derivative document (`derivative: true`, e.g. anything in `02-analysis/introduction/`) or a generated sprint report (`42-reports/`) as the source or justification of a SPEC, TASK, ADR, User Story or Test Case | ❌ *"Derivative documents and generated reports are summaries of governed artifacts, never governed input, and they have no approval checkpoint that could make them one. Reports belong to this class by location, since rendered HTML cannot carry a `derivative: true` marker. Cite the artifact the summary was derived from (§5.5, §5.12)."* |
+| G34 | Stage, commit, push, or open a pull request without an explicit user request | ❌ *"The agent never writes repository history on its own. Version-control actions happen only when the human explicitly asks (§3.3); artifacts are written to the working tree and the human owns the commit."* |
+| G36 | While migrating a project to a newer methodology version, rewrite an approved MEM, an approved ADR, a recorded CITL decision or `review:` contract, or `CHANGELOG.md` history; **overwrite the project section of the root `AGENTS.md` instead of merging at its marker**; or, while converting a manifest forward, overwrite a recorded value, drop a recorded field, or invent one the repository does not record | ❌ *"A version migration moves **documentation and manifests** forward, never **history** (§5.16). Manifests are re-routed and converted to the current `schema_version` — a repository holds exactly one family — but only by adding the new schema's fields as `null` and applying its renames; every recorded value crosses untouched and a value nobody observed is never inferred (§3.12). Approved MEMs and ADRs are immutable (§2.12, §3.5), approval evidence records what happened rather than what the current version prescribes (§3.0), and a changelog is a record. **The root `AGENTS.md` is merged, never replaced:** take the new version's text up to its `METAFLOW:PROJECT-SECTION` marker and keep the existing file's text from its own marker onward, byte for byte. **Exclude it from the install copy** so it is never destroyed and the merge happens in place; if a blunt copy already overwrote it, read the previous content from the **last commit** — the fallback, which is why the tree must be committed before a migration runs. If the existing file has no marker, or more than one, stop and let a human place the boundary (§5.2, §5.16). Migrate READMEs, INDEXes, templates, document structure and manifests; update `metaflow/VERSION` last."* |
+| G37 | Run the Verdict phase with a Judge sharing the implementor's or the Challenger's model, or run an AREV with fewer than three models | ❌ *"Judge neutrality (§3.13): the Verdict's model must differ from **both** the implementor's and the Challenger's — a Judge that shares either one is not arbitrating, it is repeating. Running an AREV requires **at least three models** so the Judge is always a neutral third model; a single operator running three models is valid and approves the three AREV documents but does not arbitrate. There is **no human-arbiter fallback**: a team without a third model does not run the AREV, and an AREV already open that cannot reach a neutral Verdict is set `cancelled` (§3.15)."* |
+| G38 | Move a document into an `_archive/` folder before its lifecycle is closed | ❌ *"Only lifecycle-closed documents are archived (§5.4): `Done` TASKs with their complete package (TASK, SPEC, MEMs), `superseded`/`deprecated` ADRs, closed DISC/REV/AREV records with every finding routed, closed BUGs, retired RISKs and completed UAT minutes. **Archiving never causes closure, it presupposes it** — it is a housekeeping move, not a lifecycle step, and it grants no approval the document does not already hold. Because `_archive/` is excluded from agent scans (W20) and its contents are treated as generally invisible, archiving an active, draft or in-review document is the one move that removes open work from governance without ever closing it. If closure cannot be established from the document itself, do not archive it and ask the human (§5.4, §3.0)."* |
+| G39 | Use a `status` value that is not in its artifact family's row of the §3.15 vocabulary table — or store a state the methodology derives rather than declares (the TASK's development state, the MEM's review state, the US/TC progress states) | ❌ *"The §3.15 status vocabulary is the normative and complete set: a family never uses a value outside its row, and a new value is added to the table **before** it appears in a template, a folder README or an INDEX. `status` is a document state and never substitutes for a CITL decision; derived states are never stored as a `status` value (§3.12)."* |
+
+---
+
+## 🟡 WARNING (the agent MUST alert, but not block)
+
+| # | If the developer attempts... | Agent warns... |
+|---|------------------------------|----------------|
+| W01 | Size a TASK beyond 1 working day of active delivery, or split a TASK just because a Delivery Loop crossed a day boundary | ⚠️ *"1h–1 working day of active delivery time is the target, not a destructive boundary. Split only for independently deliverable outcomes (§2.4, §3.2)."* |
+| W02 | Generate a SPEC without the required contents | ⚠️ *"SPEC must record: source inventory and approval references, repository baseline, scope/exclusions, impacted files, implementation plan, AC/test mappings, gates, security/data/observability, migration/rollback, risks and stop conditions (§2.4.1, §3.2.1)."* |
+| W03 | Create a MEM without the minimum content | ⚠️ *"MEM must include: Delivery Loop/TASK/SPEC revision/baseline, summary, every file with reason, 24-tests/gates evidence, decisions, deviations, risks, manual interventions, evidence links, and the review record (§2.12)."* |
+| W04 | Invent/fabricate a timestamp instead of using the system clock | ⚠️ *"Use `Get-Date -Format "yyMMdd-HHmm"` (PowerShell) or `date +"%y%m%d-%H%M"` (Bash). Never invent timestamps."* |
+| W05 | Write YAML frontmatter enum values in a language other than English, or mix languages inside a single prose field | ⚠️ *"Schema stays English: `status: open`, not `abierta`. One language per prose field, never interleaved. Localized enums break validators and INDEX counters (§3.15)."* |
+| W06 | Name a MEM with `v2`, `retry`, `fix`, `bounce-2` suffixes or change the `<description>` slug across Delivery Loops | ⚠️ *"MEMs for the same TASK/SPEC reuse the identical slug (in the project's `content_language`, §3.15); only the `YYMMDD-HHmm` timestamp changes. Reserve filenames atomically (§2.12)."* |
+| W07 | Create a document without using the corresponding TEMPLATE | ⚠️ *"Use `TEMPLATE-*.md` as the starting point. Consistent structure matters for tooling and agent consumption."* |
+| W08 | Use ASCII art, or embedded images as a substitute for a required diagram | ⚠️ *"Use the notation the artifact's own convention allows: Mermaid by default; BPMN for business processes in `02-analysis/process/`. Embedded images are never a substitute for a required diagram; raw evidence images in `01-input/` are raw material, not diagrams."* |
+| W09 | Leave the `llm` field empty in a Markdown artifact (or add YAML frontmatter to code/JSON) | ⚠️ *"`llm` is mandatory in every AI-generated Markdown artifact. Code and JSON do not use YAML frontmatter; generation usage is recorded in manifest `runs[]` (§3.1). AREV phase templates are the exception: they record the executing model via `challenger_model` / `defender_model` / `judge_model` (§2.15, §3.13) and carry no separate `llm:` field."* |
+| W10 | Write an ADR title or body (prose) in English when the project's `content_language` is different | ⚠️ *"ADR titles and bodies follow the project's `content_language` like any other artifact; the `ADR-NNN` ID stays English (§3.15)."* |
+| W11 | Record a review without the complete `review:` contract | ⚠️ *"Every approvable artifact carries `review_ready_at` and `review:` (decision, reviewers as `{actor, role, model}`, started_at, decided_at, findings). Empty findings require `acknowledged_without_comment: true` + `acknowledgment_reason` (§3.0)."* |
+| W12 | Write QA Automation code without a Test TASK, or let one Test TASK span several TCs | ⚠️ *"QA Automation requires dedicated Test TASKs parented by exactly one approved TC (`TC-NNN.TASK-NNN`) with the full TASK lifecycle (§2.6.1)."* |
+| W13 | Close an incident without linking it to its originating TASK/deployment evidence | ⚠️ *"Incidents keep their own artifacts (`INC-NNN`); deployment-caused incidents feed D3/D4 from there. Manifest v1 carries no Delivery Flow/incident data (§3.12)."* |
+| W14 | Downgrade `risk_class` after the first MEM approval without formal re-review | ⚠️ *"Risk is assigned at `CP-TASK-READY-Approval`, may be escalated at any review, and cannot be reduced after the first MEM approval unless the TASK is re-reviewed and re-approved; append the change to `risk_history` (§3.3)."* |
+| W15 | Use `L4` autonomy without an ADR approved through `CP-ADR-Approval` | ⚠️ *"L4 (Orchestrated) is reserved and never allowed without an explicit approved ADR (§3.3)."* |
+| W16 | Report a TASK lead time as Delivery Flow Change Lead Time | ⚠️ *"TASK Lead Time (from `CP-TASK-READY-Approval` to `CP-TASK-DONE-Approval`) is a separate flow metric, never Delivery Flow D2 (§3.7.1–§3.7.2)."* |
+| W17 | Work more than one active TASK per person/agent, or treat AREV findings as a substitute for human review | ⚠️ *"WIP target: 1 active TASK per person/agent (§3.2). AREV is a pre-filter for later human decisions, never a replacement (§3.0, §2.15)."* |
+| W18 | Convert story points into hours, gate any checkpoint on them, or derive a velocity/performance target from them | ⚠️ *"`story_points` on a feature US is a relative functional-complexity signal confirmed at `CP-US-Approval`. Informational only: planning stays on throughput + TASK Lead Time (§2.6, §4.3). US-000 carries none."* |
+| W19 | Estimate a TASK's active delivery time as manual coding effort | ⚠️ *"Code is agent-generated in minutes; the dominant cost is human review and rework. Compose estimates per the AI-native estimation rule: expected Delivery Loops × (generation + review budget) + overhead (§2.4, §3.0). Over one day → suspect anchoring before splitting."* |
+| W20 | Search or read `_archive/` proactively without an explicit user request or an explicit reference to an archived artifact | ⚠️ *"`_archive/` is excluded from agent scans for token economy; access it only when the user explicitly asks or an active document explicitly references an archived artifact. If a task needs archived content, state the exclusion and ask the user (§5.4)."* |
+| W21 | Use `52-agents-data/` for temporary or disposable data | ⚠️ *"`52-agents-data/` is versioned shared knowledge for the whole team, never a scratch area. Temporary data (drafts, tool outputs, large intermediates) goes to the OS temp directory and is never committed; only durable, team-useful information belongs under `52-agents-data/<agent>/` (§5.12)."* |
+
+---
+
+## ✅ NAMING CONVENTIONS (the agent MUST validate)
+
+| # | Artifact | Pattern | Example |
+|---|----------|---------|---------|
+| N01 | User Story | `US-NNN-<description>.md` | `US-001-payment-processing.md` |
+| N02 | Functional TASK | `US-NNN.TASK-NNN-<description>.md` | `US-001.TASK-003-auth-endpoint.md` |
+| N03 | Non-functional TASK | `US-000.TASK-NNN-<description>.md` | `US-000.TASK-007-infra-ci.md` |
+| N04 | Test TASK | `TC-NNN.TASK-NNN-<description>.md` | `TC-027.TASK-001-invoice-download-e2e.md` |
+| N05 | SPEC | `SPEC-YYMMDD-HHmm-<description>.md` | `SPEC-260607-1430-auth-module.md` |
+| N06 | MEM | `MEM-YYMMDD-HHmm-<description>.md` (stable slug per TASK) | `MEM-260802-1138-invoice-download.md` |
+| N07 | Manifest (functional / non-functional) | `US-NNN.TASK-NNN-<description>.json` | `US-001.TASK-003-auth-endpoint.json` |
+| N08 | Manifest (test) | `TC-NNN.TASK-NNN-<description>.json` | `TC-027.TASK-001-invoice-download-e2e.json` |
+| N09 | Manifest JSON Schemas | `manifest-v1*.schema.json` (normative, in `23-metrics/`) | — |
+| N10 | Review | `REV-NNN-<description>.md` | `REV-001-code-review.md` |
+| N11 | Bug | `BUG-NNN-<description>.md` | `BUG-001-race-condition.md` |
+| N12 | Discovery | `DISC-NNN-<description>.md` | `DISC-001-legacy-analysis.md` |
+| N13 | ADR | `ADR-NNN-<description>.md` | `ADR-006-logging-strategy.md` |
+| N14 | Risk | `RISK-NNN-<description>.md` | `RISK-001-api-dependency.md` |
+| N15 | Incident | `INC-NNN-<description>.md` | `INC-001-payment-timeout.md` |
+| N16 | Retro | `RETRO-NNN-YYYY-Www.md` | `RETRO-001-2026-W23.md` |
+| N17 | Adversarial Review | `AREV-NNN-<description>/` (folder) | `AREV-001-security-owasp/` |
+| N18 | Open Question | `OQ-NNN-<description>.md` | `OQ-003-multi-tenant-scope.md` |
+| N19 | Process | `PROC-NNN-<description>.md` | `PROC-001-order-fulfillment.md` |
+| N20 | Test Case | `TC-NNN-<description>.md` | `TC-027-invoice-download.md` |
+| N21 | UAT | `UAT-NNN-<description>.md` | `UAT-001-milestone-payments.md` |
+| N22 | Interview / Business Risk | `INT-NNN-<description>.md` / `BR-NNN-<description>.md` | `INT-001-stakeholder-cto.md` / `BR-001-market-entry.md` |
+| N23 | Introduction narrative (derivative, §5.5) | `<feature-description>.md` — descriptive, **no ID** | `mass-payment-cancellation.md` |
+
+**Rules:** sequential numbers (`NNN`) come from each folder's `INDEX.md`.
+`TASK-NNN` is three digits, widening to four past 999 (§2.4); every other
+`NNN` stays at three. The `HHmm` of N05/N06 is a **local wall-clock time with
+no offset**, and must be read in the same UTC offset as the artifact's own
+`generation.created_at` — otherwise the
+alphabetical order of SPEC/MEM filenames stops matching their chronological
+order across time zones. The precise, offset-bearing instant always lives in
+the manifest field, never in the filename. N23 is the only **row of this
+table** without a sequential ID: derivative documents carry no identifier
+because nothing may reference them as evidence (G28). It is not the only
+ID-less artifact in the repository — the `02-analysis/` families that keep a
+curated inventory instead of an allocator (business-context, domain-model,
+glossary, introduction, personas, scope, ui, user-journeys, vision) are named
+descriptively and claim no `NNN` either (§5.15); they have no row here
+because there is no pattern to validate.
+`<description>` slugs follow the project's `content_language` (kebab-case
+ASCII, no accents/ñ — §3.15); the IDs and prefixes above are never
+translated or renamed. The examples shown are in English because they
+document the framework; instantiated filenames use the project's language.
+
+---
+
+## 🗂️ INDEX CONVENTION (the agent MUST follow when writing an `INDEX.md`)
+
+Columns are **free per cluster** — a Test Case index and a TASK index do not
+need the same ones. What is fixed is the status vocabulary and the footer:
+
+| Emoji | Means | Never use it for |
+|-------|-------|------------------|
+| 🟡 | Draft, pending its CITL checkpoint, or partially resolved (mitigated, materialized) — not final | a terminal state |
+| 🔴 | Open, unresolved, needs action now — e.g. open incidents, unanswered open questions | a terminal state |
+| 🔄 | Work in motion or paused pending a trigger: in progress, in review, in-fix, deferred | a terminal state |
+| ✅ | **Live and healthy**: active, approved, current truth | anything closed |
+| 🏁 | **Terminal and successful**: closed, fixed, resolved, all findings routed | anything obsolete |
+| ⛔ | **Terminal and obsolete**: deprecated, superseded, archived, no longer valid | anything resolved successfully |
+| ❌ | Rejected, or changes requested and never re-approved | — |
+
+`superseded` and `deprecated` are both ⛔ — the document no longer governs
+either way; which of the two it is belongs in the section title, not the
+emoji. A **terminal-but-successful** outcome is never ⛔.
+
+The distinction that matters: **🏁 and ⛔ are both terminal, but they mean
+opposite things.** A fixed BUG, a closed Review and a mitigated Risk are
+successes (🏁); a deprecated ADR or an archived process is obsolete (⛔).
+Marking a resolved artifact ⛔ tells a reader — and an agent scanning the
+index — that it was abandoned.
+
+- Section order follows the artifact's own lifecycle, earliest state first.
+- An artifact with no lifecycle (glossary, personas, journeys, business-context,
+  introduction, domain-model, ui) needs no status sections — a single listing is
+  correct.
+- `**Last updated:** <Month YYYY>` goes at the **bottom** of the file, always.
+
+---
+
+## 🔗 TRACEABILITY RULES (the agent MUST verify cross-references)
+
+| # | Rule |
+|---|------|
+| T01 | Every feature US traces to raw inputs / analysis evidence and carries `CP-US-Approval` before decomposition |
+| T02 | Every BUG carries `CP-BUG-Approval` and references its exactly-one dedicated TASK; the TASK references the BUG. For a non-functional BUG, the recorded reviewer may be any qualified team member, the BUG's own author included; the severity-based approver (Architect/Tech Lead when `severity: critical`) is a recommendation, not a gate |
+| T03 | Every TC references exactly one approved source TASK (+ `source_us`/`covered_acs` or `US-000` + governing sources) and carries `CP-TC-Approval` |
+| T04 | Every TASK references its parent (approved feature US, US-000, or one approved TC) and carries `CP-TASK-READY-Approval` |
+| T05 | Every SPEC references exactly one approved TASK; its `sources` lists every governed artifact actually used |
+| T06 | Every MEM references its TASK, canonical SPEC revision, Delivery Loop number and manifest `delivery_loops[]` entry |
+| T07 | Every manifest validates against its `manifest-v1*.schema.json`; `delivery_loops[].spec_revision` points to an existing approved revision; `mem.ref` points to an existing MEM |
+| T08 | Every ADR references its motivating sources and carries `CP-ADR-Approval` |
+| T09 | Every DISC/REV carries its approval; AREV phases are sequential and each approved before the next |
+| T10 | A review finding that requires code creates a TASK before a SPEC is written (never REV → SPEC directly) |
+| T11 | Every gate result is `pass`, `waived` (with approved waiver ADR) or `n/a` (with reason in the approved SPEC) |
+| T12 | Approvals are never inherited: each artifact's `CITL-*` decision is recorded on that artifact (and minimally projected in the manifest where applicable) |
+
+---
+
+## 📋 Review contract (machine-readable evidence, §3.0)
+
+Every approvable artifact carries this minimum contract in its own metadata:
+
+```yaml
+review_ready_at: 2026-08-02T11:45:00-03:00   # submitted, available for review
+review:
+  decision: approved                          # approved | changes_requested | rejected
+  reviewers:
+    - actor: human:eugenio.serrano            # human:<user> | agent:<id> (§3.0)
+      role: dev_validator
+      model: null                             # null for a human; the model id for an agent
+  started_at: 2026-08-02T11:55:00-03:00       # direct human inspection begins
+  decided_at: 2026-08-02T12:10:00-03:00       # decision recorded
+  findings: []                                # findings/comments; if empty:
+  acknowledged_without_comment: true          # must be true and...
+  acknowledgment_reason: "Evidence inspected; no findings identified."
+```
+
+**Manifest projection** (lifecycle decisions of the manifest family) — a
+field-for-field **copy** now that both sides use the actor grammar:
+`review.reviewers[]` (`{actor, role, model}`) → `checkpoint_approvals[].decided_by[]`,
+`review.decision` → `.decision`, `review.decided_at` → `.decided_at`,
+`review.findings` may be summarized in the optional `comment`. (A decision is
+**virtual** when a `decided_by[].actor` carries the `agent:` prefix — derived,
+not stored; there is no `mode` field, §3.12/G39.) `review_ready_at` and `started_at` are
+**copied** to the manifest as `review_ready_at` / `review_started_at`
+(§3.12 timing contract); the full findings and acknowledgment fields are
+not. A mismatch between artifact evidence and its manifest projection is a
+validation error. The TASK's **acceptance review** (`CP-TASK-DONE-Approval`)
+is a second review of the same artifact: it carries `acceptance_review_ready_at`
+and `acceptance_review:` (same shape as above) and projects to
+`task.acceptance.review_ready_at` / `task.acceptance.review_started_at`
+(§3.0, §3.12).
+
+---
+
+## ⚡ DELIVERY LOOP MANDATORY SEQUENCE (§3.3)
+
+The agent MUST execute this exact sequence. No step is skippable:
+
+```
+1. Execute against the approved SPEC revision (CP-SPEC-Approval recorded)
+2. Run tests inside the autonomous loop until green or a stop condition
+3. Record implementation + verification outcome (including blockers)
+4. Create exactly one MEM (mandatory even on failure/blocker/turn-budget)
+5. Update TASK manifest: append delivery_loops[] entry (number, spec_revision,
+   git_commit, execution_outcome, code_generation, mem, review_ready_at,
+   review_started_at — all eight required; review_started_at is null until
+   the human begins)
+6. PAUSE at CP-MEM-Approval — human reviews diff + evidence + MEM + manifest
+```
+
+- **AREV is NOT a step of this sequence** (§2.15): it is a standalone,
+  stakeholder-triggered mechanism that needs no TASK or SPEC to exist. A
+  TASK-bound AREV examines the **closed package** (step 5) and its approved
+  Verdict is a pre-filter for the step-6 decision. If that decision is
+  `changes_requested`, the normal rule below applies.
+
+- `execution_outcome`: `ready_for_review | failed | blocked | cancelled`.
+- Internal autonomous retries stay inside the Delivery Loop; they never add entries.
+- `changes_requested` keeps the MEM as immutable history; the next agent
+  execution is a NEW Delivery Loop with a NEW MEM.
+
+---
+
+## 🏗️ US-000 — Non-functional container (§3.2)
+
+`US-000-non-functional.md` is the permanent, always-active traceability
+container for **every TASK whose primary outcome is non-functional**:
+infrastructure, refactoring, technical debt, hardening, security,
+performance, availability, observability, CI/CD, dependency upgrades,
+database maintenance, developer tooling.
+
+| If the work is... | Assign TASK to... |
+|-------------------|-------------------|
+| A new business feature | Its natural approved feature US |
+| A defect in feature behavior (functional BUG) | Dedicated functional TASK under the affected approved feature US (BUG approved first) |
+| A defect in a technical constraint (non-functional BUG) | Dedicated non-functional TASK under `US-000` (BUG approved first) |
+| Infra, CI/CD, monitoring, pipelines | `US-000` |
+| Framework/library upgrades | `US-000` |
+| Cross-cutting refactors | `US-000` |
+| Security hardening across the codebase | `US-000` |
+| Developer tooling / DX improvements | `US-000` |
+| QA Automation | Test TASK under one approved TC (never US-000) |
+
+**Rules:**
+- US-000 has **no approval lifecycle** — never approved, rejected or re-approved.
+- US-000 is not a substitute for approved ADRs or quality gates.
+- Every US-000 TASK requires its own technical `CP-TASK-READY-Approval` and follows
+  the full SPEC → Delivery Loop → MEM → manifest lifecycle.
+- If in doubt, classify by **primary outcome** (§2.4): user- or business-visible
+  behavior → feature US; technical outcome → `US-000`. No "quick fix", "chore",
+  refactor, hardening or infrastructure exception exists.
+
+---
+
+## ⏱️ CITL REVIEW BUDGETS (§3.0 — recommended, per risk class)
+
+Recommended review times for the technical/delivery checkpoints. US, BUG, TC,
+ADR, DISC, REV and AREV budgets are **project-defined**. Review duration is
+derived from the manifest timing contract (`decided_at` − `review_started_at`,
+§3.12) or, where a step timestamp is missing, from workflow telemetry.
+
+| Risk class | SPEC | MEM / Delivery Loop | TASK acceptance |
+|-----------|------|----------------|-----------------|
+| `low`      | ~5   | ~15            | ~5              |
+| `medium`   | ~10  | ~30            | ~10             |
+| `high`     | ~15  | ~60            | ~15             |
+| `critical` | ~30  | ~90            | ~30             |
+
+---
+
+## 🎯 CITL COVERAGE TARGETS (§3.0 — by TASK type)
+
+Missing any required checkpoint = process defect logged in the next retro.
+
+| TASK type | Required checkpoints | Conditional additions | Target |
+|-----------|----------------------|-----------------------|--------|
+| `functional` | CP-US-Approval + CP-TASK-READY-Approval + CP-SPEC-Approval + CP-MEM-Approval + CP-TASK-DONE-Approval | CP-BUG-Approval when BUG-driven | **100%** |
+| `non-functional` | CP-TASK-READY-Approval + CP-SPEC-Approval + CP-MEM-Approval + CP-TASK-DONE-Approval | CP-BUG-Approval when BUG-driven | **100%** |
+| `test` | CP-TC-Approval + CP-TASK-READY-Approval + CP-SPEC-Approval + CP-MEM-Approval + CP-TASK-DONE-Approval | — | **100%** |
+
+Plus: `CP-ADR-Approval` for every applicable ADR, and all conditional
+approvals for any DISC/REV/AREV used by the TASK or SPEC.
+
+**Per-TASK coverage is the whole coverage story in this release:** release-level
+grouping, promotion and customer acceptance are the adopting team's own process
+(§4.6); MetaFlow does not prescribe Unit/UAT approval checkpoints in this release
+(a redesigned model is planned for a future version). A `Done` TASK already reports 100% on
+its own checkpoints.
+
+**Approver at `CP-MEM-Approval` (§3.3):**
+The MEM is approved by the **Dev-validator who executed the TASK** (never the
+AI agent); after a recorded handoff, the incoming executor. **One approver, at
+any risk** — there is no risk-based approver count; QA/Sec/domain reviewers are
+optional:
+
+| Risk class | Approver at CP-MEM-Approval |
+|-----------|-------------------------------|
+| `low`      | 1 (the executing Dev-validator) |
+| `medium`   | 1 (the executing Dev-validator) |
+| `high`     | 1 (the executing Dev-validator) |
+| `critical` | 1 (the executing Dev-validator) |
+
+**Autonomy defaults by risk (§3.3):** `low → L3`, `medium → L3`, `high → L2`,
+`critical → L1`. `autonomy_level` is declared in the frontmatter of every SPEC
+revision. L4 (Orchestrated) requires an ADR approved through
+`CP-ADR-Approval`.
+
+---
+
+## 🛣️ CITL-TASK-DONE ROUTING BY WORK CATEGORY (§3.11)
+
+`work_category` routes the acceptance approver. `task_type` (3 canonical
+types) ≠ `work_category` (reporting/routing) ≠ `service_class` (priority).
+
+| Work category | Acceptance approver | Demo form |
+|---------------|---------------------|-----------|
+| `feature` | PO / PM | Business demo |
+| `refactor` | Tech Lead | Before/after diff + test parity |
+| `infra` | Tech Lead + SRE | Deployment evidence + perf-smoke |
+| `hardening` | Tech Lead + Sec | Fixed control + regression test |
+| `debt` | Tech Lead | Metric/maintainability improvement |
+| `qa_automation` | QA Lead / QA Automation Lead | Approved TC automated with execution evidence |
+
+> **Availability (operability principle, §3.0):** these approvers are the
+> recommended defaults; where a paired or named role has no holder (e.g. no SRE
+> or Security member), the available qualified human records the acceptance,
+> noting the self-assigned role — the routing never blocks.
+
+A `feature` TASK without a PO sign-off is **not Done**, regardless of gates.
+
+---
+
+## 🚦 PRIORITIZATION SERVICE CLASSES (§3.8)
+
+| Service class | Priority | Rules |
+|---------------|----------|-------|
+| `regulatory` | Immediate | Non-negotiable deadline; takes precedence |
+| `incident_hotfix` | Immediate | Small, bounded TASK ≤ 4 active delivery hours when scope permits; full approval lifecycle, never skipped |
+| `feature_value` | Normal | Standard Delivery Loop; scheduled by PO |
+| `debt_hardening` | Reserved | Reserve 10–20% capacity per week; assigned to `US-000` |
+
+- BUG and hotfix are **conditions**, not TASK types — the TASK remains
+  functional or non-functional (or test).
+- Split only for independently deliverable outcomes or approvals; elapsed time
+  alone never splits a TASK.
+
+---
+
+## 🛑 STOP-AND-ASK RULE (§3.0, §2.12)
+
+If the agent loops beyond its configured turn budget without a green test
+suite, it MUST **stop and ask a human** — but only **after** creating the
+mandatory MEM and manifest `delivery_loops[]` entry recording the blocker and
+current evidence. The human may patch the code manually; this is recorded in
+the MEM (not hidden, not punished — measured). Manual intervention is never
+an excuse to skip gates or CITL review.
+
+---
+
+## 🛡️ AI-NATIVE GATES (§3.6 — quick reference)
+
+`fail` blocks merge, `CP-MEM-Approval`, acceptance and promotion; G21 governs
+override and `n/a`. Prompt-injection, secret-leak, hallucination lint,
+IP/license provenance, PII/DLP, dependency-confusion, test-first evidence,
+behavioral reproducibility, and TASK-manifest validation.
+
+**Conditional classic gates (per TASK, when applicable to the change):** unit
+and integration tests green, plus contract/E2E tests when the change crosses
+component boundaries within the TASK's scope; SAST (and DAST when an
+executable attack surface exists); dependency scanning and licenses/SBOM;
+OWASP Top 10 coverage when the change touches an externally reachable
+surface (public endpoints, web UIs, auth boundaries) — otherwise `n/a` with
+a reason in the SPEC; perf-smoke with SPEC-defined p95/p99 thresholds;
+required logs, metrics and traces for backend services (§3.6).
+
+**Release level (aggregated above the per-TASK loop, NOT per TASK):** mutation
+testing (where the language allows) and end-to-end / contract tests for
+**cross-TASK** regressions at release / milestone level. This suite never substitutes the per-TASK
+conditional gate above — a boundary-crossing TASK cannot record its own
+contract/E2E gate as `n/a` because a later release suite will cover it (§3.6).
+
+---
+
+## 📖 Related Documents
+
+- [`README.md`](README.md) — Full methodology overview and folder map
+- [`ONBOARDING.md`](ONBOARDING.md) — Role-based onboarding guide
+- [`ai-sdlc/MetaFlow.md`](ai-sdlc/MetaFlow.md) — Complete methodology (normative source, v1.1)
+- [`12-functional/user-stories/US-000-non-functional.md`](12-functional/user-stories/US-000-non-functional.md) — Non-functional container
+- [`23-metrics/README.md`](23-metrics/README.md) — Manifest family v5 schemas and lifecycle
+- [`23-metrics/manifest-v1-task.schema.json`](23-metrics/manifest-v1-task.schema.json) — Normative TASK manifest JSON Schema
+- [`23-metrics/manifest-v1-us.schema.json`](23-metrics/manifest-v1-us.schema.json) — Normative US manifest JSON Schema
+- [`23-metrics/manifest-v1-tc.schema.json`](23-metrics/manifest-v1-tc.schema.json) — Normative TC manifest JSON Schema

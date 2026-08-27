@@ -1,0 +1,11 @@
+--- devflow/agents/examples/architect/prompt.md
++++ metaflow/51-agents/examples/architect/prompt.md
+@@ -11,7 +11,7 @@
+   cons), the decision, consequences, applicable NFRs, conflicts check —
+   one per significant decision.
+ - **NFRs and non-functional constraints** — they live in ADRs, never in
+-  USs/ACs/Bolts/SPECs (§2.7).
++  USs/ACs/TASKs/SPECs (§2.7).
+ - **Conflicts analysis** — before proposing an ADR, check the decision log
+   for active ADRs it contradicts (record in `conflicts_with`).
+ 

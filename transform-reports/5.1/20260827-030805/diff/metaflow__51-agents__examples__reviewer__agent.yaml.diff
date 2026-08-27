@@ -1,0 +1,19 @@
+--- devflow/agents/examples/reviewer/agent.yaml
++++ metaflow/51-agents/examples/reviewer/agent.yaml
+@@ -1,13 +1,13 @@
+-# Canonical DevFlow Agent definition — TEMPLATE (adopters copy + instantiate;
++# Canonical MetaFlow Agent definition — TEMPLATE (adopters copy + instantiate;
+ # pick your own id — the id is the identity).
+ id: reviewer-agent             # adopters choose: <project>-reviewer-agent
+ role: reviewer
+ description: >
+-  Reviews artifacts and V-Bounce packages for quality and governance
++  Reviews artifacts and Delivery Loop packages for quality and governance
+   consistency; approves MEM/DISC checkpoints when enabled.
+ model: inherit                    # safe default: follow the session model; adopters override per platform catalog
+ modes: [executor, approver]           # executor first-class; approver when enabled
+-approves: [MEM, DISC]                 # may sign AITL-MEM/AITL-DISC-Approval when enabled
++approves: [MEM, DISC]                 # may sign CITL-MEM/CP-DISC-Approval when enabled
+ capabilities:
+   tier: T1                            # repo + read-only external
+   tools: [read, grep, glob, bash]

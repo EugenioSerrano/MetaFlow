@@ -1,0 +1,93 @@
+{
+  "schema_version": "5.0",
+  "us": {
+    "id": "US-001",
+    "ref": "devflow/functional/user-stories/US-001-toolkit-transformacion.md",
+    "sources": [
+      "devflow/analysis/scope/mvp-scope.md",
+      "devflow/analysis/glossary/metaflow.md",
+      "devflow/analysis/process/PROC-001-transformacion-kit.md",
+      "devflow/analysis/user-journeys/publicar-nueva-version.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-27T01:14:34-03:00",
+      "created_by": "human:eugenioserrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek/deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-27T01:14:34-03:00",
+    "review_started_at": "2026-08-27T01:17:43-03:00"
+  },
+  "story_points": 5,
+  "bolts": [
+    "devflow/functional/bolts/US-001.BOLT-001-engine-transformacion.md",
+    "devflow/functional/bolts/US-001.BOLT-002-verificador-reporte.md",
+    "devflow/functional/bolts/US-001.BOLT-003-versionado-y-limpieza.md",
+    "devflow/functional/bolts/US-001.BOLT-004-numeracion-carpetas-kit.md",
+    "devflow/functional/bolts/US-001.BOLT-005-correccion-numeracion.md",
+    "devflow/functional/bolts/US-001.BOLT-006-fix-numeracion-plataforma.md"
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-001-toolkit-transformacion.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T01:17:43-03:00",
+      "comment": "Aprobación del propietario (Functional Analyst autoasignado) sin hallazgos; story_points confirmados en 5"
+    },
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-001-toolkit-transformacion.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T01:23:11-03:00",
+      "comment": "Revalidación de la Revisión 4 (AC-11 evidencia persistente por run, R6 transform-reports/ nunca borrada)"
+    },
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-001-toolkit-transformacion.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T02:03:08-03:00",
+      "comment": "Revalidación de la Revisión 5 (R6: retención acotada a las 2 corridas más recientes por versión en transform-reports/)"
+    }
+  ]
+}

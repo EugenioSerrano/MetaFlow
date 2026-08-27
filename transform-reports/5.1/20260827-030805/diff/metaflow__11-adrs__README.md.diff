@@ -1,0 +1,90 @@
+--- devflow/adrs/README.md
++++ metaflow/11-adrs/README.md
+@@ -1,6 +1,6 @@
+ # Architecture Decision Records (ADRs)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -12,7 +12,7 @@
+ The goal is to build a decision log so that **anyone** can understand
+ **WHY** the system is designed the way it is.
+ 
+-Reference: Avenga DevFlow §2.8, §3.0 (AITL-ADR-Approval), §3.5.
++Reference: MetaFlow §2.8, §3.0 (CP-ADR-Approval), §3.5.
+ 
+ ---
+ 
+@@ -21,13 +21,13 @@
+ | Trigger | Example |
+ |---------|---------|
+ | Significant technical decision | DB choice, API style, auth strategy |
+-| Gate override / waiver | A gate override: the ADR must be approved through `AITL-ADR-Approval` and record **reason, owner, compensating control and expiry date** (§3.6); the gate then records `waived`, never `pass` |
++| Gate override / waiver | A gate override: the ADR must be approved through `CP-ADR-Approval` and record **reason, owner, compensating control and expiry date** (§3.6); the gate then records `waived`, never `pass` |
+ | NFR definition or trade-off | Performance vs. cost, availability vs. consistency — NFRs are governed **inside** approved ADRs (§2.7) |
+-| L4 autonomy grant | Multi-Bolt scope granted to the agent (§3.3) |
++| L4 autonomy grant | Multi-TASK scope granted to the agent (§3.3) |
+ 
+ **Timing (§2.8, §3.5):** An ADR that constrains implementation must be
+ prepared and **approved before the SPEC is generated**. If an unresolved
+-architectural decision emerges during SPEC preparation or a V-Bounce, the
++architectural decision emerges during SPEC preparation or a Delivery Loop, the
+ work stops; the ADR is drafted and approved, then the canonical SPEC is
+ revised and re-approved before technical execution resumes.
+ 
+@@ -60,12 +60,12 @@
+ ## Approval and immutability (fundamental rule)
+ 
+ **Approval (§2.8, §3.5):** Every ADR remains a **draft** until an Architect
+-or Tech Lead records `AITL-ADR-Approval`. Approval of a User Story, Bolt,
+-SPEC, V-Bounce, Review or Adversarial Review **never implies** ADR approval.
++or Tech Lead records `CP-ADR-Approval`. Approval of a User Story, TASK,
++SPEC, Delivery Loop, Review or Adversarial Review **never implies** ADR approval.
+ A draft ADR cannot govern a
+ SPEC, establish a non-functional constraint, authorize an exception, or be
+ treated as an accepted decision. Drafts may be refined in response to
+-`AITL-ADR-Approval` feedback.
++`CP-ADR-Approval` feedback.
+ 
+ **Immutability (§3.5):** Once approved, an ADR is **READONLY**.
+ 
+@@ -88,7 +88,7 @@
+ "PostgreSQL" and ADR-012 says "MongoDB" for the same use case, neither
+ superseding the other, the conflict blocks any SPEC that needs both.
+ 
+-**Detection (at creation):** before requesting `AITL-ADR-Approval`, the
++**Detection (at creation):** before requesting `CP-ADR-Approval`, the
+ drafter checks the decision log for active ADRs contradicted by the new
+ decision and records them in the `conflicts_with` frontmatter field. The
+ approver verifies this check during the approval review.
+@@ -121,7 +121,7 @@
+ 
+ | Status | Meaning |
+ |--------|---------|
+-| **draft** | Under evaluation, pending `AITL-ADR-Approval` — no governing authority |
++| **draft** | Under evaluation, pending `CP-ADR-Approval` — no governing authority |
+ | **accepted** | Active. Authoritative architecture guidance |
+ | **rejected** | Evaluated and discarded (record of alternatives not taken) |
+ | **deprecated** | Fully implemented or no longer relevant |
+@@ -140,7 +140,7 @@
+ 7. **References** — Links to documents, standards, other ADRs.
+ 
+ See [`TEMPLATE-ADR.md`](TEMPLATE-ADR.md) for the complete structure,
+-including the `AITL-ADR-Approval` review contract.
++including the `CP-ADR-Approval` review contract.
+ 
+ ### Diagrams and visual elements
+ 
+@@ -179,8 +179,8 @@
+ 
+ **Non-functional requirements** (performance, security, availability,
+ scalability, observability, etc.) are **defined and governed inside approved
+-ADRs** (§2.7). They are not independent DevFlow artifacts and must not be
+-defined in User Stories, Acceptance Criteria, Bolts or SPECs.
++ADRs** (§2.7). They are not independent MetaFlow artifacts and must not be
++defined in User Stories, Acceptance Criteria, TASKs or SPECs.
+ 
+ ### How are they recorded?
+ 

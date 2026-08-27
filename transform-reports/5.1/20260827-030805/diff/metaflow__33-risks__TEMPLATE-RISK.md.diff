@@ -1,0 +1,35 @@
+--- devflow/risks/TEMPLATE-RISK.md
++++ metaflow/33-risks/TEMPLATE-RISK.md
+@@ -15,7 +15,7 @@
+   LANGUAGE POLICY (§3.15): YAML keys, status enums, IDs, and section
+   headings (##) stay in English (the schema). All prose — descriptions,
+   mitigation plans — goes in the project's content_language (declared in
+-  devflow/LANGUAGE).
++  metaflow/LANGUAGE).
+ -->
+ 
+ # RISK-NNN — [Descriptive title]
+@@ -60,17 +60,17 @@
+ 
+ ---
+ 
+-## 5. Impact on Bolt risk class (§3.3)
++## 5. Impact on TASK risk class (§3.3)
+ 
+-If this risk applies to a specific Bolt or set of Bolts, it influences the
+-Bolt's `risk_class`, assigned during **`AITL-BOLT-READY-Approval`** (as part of its
+-DoR) and recorded in the **Bolt frontmatter**. `risk_class` may be escalated
++If this risk applies to a specific TASK or set of TASKs, it influences the
++TASK's `risk_class`, assigned during **`CP-TASK-READY-Approval`** (as part of its
++DoR) and recorded in the **TASK frontmatter**. `risk_class` may be escalated
+ at any subsequent review (QA/Sec); it can **never be reduced after the first
+-MEM approval** without formal re-review and re-approval of the Bolt; every
++MEM approval** without formal re-review and re-approval of the TASK; every
+ reassignment appends to `risk_history` (§3.3, GUARDRAILS W14). The manifest
+ does not duplicate risk data (§3.12):
+ 
+-| Bolt risk_class | Default autonomy | Min approvers at AITL-MEM-Approval | AREV |
++| TASK risk_class | Default autonomy | Min approvers at CP-MEM-Approval | AREV |
+ |-----------------|-----------------|-------------------------------------|------|
+ | low        | L3 (Autonomous) | 1 (executing Dev-validator) | optional |
+ | medium     | L3 (Autonomous) | 1 (executing Dev-validator) | optional |

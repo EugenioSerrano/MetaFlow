@@ -1,6 +1,6 @@
 # Architecture Decision Records (ADRs)
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 ## Purpose
 

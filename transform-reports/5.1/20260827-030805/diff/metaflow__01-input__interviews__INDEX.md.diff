@@ -1,0 +1,10 @@
+--- devflow/input/interviews/INDEX.md
++++ metaflow/01-input/interviews/INDEX.md
+@@ -1,6 +1,6 @@
+ # Interviews — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ Transcriptions of conversations with stakeholders, users, and domain experts.
+ 

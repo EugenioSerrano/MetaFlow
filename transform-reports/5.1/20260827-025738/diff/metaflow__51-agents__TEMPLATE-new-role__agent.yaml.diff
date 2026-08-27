@@ -1,0 +1,25 @@
+--- devflow/agents/TEMPLATE-new-role/agent.yaml
++++ metaflow/51-agents/TEMPLATE-new-role/agent.yaml
+@@ -1,16 +1,16 @@
+-# TEMPLATE — create your own DevFlow Agent (project-defined role)
++# TEMPLATE — create your own MetaFlow Agent (project-defined role)
+ #
+-# Copy this folder to agents/squad/<your-role>/, rename the files'
+-# content and fill every field. The Coordinator (the AvengaDevFlow
++# Copy this folder to 51-agents/squad/<your-role>/, rename the files'
++# content and fill every field. The Coordinator (the MetaFlow
+ # MainAgent) projects ANY agent.yaml in squad/ into its platform wrapper
+ # and installs it in your tool's spawn folder, following the mapping in
+-# agents/VERIFICATION.md (the N×4 parity check as the safety net).
++# 51-agents/VERIFICATION.md (the N×4 parity check as the safety net).
+ #
+ # NON-NEGOTIABLE BOUNDS (everything else is your team's freedom):
+ #   - Authority lives in these structured fields, NEVER in prose (the
+ #     identity model).
+-#   - `approves` only real checkpoint codes (US, BUG, TC, BOLT-READY,
+-#     BOLT-DONE, ADR, SPEC, MEM, DISC, REV, AREV-*).
++#   - `approves` only real checkpoint codes (US, BUG, TC, TASK-READY,
++#     TASK-DONE, ADR, SPEC, MEM, DISC, REV, AREV-*).
+ #   - APPROVER CEILING (approver mode): an agent acting as approver runs
+ #     at T0 (at most T1 pinned), no write paths, no transactional MCPs.
+ #   - Independence: an approver is always a different actor than the

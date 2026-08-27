@@ -12,7 +12,7 @@ documents are not a source of truth**.
 
 | Document | Feature | Status | Last updated |
 |----------|---------|--------|--------------|
-| *(use TEMPLATE-INTRODUCTION.md to create one per feature)* | — | — | — |
+| [introduccion-a-metaflow.md](introduccion-a-metaflow.md) | MetaFlow — qué es y cómo se construye (narrativa derivada) | stable | 2026-08-27 |
 
 > Status: `draft` | `stable` | `deprecated`.
 

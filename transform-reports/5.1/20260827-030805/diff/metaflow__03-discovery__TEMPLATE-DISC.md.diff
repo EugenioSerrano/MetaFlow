@@ -1,0 +1,93 @@
+--- devflow/discovery/TEMPLATE-DISC.md
++++ metaflow/03-discovery/TEMPLATE-DISC.md
+@@ -7,10 +7,10 @@
+ status: "draft"           # draft | approved | deprecated
+ category: ""              # api | library | legacy | integration | technology | data | vendor | regulation
+ research_question: ""     # the material unknown this Discovery reduces (§2.13)
+-sources: []               # datasheets, URLs, vendor docs, input/documentation/ refs
++sources: []               # datasheets, URLs, vendor docs, 01-input/documentation/ refs
+ tags: []
+ review_ready_at: ""       # When this version is submitted for review (§3.0)
+-review: # AITL-DISC-Approval — filled by the human reviewer (§3.0)
++review: # CP-DISC-Approval — filled by the human reviewer (§3.0)
+   decision: "" # approved | changes_requested | rejected
+   reviewers: [] # [{actor, role, model}]
+   started_at: ""
+@@ -24,13 +24,13 @@
+   LANGUAGE POLICY (§3.15): YAML keys, status enums, IDs, and section
+   headings (##) stay in English (the schema). All prose — findings,
+   observations, recommendations — goes in the project's content_language
+-  (declared in devflow/LANGUAGE).
++  (declared in metaflow/LANGUAGE).
+ 
+-  ⚠️ AITL-DISC-Approval (§2.13): this Discovery remains DRAFT until a
+-  qualified human records AITL-DISC-Approval. Until then, its conclusions
++  ⚠️ CP-DISC-Approval (§2.13): this Discovery remains DRAFT until a
++  qualified human records CP-DISC-Approval. Until then, its conclusions
+   cannot be used as governed input. Approval does not approve any
+   downstream artifact. Executable spike/prototype code requires an
+-  approved non-functional Bolt under US-000 first.
++  approved non-functional TASK under US-000 first.
+ -->
+ 
+ # DISC-NNN — [Descriptive title]
+@@ -49,7 +49,7 @@
+ ## 1. Research question
+ 
+ [What material unknown is this Discovery reducing, and why does it block the
+-definition of a US or Bolt?]
++definition of a US or TASK?]
+ 
+ ---
+ 
+@@ -117,11 +117,11 @@
+ 
+ | # | Recommendation | Generates | Reference |
+ |---|----------------|-----------|-----------|
+-| 1 |                | ADR-NNN / RISK-NNN / BOLT → SPEC / US-NNN / — |           |
++| 1 |                | ADR-NNN / RISK-NNN / TASK → SPEC / US-NNN / — |           |
+ | 2 |                |           |           |
+ 
+-**Affected analysis artifacts:** [analysis/ files updated or informed by this
+-Discovery, e.g. `analysis/domain-model/`, `analysis/business-context/` — or
++**Affected analysis artifacts:** [02-analysis/ files updated or informed by this
++Discovery, e.g. `02-analysis/domain-model/`, `02-analysis/business-context/` — or
+ "None".]
+ 
+ ---
+@@ -130,7 +130,7 @@
+ 
+ | Source | Where |
+ |--------|-------|
+-| [Datasheet / API doc] | [URL or `input/documentation/` path] |
++| [Datasheet / API doc] | [URL or `01-input/documentation/` path] |
+ 
+ ---
+ 
+@@ -139,20 +139,20 @@
+ | Date | Change | Author |
+ |------|--------|--------|
+ | YYYY-MM-DD | Initial investigation (draft) | @user |
+-| YYYY-MM-DD | AITL-DISC-Approval recorded | @user |
++| YYYY-MM-DD | CP-DISC-Approval recorded | @user |
+ 
+ ---
+ 
+-## 11. AITL-DISC-Approval
++## 11. CP-DISC-Approval
+ 
+-> **Avenga DevFlow §2.13, §3.0.** This Discovery remains a draft until a
++> **MetaFlow §2.13, §3.0.** This Discovery remains a draft until a
+ > qualified human designated for the research domain records
+-> `AITL-DISC-Approval` (in the `review` frontmatter block). Approval confirms
++> `CP-DISC-Approval` (in the `review` frontmatter block). Approval confirms
+ > the research question was answered with adequate evidence, the limits and
+ > assumptions are explicit, and the conclusions are reliable enough to guide
+ > backlog or architecture decisions. It does **not** approve any downstream
+-> artifact — each US, Bolt, ADR or risk created from this Discovery follows
+-> its own lifecycle and AITL approval.
++> artifact — each US, TASK, ADR or risk created from this Discovery follows
++> its own lifecycle and CITL approval.
+ 
+ | Field | Value |
+ |-------|-------|

@@ -1,0 +1,26 @@
+--- devflow/actors/examples/example-roster.yaml
++++ metaflow/53-actors/examples/example-roster.yaml
+@@ -1,17 +1,17 @@
+ # Example roster — a filled team list (worked example of ../roster.yaml)
+ #
+ # ILLUSTRATIVE — copy and instantiate. This is what your real
+-# `actors/roster.yaml` looks like once your team exists: one entry per
+-# actor, each referencing its `actors/<actor-id>.yaml` file. The
++# `53-actors/roster.yaml` looks like once your team exists: one entry per
++# actor, each referencing its `53-actors/<actor-id>.yaml` file. The
+ # consistency rule — every listed id resolves to an existing actor file —
+ # applies to the REAL roster.yaml, never to this example (the ids below
+-# are the worked examples, not files at the actors/ root).
++# are the worked examples, not files at the 53-actors/ root).
+ #
+-# The team shown: one human (who approves ADR/BOLT-READY) + one DevFlow
++# The team shown: one human (who approves ADR/TASK-READY) + one MetaFlow
+ # Agent (an executor that also approves MEM — enabled by the human who
+ # wrote its authority fields and listed it here; an agent never enables
+ # its own approval).
+ 
+ actors:
+-  - arq-juan       # → actors/arq-juan.yaml   (human — see example-human.yaml)
+-  - example-qa     # → actors/example-qa.yaml (DevFlow Agent — see example-agent.yaml)
++  - arq-juan       # → 53-actors/arq-juan.yaml   (human — see example-human.yaml)
++  - example-qa     # → 53-actors/example-qa.yaml (MetaFlow Agent — see example-agent.yaml)

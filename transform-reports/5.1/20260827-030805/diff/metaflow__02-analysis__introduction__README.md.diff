@@ -1,0 +1,52 @@
+--- devflow/analysis/introduction/README.md
++++ metaflow/02-analysis/introduction/README.md
+@@ -1,6 +1,6 @@
+ # Introduction (Plain-language Entry Point)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -22,14 +22,14 @@
+ This is the most important section of this README.
+ 
+ > ⚠️ **Documents in this folder are NOT a source of truth.** They are narrative summaries
+-> derived from the artifacts in `analysis/` and `discovery/`. Where a narrative and an
++> derived from the artifacts in `02-analysis/` and `03-discovery/`. Where a narrative and an
+ > artifact disagree, **the artifact wins**.
+ 
+ An introduction document may **never**:
+ 
+ - introduce a business rule, decision or finding that is not already in a governed
+   artifact;
+-- be cited as the basis of a SPEC, Bolt, ADR, User Story or test case;
++- be cited as the basis of a SPEC, TASK, ADR, User Story or test case;
+ - replace reading [`vision/`](../vision/), [`process/`](../process/) or
+   [`domain-model/`](../domain-model/).
+ 
+@@ -38,12 +38,12 @@
+ 
+ ### Governance
+ 
+-Introduction documents are **outside the AITL chain**. They have no approval checkpoint of
++Introduction documents are **outside the CITL chain**. They have no approval checkpoint of
+ their own, and approving one would mean nothing: they add no content that could be
+ approved. By construction they are never governed input, which keeps them consistent with
+ the rule that only approved artifacts feed downstream work. **G28** makes this enforceable:
+-citing a document from this folder as the source of a SPEC, Bolt, ADR, User Story or Test
+-Case is a blocking violation. See Avenga DevFlow §5.5 (Derivative narrative documents).
++citing a document from this folder as the source of a SPEC, TASK, ADR, User Story or Test
++Case is a blocking violation. See MetaFlow §5.5 (Derivative narrative documents).
+ 
+ The practical consequence: an introduction document may be written, corrected or discarded
+ at any time without a checkpoint — and it must never be the reason a decision was made.
+@@ -64,7 +64,7 @@
+ | [`process/`](../process/) — at least one process | The step-by-step spine of section 3 |
+ | [`glossary/`](../glossary/) | Guarantees the narrative uses the agreed words |
+ | [`open-questions/`](../open-questions/) | "What we still don't know" is part of the story |
+-| [`../../discovery/`](../../discovery/) — relevant DISC | Required when a legacy system is involved |
++| [`../../03-discovery/`](../../03-discovery/) — relevant DISC | Required when a legacy system is involved |
+ 
+ The gate is about **existence, not approval**. Draft artifacts are enough; waiting for
+ approval would push this document past the moment it is actually useful.

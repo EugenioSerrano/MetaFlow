@@ -1,0 +1,54 @@
+--- devflow/analysis/introduction/TEMPLATE-INTRODUCTION.md
++++ metaflow/02-analysis/introduction/TEMPLATE-INTRODUCTION.md
+@@ -7,7 +7,7 @@
+ audience: "onboarding"
+ derivative: true          # ALWAYS true — this document is never a source of truth
+ sources: []               # analysis artifacts the narrative was derived from (vision, business-context,
+-                          # process, domain-model, DISC-NNN). Never raw input/ (INT-NNN, documents):
++                          # process, domain-model, DISC-NNN). Never raw 01-input/ (INT-NNN, documents):
+                           # a derivative narrative restates existing analysis artifacts, not primary
+                           # evidence (G28). Those artifacts need not be approved — they have no
+                           # checkpoint (§3.0); they only need to exist
+@@ -26,7 +26,7 @@
+     [ ] process/ — at least one process
+     [ ] glossary/ — the feature's ubiquitous language
+     [ ] open-questions/ — the register, even if every question is still open
+-    [ ] discovery/ — the relevant DISC, if a legacy system is involved
++    [ ] 03-discovery/ — the relevant DISC, if a legacy system is involved
+ 
+   If any of these is missing, DO NOT WRITE THIS DOCUMENT YET. This artifact is
+   derivative (`derivative: true`): with nothing to derive from, writing it means
+@@ -43,12 +43,12 @@
+ 
+   LANGUAGE POLICY (§3.15): YAML keys, status enums, IDs stay in English
+   (the schema). Section (##) headings and narrative prose go in the
+-  project's content_language. See devflow/README.md -> Language policy.
+-  `AITL-*-Approval` codes are never translated.
++  project's content_language. See metaflow/README.md -> Language policy.
++  `CP-*-Approval` codes are never translated.
+ 
+   ⚠️ GOLDEN RULE OF THIS FOLDER: this document is DERIVATIVE. It introduces no
+   business rule, decision or finding of its own. Everything it states must be
+-  backed by an artifact in analysis/ or discovery/, linked in the "Where to
++  backed by an artifact in 02-analysis/ or 03-discovery/, linked in the "Where to
+   read next" section. Where the
+   narrative and the artifact disagree, the artifact wins. See README.md.
+ 
+@@ -69,7 +69,7 @@
+ -->
+ 
+ > ⚠️ **This document is not a source of truth.** It is a narrative summary derived from the
+-> artifacts in `analysis/` and `discovery/`. Where something here disagrees with those
++> artifacts in `02-analysis/` and `03-discovery/`. Where something here disagrees with those
+ > documents, **they win**.
+ 
+ ---
+@@ -157,7 +157,7 @@
+ | Who uses this and what they need | [personas/](../personas/) |
+ | What can go wrong and how much it matters | [business-risks/INDEX.md](../business-risks/INDEX.md) |
+ | What we still do not know | [open-questions/INDEX.md](../open-questions/INDEX.md) |
+-| How the current system works internally (technical) | [../../discovery/](../../discovery/) |
++| How the current system works internally (technical) | [../../03-discovery/](../../03-discovery/) |
+ 
+ ## 8. History
+ 

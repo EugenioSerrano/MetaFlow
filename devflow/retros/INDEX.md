@@ -1,6 +1,6 @@
 # Retros — Index
 
-**Methodology version:** 5.0
+**Methodology version:** 5.1
 
 Weekly retrospectives: metrics-first review of DORA Five, AITL governance
 and AI-native flow indicators. Each retro produces improvement Bolts and,

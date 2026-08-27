@@ -1,0 +1,50 @@
+--- devflow/adversarial-reviews/TEMPLATE-02-DEFENSE.md
++++ metaflow/32-adv-reviews/TEMPLATE-02-DEFENSE.md
+@@ -6,7 +6,7 @@
+ findings_rebutted: 0
+ findings_partial: 0
+ review_ready_at: "" # When this version is submitted for review (§3.0)
+-review: # AITL-AREV-DEFENSE-Approval — filled by the human reviewer (§3.0)
++review: # CP-AREV-DEFENSE-Approval — filled by the human reviewer (§3.0)
+   decision: "" # approved | changes_requested | rejected
+   reviewers: [] # [{actor, role, model}]
+   started_at: ""
+@@ -20,10 +20,10 @@
+   LANGUAGE POLICY (§3.15): YAML keys, status enums, IDs, and section
+   headings (##) stay in English (the schema). All prose — arguments,
+   evidence, rebuttals — goes in the project's content_language (declared
+-  in devflow/LANGUAGE).
++  in metaflow/LANGUAGE).
+ 
+-  ⚠️ This phase CANNOT begin until `AITL-AREV-CRITIQUE-Approval` is
+-  recorded, and remains DRAFT until `AITL-AREV-DEFENSE-Approval`. Defense
++  ⚠️ This phase CANNOT begin until `CP-AREV-CRITIQUE-Approval` is
++  recorded, and remains DRAFT until `CP-AREV-DEFENSE-Approval`. Defense
+   is an intermediate argument — it does not create usable findings.
+ -->
+ 
+@@ -86,7 +86,7 @@
+ >
+ > ### If the AREV is ad-hoc
+ >
+-> When there's no associated Bolt/SPEC, defend based on: active ADRs, team
++> When there's no associated TASK/SPEC, defend based on: active ADRs, team
+ > conventions, documented design decisions, and known technical constraints
+ > of the project.
+ 
+@@ -180,10 +180,10 @@
+ 
+ ---
+ 
+-## 8. AITL-AREV-DEFENSE-Approval
++## 8. CP-AREV-DEFENSE-Approval
+ 
+-> **Avenga DevFlow §2.15, §3.0.** This phase cannot begin until
+-> `AITL-AREV-CRITIQUE-Approval` is recorded, and remains a draft until a
+-> qualified human records `AITL-AREV-DEFENSE-Approval` (recorded in the
++> **MetaFlow §2.15, §3.0.** This phase cannot begin until
++> `CP-AREV-CRITIQUE-Approval` is recorded, and remains a draft until a
++> qualified human records `CP-AREV-DEFENSE-Approval` (recorded in the
+ > `review` frontmatter block). Only then may Phase 3 (Verdict) begin. AREV
+-> approvals are recorded only in AREV artifacts — never in the Bolt manifest.
++> approvals are recorded only in AREV artifacts — never in the TASK manifest.

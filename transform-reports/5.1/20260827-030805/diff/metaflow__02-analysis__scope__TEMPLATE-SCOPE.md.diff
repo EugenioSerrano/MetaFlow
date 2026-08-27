@@ -1,0 +1,22 @@
+--- devflow/analysis/scope/TEMPLATE-SCOPE.md
++++ metaflow/02-analysis/scope/TEMPLATE-SCOPE.md
+@@ -15,8 +15,8 @@
+   (the schema). Section
+   headings (##) follow the project's content_language. All prose — descriptions,
+   rationale, decisions — goes in the project's content_language. See
+-  devflow/README.md -> Language policy.
+-  `AITL-*-Approval` codes are never translated.
++  metaflow/README.md -> Language policy.
++  `CP-*-Approval` codes are never translated.
+ -->
+ 
+ # Scope — [Milestone / Phase name]
+@@ -138,7 +138,7 @@
+ | Source | Where |
+ |--------|-------|
+ | Vision | `../vision/vision.md` §5 |
+-| Interview INT-NNN | `../../input/interviews/INT-NNN.md` |
++| Interview INT-NNN | `../../01-input/interviews/INT-NNN.md` |
+ 
+ ## 10. History
+ 

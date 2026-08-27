@@ -1,0 +1,92 @@
+---
+id: "US-000"
+title: "Non-functional work container"
+date: "2026-06-07"
+author: "" # human:<user> (git-email local part) | agent:<id> — actor grammar (§3.0)
+llm: "" # LLM model used
+status: "active" # permanent container — always active
+---
+
+<!--
+  LANGUAGE POLICY (§3.15): YAML keys, status enums, IDs in English.
+  Prose in the project's content_language (declared in metaflow/LANGUAGE).
+
+  ⚠️ US-000 IS NOT A FEATURE USER STORY (§2.6, §3.2): it is a permanent
+  traceability container. It has NO Acceptance Criteria, approval status,
+  approver, or CITL checkpoint. It is never submitted for approval and is
+  not a substitute for approved ADRs or quality gates.
+-->
+
+# US-000 — Non-functional work container
+
+> **This is a permanent container, not an actual User Story.** Despite its
+> filename and location, it is the traceability parent for **every TASK
+> whose primary outcome is non-functional**: infrastructure, refactors,
+> technical debt, hardening, security, performance, availability,
+> observability, CI/CD, dependency upgrades, database maintenance,
+> developer tooling (§3.2).
+
+| Field       | Value |
+|-------------|-------|
+| **Layer**   | Full-stack |
+| **Priority**| Continuous |
+
+---
+
+## Description
+
+Every TASK — regardless of whether it is a refactor, a hardening task, an
+infrastructure change or a technical-debt payment — **must** belong to a
+parent. US-000 is the canonical parent for technical work that does not
+naturally fit into a business-feature User Story.
+
+It is a **container rather than a User Story**: it has **no Acceptance
+Criteria, approval status, approver, or CITL checkpoint** (§2.6). It does
+not represent a user-facing capability and does not replace ADRs or quality
+gates; it ensures that technical work is still governed through an
+individually approved TASK, SPEC, Delivery Loop, MEM, manifest, and human
+validation.
+
+---
+
+## Rules
+
+1. **US-000 is always active** — it never closes.
+2. **Every non-functional TASK is assigned to US-000.** This includes
+   infrastructure, refactoring, technical debt, hardening, security,
+   performance, availability, observability, CI/CD, dependency upgrades,
+   database maintenance, developer tooling, and similar technical changes
+   (§3.2). A relationship to one or more feature USs may be recorded as a
+   dependency or related reference, but it does not change the TASK's
+   parent.
+3. **US-000 has no approval lifecycle** — never approved, rejected,
+   version-approved, or re-approved by any role.
+4. **US-000 TASKs still require their own `CP-TASK-READY-Approval`** by an
+   Architect or Tech Lead and follow the same Delivery Loop cycle
+   (SPEC → Delivery Loop → MEM → manifest).
+5. **Non-functional BUGs** get their dedicated TASK under US-000 — after
+   `CP-BUG-Approval` (recommended: Architect/Tech Lead when `severity:
+   critical`, otherwise any team member — but guidance, never a gate: any
+   qualified team member, the BUG's own author included, may record it at any
+   severity). The dedicated TASK's own `CP-TASK-READY-Approval`
+   mirrors the same routing (§2.16).
+6. **Classification follows primary outcome** (§2.4): business-visible
+   behavior → feature US; technical outcome → US-000. No "quick fix",
+   "chore", refactor, hardening, or infrastructure exception to TASK
+   traceability exists.
+
+---
+
+## Example TASKs under US-000
+
+| TASK | work_category | Description |
+|------|---------------|-------------|
+| `US-000.TASK-001` | infra | Set up CI/CD pipeline with quality gates |
+| `US-000.TASK-002` | refactor | Extract shared validation library |
+| `US-000.TASK-003` | hardening | Add rate limiting to all endpoints |
+| `US-000.TASK-004` | debt | Upgrade framework to current LTS |
+| `US-000.TASK-005` | infra | Configure monitoring and alerting |
+| `US-000.TASK-006` | refactor | Fix ADR-003 compliance in auth module |
+
+Each TASK is a non-functional TASK (`US-000.TASK-NNN`) with its own
+technical `CP-TASK-READY-Approval` by an Architect or Tech Lead.

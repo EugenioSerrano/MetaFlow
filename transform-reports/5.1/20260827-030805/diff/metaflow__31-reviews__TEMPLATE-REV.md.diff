@@ -1,0 +1,76 @@
+--- devflow/reviews/TEMPLATE-REV.md
++++ metaflow/31-reviews/TEMPLATE-REV.md
+@@ -11,7 +11,7 @@
+ adrs_checked: []          # ADRs against which we review
+ specs_checked: []         # implemented SPECs being reviewed
+ review_ready_at: ""       # When this version is submitted for review (§3.0)
+-review: # AITL-REV-Approval — filled by the human reviewer (§3.0)
++review: # CP-REV-Approval — filled by the human reviewer (§3.0)
+   decision: "" # approved | changes_requested | rejected
+   reviewers: [] # [{actor, role, model}]
+   started_at: ""
+@@ -26,13 +26,13 @@
+   LANGUAGE POLICY (§3.15): YAML keys, status enums, IDs, and section
+   headings (##) stay in English (the schema). All prose — findings,
+   observations, recommendations — goes in the project's content_language
+-  (declared in devflow/LANGUAGE).
++  (declared in metaflow/LANGUAGE).
+ 
+-  ⚠️ AITL-REV-Approval (§2.14, §3.0): findings remain DRAFT until a
+-  qualified human records AITL-REV-Approval. Approval does NOT approve any
+-  downstream artifact. Code-related outcomes still require an approved Bolt
+-  (T10 — never REV → SPEC directly). The V-Bounce checkpoint is
+-  AITL-MEM-Approval, recorded in the Bolt manifest — never conflate the two.
++  ⚠️ CP-REV-Approval (§2.14, §3.0): findings remain DRAFT until a
++  qualified human records CP-REV-Approval. Approval does NOT approve any
++  downstream artifact. Code-related outcomes still require an approved TASK
++  (T10 — never REV → SPEC directly). The Delivery Loop checkpoint is
++  CP-MEM-Approval, recorded in the TASK manifest — never conflate the two.
+ -->
+ 
+ # REV-NNN — [Descriptive title]
+@@ -118,13 +118,13 @@
+ 
+ ## 6. Action plan
+ 
+-> Applies only after `AITL-REV-Approval`. Each destination follows its own
+-> lifecycle and AITL approval (code → approved Bolt first, T10).
++> Applies only after `CP-REV-Approval`. Each destination follows its own
++> lifecycle and CITL approval (code → approved TASK first, T10).
+ 
+ | # | Finding | Severity | Action | Routes to |
+ |---|---------|----------|--------|-----------|
+-| 1 | F-01    | Major    |        | BUG / BOLT→SPEC / ADR / RISK / DISC |
+-| 2 | F-02    | Minor    |        | BOLT→SPEC |
++| 1 | F-01    | Major    |        | BUG / TASK→SPEC / ADR / RISK / DISC |
++| 2 | F-02    | Minor    |        | TASK→SPEC |
+ 
+ ---
+ 
+@@ -135,14 +135,14 @@
+ 
+ ---
+ 
+-## 8. AITL-REV-Approval
++## 8. CP-REV-Approval
+ 
+-> **Avenga DevFlow §2.14, §3.0.** This Review remains a draft until a
+-> qualified human records `AITL-REV-Approval` (in the `review` frontmatter
++> **MetaFlow §2.14, §3.0.** This Review remains a draft until a
++> qualified human records `CP-REV-Approval` (in the `review` frontmatter
+ > block). Approval makes the findings actionable; it does not approve any
+-> downstream artifact. The V-Bounce checkpoint is `AITL-MEM-Approval`
+-> (recorded in the Bolt manifest's `checkpoint_approvals[]`) — a REV and a
+-> V-Bounce approval are different events.
++> downstream artifact. The Delivery Loop checkpoint is `CP-MEM-Approval`
++> (recorded in the TASK manifest's `checkpoint_approvals[]`) — a REV and a
++> Delivery Loop approval are different events.
+ 
+ | Field | Value |
+ |-------|-------|
+@@ -160,4 +160,4 @@
+ | Date | Change | Author |
+ |------|--------|--------|
+ | YYYY-MM-DD | Initial review (draft) | @user |
+-| YYYY-MM-DD | AITL-REV-Approval recorded | @user |
++| YYYY-MM-DD | CP-REV-Approval recorded | @user |

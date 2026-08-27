@@ -1,0 +1,74 @@
+--- devflow/adversarial-reviews/TEMPLATE-AREV.md
++++ metaflow/32-adv-reviews/TEMPLATE-AREV.md
+@@ -4,11 +4,11 @@
+ date: "YYYY-MM-DD"
+ author: ""       # human:<user> (git-email local part) | agent:<id> — actor grammar (§3.0)
+ llm: ""          # LLM model used to generate this AREV index
+-type: "" # bolt | themed | ad-hoc
++type: "" # task | themed | ad-hoc
+ focus: "" # general | security | architecture | functionality | performance | other
+ implementor_model: "" # Model that generated the code (e.g. "Claude Opus"), or N/A if ad-hoc
+ spec_reviewed: "" # SPEC-YYMMDD-HHmm being reviewed, or N/A if ad-hoc
+-bolt: "" # Associated Bolt, or N/A if ad-hoc
++task: "" # Associated TASK, or N/A if ad-hoc
+ governing_adrs: [] # ADRs against which the review is conducted
+ status: "draft" # draft | in-progress | active | closed | cancelled
+ requested_by: "" # Who requested the AREV and brief reason
+@@ -18,12 +18,12 @@
+   LANGUAGE POLICY (§3.15): YAML keys, status enums, IDs, and section
+   headings (##) stay in English (the schema). All prose — descriptions,
+   motivation, findings — goes in the project's content_language (declared
+-  in devflow/LANGUAGE).
++  in metaflow/LANGUAGE).
+ 
+   ⚠️ SEQUENTIAL PHASE APPROVALS (§2.15, §3.0): each phase remains DRAFT
+   until its named human checkpoint is approved. The next phase cannot
+   begin until the current one is approved. AREV approvals and verdicts
+-  are recorded ONLY in these AREV artifacts — never in the Bolt manifest.
++  are recorded ONLY in these AREV artifacts — never in the TASK manifest.
+   Agent/model selection between phases is a MANUAL human action (§3.13).
+ -->
+ 
+@@ -34,9 +34,9 @@
+ 
+ | Field | Value |
+ |-------|-------|
+-| **Type** | [bolt / themed / ad-hoc] |
++| **Type** | [task / themed / ad-hoc] |
+ | **Focus** | [general / security / architecture / functionality / performance / other] |
+-| **Bolt** | [Associated Bolt, or N/A] |
++| **TASK** | [Associated TASK, or N/A] |
+ | **SPEC reviewed** | [SPEC-YYMMDD-HHmm — title, or N/A] |
+ | **Implementor model** | [LLM model that generated the code, or N/A] |
+ | **Status** | [draft / in-progress / active / closed / cancelled] |
+@@ -49,16 +49,16 @@
+ [Why is this AREV requested? Brief context. Examples:
+ - "Review the security of the authentication module before release."
+ - "Verify that the implementation complies with architecture ADRs."
+-- "General review of Bolt-015 due to high risk class."
++- "General review of TASK-015 due to high risk class."
+ - "User requested functionality review using Context7 as guide."]
+ 
+ ## 2. Phases (all three mandatory, sequential — each stops at its approval)
+ 
+ | Phase | Document | Model (manually selected) | Status | Approval |
+ |-------|----------|---------------------------|--------|----------|
+-| ① Critique | `01-CRITIQUE.md` | [Challenger model] | ⬜ pending | `AITL-AREV-CRITIQUE-Approval` |
+-| ② Defense | `02-DEFENSE.md` | [Defender model] | ⬜ pending | `AITL-AREV-DEFENSE-Approval` |
+-| ③ Verdict | `03-VERDICT.md` | [Judge model] | ⬜ pending | `AITL-AREV-VERDICT-Approval` |
++| ① Critique | `01-CRITIQUE.md` | [Challenger model] | ⬜ pending | `CP-AREV-CRITIQUE-Approval` |
++| ② Defense | `02-DEFENSE.md` | [Defender model] | ⬜ pending | `CP-AREV-DEFENSE-Approval` |
++| ③ Verdict | `03-VERDICT.md` | [Judge model] | ⬜ pending | `CP-AREV-VERDICT-Approval` |
+ 
+ Phase status: `pending` → `in-review` → `approved` / `changes_requested`.
+ Every initiated AREV runs all three phases (§2.15) — the next phase cannot
+@@ -69,7 +69,7 @@
+ [Completed at the end of Phase 3 — only an approved Verdict produces
+ actionable findings.]
+ 
+-## 4. AITL phase approvals
++## 4. CITL phase approvals
+ 
+ > Recorded in each phase document's `review` block (§3.0). The AREV keeps
+-> its own approval evidence; nothing is written to the Bolt manifest.
++> its own approval evidence; nothing is written to the TASK manifest.

@@ -1,6 +1,6 @@
 # GUARDRAILS — Agent Enforcement Rules
 
-**Enforcing:** Avenga DevFlow v5.0
+**Enforcing:** Avenga DevFlow v5.1
 
 > **Read this first.** These are the non-negotiable rules that the AI agent
 > MUST enforce before any code change, document creation, or workflow action.
@@ -69,7 +69,7 @@ to an approved artifact invalidates its approval and pauses dependent work.
 
 | # | If the developer attempts... | Agent response |
 |---|------------------------------|----------------|
-| G07 | Make any code-related change (code, tests, config, IaC, schemas, migrations, build scripts) without an approved Bolt | ❌ *"No code without an approved Bolt — urgency and size create no exception (§3.2)."* |
+| G07 | Make any code-related change (code, tests, config, IaC, schemas, migrations, build scripts) without an approved Bolt | ❌ *"No code without an approved Bolt — urgency and size create no exception (§3.2). SCOPE: the agent lifecycle is operational configuration, not a code change — installing, creating or deleting DevFlow Agents within the agent system (`devflow/agents/` squad definitions and their platform wrappers; `devflow/actors/` actor files and roster listings) is living data (§5.12 and the roster's living-data rule), bounded by the lifecycle consistency contract: never the shipped examples/templates edited in place, never outside the agent system, and approver authority always the human's roster act. Everything else this rule covers stays absolutely blocked."* |
 | G08 | Create a Bolt with the wrong parent type | ❌ *"functional → approved feature US; non-functional → `US-000-non-functional.md`; test → exactly one approved TC. BUG and hotfix are conditions, not Bolt types (§2.4, §3.8)."* |
 | G09 | Put implementation instructions, architecture decisions, technologies, endpoints, schemas or algorithms inside a Bolt | ❌ *"Bolt = what must be delivered and expected evidence, never how. Implementation detail belongs in the SPEC; durable decisions belong in an approved ADR (§2.4)."* |
 | G10 | Prepare a SPEC or execute a Bolt without `AITL-BOLT-READY-Approval` | ❌ *"Candidate Bolts cannot enter SPEC preparation or execution. Record `AITL-BOLT-READY-Approval` first (§2.4, §3.0)."* |
@@ -475,7 +475,7 @@ contract/E2E gate as `n/a` because a later release suite will cover it (§3.6).
 
 - [`README.md`](README.md) — Full methodology overview and folder map
 - [`ONBOARDING.md`](ONBOARDING.md) — Role-based onboarding guide
-- [`avenga-devflow/Avenga-DevFlow.md`](avenga-devflow/Avenga-DevFlow.md) — Complete methodology (normative source, v5.0)
+- [`avenga-devflow/Avenga-DevFlow.md`](avenga-devflow/Avenga-DevFlow.md) — Complete methodology (normative source, v5.1)
 - [`functional/user-stories/US-000-non-functional.md`](functional/user-stories/US-000-non-functional.md) — Non-functional container
 - [`metrics/README.md`](metrics/README.md) — Manifest family v5 schemas and lifecycle
 - [`metrics/manifest-v5-bolt.schema.json`](metrics/manifest-v5-bolt.schema.json) — Normative Bolt manifest JSON Schema

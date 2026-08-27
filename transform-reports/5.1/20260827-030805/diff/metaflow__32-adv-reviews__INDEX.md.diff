@@ -1,0 +1,29 @@
+--- devflow/adversarial-reviews/INDEX.md
++++ metaflow/32-adv-reviews/INDEX.md
+@@ -1,20 +1,20 @@
+ # Adversarial Reviews — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ Structured adversarial debates: LLM models participate in a
+ **Critique → Defense → Verdict** protocol to evaluate code against SPEC/ADRs,
+ best practices, or specific reference sources. Read-only in all phases — they
+ only document findings, arguments and a final verdict.
+ 
+-AREVs can be **Bolt-bound** (they choose a completed V-Bounce package as
+-their subject — never a stage of the V-Bounce, §2.15), **themed** (focused on
++AREVs can be **TASK-bound** (they choose a completed Delivery Loop package as
++their subject — never a stage of the Delivery Loop, §2.15), **themed** (focused on
+ security, architecture, performance, etc.) or **ad-hoc** (exploratory on any
+ part of the code). They are **optional for all risk classes** (stakeholder-
+ triggered), but once initiated the three phases are mandatory and sequential,
+-each requiring its own approval: `AITL-AREV-CRITIQUE-Approval`,
+-`AITL-AREV-DEFENSE-Approval`, `AITL-AREV-VERDICT-Approval`. AREV state is
+-never written to a Bolt manifest.
++each requiring its own approval: `CP-AREV-CRITIQUE-Approval`,
++`CP-AREV-DEFENSE-Approval`, `CP-AREV-VERDICT-Approval`. AREV state is
++never written to a TASK manifest.
+ 
+ ---
+ 

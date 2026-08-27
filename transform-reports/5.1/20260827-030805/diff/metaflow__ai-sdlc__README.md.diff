@@ -1,0 +1,98 @@
+--- devflow/avenga-devflow/README.md
++++ metaflow/ai-sdlc/README.md
+@@ -1,6 +1,6 @@
+ # Development Methodology (SDLC)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -20,13 +20,13 @@
+ 
+ - Definition of the development methodology (full SDLC or adaptation).
+ - Work framework: roles, artifacts, ceremonies, quality gates.
+-- Definition of work units (Bolts: functional / non-functional / test).
+-- Operational micro-cycle (V-Bounce: approved SPEC → autonomous generation →
+-  mandatory MEM + manifest → AITL-MEM-Approval).
+-- Named AITL checkpoints (`AITL-US-Approval`, `AITL-BUG-Approval`, `AITL-TC-Approval`, `AITL-BOLT-READY-Approval`, `AITL-BOLT-DONE-Approval`, `AITL-ADR-Approval`, `AITL-SPEC-Approval`, `AITL-MEM-Approval`, …)..
+-- Definition of Ready (DoR, evaluated within AITL-BOLT-READY-Approval) and
++- Definition of work units (TASKs: functional / non-functional / test).
++- Operational micro-cycle (Delivery Loop: approved SPEC → autonomous generation →
++  mandatory MEM + manifest → CP-MEM-Approval).
++- Named CITL checkpoints (`CP-US-Approval`, `CP-BUG-Approval`, `CP-TC-Approval`, `CP-TASK-READY-Approval`, `CP-TASK-DONE-Approval`, `CP-ADR-Approval`, `CP-SPEC-Approval`, `CP-MEM-Approval`, …)..
++- Definition of Ready (DoR, evaluated within CP-TASK-READY-Approval) and
+   Definition of Done (DoD).
+-- Metrics strategy (DORA Five, Bolt Lead Time, AITL governance metrics).
++- Metrics strategy (Delivery Flow Five, TASK Lead Time, CITL governance metrics).
+ - Integration of AI tooling into the workflow.
+ - SDLC artifact map (which document is produced at each phase).
+ 
+@@ -40,22 +40,22 @@
+ Methodology-name-description.md
+ ```
+ 
+-The canonical methodology file is `Avenga-DevFlow.md` (hyphen, no spaces).
++The canonical methodology file is `MetaFlow.md` (hyphen, no spaces).
+ 
+ ---
+ 
+ ## Recommended structure
+ 
+-The canonical methodology document (`Avenga-DevFlow.md`) follows this
++The canonical methodology document (`MetaFlow.md`) follows this
+ structure:
+ 
+-1. **Quick Start** — The single path: source evidence → US/TC/BUG → Bolt →
+-   SPEC → V-Bounce → MEM → AITL approvals.
++1. **Quick Start** — The single path: source evidence → US/TC/BUG → TASK →
++   SPEC → Delivery Loop → MEM → CITL approvals.
+ 2. **Introduction and philosophy** — Principles, goals, base frameworks.
+ 3. **Glossary and key concepts** — Normative source for concepts,
+    definitions, taxonomies and artifact contracts.
+ 4. **Operating principles and rules** — Normative source for lifecycle,
+-   AITL, gates, autonomy and metrics.
++   CITL, gates, autonomy and metrics.
+ 5. **End-to-end process** — Explanatory walkthrough from raw input to
+    production.
+ 6. **Repository structure** — Normative for artifact locations, filenames
+@@ -63,7 +63,7 @@
+ 7. **References** — External evidence base.
+ 
+ > **Normative hierarchy:** §2 owns concepts and artifact contracts; §3 owns
+-> lifecycle, AITL, gates, autonomy and metrics; §4 is an explanatory
++> lifecycle, CITL, gates, autonomy and metrics; §4 is an explanatory
+ > walkthrough; §5 owns structure, locations and names. When repeated text
+ > appears to diverge, the section that owns that dimension governs.
+ 
+@@ -73,7 +73,7 @@
+ 
+ Use **Mermaid** mandatorily for every diagram, chart and any other visual
+ element (no ASCII art, no embedded images). The single exception is
+-**business process notation**: a process in `analysis/process/` may use BPMN
++**business process notation**: a process in `02-analysis/process/` may use BPMN
+ when the business already models in BPMN (W08, §5.7) — everything else,
+ including every diagram in this folder, is Mermaid.
+ 
+@@ -86,8 +86,8 @@
+ - Changes must be agreed and communicated. Framework evolution is recorded in
+   the methodology's own repository, not here; what this project records is its
+   own upgrades, in the `CHANGELOG.md` at the repository root (see §5.16).
+-- This is not the place for project technical decisions (→ `adrs/`) nor for
+-  implementation specs (→ `spec/`).
++- This is not the place for project technical decisions (→ `11-adrs/`) nor for
++  implementation specs (→ `21-spec/`).
+ 
+ ---
+ 
+@@ -100,8 +100,8 @@
+ ## Language
+ 
+ YAML keys, status enums and IDs always stay in **English** (the schema).
+-Section headings follow the family: those of `analysis/`, feature User Stories
++Section headings follow the family: those of `02-analysis/`, feature User Stories
+ and Test Cases go in the project's `content_language`; headings of every other
+ artifact family — this folder included — stay in English. All prose — descriptions, context, rationale, findings — goes in
+-the project's content_language (see [devflow/README.md](../README.md) ->
++the project's content_language (see [metaflow/README.md](../README.md) ->
+ Language policy, §3.15).

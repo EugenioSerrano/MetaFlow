@@ -10,7 +10,10 @@ Readable domain model: entities, relationships and enumerations.
 
 | Entity | Label | Module | Status |
 |--------|-------|--------|--------|
-| *(use `entities/TEMPLATE-ENTITY.md` to add entities)* |  |  |  |
+| [InputKit](entities/InputKit.md) | Kit de entrada (AvengaDevFlow) | metaflow-transform | stable |
+| [DistributionKit](entities/DistributionKit.md) | Kit de salida (MetaFlow) | metaflow-transform | stable |
+| [MappingRule](entities/MappingRule.md) | Regla de transformación | metaflow-transform | stable |
+| [TransformRun](entities/TransformRun.md) | Ejecución de transformación | metaflow-transform | stable |
 
 > Status: `draft` | `stable` | `deprecated`.
 
@@ -20,7 +23,7 @@ Readable domain model: entities, relationships and enumerations.
 
 | Enum | Label | Module | Status |
 |------|-------|--------|--------|
-| *(use `enumerations/TEMPLATE-ENUM.md` to add enums)* |  |  |  |
+| [RuleType](enumerations/RuleType.md) | Tipo de regla de transformación | metaflow-transform | stable |
 
 ---
 
@@ -28,6 +31,7 @@ Readable domain model: entities, relationships and enumerations.
 
 | Document | Purpose |
 |----------|----------|
+| [metaflow-transform.md](relationships/metaflow-transform.md) | Catálogo de relaciones del pipeline de transformación (InputKit → TransformRun → DistributionKit, MappingTable → MappingRule) |
 | [relationships/TEMPLATE-RELATIONSHIP.md](relationships/TEMPLATE-RELATIONSHIP.md) | Template for module-specific relationship catalogs |
 
 > Create one file per module/bounded context using the template. See

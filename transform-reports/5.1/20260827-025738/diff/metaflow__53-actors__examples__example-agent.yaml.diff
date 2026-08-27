@@ -1,0 +1,23 @@
+--- devflow/actors/examples/example-agent.yaml
++++ metaflow/53-actors/examples/example-agent.yaml
+@@ -1,8 +1,8 @@
+-# Example actor — a DevFlow Agent QA (worked example of TEMPLATE-ACTOR)
++# Example actor — a MetaFlow Agent QA (worked example of TEMPLATE-ACTOR)
+ #
+ # Demonstrates: one file per actor, a project-chosen name, the
+ # definition pointer (reusable N:1 — another actor may share it; it
+-# references the project's live agent in agents/squad/, never an
++# references the project's live agent in 51-agents/squad/, never an
+ # example), and a per-instance model. `produces` is NOT here — it
+ # derives from `role` (qa → TC/tests + MEM reviews, §3.0.1). The v1
+ # shape carries no `capabilities` block (deferred to the v2 hardening;
+@@ -15,7 +15,7 @@
+ model: inherit
+ modes: [executor, approver]
+ approves: [MEM]
+-definition: agents/squad/example-qa/agent.yaml
++definition: 51-agents/squad/example-qa/agent.yaml
+ escalation:
+   - "evidence missing, contradictory or unreproducible"
+-write_paths: ["devflow/tests/"]
++write_paths: ["metaflow/24-tests/"]

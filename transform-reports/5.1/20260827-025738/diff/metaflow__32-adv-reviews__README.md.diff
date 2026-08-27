@@ -1,0 +1,331 @@
+--- devflow/adversarial-reviews/README.md
++++ metaflow/32-adv-reviews/README.md
+@@ -1,6 +1,6 @@
+ # Adversarial Reviews — Structured Debate Protocol
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+@@ -18,15 +18,15 @@
+ high-level decisions. It is a **pre-filter for later human decisions, never a
+ replacement** (§2.15, §3.0).
+ 
+-An AREV may take a **specific Bolt's completed V-Bounce package** as its
++An AREV may take a **specific TASK's completed Delivery Loop package** as its
+ subject, be **themed** (security, architecture, performance, …), or be
+ **requested ad-hoc** by any stakeholder or team member on any part of the
+-code — with no Bolt, SPEC or User Story required to exist.
++code — with no TASK, SPEC or User Story required to exist.
+ 
+ > **Reference:** Concept inspired by
+ > [Adversarial Coding — Using Competing Models as Code Reviewers](https://www.subaud.io/adversarial-coding-competing-models-reviewers/)
+ > (Court Schuett, 2026), extended with the **Challenger → Defender → Judge**
+-> pattern adapted to the Avenga DevFlow framework.
++> pattern adapted to the MetaFlow framework.
+ 
+ ---
+ 
+@@ -40,26 +40,26 @@
+ 
+ - **All three phases and their approvals are mandatory and sequential.**
+ - Each phase remains **draft** until its named human checkpoint is approved:
+-  1. `AITL-AREV-CRITIQUE-Approval`
+-  2. `AITL-AREV-DEFENSE-Approval`
+-  3. `AITL-AREV-VERDICT-Approval`
++  1. `CP-AREV-CRITIQUE-Approval`
++  2. `CP-AREV-DEFENSE-Approval`
++  3. `CP-AREV-VERDICT-Approval`
+ - If changes are requested, that phase is revised and submitted again; the
+   next phase **cannot begin** until the current one is approved.
+ - **Critique and Defense are intermediate arguments and do not create usable
+   findings.** Only an **approved Verdict** produces actionable findings.
+ - Any artifact created or updated from those findings follows its **own
+-  lifecycle and applicable AITL approval** — a code-related outcome still
+-  requires an approved Bolt.
++  lifecycle and applicable CITL approval** — a code-related outcome still
++  requires an approved TASK.
+ 
+ ```mermaid
+ flowchart TD
+-    C["Critique"] --> HC{"AITL-AREV-CRITIQUE-Approval"}
++    C["Critique"] --> HC{"CP-AREV-CRITIQUE-Approval"}
+     HC -->|"Changes requested"| C
+     HC -->|"Approved"| D["Defense"]
+-    D --> HD{"AITL-AREV-DEFENSE-Approval"}
++    D --> HD{"CP-AREV-DEFENSE-Approval"}
+     HD -->|"Changes requested"| D
+     HD -->|"Approved"| V["Verdict"]
+-    V --> HV{"AITL-AREV-VERDICT-Approval"}
++    V --> HV{"CP-AREV-VERDICT-Approval"}
+     HV -->|"Changes requested"| V
+     HV -->|"Approved"| F["Actionable approved findings"]
+ ```
+@@ -70,27 +70,27 @@
+ 
+ AREV status, phase approvals, selected models and Verdict are recorded **only
+ in the `AREV-NNN` artifacts** (§2.15). They are **never written to or derived
+-from the Bolt manifest** — the Bolt manifest deliberately excludes AREV. If an
+-approved Verdict causes a downstream US, BUG, BOLT, ADR or SPEC change, that
++from the TASK manifest** — the TASK manifest deliberately excludes AREV. If an
++approved Verdict causes a downstream US, BUG, TASK, ADR or SPEC change, that
+ downstream artifact follows its own normal lifecycle and is traced through
+ its own identifiers.
+ 
+ ---
+ 
+-## Relationship with the V-Bounce (Bolt-bound AREVs)
+-
+-**An AREV is not a stage of the V-Bounce** (§2.15). It is a standalone
+-mechanism, like a Review: it needs no Bolt, SPEC or User Story to exist, and
+-it never opens, closes or modifies a V-Bounce. A *Bolt-bound* AREV simply
+-chooses a completed V-Bounce package as its subject.
++## Relationship with the Delivery Loop (TASK-bound AREVs)
++
++**An AREV is not a stage of the Delivery Loop** (§2.15). It is a standalone
++mechanism, like a Review: it needs no TASK, SPEC or User Story to exist, and
++it never opens, closes or modifies a Delivery Loop. A *TASK-bound* AREV simply
++chooses a completed Delivery Loop package as its subject.
+ 
+ ```mermaid
+ flowchart LR
+-    S["SPEC<br>(AITL-SPEC-Approval)"]
++    S["SPEC<br>(CP-SPEC-Approval)"]
+     AI["AI AGENT<br>generates intended-final<br>+ runs tests"]
+-    KC["CAPTURE<br>MEM + manifest<br>(V-Bounce package closed)"]
+-
+-    subgraph AREV["ADVERSARIAL DEBATE — optional, stakeholder-triggered, NOT a V-Bounce stage"]
++    KC["CAPTURE<br>MEM + manifest<br>(Delivery Loop package closed)"]
++
++    subgraph AREV["ADVERSARIAL DEBATE — optional, stakeholder-triggered, NOT a Delivery Loop stage"]
+         direction LR
+         C["① CRITIQUE<br>(Challenger)"]
+         D["② DEFENSE<br>(Defender)"]
+@@ -98,8 +98,8 @@
+         C --> D --> V
+     end
+ 
+-    HR["HUMAN REVIEW<br>AITL-MEM-Approval<br>(with pre-digested verdict)"]
+-    AP["APPROVED<br>or CHANGES REQUESTED<br>→ new V-Bounce, new MEM"]
++    HR["HUMAN REVIEW<br>CP-MEM-Approval<br>(with pre-digested verdict)"]
++    AP["APPROVED<br>or CHANGES REQUESTED<br>→ new Delivery Loop, new MEM"]
+ 
+     S --> AI --> KC --> HR --> AP
+     KC -.->|"optional"| AREV
+@@ -117,29 +117,29 @@
+ Challenger gets the diff, the tests, the gates, the MEM narrative and the
+ manifest entry, instead of code alone.
+ 
+-Each phase approval is a human checkpoint; the AREV never writes to the Bolt
++Each phase approval is a human checkpoint; the AREV never writes to the TASK
+ manifest.
+ 
+ ---
+ 
+ ## Types of AREV
+ 
+-### 1. Bolt-bound AREV
+-
+-Triggered on the **closed package of a completed V-Bounce** (diff + tests +
+-gates + MEM + manifest), before the reviewer records `AITL-MEM-Approval`. It
+-is a pre-filter for that decision, never a stage of the V-Bounce itself.
++### 1. TASK-bound AREV
++
++Triggered on the **closed package of a completed Delivery Loop** (diff + tests +
++gates + MEM + manifest), before the reviewer records `CP-MEM-Approval`. It
++is a pre-filter for that decision, never a stage of the Delivery Loop itself.
+ 
+ **Examples:**
+-- "Bolt-015 is high risk — run it through AREV."
+-- "Before merging the auth Bolt, run it through AREV."
+-
+-**Evaluation criteria:** SPEC + ADRs of the Bolt.
++- "TASK-015 is high risk — run it through AREV."
++- "Before merging the auth TASK, run it through AREV."
++
++**Evaluation criteria:** SPEC + ADRs of the TASK.
+ 
+ ### 2. Themed AREV (specific focus)
+ 
+ A review with a **thematic focus** on a part of the code, not bound to any
+-particular Bolt. May use external sources as guidance.
++particular TASK. May use external sources as guidance.
+ 
+ **Examples:**
+ - "Create an AREV focused on security using OWASP Top 10 as guide."
+@@ -152,7 +152,7 @@
+ 
+ ### 3. Ad-hoc AREV (exploratory)
+ 
+-An open review with no predefined Bolt or focus.
++An open review with no predefined TASK or focus.
+ 
+ **Examples:**
+ - "Review the payments functionality end-to-end."
+@@ -204,7 +204,7 @@
+ - If external sources were consulted (Context7, OWASP, docs), cite them.
+ - Issue a preliminary verdict.
+ 
+-**Approval:** Remains draft until `AITL-AREV-CRITIQUE-Approval`.
++**Approval:** Remains draft until `CP-AREV-CRITIQUE-Approval`.
+ 
+ **Output:** `01-CRITIQUE.md` — See [TEMPLATE-01-CRITIQUE.md](TEMPLATE-01-CRITIQUE.md).
+ 
+@@ -233,7 +233,7 @@
+ - Also operates in **read-only** — does not change code in this phase.
+ 
+ **Approval:** Cannot begin until the Critique is approved; remains draft until
+-`AITL-AREV-DEFENSE-Approval`.
++`CP-AREV-DEFENSE-Approval`.
+ 
+ **Output:** `02-DEFENSE.md` — See [TEMPLATE-02-DEFENSE.md](TEMPLATE-02-DEFENSE.md).
+ 
+@@ -258,7 +258,7 @@
+ - Evaluate debate quality: was the Challenger rigorous? Was the Defender honest?
+ 
+ **Approval:** Cannot begin until the Defense is approved; only an approved
+-Verdict (`AITL-AREV-VERDICT-Approval`) produces actionable findings.
++Verdict (`CP-AREV-VERDICT-Approval`) produces actionable findings.
+ 
+ **Output:** `03-VERDICT.md` — See [TEMPLATE-03-VERDICT.md](TEMPLATE-03-VERDICT.md).
+ 
+@@ -277,8 +277,8 @@
+ 
+ | Criterion | When to trigger |
+ |-----------|-----------------|
+-| Bolt with **high** or **critical** risk class | Strong candidate — adversarial challenge adds value |
+-| Bolt with ≥ 2 V-Bounces stuck | Strong candidate |
++| TASK with **high** or **critical** risk class | Strong candidate — adversarial challenge adds value |
++| TASK with ≥ 2 Delivery Loops stuck | Strong candidate |
+ | Before merge to main branch | At dev-validator's discretion |
+ | **Security** review pre-release | Stakeholder decision |
+ | **Architecture compliance** review | Stakeholder decision |
+@@ -294,10 +294,10 @@
+ 
+ ## Folder structure per AREV
+ 
+-Each adversarial review creates a **folder** inside `adversarial-reviews/`:
+-
+-```
+-adversarial-reviews/
++Each adversarial review creates a **folder** inside `32-adv-reviews/`:
++
++```
++32-adv-reviews/
+ ├── README.md
+ ├── INDEX.md
+ ├── TEMPLATE-AREV.md
+@@ -305,7 +305,7 @@
+ ├── TEMPLATE-02-DEFENSE.md
+ ├── TEMPLATE-03-VERDICT.md
+ │
+-├── AREV-001-jwt-authentication/          # ← Bolt AREV
++├── AREV-001-jwt-authentication/          # ← TASK AREV
+ │   ├── AREV-001-jwt-authentication.md    # index
+ │   ├── 01-CRITIQUE.md
+ │   ├── 02-DEFENSE.md
+@@ -370,29 +370,29 @@
+ 
+ | Verdict | Meaning | Action |
+ |---------|---------|--------|
+-| **PASS** | No confirmed findings with severity 🔴 or 🔶. Ready for human review. | Proceed to human review (`AITL-MEM-Approval` for Bolt-bound AREVs). |
++| **PASS** | No confirmed findings with severity 🔴 or 🔶. Ready for human review. | Proceed to human review (`CP-MEM-Approval` for TASK-bound AREVs). |
+ | **CONDITIONAL PASS** | Confirmed 🔶 findings but no 🔴. Not blocking. | Human reviewer decides whether to fix before or after. |
+-| **FAIL** | At least one confirmed 🔴 finding. Requires correction. | The findings go to the human, never straight back to the agent. **Bolt-bound:** they inform `AITL-MEM-Approval`; a `changes_requested` decision follows the ordinary rule — the MEM stays as unapproved history and the next execution is a **new V-Bounce with a new MEM and `v_bounces[]` entry** (§2.5, §2.15), so the rework is measured. **Themed / ad-hoc:** the findings route like REV findings (BUG · Bolt · ADR · RISK · DISC), each with its own lifecycle. |
++| **FAIL** | At least one confirmed 🔴 finding. Requires correction. | The findings go to the human, never straight back to the agent. **TASK-bound:** they inform `CP-MEM-Approval`; a `changes_requested` decision follows the ordinary rule — the MEM stays as unapproved history and the next execution is a **new Delivery Loop with a new MEM and `delivery_loops[]` entry** (§2.5, §2.15), so the rework is measured. **Themed / ad-hoc:** the findings route like REV findings (BUG · TASK · ADR · RISK · DISC), each with its own lifecycle. |
+ 
+ ---
+ 
+ ## Findings channeling (after an APPROVED Verdict)
+ 
+-Only an approved Verdict (`AITL-AREV-VERDICT-Approval`) produces actionable
++Only an approved Verdict (`CP-AREV-VERDICT-Approval`) produces actionable
+ findings. Confirmed findings are channeled to the correct artifact. The
+ **human** decides the final action on each finding; each downstream artifact
+-follows its own lifecycle and AITL approval:
++follows its own lifecycle and CITL approval:
+ 
+ ```mermaid
+ flowchart LR
+     V["📜 VERDICT<br>(approved — confirmed finding)"]
+ 
+-    V -->|"Confirmed defect"| BUG["🐛 BUG-NNN<br>bugs/ (AITL-BUG-Approval)"]
+-    V -->|"Quality gap"| BOLT["⚡ BOLT<br>functional/bolts/ (AITL-BOLT-READY-Approval)"]
+-    BOLT -->|"Blueprint"| SPEC["📋 SPEC<br>spec/"]
+-    V -->|"Needs research"| DISC["🔬 DISC-NNN<br>discovery/"]
+-    V -->|"Architectural decision"| ADR["📐 ADR-NNN<br>adrs/"]
+-    V -->|"Identified risk"| RISK["⚠️ RISK-NNN<br>risks/"]
++    V -->|"Confirmed defect"| BUG["🐛 BUG-NNN<br>13-bugs/ (CP-BUG-Approval)"]
++    V -->|"Quality gap"| TASK["⚡ TASK<br>12-functional/tasks/ (CP-TASK-READY-Approval)"]
++    TASK -->|"Blueprint"| SPEC["📋 SPEC<br>21-spec/"]
++    V -->|"Needs research"| DISC["🔬 DISC-NNN<br>03-discovery/"]
++    V -->|"Architectural decision"| ADR["📐 ADR-NNN<br>11-adrs/"]
++    V -->|"Identified risk"| RISK["⚠️ RISK-NNN<br>33-risks/"]
+     V -->|"Successfully rebutted<br>finding"| DISMISS["✅ Dismissed<br>(recorded in VERDICT)"]
+ 
+     classDef verdictStyle fill:#fdebd0,stroke:#ca6f1e,stroke-width:2px
+@@ -439,8 +439,8 @@
+ 
+ An AREV can be started in 3 ways:
+ 
+-**From a Bolt (V-Bounce):**
+-> "Activate full AREV for Bolt-015 on authentication."
++**From a TASK (Delivery Loop):**
++> "Activate full AREV for TASK-015 on authentication."
+ 
+ **Themed with focus and sources:**
+ > "Create an AREV focused on security using OWASP Top 10 as guide."
+@@ -456,35 +456,35 @@
+ 
+ ### Execution steps
+ 
+-1. Create the folder `AREV-NNN-description/` in `adversarial-reviews/`.
++1. Create the folder `AREV-NNN-description/` in `32-adv-reviews/`.
+ 2. Create `AREV-NNN-description.md` (index) using TEMPLATE-AREV.md.
+ 3. **Phase 1 (Critique):** The human selects the Challenger agent/model in the
+    development tool and launches the Critique. Pass as context:
+-   - **Bolt AREV:** SPEC, active ADRs, generated code and tests.
++   - **TASK AREV:** SPEC, active ADRs, generated code and tests.
+    - **Themed AREV:** Relevant code, ADRs, reference sources (e.g. "use
+      Context7 to verify Prisma usage").
+    - **Ad-hoc AREV:** Module/area code, active ADRs, conventions.
+    Ask for a review following Challenger mandates. Save to `01-CRITIQUE.md`.
+-   **Stop at `AITL-AREV-CRITIQUE-Approval`** — do not start Phase 2 until approved.
++   **Stop at `CP-AREV-CRITIQUE-Approval`** — do not start Phase 2 until approved.
+ 4. **Phase 2 (Defense):** The human manually changes the agent/model in the
+    tool (if a different model is desired) and launches the Defense. Pass
+    `01-CRITIQUE.md` + original code + SPEC/ADRs. Ask for a finding-by-finding
+    response. Save to `02-DEFENSE.md`.
+-   **Stop at `AITL-AREV-DEFENSE-Approval`.**
++   **Stop at `CP-AREV-DEFENSE-Approval`.**
+ 5. **Phase 3 (Verdict):** The human manually changes the agent/model again and
+    launches the Verdict with a **third model** different from both. Pass
+    `01-CRITIQUE.md` + `02-DEFENSE.md` + SPEC/ADRs. Ask for the final verdict.
+    Save to `03-VERDICT.md`.
+-   **Stop at `AITL-AREV-VERDICT-Approval`.**
++   **Stop at `CP-AREV-VERDICT-Approval`.**
+ 6. Only then the dev-validator reads the approved VERDICT and decides actions.
+ 
+-> **Manual agent/model selection (§3.13):** DevFlow never switches agents or
++> **Manual agent/model selection (§3.13):** MetaFlow never switches agents or
+ > models automatically. Between each phase approval, the human selects the
+ > agent/model for the next phase in whichever development tool is being used.
+ > Each phase file records the agent/model that produced it so the AREV remains
+ > self-contained and auditable. This operational selection does not create a
+-> regression-eval Bolt, does not require a model-change ADR, and does not
+-> update the Bolt manifest.
++> regression-eval TASK, does not require a model-change ADR, and does not
++> update the TASK manifest.
+ 
+ ---
+ 
+@@ -503,7 +503,7 @@
+ 
+ | Role | Model |
+ |------|-------|
+-| **Implementor** | Model A — whichever model implemented the Bolt |
++| **Implementor** | Model A — whichever model implemented the TASK |
+ | **Challenger** (Phase 1) | Model B — a different model |
+ | **Defender** (Phase 2) | Model A normally (the implementor) — a default, not a rule |
+ | **Judge** (Phase 3) | Model C — distinct from **both** A and B |

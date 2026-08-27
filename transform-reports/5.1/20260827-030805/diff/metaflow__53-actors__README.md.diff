@@ -1,0 +1,131 @@
+--- devflow/actors/README.md
++++ metaflow/53-actors/README.md
+@@ -1,41 +1,41 @@
+-# actors/ — who is in the team
++# 53-actors/ — who is in the team
+ 
+-> **Not `agents/`.** `devflow/actors/` is the **roster home**: who is in
+-> the team, humans and DevFlow Agents together as **actors**. `devflow/agents/`
++> **Not `51-agents/`.** `metaflow/53-actors/` is the **roster home**: who is in
++> the team, humans and MetaFlow Agents together as **actors**. `metaflow/51-agents/`
+ > holds the **AI-member definitions** — the examples, the templates and
+-> your project's live agents (`agents/squad/`). A human actor is a roster
+-> row without a definition file; a DevFlow Agent is a roster row **plus**
+-> a live definition in `agents/squad/`.
++> your project's live agents (`51-agents/squad/`). A human actor is a roster
++> row without a definition file; a MetaFlow Agent is a roster row **plus**
++> a live definition in `51-agents/squad/`.
+ 
+ ## What is an Actor?
+ 
+ An **Actor** is a **member of the team** — a **human by default**, a
+-**virtual DevFlow Agent** only by explicit, valid configuration — who
++**virtual MetaFlow Agent** only by explicit, valid configuration — who
+ **produces** the governed artifacts its role owns (FA → US, architect →
+ ADR, developer → SPEC + code, QA → TC/tests) as **executor** and
+-**participates** in AITL approvals as **approver** when configured, under
++**participates** in CITL approvals as **approver** when configured, under
+ the independence floor. The normative definition — grammar, independence
+ layers, open roles and the safe default — lives in **§3.0.1 The Actor** of
+-[Avenga-DevFlow.md](../avenga-devflow/Avenga-DevFlow.md); this README only
++[MetaFlow.md](../ai-sdlc/MetaFlow.md); this README only
+ teaches the concept and points there.
+ 
+ In one picture (the canonical diagram, §3.0.1):
+ 
+ ```mermaid
+ flowchart TB
+-    R[("Roster: actors + roles + models<br/>humans + DevFlow Agents")]
++    R[("Roster: actors + roles + models<br/>humans + MetaFlow Agents")]
+     R --> A["Actor — carries a role<br/>FA · architect · developer · qa · reviewer · …"]
+     A -->|"executor mode"| P["Produces the artifact its role owns<br/>US · ADR · SPEC · code · tests"]
+-    P --> K{"AITL checkpoint pause"}
++    P --> K{"CITL checkpoint pause"}
+     K -->|"approver mode · different actor<br/>approver.id ≠ executor.id"| D["Approve / request changes"]
+-    K -.->|"no valid config → human by default<br/>zero-config = pure HITL"| D
++    K -.->|"no valid config → human by default<br/>zero-config = pure CITL"| D
+     D --> M[("checkpoint_approvals[]<br/>actor + model + mode")]
+     D -.->|"independence layers"| I["actor floor · model hardening @ high<br/>human ceiling @ critical / regulatory"]
+ ```
+ 
+ ## The family shape
+ 
+-`actors/` follows the standard family shape — **one file per actor, one
++`53-actors/` follows the standard family shape — **one file per actor, one
+ list for the team**:
+ 
+ | File | Purpose |
+@@ -44,13 +44,13 @@
+ | `TEMPLATE-ACTOR.yaml` | The template for creating an actor file (the v1 shape — the `capabilities` block returns with the v2 hardening) |
+ | `roster.schema.yaml` | Validates an actor file (fail fast; the safe default applies until fixed) |
+ | `INDEX.md` | The family docs index (the *team* lives in `roster.yaml`) |
+-| `examples/` | The worked examples — `example-human.yaml` (a human actor), `example-agent.yaml` (a DevFlow Agent actor), `example-roster.yaml` (a filled team list, illustrative) — copy as starting points |
+-| `actors/<actor-id>.yaml` | One file per actor — created from the template, **listed in `roster.yaml`** |
++| `examples/` | The worked examples — `example-human.yaml` (a human actor), `example-agent.yaml` (a MetaFlow Agent actor), `example-roster.yaml` (a filled team list, illustrative) — copy as starting points |
++| `53-actors/<actor-id>.yaml` | One file per actor — created from the template, **listed in `roster.yaml`** |
+ 
+ **Each actor carries** `id` (kebab-case — the identity), a project-chosen
+ `name` (e.g. "Arq Juan", ".NET Architect"), `role`, `modes`, `approves` —
+-DevFlow Agent actors **also `model` and a `definition` pointer to a live
+-agent in `agents/squad/`** (never to `agents/examples/`); **humans omit
++MetaFlow Agent actors **also `model` and a `definition` pointer to a live
++agent in `51-agents/squad/`** (never to `51-agents/examples/`); **humans omit
+ both** (`human:<user>` → model null, §3.0.1).
+ **Definitions are reusable** (N actors : 1 definition — two architects may
+ share one squad definition), each actor distinct by `id`. The **`model` is
+@@ -61,9 +61,9 @@
+ ## The roster is the enablement
+ 
+ **Enabling a virtual approver is the human's configuration act — the
+-roster entry IS the explicit, valid configuration.** A DevFlow Agent whose
++roster entry IS the explicit, valid configuration.** A MetaFlow Agent whose
+ schema-valid actor file carries `modes: [approver]` and a non-empty
+-`approves`, **and is listed in `roster.yaml`**, may occupy those AITL
++`approves`, **and is listed in `roster.yaml`**, may occupy those CITL
+ checkpoint classes exactly like a human — no separate ADR, no policy
+ switch. The rules that make this safe:
+ 
+@@ -86,7 +86,7 @@
+ The roster is a deterministic lookup. The rules:
+ 
+ 1. **Role → actors.** A checkpoint's recommended role resolves to the
+-   actors holding it — humans and DevFlow Agents as peers. An **agent**
++   actors holding it — humans and MetaFlow Agents as peers. An **agent**
+    holder counts only for the checkpoint classes **its own `approves`
+    grants** (the roster entry is the enablement).
+ 2. **Who produces.** An artifact class resolves to the actors holding the
+@@ -104,10 +104,10 @@
+    requires distinct per-instance `model`s.
+ 5. **Membership is the list.** Only actors listed in `roster.yaml` exist
+    for the lookup — and every listed id must resolve to an existing
+-   `actors/<actor-id>.yaml` (the consistency check; the validator tooling
++   `53-actors/<actor-id>.yaml` (the consistency check; the validator tooling
+    automates it).
+ 6. **Zero-config.** With no roster, an empty list — or no schema-valid
+-   approver entry — the project behaves byte-for-byte as pure HITL: every
++   approver entry — the project behaves byte-for-byte as pure CITL: every
+    checkpoint resolves to humans.
+ 
+ ## Single-maintainer / human-roster guarantees
+@@ -129,17 +129,17 @@
+ | Actor | Recorded as | Model |
+ |-------|-------------|-------|
+ | Human | `human:<user>` | `null` |
+-| DevFlow Agent | `agent:<id>` | its declared model (an attribute) |
++| MetaFlow Agent | `agent:<id>` | its declared model (an attribute) |
+ 
+ ## What lives here
+ 
+ - **`roster.yaml`** — the team list (the membership authority; ships
+   empty — your team is yours).
+-- The **actor files** — one per actor (`actors/<actor-id>.yaml`),
++- The **actor files** — one per actor (`53-actors/<actor-id>.yaml`),
+   validated by `roster.schema.yaml`, listed in `roster.yaml`.
+ - The **family shape** — `TEMPLATE-ACTOR.yaml`, `roster.schema.yaml`,
+   `INDEX.md`, `examples/`.
+ 
+ **Zero-config unchanged:** with no roster entries — or none declares a
+-DevFlow Agent approver — every checkpoint resolves to a human actor, pure
+-HITL, exactly as before.
++MetaFlow Agent approver — every checkpoint resolves to a human actor, pure
++CITL, exactly as before.

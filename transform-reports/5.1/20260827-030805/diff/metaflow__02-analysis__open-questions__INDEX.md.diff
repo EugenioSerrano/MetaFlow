@@ -1,0 +1,18 @@
+--- devflow/analysis/open-questions/INDEX.md
++++ metaflow/02-analysis/open-questions/INDEX.md
+@@ -1,12 +1,12 @@
+ # Open Questions — Index
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ Centralized backlog of analysis-phase open questions. See
+ [README.md](README.md) for lifecycle, rules and templates.
+ 
+-> **Sunset rule (G35):** before `AITL-BOLT-READY-Approval` (readiness), every
+-> OQ whose `targets` include that Bolt's parent US or one of its governing
++> **Sunset rule (G35):** before `CP-TASK-READY-Approval` (readiness), every
++> OQ whose `targets` include that TASK's parent US or one of its governing
+ > artifacts must be `answered`, `deferred` or `dropped`. No `open` /
+ > `in-validation` OQ may survive into delivery.
+ 

@@ -1,0 +1,48 @@
+--- devflow/actors/roster.schema.yaml
++++ metaflow/53-actors/roster.schema.yaml
+@@ -1,8 +1,8 @@
+-# roster.schema.yaml — validates an ACTOR file (actors/<actor-id>.yaml)
++# roster.schema.yaml — validates an ACTOR file (53-actors/<actor-id>.yaml)
+ # JSON Schema (draft 2020-12) in YAML form. A malformed actor file fails
+ # fast and the safe default (humans) applies until fixed.
+ $schema: "https://json-schema.org/draft/2020-12/schema"
+-title: "Avenga DevFlow actor file"
++title: "MetaFlow actor file"
+ type: "object"
+ additionalProperties: false
+ required: [id, name, role, modes, approves]   # model is AGENT-required (see
+@@ -22,7 +22,7 @@
+   model:
+     type: "string"
+     minLength: 1                               # per-instance, authoritative —
+-                                               # DevFlow Agent actors only
++                                               # MetaFlow Agent actors only
+                                                # (humans omit it)
+   modes:
+     type: "array"
+@@ -33,13 +33,13 @@
+     type: "array"
+     uniqueItems: true
+     items:
+-      enum: [US, BUG, TC, BOLT-READY, BOLT-DONE, ADR, SPEC, MEM, DISC, REV,
++      enum: [US, BUG, TC, TASK-READY, TASK-DONE, ADR, SPEC, MEM, DISC, REV,
+              AREV-CRITIQUE, AREV-DEFENSE, AREV-VERDICT]
+-  # DevFlow Agent actors only (humans omit this block):
++  # MetaFlow Agent actors only (humans omit this block):
+   definition:
+     type: "string"
+     minLength: 1                               # the reusable blueprint (N:1) —
+-                                               # a live agent in agents/squad/
++                                               # a live agent in 51-agents/squad/
+   capabilities:                                # OPTIONAL in v1 — the template
+     type: "object"                             # defers this block; it returns
+     additionalProperties: false                # (and becomes required again for
+@@ -71,7 +71,7 @@
+       properties:
+         approves:
+           minItems: 1
+-  # Agent discriminator — every DevFlow Agent actor carries `definition`
++  # Agent discriminator — every MetaFlow Agent actor carries `definition`
+   # AND `model` (the model matters for the record and for model-level
+   # independence); every human omits both.
+   - if:

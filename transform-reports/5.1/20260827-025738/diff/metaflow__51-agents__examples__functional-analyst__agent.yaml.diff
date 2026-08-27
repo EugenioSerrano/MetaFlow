@@ -1,0 +1,26 @@
+--- devflow/agents/examples/functional-analyst/agent.yaml
++++ metaflow/51-agents/examples/functional-analyst/agent.yaml
+@@ -1,4 +1,4 @@
+-# Canonical DevFlow Agent definition — TEMPLATE (adopters copy + instantiate;
++# Canonical MetaFlow Agent definition — TEMPLATE (adopters copy + instantiate;
+ # pick your own id — the id is the identity, renaming a prompt never changes it).
+ id: fa-agent                  # adopters choose: <project>-fa-agent
+ role: functional-analyst
+@@ -8,14 +8,14 @@
+   this agent.
+ model: inherit                    # safe default: follow the session model; adopters override per platform catalog
+ modes: [executor, approver]           # executor first-class; approver when enabled
+-approves: [US]                        # may sign AITL-US-Approval when the roster enables it
++approves: [US]                        # may sign CP-US-Approval when the roster enables it
+ capabilities:
+-  tier: T1                            # repo + read-only external (input/ interviews)
++  tier: T1                            # repo + read-only external (01-input/ interviews)
+   tools: [read, grep, glob, bash, edit, write]
+   mcp_servers: []                     # named + allowlisted; [] default
+ escalation:
+   - "business intent ambiguous or sources contradictory"
+   - "ACs would need implementation detail (that is the SPEC's job)"
+-write_paths: ["devflow/functional/user-stories/", "devflow/analysis/"]
++write_paths: ["metaflow/12-functional/user-stories/", "metaflow/02-analysis/"]
+ # APPROVER CEILING (approver mode): this agent runs T0/T1,
+ # no write paths, no transactional MCPs — the evidence is in the repo.
