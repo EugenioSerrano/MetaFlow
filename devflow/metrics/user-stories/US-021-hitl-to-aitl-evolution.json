@@ -1,0 +1,58 @@
+{
+  "schema_version": "5.0",
+  "us": {
+    "id": "US-021",
+    "ref": "devflow/functional/user-stories/US-021-hitl-to-aitl-evolution.md",
+    "sources": [
+      "devflow/adrs/ADR-008-aitl-approval-precept.md",
+      "devflow/discovery/DISC-001-aitl-and-subagent-orchestration.md",
+      "devflow/discovery/DISC-002-devflow-agents-architecture.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-22T17:54:40-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-opus-4-8",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-22T17:54:40-03:00",
+    "review_started_at": "2026-08-22T18:09:22-03:00"
+  },
+  "story_points": 8,
+  "bolts": [
+    "devflow/functional/bolts/US-021.BOLT-001-aitl-concept-and-precept.md",
+    "devflow/functional/bolts/US-021.BOLT-002-aitl-guardrails-scoping.md",
+    "devflow/functional/bolts/US-021.BOLT-003-aitl-schema-enum.md",
+    "devflow/functional/bolts/US-021.BOLT-004-aitl-identifier-sweep.md"
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-021-hitl-to-aitl-evolution.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:09:22-03:00",
+      "comment": "SP 8 confirmed. HITL->AITL concept + kit-wide checkpoint rename per ADR-008. Kit-only (ADR-004); dogfooding split (this US uses HITL-*); history preserved (G36); does not enable virtual approvers. Authorizes decomposition into candidate functional Bolts."
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-023.BOLT-002",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-023.BOLT-002-wrapper-generator-and-parity.md",
+    "sources": [
+      "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md",
+      "devflow/discovery/DISC-002-devflow-agents-architecture.md",
+      "devflow/functional/user-stories/US-016-kit-invariants-audit-tool.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-23T15:50:52-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-23T15:50:52-03:00",
+    "review_started_at": "2026-08-23T15:58:00-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-23T17:21:00-03:00",
+      "review_started_at": "2026-08-23T17:21:00-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260823-1601-wrapper-generator-and-parity.md",
+      "sources": [
+        "devflow/functional/bolts/US-023.BOLT-002-wrapper-generator-and-parity.md",
+        "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md",
+        "devflow/discovery/DISC-002-devflow-agents-architecture.md",
+        "devflow/functional/user-stories/US-016-kit-invariants-audit-tool.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-23T16:01:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-23T16:01:00-03:00",
+      "review_started_at": "2026-08-23T16:09:00-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T16:14:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1615-wrapper-generator-and-parity.md",
+        "generation": {
+          "created_at": "2026-08-23T16:15:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T16:15:00-03:00",
+      "review_started_at": null
+    },
+    {
+      "number": 2,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T17:15:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1716-wrapper-generator-and-parity.md",
+        "generation": {
+          "created_at": "2026-08-23T17:16:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T17:16:00-03:00",
+      "review_started_at": "2026-08-23T17:20:00-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:50:52-03:00",
+      "comment": "Parent US-023 approved (origin decision). Candidate Bolt: the wrapper generator in tools/ + the N×4 parity check (US-016 integration). Depends on BOLT-001. Awaiting AITL-BOLT-READY-Approval."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-023.BOLT-002-wrapper-generator-and-parity.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:59:39-03:00",
+      "comment": "DoR met: parent US-023 approved, DISC-002 approved + US-016 approved (parity integration), 0 open OQs. Risk low (internal maintainer tooling). Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260823-1601-wrapper-generator-and-parity.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T16:10:15-03:00",
+      "comment": "Revision 1 approved: one-Bolt plan complete (the wrapper generator + N×4 parity check integrated with the US-016 discipline, platform mapping re-verified at implementation). Authorizes the V-Bounce."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1615-wrapper-generator-and-parity.md",
+        "v_bounce": 1
+      },
+      "decision": "changes_requested",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:12:03-03:00",
+      "comment": "changes_requested (review chain completion, G17/§3.3): superseded by V-Bounce 2 (MEM-260823-1716) — the Model-Y fix (generator skips the coordinator) + the TEMPLATE-skip + the parity node_modules fix. MEM narrative immutable."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1716-wrapper-generator-and-parity.md",
+        "v_bounce": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:21:43-03:00",
+      "comment": "V-Bounce 2 approved: Model-Y generator fix + TEMPLATE-skip + parity node_modules fix — 14/14 tests, 20 wrappers, parity PASS. BOLT-002 Development Completed."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-023.BOLT-002-wrapper-generator-and-parity.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:21:43-03:00",
+      "comment": "Accepted (feature → PO/PM): DoD met — latest MEM approved, AC-9/11 pass, kit+tools only. BOLT-002 Done."
+    }
+  ]
+}

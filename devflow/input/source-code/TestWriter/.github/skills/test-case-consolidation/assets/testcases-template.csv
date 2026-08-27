@@ -1,0 +1,4 @@
+"ID","Work Item Type","Title","Objective","Description","Test Step","Step Action","Step Expected","Area Path","Assigned To","State","QA Status","QA Comment","Source HU ID","Coverage Tag","Technique/Heuristic","Origin","BComplejidad","BPrioridadTC"
+"","Test Case","001 - <BE|BI> - <MB|WB> - HOME - <Funcionalidad> - <Descripcion>","<objetivo que valida el caso>","<descripcion del alcance del caso>","","","","<Area Path provisto por QA>","","Design","PENDING","","<id de la HU>","<AC id>","<tecnica/heuristica>","Heuristic|Exploratory","3 - Baja","1 - Alta"
+"","","","","","1","<toque o accion concreta del usuario, incluyendo elemento y dato>","<resultado visual o funcional, navegacion esperada y comportamiento que no debe ocurrir>","","","","PENDING","","<id de la HU>","<AC id>","","","",""
+"","","","","","2","<siguiente accion concreta y validacion>","<resultado esperado y comportamiento que no debe ocurrir>","","","","PENDING","","<id de la HU>","<AC id>","","","",""

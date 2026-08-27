@@ -1,0 +1,405 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-023.BOLT-003",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-023.BOLT-003-wrapper-deployment.md",
+    "sources": [
+      "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md",
+      "devflow/discovery/DISC-002-devflow-agents-architecture.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-23T15:50:52-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-23T15:50:52-03:00",
+    "review_started_at": "2026-08-23T15:58:00-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-23T17:21:00-03:00",
+      "review_started_at": "2026-08-23T17:21:00-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260823-1602-wrapper-deployment.md",
+      "sources": [
+        "devflow/functional/bolts/US-023.BOLT-003-wrapper-deployment.md",
+        "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md",
+        "devflow/discovery/DISC-002-devflow-agents-architecture.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-23T16:02:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-23T16:02:00-03:00",
+      "review_started_at": "2026-08-23T16:09:00-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T16:16:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1618-wrapper-deployment.md",
+        "generation": {
+          "created_at": "2026-08-23T16:18:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T16:18:00-03:00",
+      "review_started_at": null
+    },
+    {
+      "number": 2,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T17:16:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1717-wrapper-deployment.md",
+        "generation": {
+          "created_at": "2026-08-23T17:17:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T17:17:00-03:00",
+      "review_started_at": "2026-08-23T17:20:00-03:00"
+    },
+    {
+      "number": 3,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T18:13:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1814-wrapper-deployment-mapping-shipped.md",
+        "generation": {
+          "created_at": "2026-08-23T18:14:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T18:14:00-03:00",
+      "review_started_at": "2026-08-23T18:15:00-03:00"
+    },
+    {
+      "number": 4,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T18:28:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1828-wrapper-deployment-model-change.md",
+        "generation": {
+          "created_at": "2026-08-23T18:28:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T18:28:00-03:00",
+      "review_started_at": "2026-08-24T00:40:35-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:50:52-03:00",
+      "comment": "Parent US-023 approved (origin decision). Candidate Bolt: the per-platform wrapper deployment + verification notes (Claude full coverage; Codex/Copilot re-verified). Depends on BOLT-001 + BOLT-002. Awaiting AITL-BOLT-READY-Approval."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-023.BOLT-003-wrapper-deployment.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:59:39-03:00",
+      "comment": "DoR met: parent US-023 approved, DISC-002 approved (rec #6), 0 open OQs; AC coverage complete (AC-6/9/10/11 — spawn-topology allowlists claimed per the review). Risk low. Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260823-1602-wrapper-deployment.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T16:10:15-03:00",
+      "comment": "Revision 1 approved: one-Bolt plan complete (generated + committed wrappers with the spawn-topology allowlists — AC-6 enforcement — and the per-platform verification notes). Authorizes the V-Bounce."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1618-wrapper-deployment.md",
+        "v_bounce": 1
+      },
+      "decision": "changes_requested",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:12:03-03:00",
+      "comment": "changes_requested (review chain completion, G17/§3.3): superseded by V-Bounce 2 (MEM-260823-1717) — the Model-Y fix (coordinator wrappers removed; the four main files carry the orchestrator identity; parity over the 20-wrapper set). MEM narrative immutable."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1717-wrapper-deployment.md",
+        "v_bounce": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:21:43-03:00",
+      "comment": "V-Bounce 2 approved: Model-Y deployment — coordinator wrappers removed, 20 role wrappers with parity PASS, the four main files carry the orchestrator identity (byte-sync 2 lines, G-count 39×5). BOLT-003 Development Completed."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1814-wrapper-deployment-mapping-shipped.md",
+        "v_bounce": 3
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T18:15:21-03:00",
+      "comment": "V-Bounce 3 approved: the shipped canonical → wrapper mapping (field-level, self-contained) — the US-025 AC-8 prerequisite is closed. BOLT-003 complete."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-023.BOLT-003-wrapper-deployment.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:21:43-03:00",
+      "comment": "Accepted (feature → PO/PM): DoD met — latest MEM approved, AC-6/9/10/11 pass, kit-only. BOLT-003 Done."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1828-wrapper-deployment-model-change.md",
+        "v_bounce": 4
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T00:40:35-03:00",
+      "comment": "V-Bounce 4 (deployment-model change, maintainer-directed) approved: the 20 role wrappers removed from the kit dotfolders, the 4 MainAgents intact, kit docs aligned, parity PASS (maintainer-side), self-containment 0 hits. The anticipated governance landed before this approval: ADR-013 §3.9 accepted (2026-08-24) + US-023 revision 3 re-approved (the G15 follow-up this MEM flagged). BOLT-003 Development Completed; its prior Done acceptance (17:21:43) predates V-Bounce 4 — re-acknowledged implicitly by this batch approval."
+    }
+  ]
+}

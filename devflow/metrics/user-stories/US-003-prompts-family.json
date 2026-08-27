@@ -1,0 +1,53 @@
+{
+  "schema_version": "5.0",
+  "story_points": 2,
+  "us": {
+    "id": "US-003",
+    "review_started_at": "2026-08-21T01:48:07-03:00",
+    "sources": [
+      "maintainer product direction (2026-08-21)"
+    ],
+    "review_ready_at": "2026-08-21T01:48:07-03:00",
+    "ref": "devflow/functional/user-stories/US-003-prompts-family.md",
+    "generation": {
+      "created_at": "2026-08-21T01:32:43-03:00",
+      "duration_seconds": null,
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "provider": "deepseek",
+          "model": "deepseek-v4-flash",
+          "tool": "opencode",
+          "tokens": {
+            "output": null,
+            "input_cache_write": null,
+            "input_uncached": null,
+            "input_cached_read": null
+          },
+          "agent": null
+        }
+      ]
+    }
+  },
+  "bolts": [
+    "devflow/functional/bolts/US-003.BOLT-001-prompts-family.md"
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-003-prompts-family.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-21T01:48:07-03:00",
+      "comment": "US-003 approved: standalone devflow/prompts/ family, PROMPT-NNN numbering, no approval/manifest (copy-paste prompts), template and four-agent wording accepted. Story points 2 confirmed."
+    }
+  ]
+}

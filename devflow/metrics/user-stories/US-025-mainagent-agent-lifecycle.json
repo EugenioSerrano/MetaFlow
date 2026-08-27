@@ -1,0 +1,65 @@
+{
+  "schema_version": "5.0",
+  "us": {
+    "id": "US-025",
+    "ref": "devflow/functional/user-stories/US-025-mainagent-agent-lifecycle.md",
+    "sources": [
+      "devflow/discovery/DISC-001-aitl-and-subagent-orchestration.md",
+      "devflow/discovery/DISC-002-devflow-agents-architecture.md",
+      "devflow/adrs/ADR-007-devflow-agent-identity-model.md",
+      "devflow/adrs/ADR-008-aitl-approval-precept.md",
+      "devflow/functional/user-stories/US-022-actor-concept.md",
+      "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md",
+      "devflow/functional/user-stories/US-024-unified-actors-roster.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-23T18:18:53-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-opus-4-8",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-24T00:40:35-03:00",
+    "review_started_at": "2026-08-24T00:40:35-03:00"
+  },
+  "story_points": 8,
+  "bolts": [
+    "devflow/functional/bolts/US-025.BOLT-001-mainagent-lifecycle-body.md",
+    "devflow/functional/bolts/US-025.BOLT-002-per-platform-lifecycle.md",
+    "devflow/functional/bolts/US-025.BOLT-003-delete-safe-consistency.md",
+    "devflow/functional/bolts/US-025.BOLT-005-kit-g07-scoping.md",
+    "devflow/functional/bolts/US-025.BOLT-004-lifecycle-pilot.md",
+    "devflow/functional/bolts/US-025.BOLT-006-copilot-platform-verification-fixes.md",
+    "devflow/functional/bolts/US-025.BOLT-007-kit-self-containment-f14-fix.md"
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-025-mainagent-agent-lifecycle.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T00:40:35-03:00",
+      "comment": "Approved as Functional Analyst; story points confirmed at 8. Prerequisites verified: ADR-013 + ADR-014 accepted (2026-08-24), US-022/023/024 delivered (US-023/024 re-approved revision 3), the per-platform install mapping shipped. The MainAgent lifecycle: install from agents/squad/, create by scaffolding template+examples into squad/ (roster executor-only draft — approver authority is the human's configuration act, ADR-014 §3.8), delete-safe N:1 roster check, byte-identical shared body across the four MainAgents. Authorizes decomposition into the 5 candidate Bolts."
+    }
+  ]
+}

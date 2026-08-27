@@ -1,0 +1,205 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-014.BOLT-003",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-014.BOLT-003-no-risk-based-approver-counts.md",
+    "sources": [
+      "devflow/functional/user-stories/US-014-role-availability-policy.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-22T00:47:31-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-opus-4-8",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-22T00:47:31-03:00",
+    "review_started_at": "2026-08-22T00:53:56-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-22T01:47:46-03:00",
+      "review_started_at": "2026-08-22T01:50:16-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260822-0141-no-risk-based-approver-counts.md",
+      "sources": [
+        "devflow/functional/bolts/US-014.BOLT-003-no-risk-based-approver-counts.md",
+        "devflow/functional/user-stories/US-014-role-availability-policy.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": "0c7f40d",
+      "generation": {
+        "created_at": "2026-08-22T01:41:34-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-22T01:41:34-03:00",
+      "review_started_at": "2026-08-22T01:43:46-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-22T01:43:46-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260822-0146-no-risk-based-approver-counts.md",
+        "generation": {
+          "created_at": "2026-08-22T01:46:21-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "claude-code",
+              "provider": "anthropic",
+              "model": "claude-opus-4-8",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-22T01:46:21-03:00",
+      "review_started_at": "2026-08-22T01:47:46-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-014-role-availability-policy.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T00:37:30-03:00",
+      "comment": "Parent US approval (origin decision). This Bolt implements the approver-count dimension (D7). Depends on BOLT-001 (shared §3.3 area)."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-014.BOLT-003-no-risk-based-approver-counts.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T00:53:56-03:00",
+      "comment": "DoR complete; risk medium. Authorizes SPEC preparation. Execution sequenced after BOLT-001 (shared §3.3 MEM-approver area)."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260822-0141-no-risk-based-approver-counts.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T01:43:46-03:00",
+      "comment": "Revision 1 approved; authorizes the V-Bounce (kit-only, ADR-004)."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260822-0146-no-risk-based-approver-counts.md",
+        "v_bounce": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T01:47:46-03:00",
+      "comment": "D7 verified: risk-based counts removed, one approver at any risk, SPEC/UAT minimum one, rubric retained, identity rules intact, 39×5, root untouched. Bolt now Development Completed."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-014.BOLT-003-no-risk-based-approver-counts.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T01:50:16-03:00",
+      "comment": "Acceptance (feature → PO/PM). Completion evidence satisfied; Bolt Done. Third and last Bolt of US-014 — the US is now fully implemented."
+    }
+  ]
+}

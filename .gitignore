@@ -1,0 +1,11 @@
+﻿node_modules/
+
+
+__pycache__/
+*.pyc
+
+# test/ sandbox — kit copies are scratch; only the README is tracked
+test/*
+!test/README.md
+
+

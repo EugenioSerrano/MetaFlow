@@ -1,0 +1,210 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-000.BOLT-004",
+    "type": "non-functional",
+    "ref": "devflow/functional/bolts/US-000.BOLT-004-complete-g29-sweep.md",
+    "sources": [
+      "devflow/functional/user-stories/US-000-non-functional.md",
+      "devflow/bugs/BUG-001-stale-bug-route-copies.md",
+      "devflow/adversarial-reviews/AREV-001-role-availability-blockers-sweep/03-VERDICT.md",
+      "devflow/adrs/ADR-002-documentation-defect-classification.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-22T00:14:36-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-opus-4-8",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-22T00:14:36-03:00",
+    "review_started_at": "2026-08-22T00:18:05-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-22T00:29:16-03:00",
+      "review_started_at": "2026-08-22T00:30:39-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260822-0018-complete-g29-sweep.md",
+      "sources": [
+        "devflow/functional/bolts/US-000.BOLT-004-complete-g29-sweep.md",
+        "devflow/bugs/BUG-001-stale-bug-route-copies.md",
+        "devflow/adversarial-reviews/AREV-001-role-availability-blockers-sweep/03-VERDICT.md",
+        "devflow/adrs/ADR-002-documentation-defect-classification.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": "c794948",
+      "generation": {
+        "created_at": "2026-08-22T00:18:05-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-22T00:18:05-03:00",
+      "review_started_at": "2026-08-22T00:23:22-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-22T00:23:22-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260822-0027-complete-g29-sweep.md",
+        "generation": {
+          "created_at": "2026-08-22T00:27:06-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "claude-code",
+              "provider": "anthropic",
+              "model": "claude-opus-4-8",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-22T00:27:06-03:00",
+      "review_started_at": "2026-08-22T00:29:16-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-BUG-Approval",
+      "subject": {
+        "ref": "devflow/bugs/BUG-001-stale-bug-route-copies.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "developer",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T00:14:36-03:00",
+      "comment": "Non-functional medium BUG (relaxed G29 route: any team member, author included). Class-1 documentation defect per ADR-002; routed from AREV-001 F-01."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-000.BOLT-004-complete-g29-sweep.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "developer",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T00:18:05-03:00",
+      "comment": "DoR complete; risk class low. Non-functional BUG Bolt — readiness routing mirrors BUG-001 medium severity (any team member, author included). Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260822-0018-complete-g29-sweep.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T00:23:22-03:00",
+      "comment": "Revision 1 approved; authorizes the V-Bounce (kit-only, ADR-004)."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260822-0027-complete-g29-sweep.md",
+        "v_bounce": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T00:29:16-03:00",
+      "comment": "RED/GREEN evidence, four-agent sync (G-count 39×5), root untouched and valid manifest inspected. Bolt now Development Completed. Risk low → single approver."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-000.BOLT-004-complete-g29-sweep.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "tech_lead",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T00:30:39-03:00",
+      "comment": "Acceptance (work_category debt → Tech Lead). Completion evidence satisfied; Bolt Done. Closes BUG-001."
+    }
+  ]
+}

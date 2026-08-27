@@ -1,0 +1,261 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-021.BOLT-001",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-021.BOLT-001-aitl-concept-and-precept.md",
+    "sources": [
+      "devflow/functional/user-stories/US-021-hitl-to-aitl-evolution.md",
+      "devflow/adrs/ADR-008-aitl-approval-precept.md",
+      "devflow/adrs/ADR-007-devflow-agent-identity-model.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-22T18:13:50-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-opus-4-8",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-22T18:13:50-03:00",
+    "review_started_at": "2026-08-22T18:15:32-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-22T18:34:26-03:00",
+      "review_started_at": "2026-08-22T18:35:28-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260822-1817-aitl-concept-and-precept.md",
+      "sources": [
+        "devflow/functional/bolts/US-021.BOLT-001-aitl-concept-and-precept.md",
+        "devflow/functional/user-stories/US-021-hitl-to-aitl-evolution.md",
+        "devflow/adrs/ADR-008-aitl-approval-precept.md",
+        "devflow/adrs/ADR-007-devflow-agent-identity-model.md",
+        "devflow/adrs/ADR-005-removal-completeness-phrase-family-sweep.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-22T18:17:19-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-22T18:17:19-03:00",
+      "review_started_at": "2026-08-22T18:19:34-03:00"
+    },
+    {
+      "revision": 2,
+      "ref": "devflow/spec/SPEC-260822-1817-aitl-concept-and-precept.md",
+      "sources": [
+        "devflow/functional/bolts/US-021.BOLT-001-aitl-concept-and-precept.md",
+        "devflow/functional/user-stories/US-021-hitl-to-aitl-evolution.md",
+        "devflow/adrs/ADR-008-aitl-approval-precept.md",
+        "devflow/adrs/ADR-007-devflow-agent-identity-model.md",
+        "devflow/adrs/ADR-005-removal-completeness-phrase-family-sweep.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-22T18:25:02-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-22T18:25:02-03:00",
+      "review_started_at": "2026-08-22T18:27:05-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 2,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-22T18:31:47-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260822-1831-aitl-concept-and-precept.md",
+        "generation": {
+          "created_at": "2026-08-22T18:31:47-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "claude-code",
+              "provider": "anthropic",
+              "model": "claude-opus-4-8",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-22T18:31:47-03:00",
+      "review_started_at": "2026-08-22T18:34:26-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-021-hitl-to-aitl-evolution.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:09:22-03:00",
+      "comment": "Parent US-021 approved (origin decision). This Bolt evolves the HITL concept to AITL (§0 precept + core/agent concept sections), first of four. Depends on US-020."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-021.BOLT-001-aitl-concept-and-precept.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:15:32-03:00",
+      "comment": "DoR complete; risk medium. AITL concept + §0 precept; clean concept-vs-identifier boundary (identifiers are BOLT-004). Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260822-1817-aitl-concept-and-precept.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:19:34-03:00",
+      "comment": "Revision 1 approved; concept-only reframe with AC-5 boundary (identifier count unchanged). Authorizes the V-Bounce (kit-only, ADR-004)."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260822-1817-aitl-concept-and-precept.md",
+        "revision": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:27:05-03:00",
+      "comment": "Revision 2 approved; crisp 3-category boundary (BOLT-001 = category 1 precept prose; cat 2 adjective + cat 3 identifiers -> BOLT-004). V-Bounce executes against rev 2."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-021.BOLT-001-aitl-concept-and-precept.md",
+        "v_bounce": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:34:26-03:00",
+      "comment": "V-Bounce 1 approved. AITL precept + §3.0 Charter + definition + agents/README concept; AC-5 boundary proof (identifiers 1119->1119 unchanged); four-agent sync 39x5. Bolt Development Completed."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-021.BOLT-001-aitl-concept-and-precept.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:35:28-03:00",
+      "comment": "Accepted. DoD met: latest MEM approved, AC-1..AC-7, gates pass/n-a, boundary proof (identifiers unchanged), kit-only. BOLT-001 Done — concept layer of the HITL->AITL evolution. Remaining for US-021: BOLT-002 (guardrails), BOLT-003 (schema), BOLT-004 (comprehensive adjective+identifier sweep)."
+    }
+  ]
+}

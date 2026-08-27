@@ -1,0 +1,239 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-000.BOLT-012",
+    "type": "non-functional",
+    "ref": "devflow/functional/bolts/US-000.BOLT-012-kit-consistency-residue.md",
+    "sources": [
+      "devflow/functional/user-stories/US-000-non-functional.md",
+      "devflow/reviews/REV-004-kit-self-containment-consistency-audit.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-23T00:44:14-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-23T00:44:14-03:00",
+    "review_started_at": "2026-08-23T00:51:05-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-23T01:18:50-03:00",
+      "review_started_at": "2026-08-23T01:18:50-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260823-0052-kit-consistency-residue.md",
+      "sources": [
+        "devflow/functional/bolts/US-000.BOLT-012-kit-consistency-residue.md",
+        "devflow/reviews/REV-004-kit-self-containment-consistency-audit.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-23T00:52:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-23T00:52:00-03:00",
+      "review_started_at": "2026-08-23T00:54:35-03:00"
+    },
+    {
+      "revision": 2,
+      "ref": "devflow/spec/SPEC-260823-0052-kit-consistency-residue.md",
+      "sources": [
+        "devflow/functional/bolts/US-000.BOLT-012-kit-consistency-residue.md",
+        "devflow/reviews/REV-004-kit-self-containment-consistency-audit.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-23T01:09:25-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-23T01:09:25-03:00",
+      "review_started_at": "2026-08-23T01:10:54-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T00:59:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-0059-kit-consistency-residue.md",
+        "generation": {
+          "created_at": "2026-08-23T00:59:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T00:59:00-03:00",
+      "review_started_at": "2026-08-23T01:10:54-03:00"
+    },
+    {
+      "number": 2,
+      "spec_revision": 2,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T01:12:45-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-0112-kit-consistency-residue.md",
+        "generation": {
+          "created_at": "2026-08-23T01:12:45-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T01:12:45-03:00",
+      "review_started_at": "2026-08-23T01:17:05-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-000.BOLT-012-kit-consistency-residue.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "tech_lead",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T00:51:05-03:00",
+      "comment": "DoR met (REV-004 F-02..F-07 approved, US-000.BOLT-010 Done as G29 baseline, ADR-004 accepted, 0 open OQ, completion evidence defined); risk low confirmed. F-08 cosmetic included. G29 and all guardrails out of scope — alignment only. SPEC preparation authorized."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260823-0052-kit-consistency-residue.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        },
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "tech_lead",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T00:54:35-03:00",
+      "comment": "Revision 1 approved: location inventory matches the tree (incl. the multiline §3.9 phrase); G29 and guardrails out of scope; parity/G-count invariants defined. V-Bounce authorized."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-0059-kit-consistency-residue.md",
+        "v_bounce": 1
+      },
+      "decision": "changes_requested",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T01:10:54-03:00",
+      "comment": "V-Bounce 1 NOT approved: F-05 remediated incompletely — the four agents' AITL-Checkpoints lines (CLAUDE:391, SKILL:408, agent:436, opencode:419) and ONBOARDING:69 still carry 'H1–H6' without the HITL-* clause. Root cause: rev-1 SPEC inherited REV-004 F-05's narrow location; MEM verified by presence, not residue. Maintainer direction: remove H1–H6 kit-wide (prose + G05 rows). MEM-0059 stays as immutable history; the next execution is V-Bounce 2 against SPEC rev 2."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-000.BOLT-012-kit-consistency-residue.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "tech_lead",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T01:10:54-03:00",
+      "comment": "RE-AFFIRMATION on the materially revised scope (G15): F-05 = remove the v3-era H1–H6 aliases kit-wide (prose + G05 rows); legacy set = pre-v5 HITL-* only; G05 enforcement unchanged (canonical 13-code list); G-count 39. v1 approval (00:51:05) preserved append-only above. Risk low re-confirmed."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260823-0052-kit-consistency-residue.md",
+        "revision": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        },
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "tech_lead",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T01:10:54-03:00",
+      "comment": "Revision 2 approved: H1–H6 removal inventory (15 locations / 7 files) matches the tree; AC-4 = residue sweep (grep H1–H6 = 0); G05 enforcement unchanged; G-count 39. Rev-1 approval preserved append-only. V-Bounce 2 authorized."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-0112-kit-consistency-residue.md",
+        "v_bounce": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T01:17:05-03:00",
+      "comment": "V-Bounce 2 approved: 7-file diff = SPEC-0052 rev 2 inventory (15 locations); residue sweep H1–H6 = 0 (kit-wide, incl. ASCII variant); regression sweeps at zero (V-Bounce-1 fixes intact); G-count 39×5; parity 2 lines/pair. REV-004 F-05 fully closed. Bolt → Development Completed."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-000.BOLT-012-kit-consistency-residue.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "tech_lead",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T01:18:50-03:00",
+      "comment": "Accepted (refactor → Tech Lead): before/after diff + verification parity — residue H1–H6 = 0 kit-wide, regression sweeps at zero, G-count 39×5, parity, kit-only, manifest 0 errors. REV-004 F-02..F-08 closed (F-05 fully after the rev-2 remediation). Bolt Done."
+    }
+  ]
+}

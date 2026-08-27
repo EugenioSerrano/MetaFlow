@@ -1,0 +1,72 @@
+{
+  "schema_version": "5.0",
+  "us": {
+    "id": "US-015",
+    "ref": "devflow/functional/user-stories/US-015-unit-governance.md",
+    "sources": [
+      "devflow/avenga-devflow/Avenga-DevFlow.md",
+      "maintainer product direction (2026-08-21)",
+      "devflow/adversarial-reviews/AREV-001-role-availability-blockers-sweep/03-VERDICT.md",
+      "devflow/adversarial-reviews/AREV-002-single-operator-sweep/03-VERDICT.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-21T02:24:33-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-22T13:32:33-03:00",
+    "review_started_at": "2026-08-22T13:32:33-03:00"
+  },
+  "story_points": 8,
+  "bolts": [
+    "devflow/functional/bolts/US-015.BOLT-001-remove-reserved-unit-uat.md"
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-015-unit-governance.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T02:06:40-03:00",
+      "comment": "Units-governance US. Two horizons: (a) interim UNIT/UAT removal now (closes v4.2), (b) operationalization later (real-world-informed redesign, v5.0 candidate). story_points confirmed 8. Decomposed into Bolts."
+    },
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-015-unit-governance.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T13:32:33-03:00",
+      "comment": "Rev 2 — material scope change (US split): rescoped to part (a) (interim UNIT/UAT removal, delivered by US-015.BOLT-001 Done). Part (b) transferred to US-019 (draft, backlog v5.0). US-015 closed."
+    }
+  ]
+}

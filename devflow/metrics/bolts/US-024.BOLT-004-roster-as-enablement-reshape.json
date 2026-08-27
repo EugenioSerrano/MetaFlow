@@ -1,0 +1,324 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-024.BOLT-004",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-024.BOLT-004-roster-as-enablement-reshape.md",
+    "sources": [
+      "devflow/functional/user-stories/US-024-unified-actors-roster.md",
+      "devflow/adrs/ADR-014-actors-roster-is-the-enablement.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-24T00:44:53-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-fable-5",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-24T00:44:53-03:00",
+    "review_started_at": "2026-08-24T00:49:38-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-24T10:23:54-03:00",
+      "review_started_at": "2026-08-24T10:23:54-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260824-0054-roster-as-enablement-reshape.md",
+      "sources": [
+        "devflow/functional/bolts/US-024.BOLT-004-roster-as-enablement-reshape.md",
+        "devflow/functional/user-stories/US-024-unified-actors-roster.md",
+        "devflow/adrs/ADR-014-actors-roster-is-the-enablement.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md",
+        "devflow/spec/SPEC-260824-0050-agents-examples-squad-split.md"
+      ],
+      "git_commit": "7e3eb5e",
+      "generation": {
+        "created_at": "2026-08-24T00:55:21-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-fable-5",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-24T00:55:21-03:00",
+      "review_started_at": "2026-08-24T01:01:08-03:00"
+    },
+    {
+      "revision": 2,
+      "ref": "devflow/spec/SPEC-260824-0054-roster-as-enablement-reshape.md",
+      "sources": [
+        "devflow/functional/bolts/US-024.BOLT-004-roster-as-enablement-reshape.md",
+        "devflow/functional/user-stories/US-024-unified-actors-roster.md",
+        "devflow/adrs/ADR-014-actors-roster-is-the-enablement.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md",
+        "devflow/spec/SPEC-260824-0050-agents-examples-squad-split.md"
+      ],
+      "git_commit": "7e3eb5e",
+      "generation": {
+        "created_at": "2026-08-24T01:21:56-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-fable-5",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-24T01:21:56-03:00",
+      "review_started_at": "2026-08-24T01:21:56-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": "7e3eb5e",
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-24T01:11:07-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-fable-5",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260824-0115-roster-as-enablement-reshape.md",
+        "generation": {
+          "created_at": "2026-08-24T01:15:33-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "claude-code",
+              "provider": "anthropic",
+              "model": "claude-fable-5",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-24T01:15:33-03:00",
+      "review_started_at": "2026-08-24T01:21:56-03:00"
+    },
+    {
+      "number": 2,
+      "spec_revision": 2,
+      "git_commit": "7e3eb5e",
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-24T01:21:56-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-fable-5",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260824-0125-roster-as-enablement-reshape.md",
+        "generation": {
+          "created_at": "2026-08-24T01:25:21-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "claude-code",
+              "provider": "anthropic",
+              "model": "claude-fable-5",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-24T01:25:21-03:00",
+      "review_started_at": "2026-08-24T10:23:54-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-024-unified-actors-roster.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T00:40:35-03:00",
+      "comment": "Origin decision (US-024 revision 3, roster-as-enablement — ADR-014): authorizes this Bolt's creation. Awaiting AITL-BOLT-READY-Approval."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-024.BOLT-004-roster-as-enablement-reshape.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T00:49:38-03:00",
+      "comment": "DoR met: parent US-024 revision 3 approved, ADR-014 accepted, 0 open OQs, completion evidence defined (directory shape + schema fail-fast + phrase-family sweep + four-agent byte-sync/G-count). Risk: low. Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260824-0054-roster-as-enablement-reshape.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T01:01:08-03:00",
+      "comment": "Approved after an independent cross-model SPEC review; its blocking finding F-S1 (the schema's definition-requires-capabilities allOf would fail every v1-template actor) fixed pre-approval in this revision (allOf relaxed, example drops capabilities, AC-2 covers the three cases). O-2 (model: inherit semantics) pending, routed to US-025. Executes after SPEC-260824-0050's V-Bounce + MEM approval (F3). Authorizes the V-Bounce."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260824-0115-roster-as-enablement-reshape.md",
+        "v_bounce": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T01:21:56-03:00",
+      "comment": "V-Bounce 1 approved with an independent cross-model disk verification (PASS): the actors/ reshape exact, schema v1 rule + F-S1 relax, the mechanism named in the methodology + agents/README + the four MainAgents (clause hash-identical, G-count 39), both sweeps 0 hits. BOLT-004 Development Completed. The examples expansion proceeds as SPEC revision 2 -> V-Bounce 2 (G15/G16)."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260824-0054-roster-as-enablement-reshape.md",
+        "revision": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T01:21:56-03:00",
+      "comment": "Revision 2 approved (the examples expansion + the model rule): example-human.yaml (no model/definition — the human grammar), example-agent.yaml (renamed), example-roster.yaml (illustrative header — the consistency rule applies to the real roster.yaml only); the schema fix the human example surfaced (model leaves base required, becomes agent-required via definition — a human actor file was impossible under rev 1). Cross-model plan review PASS; its two naming/header notes folded in. Authorizes V-Bounce 2."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260824-0125-roster-as-enablement-reshape.md",
+        "v_bounce": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T10:23:54-03:00",
+      "comment": "V-Bounce 2 approved: the three examples with kebab symmetry and cross-referenced ids, the five-case validation GREEN (human shape PASS under the rev-2 discriminator), references aligned, self-containment 0 hits. Field-proven by the adopter smoke test (REV-005 C-03: a third party validated the human shape with 0 errors). BOLT-004 Development Completed (V-Bounces 1+2)."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-024.BOLT-004-roster-as-enablement-reshape.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T10:23:54-03:00",
+      "comment": "Accepted (feature -> PO/PM): DoD met — both MEMs approved, the ADR-014 §3.9 shape delivered and field-proven by the adopter smoke test (REV-005). BOLT-004 Done."
+    }
+  ]
+}

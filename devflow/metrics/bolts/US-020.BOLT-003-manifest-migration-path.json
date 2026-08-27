@@ -1,0 +1,261 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-020.BOLT-003",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-020.BOLT-003-manifest-migration-path.md",
+    "sources": [
+      "devflow/functional/user-stories/US-020-manifest-aitl-evolution.md",
+      "devflow/adrs/ADR-008-aitl-approval-precept.md",
+      "devflow/adrs/ADR-006-versioning-and-self-development-model.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-22T15:39:16-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-opus-4-8",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-22T15:39:16-03:00",
+    "review_started_at": "2026-08-22T15:42:22-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-22T16:51:13-03:00",
+      "review_started_at": "2026-08-22T16:51:49-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260822-1622-manifest-conversion-v5.md",
+      "sources": [
+        "devflow/functional/bolts/US-020.BOLT-003-manifest-migration-path.md",
+        "devflow/functional/user-stories/US-020-manifest-aitl-evolution.md",
+        "devflow/adrs/ADR-008-aitl-approval-precept.md",
+        "devflow/adrs/ADR-006-versioning-and-self-development-model.md",
+        "devflow/adrs/ADR-005-removal-completeness-phrase-family-sweep.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": "97125e7",
+      "generation": {
+        "created_at": "2026-08-22T16:22:39-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-22T16:22:39-03:00",
+      "review_started_at": "2026-08-22T16:26:29-03:00"
+    },
+    {
+      "revision": 2,
+      "ref": "devflow/spec/SPEC-260822-1622-manifest-conversion-v5.md",
+      "sources": [
+        "devflow/functional/bolts/US-020.BOLT-003-manifest-migration-path.md",
+        "devflow/functional/user-stories/US-020-manifest-aitl-evolution.md",
+        "devflow/adrs/ADR-008-aitl-approval-precept.md",
+        "devflow/adrs/ADR-006-versioning-and-self-development-model.md",
+        "devflow/adrs/ADR-005-removal-completeness-phrase-family-sweep.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": "97125e7",
+      "generation": {
+        "created_at": "2026-08-22T16:44:16-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-22T16:44:16-03:00",
+      "review_started_at": "2026-08-22T16:46:41-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 2,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-22T16:47:37-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260822-1647-manifest-conversion-v5.md",
+        "generation": {
+          "created_at": "2026-08-22T16:47:37-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "claude-code",
+              "provider": "anthropic",
+              "model": "claude-opus-4-8",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-22T16:47:37-03:00",
+      "review_started_at": "2026-08-22T16:50:20-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-020-manifest-aitl-evolution.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T15:38:08-03:00",
+      "comment": "Parent US-020 approved (origin decision). This Bolt documents the v4.0->v5.0 manifest conversion in §5.16 (G36). Depends on BOLT-001."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-020.BOLT-003-manifest-migration-path.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T15:42:22-03:00",
+      "comment": "DoR complete; risk class medium. Depends on BOLT-001. Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260822-1622-manifest-conversion-v5.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T16:26:29-03:00",
+      "comment": "Revision 1 approved; authorizes the V-Bounce (kit-only, ADR-004)."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260822-1622-manifest-conversion-v5.md",
+        "revision": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T16:46:41-03:00",
+      "comment": "Revision 2 approved: AC-3 narrowed to this Bolt's edited surface (§5.16 + the four agents' upgrade lines); kit-wide v5-propagation sweep (A+B+C) routed to US-020.BOLT-004. V-Bounce completes against rev 2."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-020.BOLT-003-manifest-migration-path.md",
+        "v_bounce": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T16:50:20-03:00",
+      "comment": "V-Bounce 1 approved. §5.16 4.0->5.0 recipe + four agents' upgrade lines (byte-identical, G-count 39x5); AC-4 worked example validates GREEN vs. the v5 schema. Bolt Development Completed. Kit-wide sweep routed to US-020.BOLT-004."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-020.BOLT-003-manifest-migration-path.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T16:51:49-03:00",
+      "comment": "Accepted. DoD met: latest MEM approved, AC-1..AC-7 per rev-2 scope, gates pass/n-a, manifest valid, root partition untouched. BOLT-003 Done. Remaining for US-020: BOLT-004 (kit-wide A+B+C sweep)."
+    }
+  ]
+}

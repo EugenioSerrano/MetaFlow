@@ -1,0 +1,209 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-021.BOLT-002",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-021.BOLT-002-aitl-guardrails-scoping.md",
+    "sources": [
+      "devflow/functional/user-stories/US-021-hitl-to-aitl-evolution.md",
+      "devflow/adrs/ADR-008-aitl-approval-precept.md",
+      "devflow/adrs/ADR-005-removal-completeness-phrase-family-sweep.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-22T18:36:54-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-opus-4-8",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-22T18:36:54-03:00",
+    "review_started_at": "2026-08-22T18:38:40-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-22T18:47:27-03:00",
+      "review_started_at": "2026-08-22T18:48:27-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260822-1839-aitl-guardrails-scoping.md",
+      "sources": [
+        "devflow/functional/bolts/US-021.BOLT-002-aitl-guardrails-scoping.md",
+        "devflow/functional/user-stories/US-021-hitl-to-aitl-evolution.md",
+        "devflow/adrs/ADR-008-aitl-approval-precept.md",
+        "devflow/adrs/ADR-005-removal-completeness-phrase-family-sweep.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-22T18:39:52-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-22T18:39:52-03:00",
+      "review_started_at": "2026-08-22T18:43:04-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-22T18:45:40-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-opus-4-8",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260822-1845-aitl-guardrails-scoping.md",
+        "generation": {
+          "created_at": "2026-08-22T18:45:40-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "claude-code",
+              "provider": "anthropic",
+              "model": "claude-opus-4-8",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-22T18:45:40-03:00",
+      "review_started_at": "2026-08-22T18:47:27-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-021-hitl-to-aitl-evolution.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:09:22-03:00",
+      "comment": "Parent US-021 approved (origin decision). This Bolt scopes G05/G18/G24 for AITL (count unchanged), second of four. Depends on BOLT-001."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-021.BOLT-002-aitl-guardrails-scoping.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:38:40-03:00",
+      "comment": "DoR complete; risk medium. G05/G18/G24 scoping for AITL, count unchanged (39). Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260822-1839-aitl-guardrails-scoping.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:43:04-03:00",
+      "comment": "Revision 1 approved; G05/G18/G24 scoped per ADR-008 §3.1/§3.4, count 39, only three rules change. Authorizes the V-Bounce (kit-only, ADR-004)."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-021.BOLT-002-aitl-guardrails-scoping.md",
+        "v_bounce": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:47:27-03:00",
+      "comment": "V-Bounce 1 approved. G05/G18/G24 scoped for AITL; count 39x5 unchanged; only three rules changed; §3.4 followed without dissolving the guarantee. Bolt Development Completed."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-021.BOLT-002-aitl-guardrails-scoping.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T18:48:27-03:00",
+      "comment": "Accepted. DoD met: latest MEM approved, AC-1..AC-8, count 39x5 invariant, only G05/G18/G24 changed, kit-only. BOLT-002 Done — guardrail layer of HITL->AITL. Remaining for US-021: BOLT-003 (schema enum), BOLT-004 (comprehensive sweep)."
+    }
+  ]
+}

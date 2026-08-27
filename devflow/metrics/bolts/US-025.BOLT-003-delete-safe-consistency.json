@@ -1,0 +1,195 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-025.BOLT-003",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-025.BOLT-003-delete-safe-consistency.md",
+    "sources": [
+      "devflow/functional/user-stories/US-025-mainagent-agent-lifecycle.md",
+      "devflow/adrs/ADR-013-agent-lifecycle-governance.md",
+      "devflow/adrs/ADR-014-actors-roster-is-the-enablement.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-24T14:08:59-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-fable-5",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-24T14:08:59-03:00",
+    "review_started_at": "2026-08-24T14:23:28-03:00",
+    "acceptance": {
+      "review_ready_at": null,
+      "review_started_at": null
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260824-1423-delete-safe-consistency.md",
+      "sources": [
+        "devflow/functional/bolts/US-025.BOLT-003-delete-safe-consistency.md",
+        "devflow/functional/user-stories/US-025-mainagent-agent-lifecycle.md",
+        "devflow/adrs/ADR-013-agent-lifecycle-governance.md",
+        "devflow/adrs/ADR-014-actors-roster-is-the-enablement.md",
+        "devflow/spec/SPEC-260824-1101-mainagent-lifecycle-body.md",
+        "devflow/spec/SPEC-260824-1144-per-platform-lifecycle.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": "ee22639",
+      "generation": {
+        "created_at": "2026-08-24T14:25:17-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-fable-5",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-24T14:25:17-03:00",
+      "review_started_at": "2026-08-24T14:38:23-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": "dce3618",
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-24T14:38:23-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-fable-5",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260824-1440-delete-safe-consistency.md",
+        "generation": {
+          "created_at": "2026-08-24T14:40:10-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "claude-code",
+              "provider": "anthropic",
+              "model": "claude-fable-5",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-24T14:40:10-03:00",
+      "review_started_at": "2026-08-24T14:44:35-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-025-mainagent-agent-lifecycle.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T00:40:35-03:00",
+      "comment": "Origin decision (US-025 approved — the MainAgent lifecycle): authorizes this Bolt's creation. Awaiting AITL-BOLT-READY-Approval."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-025.BOLT-003-delete-safe-consistency.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T14:23:28-03:00",
+      "comment": "DoR met (cross-model verified: dependencies Dev Completed at ee22639, 0 OQs, targets clean, the AC map complete across 001/002/003). Two observations routed to the SPEC: the N:1 invariant cardinality pinned explicitly (wrapper = actor-instance-owned; a definition falls only at zero remaining referencing actors); the contract-vs-body read-through. Risk: low. Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260824-1423-delete-safe-consistency.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T14:38:23-03:00",
+      "comment": "Approved after an independent cross-model SPEC review (no blocking findings; the three READY observations verified resolved; the delete-semantics mapping checked against the shared body). The reviewer's new observation adopted pre-stamp: wrapper naming pinned to the actor id (per-instance) — definition-named wrappers would collide under N:1. Authorizes the V-Bounce."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260824-1440-delete-safe-consistency.md",
+        "v_bounce": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T14:44:35-03:00",
+      "comment": "V-Bounce 1 approved: the contract verbatim (N:1 cardinality + actor-id naming + the quoted check order + four edge cases), the single pointer, pinned hash x4 unchanged, zero maintenance refs, the anchor stop/fix transparently recorded. BOLT-003 Development Completed; AC-4 covered; acceptance batched with the US-025 closure."
+    }
+  ]
+}

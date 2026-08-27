@@ -1,0 +1,328 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-022.BOLT-002",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-022.BOLT-002-actors-folder.md",
+    "sources": [
+      "devflow/functional/user-stories/US-022-actor-concept.md",
+      "devflow/adrs/ADR-007-devflow-agent-identity-model.md",
+      "devflow/adrs/ADR-008-aitl-approval-precept.md",
+      "devflow/adrs/ADR-010-actor-grammar-and-pure-v5-vocabulary.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-23T13:22:43-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-23T13:22:43-03:00",
+    "review_started_at": "2026-08-23T13:30:00-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-23T15:36:00-03:00",
+      "review_started_at": "2026-08-23T15:36:00-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260823-1336-actors-folder.md",
+      "sources": [
+        "devflow/functional/bolts/US-022.BOLT-002-actors-folder.md",
+        "devflow/functional/user-stories/US-022-actor-concept.md",
+        "devflow/adrs/ADR-007-devflow-agent-identity-model.md",
+        "devflow/adrs/ADR-008-aitl-approval-precept.md",
+        "devflow/adrs/ADR-010-actor-grammar-and-pure-v5-vocabulary.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-23T13:36:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-23T13:36:00-03:00",
+      "review_started_at": "2026-08-23T13:40:00-03:00"
+    },
+    {
+      "revision": 2,
+      "ref": "devflow/spec/SPEC-260823-1336-actors-folder.md",
+      "sources": [
+        "devflow/functional/bolts/US-022.BOLT-002-actors-folder.md",
+        "devflow/functional/user-stories/US-022-actor-concept.md",
+        "devflow/adrs/ADR-007-devflow-agent-identity-model.md",
+        "devflow/adrs/ADR-008-aitl-approval-precept.md",
+        "devflow/adrs/ADR-010-actor-grammar-and-pure-v5-vocabulary.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-23T15:30:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-23T15:30:00-03:00",
+      "review_started_at": "2026-08-23T15:31:00-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T13:45:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1346-actors-folder.md",
+        "generation": {
+          "created_at": "2026-08-23T13:46:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T13:46:00-03:00",
+      "review_started_at": "2026-08-23T15:32:00-03:00"
+    },
+    {
+      "number": 2,
+      "spec_revision": 2,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T15:33:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1534-actors-folder.md",
+        "generation": {
+          "created_at": "2026-08-23T15:34:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T15:34:00-03:00",
+      "review_started_at": "2026-08-23T15:35:00-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-022-actor-concept.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T13:22:43-03:00",
+      "comment": "Parent US-022 approved (origin decision). Candidate Bolt: the actors/ folder + README (roster home, G30-sanctioned). Depends on BOLT-001 (pointer target). Awaiting AITL-BOLT-READY-Approval."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-022.BOLT-002-actors-folder.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T13:34:04-03:00",
+      "comment": "DoR met: parent US-022 approved, ADR-007/008/010/004 accepted, 0 open OQs (G35), scope+exclusions+evidence defined. Risk low. Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260823-1336-actors-folder.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T13:42:30-03:00",
+      "comment": "Revision 1 approved: one-Bolt plan complete (folder + explanatory README, pointer to §Actor, disambiguation). Authorizes the V-Bounce."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260823-1336-actors-folder.md",
+        "revision": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:33:05-03:00",
+      "comment": "Revision 2 approved (G15 — US-022 re-approved with the producer+approver reframe): the README teaches the Actor as producer + approver with the new canonical mermaid; disambiguation, pointer and roster-note unchanged. Authorizes the V-Bounce 2 that documents the delivered README."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1346-actors-folder.md",
+        "v_bounce": 1
+      },
+      "decision": "changes_requested",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:33:05-03:00",
+      "comment": "changes_requested (review chain completion, G17/§3.3): MEM-1346 documented the README as delivered at 13:46 (approver-centric, 'Files modified: none'); the README was later reframed (producer + approver + new canonical mermaid, ~14:07) — the documented output no longer matches the delivered artifact. Superseded by V-Bounce 2. MEM narrative immutable."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1534-actors-folder.md",
+        "v_bounce": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:36:33-03:00",
+      "comment": "V-Bounce 2 approved: the delivered README documented against SPEC-1336 rev 2 (disambiguation, producer+approver, canonical mermaid, pointer, roster note) — all present; kit-only. BOLT-002 Development Completed."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-022.BOLT-002-actors-folder.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:36:33-03:00",
+      "comment": "Accepted (feature → PO/PM): DoD met — latest MEM approved, AC-8/AC-9 pass, kit-only. BOLT-002 Done."
+    }
+  ]
+}

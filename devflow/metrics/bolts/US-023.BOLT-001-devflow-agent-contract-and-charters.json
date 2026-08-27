@@ -1,0 +1,425 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-023.BOLT-001",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-023.BOLT-001-devflow-agent-contract-and-charters.md",
+    "sources": [
+      "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md",
+      "devflow/discovery/DISC-002-devflow-agents-architecture.md",
+      "devflow/adrs/ADR-007-devflow-agent-identity-model.md",
+      "devflow/adrs/ADR-008-aitl-approval-precept.md",
+      "devflow/adrs/ADR-010-actor-grammar-and-pure-v5-vocabulary.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-23T15:50:52-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-23T15:50:52-03:00",
+    "review_started_at": "2026-08-23T15:58:00-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-23T17:21:00-03:00",
+      "review_started_at": "2026-08-23T17:21:00-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260823-1600-devflow-agent-contract-and-charters.md",
+      "sources": [
+        "devflow/functional/bolts/US-023.BOLT-001-devflow-agent-contract-and-charters.md",
+        "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md",
+        "devflow/adrs/ADR-007-devflow-agent-identity-model.md",
+        "devflow/adrs/ADR-008-aitl-approval-precept.md",
+        "devflow/adrs/ADR-010-actor-grammar-and-pure-v5-vocabulary.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-23T16:00:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-23T16:00:00-03:00",
+      "review_started_at": "2026-08-23T16:09:00-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T16:11:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1612-devflow-agent-contract-and-charters.md",
+        "generation": {
+          "created_at": "2026-08-23T16:12:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T16:12:00-03:00",
+      "review_started_at": null
+    },
+    {
+      "number": 2,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T17:13:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1715-devflow-agent-contract-and-charters.md",
+        "generation": {
+          "created_at": "2026-08-23T17:15:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T17:15:00-03:00",
+      "review_started_at": "2026-08-23T17:20:00-03:00"
+    },
+    {
+      "number": 3,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T17:25:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1726-devflow-agent-contract-and-charters.md",
+        "generation": {
+          "created_at": "2026-08-23T17:26:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T17:26:00-03:00",
+      "review_started_at": "2026-08-23T17:27:00-03:00"
+    },
+    {
+      "number": 4,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-23T17:34:00-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260823-1735-devflow-agent-contract-and-charters.md",
+        "generation": {
+          "created_at": "2026-08-23T17:35:00-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-23T17:35:00-03:00",
+      "review_started_at": "2026-08-23T17:36:00-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:50:52-03:00",
+      "comment": "Parent US-023 approved (origin decision). Candidate Bolt: the devflow/agents/ family (contract + Coordinator + five producer-first charter templates). Awaiting AITL-BOLT-READY-Approval."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-023.BOLT-001-devflow-agent-contract-and-charters.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:59:39-03:00",
+      "comment": "DoR met: parent US-023 approved, ADR-007/008/010 accepted + DISC-002 approved, 0 open OQs, AC coverage complete (AC-1/2/4/5/7/8/11 — ceiling + MCP allowlist claimed per the review). Risk low. Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260823-1600-devflow-agent-contract-and-charters.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T16:10:15-03:00",
+      "comment": "Revision 1 approved: one-Bolt plan complete (agents/ family — contract, Coordinator, five producer-first charters with the approver ceiling + MCP allowlist, AC-7/8 closed end-to-end per the review). Authorizes the V-Bounce."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1612-devflow-agent-contract-and-charters.md",
+        "v_bounce": 1
+      },
+      "decision": "changes_requested",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:12:03-03:00",
+      "comment": "changes_requested (review chain completion, G17/§3.3): superseded by V-Bounce 2 (MEM-260823-1715) — the Model-Y refinement (the Coordinator pinned as the platform agent itself) + the TEMPLATE-new-role addition. The V-Bounce 1 content remains valid; the refinement landed. MEM narrative immutable."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1715-devflow-agent-contract-and-charters.md",
+        "v_bounce": 2
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:21:43-03:00",
+      "comment": "V-Bounce 2 approved: Model Y + TEMPLATE-new-role + agents/INDEX.md + governance-limit note verified. BOLT-001 Development Completed."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1715-devflow-agent-contract-and-charters.md",
+        "v_bounce": 2
+      },
+      "decision": "changes_requested",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:25:40-03:00",
+      "comment": "changes_requested (review chain completion, G17/§3.3): superseded by V-Bounce 3 (MEM-260823-1726) — the maintainer rejected the identity-extract folder; the Coordinator is the four platform agents evolved, and agents/coordinator/ was removed. MEM narrative immutable."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1726-devflow-agent-contract-and-charters.md",
+        "v_bounce": 3
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:27:34-03:00",
+      "comment": "V-Bounce 3 approved: the coordinator folder removed; the orchestrator identity lives in the four platform agents, evolved; docs aligned; invariants hold. BOLT-001 final refinement complete (the Bolt remains Done)."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260823-1735-devflow-agent-contract-and-charters.md",
+        "v_bounce": 4
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:36:54-03:00",
+      "comment": "V-Bounce 4 approved: kit self-containment cleanup — 0 references to the maintenance partition across agents/ and actors/; VERIFICATION.md explains the per-platform install/use; tests/parity hold. BOLT-001 complete."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-023.BOLT-001-devflow-agent-contract-and-charters.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:21:43-03:00",
+      "comment": "Accepted (feature → PO/PM): DoD met — latest MEM approved, AC-1/2/4/5/7/8/11 pass, kit-only. BOLT-001 Done."
+    }
+  ]
+}

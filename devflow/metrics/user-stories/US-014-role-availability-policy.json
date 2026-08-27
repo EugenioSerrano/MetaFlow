@@ -1,0 +1,69 @@
+{
+  "schema_version": "5.0",
+  "us": {
+    "id": "US-014",
+    "ref": "devflow/functional/user-stories/US-014-role-availability-policy.md",
+    "sources": [
+      "devflow/reviews/REV-001-hitl-checkpoint-role-inventory.md",
+      "devflow/adversarial-reviews/AREV-001-role-availability-blockers-sweep/03-VERDICT.md",
+      "devflow/adversarial-reviews/AREV-002-single-operator-sweep/03-VERDICT.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-21T02:19:01-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        },
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-opus-4-8",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-22T00:37:30-03:00",
+    "review_started_at": "2026-08-22T00:37:30-03:00"
+  },
+  "story_points": 8,
+  "bolts": [
+    "devflow/functional/bolts/US-014.BOLT-001-role-guidance-not-gate.md",
+    "devflow/functional/bolts/US-014.BOLT-002-arev-single-operator-operability.md",
+    "devflow/functional/bolts/US-014.BOLT-003-no-risk-based-approver-counts.md"
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-014-role-availability-policy.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-22T00:37:30-03:00",
+      "comment": "Single-operator HITL operability policy (D1-D7); story_points confirmed 8. Decomposed into Bolts."
+    }
+  ]
+}

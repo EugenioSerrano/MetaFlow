@@ -1,0 +1,93 @@
+{
+  "schema_version": "5.0",
+  "us": {
+    "id": "US-023",
+    "ref": "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md",
+    "sources": [
+      "devflow/discovery/DISC-001-aitl-and-subagent-orchestration.md",
+      "devflow/discovery/DISC-002-devflow-agents-architecture.md",
+      "devflow/adrs/ADR-007-devflow-agent-identity-model.md",
+      "devflow/adrs/ADR-008-aitl-approval-precept.md",
+      "devflow/functional/user-stories/US-022-actor-concept.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-23T12:58:16-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-23T15:48:00-03:00",
+    "review_started_at": "2026-08-23T15:49:00-03:00"
+  },
+  "story_points": 8,
+  "bolts": [
+    "devflow/functional/bolts/US-023.BOLT-001-devflow-agent-contract-and-charters.md",
+    "devflow/functional/bolts/US-023.BOLT-002-wrapper-generator-and-parity.md",
+    "devflow/functional/bolts/US-023.BOLT-003-wrapper-deployment.md",
+    "devflow/functional/bolts/US-023.BOLT-004-spawn-smoke-test.md",
+    "devflow/functional/bolts/US-023.BOLT-005-agents-examples-squad-split.md"
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T15:50:52-03:00",
+      "comment": "Approved as Functional Analyst; story points confirmed at 8 (kept — the producer+approver reframe reviewed: integrated narrative, AC-1..AC-11, rule #4 producers-first, Impact option A; governance solid per ADR-007/008; evidence gate clean, 0 OQs). Authorizes decomposition into 4 candidate functional Bolts."
+    },
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-23T17:30:48-03:00",
+      "comment": "Re-approved (material change, G15 — the delivered state evolved): AC-1/AC-5 reflect the actual deliverable — no agents/coordinator/ folder, no generated coordinator sub-agent; the Coordinator is the Avenga DevFlow platform agent itself, evolved (ADR-007 §3.4), with the orchestrator identity in the four platform files; the generator produces only role agents. First approval (15:50:52) kept as history."
+    },
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T00:40:35-03:00",
+      "comment": "Re-approved (revision 3, material change G15 — ship model + agents/ examples–squad split) after ADR-013's acceptance (2026-08-24): AC-9/rule #7 per ADR-013 §3.9 (no pre-built role wrappers; the Coordinator projects from squad/ and installs; generator + parity stay a maintainer invariant); AC-1/AC-2 split agents/roles/ into examples/ (shipped read-only references) + squad/ (the project's live agents, the only folder the roster references), TEMPLATE-new-role/ at the family root; BOLT-005 added. Prior approvals (15:50:52, 17:30:48) kept as history. Authorizes creating BOLT-005."
+    }
+  ]
+}

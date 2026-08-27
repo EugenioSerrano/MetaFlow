@@ -1,0 +1,207 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-023.BOLT-005",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-023.BOLT-005-agents-examples-squad-split.md",
+    "sources": [
+      "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md",
+      "devflow/adrs/ADR-013-agent-lifecycle-governance.md",
+      "devflow/adrs/ADR-004-repository-partition-v2.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-24T00:44:53-03:00",
+      "created_by": "human:eugenio.serrano",
+      "runs": [
+        {
+          "tool": "claude-code",
+          "provider": "anthropic",
+          "model": "claude-fable-5",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-24T00:44:53-03:00",
+    "review_started_at": "2026-08-24T00:49:38-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-24T10:23:54-03:00",
+      "review_started_at": "2026-08-24T10:23:54-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260824-0050-agents-examples-squad-split.md",
+      "sources": [
+        "devflow/functional/bolts/US-023.BOLT-005-agents-examples-squad-split.md",
+        "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md",
+        "devflow/adrs/ADR-013-agent-lifecycle-governance.md",
+        "devflow/adrs/ADR-004-repository-partition-v2.md"
+      ],
+      "git_commit": "7e3eb5e",
+      "generation": {
+        "created_at": "2026-08-24T00:54:05-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-fable-5",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-24T00:55:21-03:00",
+      "review_started_at": "2026-08-24T01:01:08-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": "7e3eb5e",
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-24T01:01:08-03:00",
+        "created_by": "human:eugenio.serrano",
+        "runs": [
+          {
+            "tool": "claude-code",
+            "provider": "anthropic",
+            "model": "claude-fable-5",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260824-0105-agents-examples-squad-split.md",
+        "generation": {
+          "created_at": "2026-08-24T01:05:15-03:00",
+          "created_by": "human:eugenio.serrano",
+          "runs": [
+            {
+              "tool": "claude-code",
+              "provider": "anthropic",
+              "model": "claude-fable-5",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-24T01:05:15-03:00",
+      "review_started_at": "2026-08-24T01:11:07-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-023-devflow-agent-definition-and-deployment.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T00:40:35-03:00",
+      "comment": "Origin decision (US-023 revision 3, ship model + agents/ examples-squad split — ADR-013 §3.9): authorizes this Bolt's creation. Awaiting AITL-BOLT-READY-Approval."
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-023.BOLT-005-agents-examples-squad-split.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T00:49:38-03:00",
+      "comment": "DoR met: parent US-023 revision 3 approved, ADR-013 accepted (§3.9 examples-squad ship model), 0 open OQs, completion evidence defined (directory shape + roles/ sweep + self-containment). Risk: low. Authorizes SPEC preparation only."
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260824-0050-agents-examples-squad-split.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T01:01:08-03:00",
+      "comment": "Approved after an independent cross-model SPEC review (ready as-is; F3 sequencing honored — this SPEC executes first). Authorizes the V-Bounce."
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260824-0105-agents-examples-squad-split.md",
+        "v_bounce": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T01:11:07-03:00",
+      "comment": "V-Bounce 1 approved with an independent cross-model disk verification (PASS): exact shape, byte-identical renames, the 4-hit sweep (1 fixed in scope incl. the tools/agent-wrappers self-containment leak; 3 allowlisted, owner SPEC-260824-0054), self-containment 0 hits. Reminder carried to the 0054 V-Bounce: verify the 3 allowlisted roles/ fixes explicitly. BOLT-005 Development Completed."
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-023.BOLT-005-agents-examples-squad-split.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenio.serrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-24T10:23:54-03:00",
+      "comment": "Accepted (feature -> PO/PM): DoD met — the MEM approved, the examples–squad split delivered and field-proven by the adopter smoke test (REV-005: the MainAgent used the split correctly unprompted). BOLT-005 Done."
+    }
+  ]
+}
