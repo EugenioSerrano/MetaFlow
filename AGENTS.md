@@ -65,3 +65,24 @@ marker — it would be overwritten on the next upgrade.
      A migration replaces only what is above it; your section survives byte for
      byte. Add your project's own conventions there. -->
 <!-- METAFLOW:PROJECT-SECTION -->
+
+## Two partitions — this workshop
+
+This repository is a **workshop**: it builds the MetaFlow kit and is governed
+by MetaFlow.
+
+- **`metaflow/` (root)** — the installed tree that governs this repository:
+  the current version of the methodology, **where we use MetaFlow today**.
+  The project's own artifacts (US-001, TASKs, SPECs, MEMs, manifests) live
+  here, exactly as in any adopting project.
+- **`distribution-kit/`** — the **product**: the kit a project copies, laid
+  out exactly as it has to land in an adopting repository. This is where
+  methodology changes land first — the next version line.
+- **`input-kit/`** — raw material: the source kit consumed by the
+  transformation pipeline (`src/` + `mapping.json`) that regenerates
+  `distribution-kit/`. It keeps the previous lineage content by design.
+
+Rules: nothing hand-edits `distribution-kit/` (regenerate it instead); nothing
+edits the root `metaflow/` except the §5.16 migration; every change to the
+methodology follows the governed path — approved origin (US/BUG/TC/DISC/REV/
+ADR) → TASK → SPEC → Delivery Loop → MEM.

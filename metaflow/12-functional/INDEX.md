@@ -66,6 +66,7 @@ configuration — the methodology prescribes no mechanism (see README).
 | [US-001.TASK-022](tasks/US-001.TASK-022-fix-citl-asterisco.md) | Fix BUG-017: "CITL-*" como nombre de checkpoint | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 | [US-001.TASK-023](tasks/US-001.TASK-023-fix-g05-pre-v5.md) | Fix BUG-018: G05 "pre-v5 CITL-* names" | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 | [US-001.TASK-024](tasks/US-001.TASK-024-fix-516-linaje.md) | Fix BUG-019: §5.16 linaje mezclado | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
+| [US-001.TASK-025](tasks/US-001.TASK-025-front-door-raiz.md) | Fix BUG-020: front door raíz — README MetaFlow con dos particiones + AGENTS.md + remoción skill avenga-devflow | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 
 ### Non-functional TASKs (`US-000.TASK-NNN`)
 

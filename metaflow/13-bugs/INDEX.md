@@ -26,6 +26,7 @@ Delivery Loop (red evidence → fix → green). No TASK may be created before
 
 | ID | Document | Status | Fix MEM | Closed date |
 |----|----------|--------|---------|-------------|
+| [BUG-020](BUG-020-front-door-raiz-stale.md) | Front door raíz stale: README Avenga DevFlow 5.1 + skill avenga-devflow instalado + AGENTS.md sin sección de proyecto | fixed | [MEM-260827-1632-front-door-raiz.md](../22-memory/MEM-260827-1632-front-door-raiz.md) | 2026-08-27 |
 | [BUG-002](BUG-002-schema-version-metodologia.md) | Restos v5 en MetaFlow.md §3.12/§5.16 | fixed | [MEM-260827-0406-fix-schema-version-metodologia.md](../22-memory/MEM-260827-0406-fix-schema-version-metodologia.md) | 2026-08-27 |
 | [BUG-003](BUG-003-schema-version-agentes.md) | schema_version "5.0" en agent definitions | fixed | [MEM-260827-0406-fix-schema-version-agentes.md](../22-memory/MEM-260827-0406-fix-schema-version-agentes.md) | 2026-08-27 |
 | [BUG-004](BUG-004-schema-version-contradicciones.md) | Contradicciones "5.0" vs "1.0" | fixed | [MEM-260827-0406-fix-schema-version-contradicciones.md](../22-memory/MEM-260827-0406-fix-schema-version-contradicciones.md) | 2026-08-27 |
