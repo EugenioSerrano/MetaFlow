@@ -1,0 +1,159 @@
+--- devflow/spec/TEMPLATE-SPEC.md
++++ metaflow/21-spec/TEMPLATE-SPEC.md
+@@ -6,17 +6,17 @@
+ llm: "" # LLM model used (e.g. "Claude Sonnet", "GPT")
+ status: "draft" # draft | approved | blocked | obsolete
+ origin: "" # US-NNN, TC-NNN, BUG-NNN, DISC-NNN, REV-NNN, AREV-NNN, or ADR-NNN that motivated this SPEC
+-bolt: "" # ⚠️ MANDATORY — US-NNN.BOLT-NNN | US-000.BOLT-NNN | TC-NNN.BOLT-NNN
++task: "" # ⚠️ MANDATORY — US-NNN.TASK-NNN | US-000.TASK-NNN | TC-NNN.TASK-NNN
+ revision: 1 # material revision of this canonical SPEC (matches manifest spec_revisions[])
+ associated_adrs: []
+ prerequisites: [] # Prior SPECs this one depends on
+-risk_class: "" # low | medium | high | critical (mirrors the Bolt's risk_class)
++risk_class: "" # low | medium | high | critical (mirrors the TASK's risk_class)
+ autonomy_level: "" # L1 | L2 | L3 | L4 — defaults by risk: low/medium→L3, high→L2, critical→L1; L4 requires an ADR (§3.3)
+ turn_budget: "" # OPTIONAL — agent loops without a green test suite before stop-and-ask (integer ≥ 1); leave empty to use the platform/agent default (§3.3)
+ data_classification: "internal" # public | internal | confidential | restricted — ordered (public < internal < confidential < restricted),
+-                                # normative definition in §3.6; mirrors the Bolt's; this SPEC-declared value is the one the PII/DLP gate reads
++                                # normative definition in §3.6; mirrors the TASK's; this SPEC-declared value is the one the PII/DLP gate reads
+ review_ready_at: "" # When this version is submitted for review (§3.0) — ISO 8601 with seconds + offset, e.g. 2026-08-02T11:45:00-03:00
+-review: # AITL-SPEC-Approval — filled by the human reviewer (§3.0)
++review: # CP-SPEC-Approval — filled by the human reviewer (§3.0)
+   decision: "" # approved | changes_requested | rejected
+   reviewers: [] # [{actor, role, model}]
+   started_at: "" # ISO 8601 with seconds + offset
+@@ -30,7 +30,7 @@
+   LANGUAGE POLICY (§3.15): YAML keys, status enums, IDs, and section
+   headings (##) stay in English (the schema). All prose — descriptions,
+   context, rationale, findings — goes in the project's content_language
+-  (declared in devflow/LANGUAGE).
++  (declared in metaflow/LANGUAGE).
+ 
+   ⚠️ MANDATORY TIMESTAMP: To generate the ID and filename:
+   1. Run: Get-Date -Format "yyMMdd-HHmm" (PowerShell) or date +"%y%m%d-%H%M" (Bash)
+@@ -38,15 +38,15 @@
+   3. NEVER invent or estimate the time.
+ 
+   ⚠️ MANDATORY LLM: Fill the llm field with the exact model generating this document.
+-  ⚠️ MANDATORY BOLT: The `bolt` field MUST reference an APPROVED Bolt (AITL-BOLT-READY-Approval).
+-     A SPEC without a Bolt reference is INVALID and cannot start implementation.
+-     Traceability: SPEC → BOLT → manifest (spec_revisions[]).
++  ⚠️ MANDATORY TASK: The `task` field MUST reference an APPROVED TASK (CP-TASK-READY-Approval).
++     A SPEC without a TASK reference is INVALID and cannot start implementation.
++     Traceability: SPEC → TASK → manifest (spec_revisions[]).
+   ⚠️ PRE-SPEC EVIDENCE GATE (§2.4.1): before generating, verify every governed source
+-     is approved (BUG/TC/Bolt/US/ADR/DISC/REV/AREV). Any draft source → blocking
++     is approved (BUG/TC/TASK/US/ADR/DISC/REV/AREV). Any draft source → blocking
+      report, never a partial SPEC.
+-  ⚠️ AITL-SPEC-Approval: a draft SPEC cannot start a code-run or V-Bounce. Material
++  ⚠️ CP-SPEC-Approval: a draft SPEC cannot start a code-run or Delivery Loop. Material
+      source changes invalidate the approval → stop, revise, re-approve (G15).
+-     One V-Bounce never spans two SPEC revisions.
++     One Delivery Loop never spans two SPEC revisions.
+ -->
+ 
+ # SPEC-YYMMDD-HHmm — [Descriptive title]
+@@ -54,7 +54,7 @@
+ | Field | Value |
+ |-------|-------|
+ | **Origin** | [US-NNN / BUG-NNN / TC-NNN / DISC-NNN / REV-NNN / AREV-NNN / ADR-NNN] |
+-| **Bolt** | [US-NNN.BOLT-NNN] |
++| **TASK** | [US-NNN.TASK-NNN] |
+ | **ADRs** | [links to associated ADRs] |
+ | **Risk Class** | [low / medium / high / critical] |
+ | **Revision** | [N] |
+@@ -76,7 +76,7 @@
+ 
+ <!--
+   Where does this need come from? Reference the originating US/BUG/TC/DISC/REV/ADR and the
+-  approved Bolt. What hardware, infrastructure, or system constraints exist?
++  approved TASK. What hardware, infrastructure, or system constraints exist?
+ -->
+ 
+ [Business and technical context that motivated this SPEC.]
+@@ -92,9 +92,9 @@
+ 
+ | Source | Ref | Approval |
+ |--------|-----|----------|
+-| Bolt | [US-NNN.BOLT-NNN] | AITL-BOLT-READY-Approval ✓ |
+-| Feature US / TC / BUG | [ref] | AITL-US / AITL-TC / AITL-BUG-Approval ✓ |
+-| ADRs | [ADR-NNN] | AITL-ADR-Approval ✓ |
++| TASK | [US-NNN.TASK-NNN] | CP-TASK-READY-Approval ✓ |
++| Feature US / TC / BUG | [ref] | CP-US-Approval / CP-TC-Approval / CP-BUG-Approval ✓ |
++| ADRs | [ADR-NNN] | CP-ADR-Approval ✓ |
+ | DISC/REV/AREV evidence | [ref] | approval ✓ |
+ | Repository baseline | [git commit] | — |
+ 
+@@ -131,15 +131,15 @@
+   Describe: what files are created/modified, what patterns are applied,
+   how components interact, what ADRs constrain them.
+ 
+-  ⚠️ ONE BOLT PER SPEC: All phases in this SPEC implement the SAME Bolt
+-  (the one in the `bolt` frontmatter field). If your work spans multiple
+-  Bolts, create one SPEC per Bolt.
+-
+-  ⚠️ BUG SPECS (§3.3.1): prescribe strict TDD in ONE V-Bounce — reproduction
++  ⚠️ ONE TASK PER SPEC: All phases in this SPEC implement the SAME TASK
++  (the one in the `task` frontmatter field). If your work spans multiple
++  TASKs, create one SPEC per TASK.
++
++  ⚠️ BUG SPECS (§3.3.1): prescribe strict TDD in ONE Delivery Loop — reproduction
+   test (RED evidence) → production change → green. Production code may not
+   change before red evidence exists.
+ 
+-  ⚠️ TEST BOLT SPECS (§3.2.1): map exactly one approved parent TC to the QA
++  ⚠️ TEST TASK SPECS (§3.2.1): map exactly one approved parent TC to the QA
+   Automation code; preserve the TC's expected results; no production-code
+   changes.
+ 
+@@ -239,7 +239,7 @@
+ | Dependency-confusion | | |
+ | Test-first evidence | | |
+ | Behavioral reproducibility | | |
+-| Bolt-manifest validation | | |
++| TASK-manifest validation | | |
+ 
+ > Each gate ends `pass` / `waived` (ADR-NNN) / `n/a` (with reason) (§3.6).
+ > Non-applicable gates must still be listed with their `n/a` reason.
+@@ -307,7 +307,7 @@
+ ## 15. Stop conditions
+ 
+ <!--
+-  Explicit conditions that halt the V-Bounce: an unresolved architectural
++  Explicit conditions that halt the Delivery Loop: an unresolved architectural
+   decision → ADR lifecycle; unreproducible bug; material source change;
+   conflicting, missing or ambiguous evidence → stop and request resolution
+   (never fill the gap with an assumption, §2.4.1). The agent records the
+@@ -325,9 +325,9 @@
+ - [ ] Tests GREEN (unit + integration + e2e where applicable); BUG: red + green evidence recorded
+ - [ ] Code follows applicable ADRs
+ - [ ] Applicable gates pass / waived (ADR) / n/a (reason)
+-- [ ] MEM created in `devflow/memory/` (exactly one per V-Bounce)
+-- [ ] Manifest `v_bounces[]` entry appended in `devflow/metrics/bolts/`
+-- [ ] AITL-MEM-Approval recorded
++- [ ] MEM created in `metaflow/22-memory/` (exactly one per Delivery Loop)
++- [ ] Manifest `delivery_loops[]` entry appended in `metaflow/23-metrics/tasks/`
++- [ ] CP-MEM-Approval recorded
+ 
+ ---
+ 
+@@ -350,13 +350,13 @@
+ 
+ ---
+ 
+-## 19. AITL-SPEC-Approval
+-
+-> **Avenga DevFlow §2.4.1, §3.0.** This SPEC remains a draft until the
+-> Dev-validator (+ applicable domain owners) records `AITL-SPEC-Approval`
+-> (in the `review` frontmatter block). Bolt approval (`AITL-BOLT-READY-Approval`)
++## 19. CP-SPEC-Approval
++
++> **MetaFlow §2.4.1, §3.0.** This SPEC remains a draft until the
++> Dev-validator (+ applicable domain owners) records `CP-SPEC-Approval`
++> (in the `review` frontmatter block). TASK approval (`CP-TASK-READY-Approval`)
+ > authorizes SPEC preparation; **SPEC approval** authorizes the code-run /
+-> V-Bounce. A material source change invalidates this approval — stop,
++> Delivery Loop. A material source change invalidates this approval — stop,
+ > revise, re-approve (G15).
+ 
+ | Field | Value |

@@ -44,7 +44,7 @@ review: # CP-US-Approval — filled by the human reviewer (§3.0)
   lifecycle. Approval is never inherited from related artifacts.
 
   ⚠️ Manifest v1 (§3.12, G33): when creating this feature US, create its
-  manifest JSON in metaflow/23-metrics/user-stories/ (schema_version "5.0", us,
+  manifest JSON in metaflow/23-metrics/user-stories/ (schema_version "1.0", us,
   story_points, tasks: [], checkpoint_approvals: []). A feature US without
   its manifest does not exist. Validate against manifest-v1-us.schema.json.
   US-000 has no manifest — it is a permanent container with no approval

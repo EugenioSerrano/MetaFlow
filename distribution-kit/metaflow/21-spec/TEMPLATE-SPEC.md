@@ -93,7 +93,7 @@ review: # CP-SPEC-Approval — filled by the human reviewer (§3.0)
 | Source | Ref | Approval |
 |--------|-----|----------|
 | TASK | [US-NNN.TASK-NNN] | CP-TASK-READY-Approval ✓ |
-| Feature US / TC / BUG | [ref] | CITL-US / CITL-TC / CP-BUG-Approval ✓ |
+| Feature US / TC / BUG | [ref] | CP-US-Approval / CP-TC-Approval / CP-BUG-Approval ✓ |
 | ADRs | [ADR-NNN] | CP-ADR-Approval ✓ |
 | DISC/REV/AREV evidence | [ref] | approval ✓ |
 | Repository baseline | [git commit] | — |

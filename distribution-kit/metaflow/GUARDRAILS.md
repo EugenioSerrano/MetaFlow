@@ -57,7 +57,7 @@ to an approved artifact invalidates its approval and pauses dependent work.
 | G02 | Create a TASK for a BUG without `CP-BUG-Approval` | ❌ *"BUG is draft. Approve the BUG first (`CP-BUG-Approval`), then create its one dedicated TASK (§2.16, §3.0)."* |
 | G03 | Create a Test TASK without `CP-TC-Approval` on its exact parent TC | ❌ *"Parent TC is draft. `CP-TC-Approval` is required before a TC originates Test TASKs (§2.6.1)."* |
 | G04 | Fix a BUG under an unrelated TASK, directly from a ticket, or untracked in another Delivery Loop | ❌ *"Every approved BUG has exactly one dedicated TASK; the BUG and TASK reference each other. The BUG alone never authorizes code (§2.16)."* |
-| G05 | Use  (the ) or non-canonical `CITL-*` identifiers | ❌ *"Canonical checkpoints are `CP-<CODE>-Approval` with uppercase codes only. Legacy prefixes — the pre-v5 `CITL-*` names, preserved only in migrated history (G36) — are invalid for new approvals (§3.0)."* |
+| G05 | Use a legacy checkpoint name (the pre-v5 checkpoint prefix) or non-canonical identifiers | ❌ *"Canonical checkpoints are `CP-<CODE>-Approval` with uppercase codes only. Legacy prefixes — the pre-v5 legacy checkpoint names, preserved only in migrated history (G36) — are invalid for new approvals (§3.0)."* |
 | G06 | Derive a TC's expected results from current code behavior | ❌ *"Test-basis rule: TCs derive from approved intent (US/AC + approved TASK, or non-functional TASK + ADRs), never from the implementation as oracle (§2.6.1)."* |
 | G29 | Block a BUG's `CP-BUG-Approval` (or its dedicated TASK's `CP-TASK-READY-Approval`) for lack of the recommended-role approver, on account of severity, or by excluding the BUG's own author | ❌ *"Approval routing is guidance, never a gate (§2.16, §3.0). The recommended approver — Functional Analyst (functional); Architect or Tech Lead when `severity: critical`, otherwise any team member (non-functional) — is advice, not a precondition: any qualified team member, the BUG's own author included, may record `CP-BUG-Approval` at any severity, and the dedicated TASK's `CP-TASK-READY-Approval` follows the same rule. The AI self-approval prohibition (G18/G24) is a different axis and still holds."* |
 | G30 | Create a new folder inside `metaflow/` (or any of its subfolders) outside the canonical folder structure | ❌ *"The `metaflow/` folder structure is canonical (§5.12, `metaflow/README.md`). The only sanctioned agent-created areas are the per-agent folders under `52-agents-data/` — each agent creates its own on first use, is responsible for it, and may freely organize files and subfolders **within** it (§5.12) — the per-AREV folders `32-adv-reviews/AREV-NNN-<description>/` (§2.15), and the `_archive/` subfolders the agent creates when archiving closed documents (§5.4). Store non-governed agent knowledge in your `52-agents-data/<agent-name>/` folder instead of inventing a folder."* |
@@ -241,7 +241,7 @@ index — that it was abandoned.
 | T09 | Every DISC/REV carries its approval; AREV phases are sequential and each approved before the next |
 | T10 | A review finding that requires code creates a TASK before a SPEC is written (never REV → SPEC directly) |
 | T11 | Every gate result is `pass`, `waived` (with approved waiver ADR) or `n/a` (with reason in the approved SPEC) |
-| T12 | Approvals are never inherited: each artifact's `CITL-*` decision is recorded on that artifact (and minimally projected in the manifest where applicable) |
+| T12 | Approvals are never inherited: each artifact's `CP-*` decision is recorded on that artifact (and minimally projected in the manifest where applicable) |
 
 ---
 
@@ -477,7 +477,7 @@ contract/E2E gate as `n/a` because a later release suite will cover it (§3.6).
 - [`ONBOARDING.md`](ONBOARDING.md) — Role-based onboarding guide
 - [`ai-sdlc/MetaFlow.md`](ai-sdlc/MetaFlow.md) — Complete methodology (normative source, v1.1)
 - [`12-functional/user-stories/US-000-non-functional.md`](12-functional/user-stories/US-000-non-functional.md) — Non-functional container
-- [`23-metrics/README.md`](23-metrics/README.md) — Manifest family v5 schemas and lifecycle
+- [`23-metrics/README.md`](23-metrics/README.md) — Manifest family v1 schemas and lifecycle
 - [`23-metrics/manifest-v1-task.schema.json`](23-metrics/manifest-v1-task.schema.json) — Normative TASK manifest JSON Schema
 - [`23-metrics/manifest-v1-us.schema.json`](23-metrics/manifest-v1-us.schema.json) — Normative US manifest JSON Schema
 - [`23-metrics/manifest-v1-tc.schema.json`](23-metrics/manifest-v1-tc.schema.json) — Normative TC manifest JSON Schema

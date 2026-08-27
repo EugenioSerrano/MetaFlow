@@ -16,7 +16,7 @@ capabilities:
 escalation:
   - "SPEC is ambiguous or a governed source changed mid-run (G15)"
   - "tests cannot go green within the turn budget"
-write_paths: []                       # the product tree (distribution-kit/, tools/) + governed records
+write_paths: []                       # the product tree (src/ + metaflow/) + governed records
 # NOTE: as a pure executor this agent never needs approver mode; if a
 # project grants it one, the APPROVER CEILING (T0/T1, no write paths, no
 # transactional MCPs — the approver ceiling) applies to that mode.

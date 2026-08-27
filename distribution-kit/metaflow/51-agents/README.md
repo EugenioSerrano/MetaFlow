@@ -26,7 +26,7 @@
 
 There is **no separate coordinator folder**: the **Coordinator is the
 MetaFlow agent we already ship per platform** — `CLAUDE.md`,
-`.51-agents/skills/…`, `.github/51-agents/…`, `.opencode/51-agents/…` — **evolved**
+`.agents/skills/…`, `.github/agents/…`, `.opencode/agents/…` — **evolved**
 to know how to act as the orchestrator in each case ("the evolution of
 today's platform agent"). Its evolution lives in those four files: the
 shared body carries the **"The Coordinator (the orchestrator)"**
@@ -135,8 +135,8 @@ The five shipped examples are references, never a closed enum.
   agent with `approves: []` cannot sign, no matter what its prompt says.
 - **The wrappers are projected, not hand-written** — the Coordinator
   projects the live definitions in `squad/` into the four platform shapes
-  (`.claude/51-agents/`, `.opencode/51-agents/`, `.github/51-agents/`,
-  `.codex/51-agents/`) following the mapping in `VERIFICATION.md`, with the
+  (`.claude/agents/`, `.opencode/agents/`, `.github/agents/`,
+  `.codex/agents/`) following the mapping in `VERIFICATION.md`, with the
   N×4 parity check keeping them in sync. The kit ships no pre-built role
   wrappers — the MainAgent installs them in the adopting project.
 - **Delete is checked, never blind** — the lifecycle consistency

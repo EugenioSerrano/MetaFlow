@@ -65,8 +65,8 @@ field alone.
   **live definitions live in `metaflow/51-agents/squad/`**. The
   **Coordinator** — the MetaFlow MainAgent itself, one per tool —
   **installs and refreshes its platform's wrappers** into the project's
-  platform folders (`.claude/51-agents/`, `.opencode/51-agents/`,
-  `.github/51-agents/`, `.codex/51-agents/`) by projecting the live
+  platform folders (`.claude/agents/`, `.opencode/agents/`,
+  `.github/agents/`, `.codex/agents/`) by projecting the live
   `agent.yaml` from `squad/` per the mapping above (the agent lifecycle,
   a governed operational act).
 - Each platform loads its agent files from those folders **at session
@@ -80,7 +80,7 @@ field alone.
 
 ## Claude Code — full native coverage ✅
 
-- **Folder:** `.claude/51-agents/*.md` — loaded from the project root at
+- **Folder:** `.claude/agents/*.md` — loaded from the project root at
   session start (the workspace trust dialog must be accepted for
   repo-level agents).
 - Per-agent `model`, `tools` allowlist, `mcpServers`, hooks and spawn
@@ -93,7 +93,7 @@ field alone.
 
 ## OpenCode — solid, with the task gate ✅
 
-- **Folder:** `.opencode/51-agents/*.md` — loaded from the project at
+- **Folder:** `.opencode/agents/*.md` — loaded from the project at
   session start.
 - `permission` globs per tool supported.
 - **Spawn topology:** `permission.task` — the Coordinator (the main
@@ -114,7 +114,7 @@ field alone.
 
 ## GitHub Copilot — viable with environment caveats 🟡
 
-- **Folder:** `.github/51-agents/*.agent.md` — repo-level custom agents.
+- **Folder:** `.github/agents/*.agent.md` — repo-level custom agents.
 - **Spawn topology:** the Coordinator's frontmatter `tools:` includes the
   `agent` alias (agent→agent invocation — the platform's canonical
   agent-invocation tool); the role wrappers omit it by construction —
@@ -141,7 +141,7 @@ field alone.
 
 ## OpenAI Codex — right primitives, known gaps 🟡
 
-- **Folder:** `.codex/51-agents/*.toml` — role files with full config
+- **Folder:** `.codex/agents/*.toml` — role files with full config
   override (model, reasoning, sandbox).
 - **Spawn topology:** no native per-agent spawn allowlist — the control
   is instruction-based (the Coordinator's charter: "approver agents are

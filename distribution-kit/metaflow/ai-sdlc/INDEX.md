@@ -10,7 +10,7 @@ cycle. Travels with the code and is accessible to the whole team.
 
 | Document | Description |
 |----------|-------------|
-| [MetaFlow](MetaFlow.md) | MetaFlow v1.1 — the complete methodology: three TASK types (functional / non-functional / test), named CITL checkpoints (US, BUG, TC, TASK-READY, TASK-DONE, ADR, SPEC, MEM, DISC, REV, AREV-CRITIQUE/DEFENSE/VERDICT), canonical one-SPEC-per-TASK, Delivery Loop with mandatory MEM, Manifest family v5 (US/TASK/TC + step timings), sprint reports, Delivery Flow Five metrics, quality gates and end-to-end flow |
+| [MetaFlow](MetaFlow.md) | MetaFlow v1.1 — the complete methodology: three TASK types (functional / non-functional / test), named CITL checkpoints (US, BUG, TC, TASK-READY, TASK-DONE, ADR, SPEC, MEM, DISC, REV, AREV-CRITIQUE/DEFENSE/VERDICT), canonical one-SPEC-per-TASK, Delivery Loop with mandatory MEM, Manifest family v1 (US/TASK/TC + step timings), sprint reports, Delivery Flow Five metrics, quality gates and end-to-end flow |
 
 > This family carries no `status` vocabulary in §3.15 — the methodology has
 > no lifecycle: this index is a curated inventory of the current version.

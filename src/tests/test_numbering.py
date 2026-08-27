@@ -109,9 +109,12 @@ class TestNumbering(unittest.TestCase):
                               r"agents|agents-data|actors)(?![\w/-])")
             self.assertEqual(len(over.findall(joined)), 0, "sobre-match en prosa")
 
-            # 0 referencias viejas como ruta
+            # 0 referencias viejas como ruta — el lookbehind excluye el contexto
+            # de plataforma (".github/agents/", ".opencode/agents/", ".agents/skills/",
+            # ".claude/agents/", ".codex/agents/"), que NO se numera (ADR-003, BUG-001,
+            # BUG-008): las menciones de plataforma usan los nombres reales sin número.
             old = re.compile(
-                r"(?<![\w-])(input|analysis|discovery|adrs|functional|bugs|spec|"
+                r"(?<![\w./-])(input|analysis|discovery|adrs|functional|bugs|spec|"
                 r"memory|metrics|tests|reviews|adversarial-reviews|risks|incidents|"
                 r"retros|prompts|reports|agents|agents-data|actors)/")
             self.assertEqual(len(old.findall(joined)), 0, "referencias viejas")

@@ -1,0 +1,23 @@
+--- devflow/agents/examples/developer/agent.yaml
++++ metaflow/51-agents/examples/developer/agent.yaml
+@@ -1,9 +1,9 @@
+-# Canonical DevFlow Agent definition — TEMPLATE (adopters copy + instantiate;
++# Canonical MetaFlow Agent definition — TEMPLATE (adopters copy + instantiate;
+ # pick your own id — the id is the identity).
+ id: developer-agent            # adopters choose: <project>-developer-agent
+ role: developer
+ description: >
+-  Executes V-Bounces: implements the approved SPEC (code, tests,
++  Executes Delivery Loops: implements the approved SPEC (code, tests,
+   configuration) and produces the MEM + manifest entry. Delegate
+   implementation work to this agent.
+ model: inherit                    # safe default: follow the session model; adopters override per platform catalog
+@@ -16,7 +16,7 @@
+ escalation:
+   - "SPEC is ambiguous or a governed source changed mid-run (G15)"
+   - "tests cannot go green within the turn budget"
+-write_paths: []                       # the product tree (distribution-kit/, tools/) + governed records
++write_paths: []                       # the product tree (src/ + metaflow/) + governed records
+ # NOTE: as a pure executor this agent never needs approver mode; if a
+ # project grants it one, the APPROVER CEILING (T0/T1, no write paths, no
+ # transactional MCPs — the approver ceiling) applies to that mode.

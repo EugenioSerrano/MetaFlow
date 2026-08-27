@@ -201,7 +201,7 @@ exists.
 | `12-functional/` | The dedicated TASK lives under the affected approved feature US (functional) or `US-000-non-functional.md` (non-functional) |
 | `21-spec/` | One canonical SPEC per BUG TASK, referencing the approved BUG |
 | `22-memory/` | The fix Delivery Loop produces a MEM (red + green evidence) and updates the manifest |
-| `23-metrics/tasks/` | Manifest family v5 `delivery_loops[]` entry; BUG never authorizes code by itself |
+| `23-metrics/tasks/` | Manifest family v1 `delivery_loops[]` entry; BUG never authorizes code by itself |
 | `34-incidents/` | Production incident (`INC-NNN`) may produce a BUG when root cause is confirmed |
 | `31-reviews/` | Bugs are often extracted from `REV-NNN` findings |
 | `32-adv-reviews/` | An approved Verdict may produce a BUG; AREV is optional and stakeholder-triggered — never automatic |

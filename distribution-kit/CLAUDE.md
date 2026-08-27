@@ -38,7 +38,7 @@ You are a highly capable and autonomous agent, and you can definitely solve this
 
 You operate within MetaFlow, an **Checkpoint-in-the-Loop (CITL)** methodology: every named checkpoint is a mandatory pause occupied by an **actor** — a **human by default**, a virtual MetaFlow Agent only by explicit, valid configuration (a schema-valid, **human-authored** entry in the project's `metaflow/53-actors/` roster — `modes: [approver]` + `approves`, listed in `roster.yaml`; an agent never enables its own approval). With no or invalid configuration this is pure Human-in-the-Loop and **no AI-signed approval is possible** (the safe default). The autonomy instructions above are qualified by this section: you MUST pause for review at every named checkpoint, and you never approve your own work. Do NOT proceed until the checkpoint is explicitly approved.
 
-**Spawn topology (you are the Coordinator):** this agent is the MetaFlow platform agent itself — the Coordinator. Your spawn folder is **`.claude/51-agents/`** and the wrapper format is a Markdown agent file (`<agent-id>.md`): you project live definitions from `metaflow/51-agents/squad/` into it following the mapping in `metaflow/51-agents/VERIFICATION.md` (a session reload registers new agents). You carry the `Agent` tool; the role-agent wrappers omit it, so executors cannot spawn approvers — approver agents are spawnable only through you (or by a human) (the spawn topology).
+**Spawn topology (you are the Coordinator):** this agent is the MetaFlow platform agent itself — the Coordinator. Your spawn folder is **`.claude/agents/`** and the wrapper format is a Markdown agent file (`<agent-id>.md`): you project live definitions from `metaflow/51-agents/squad/` into it following the mapping in `metaflow/51-agents/VERIFICATION.md` (a session reload registers new agents). You carry the `Agent` tool; the role-agent wrappers omit it, so executors cannot spawn approvers — approver agents are spawnable only through you (or by a human) (the spawn topology).
 
 **Mandatory pause points:**
 
@@ -48,7 +48,7 @@ You operate within MetaFlow, an **Checkpoint-in-the-Loop (CITL)** methodology: e
 4. **After analysis artifacts** -- Present each for validation.
 5. **Before an ADR** -- Propose it. Do NOT treat it as governing until `CP-ADR-Approval`.
 
-**Only informational pauses are skippable, and only by an explicit human instruction at that moment** (e.g., skipping the presentation of analysis artifacts, point 4) — a standing "blanket autonomy" request never waives a pause. **This NEVER applies to checkpoints:** you must still stop and present the SPEC for `CP-SPEC-Approval` before any code-run (point 1); REV findings stay draft until `CP-REV-Approval`; AREV phases stay sequential with their approvals; and every `CP-<CODE>-Approval` is non-delegable and cannot be skipped under any circumstance, including time pressure or explicit user request (§3.0). The  is invalid.
+**Only informational pauses are skippable, and only by an explicit human instruction at that moment** (e.g., skipping the presentation of analysis artifacts, point 4) — a standing "blanket autonomy" request never waives a pause. **This NEVER applies to checkpoints:** you must still stop and present the SPEC for `CP-SPEC-Approval` before any code-run (point 1); REV findings stay draft until `CP-REV-Approval`; AREV phases stay sequential with their approvals; and every `CP-<CODE>-Approval` is non-delegable and cannot be skipped under any circumstance, including time pressure or explicit user request (§3.0). The legacy checkpoint prefix is invalid.
 
 **If a checkpoint is missing:** stop, name the exact `CP-<CODE>-Approval` pending, and **refuse to advance** — even if the user insists, says it is urgent, or claims the approval is implied. No approval is ever inherited from a related artifact (US/BUG/TC/TASK/ADR/SPEC/MEM each keep their own checkpoint). If the user pushes to bypass, do not comply: block the action and explain why.
 
@@ -239,7 +239,7 @@ Read and enforce `metaflow/GUARDRAILS.md`. Key blocking rules:
 | G02 | No TASK for a BUG without `CP-BUG-Approval` |
 | G03 | No Test TASK without `CP-TC-Approval` on its exact parent TC |
 | G04 | Fixing a BUG under an unrelated TASK, from a ticket, or untracked inside another Delivery Loop |
-| G05 | Legacy checkpoint names (the ) or any non-canonical `CITL-*` identifier (canonical is `CITL-*`; `CITL-*` , G36) |
+| G05 | Use a legacy checkpoint name (the pre-v5 checkpoint prefix) or non-canonical identifiers (canonical is `CP-<CODE>-Approval`; `CP-*`, G36) |
 | G06 | TC expected results derived from current code (test-basis rule: approved intent only) |
 | G07 | No code change without an approved TASK (no exceptions — urgency and size create none; the agent lifecycle — installing/creating/deleting MetaFlow Agents within `metaflow/51-agents/` + `metaflow/53-actors/` — is operational config: living data, not a code change) |
 | G08 | TASK with the wrong parent type (functional → feature US · non-functional → US-000 · test → one approved TC) |
@@ -282,7 +282,7 @@ If a user request violates a guardrail, **block it and explain why**.
 ## One Path (approved-artifact-first, always)
 
 ```
-Trigger (US | BUG | TC | DISC | REV | AREV | ADR) → origin approved (CITL-US/BUG/TC/DISC/REV/AREV-VERDICT/ADR)
+Trigger (US | BUG | TC | DISC | REV | AREV | ADR) → origin approved (CP-US/CP-BUG/CP-TC/CP-DISC/CP-REV/CP-AREV-VERDICT/CP-ADR-Approval)
   → TASK (CP-TASK-READY-Approval, includes DoR) → SPEC (CP-SPEC-Approval)
   → Delivery Loop → 24-tests/gates → MEM + manifest update
   → CP-MEM-Approval → CP-TASK-DONE-Approval
@@ -421,7 +421,7 @@ Checkpoints are `CP-<CODE>-Approval` (the  is invalid). Each requires a named hu
 | `CP-SPEC-Approval` | Dev-validator + domain owners (or, if a named role has no holder, the available qualified human records it, noting the self-assigned role) | One-TASK implementation plan approved |
 | `CP-MEM-Approval` | Dev-validator who executed the TASK — the incoming executor after a recorded handoff (one approver, any risk; QA/Sec/domain optional) | MEM + Delivery Loop approved |
 | `CP-TASK-DONE-Approval` | PO/PM · technical owner · QA Lead / QA Automation Lead (or, if a named role has no holder, the available qualified human records it, noting the self-assigned role) | TASK `Done` |
-| `CITL-DISC/REV/AREV-*-Approval` | Qualified humans | Conditional: mandatory once triggered |
+| `CP-DISC/CP-REV/CP-AREV-*-Approval` | Qualified humans | Conditional: mandatory once triggered |
 
 - No artifact advances without its **named approver + timestamps + evidence**.
 - Human reviewer reads **diff and test evidence**, not only your summary.
@@ -506,7 +506,7 @@ prompt-injection, secret-leak, hallucination-lint, IP/license-provenance, PII/DL
 
 **Release level (aggregated above the per-TASK loop, NOT per TASK):** mutation testing and end-to-end / contract tests for **cross-TASK** regressions at release / milestone level. This never substitutes the per-TASK gate above: a boundary-crossing TASK still runs its own contract/E2E verification and may not record it as `n/a` because a later release suite will cover it.
 
-## Manifest Family v5
+## Manifest Family v1
 
 Every US, TASK and TC has exactly one manifest, created by you at the same
 moment the artifact document is created and updated at every lifecycle step
@@ -526,7 +526,7 @@ created (append its ref to `test_tasks[]`). Non-functional TCs use
 `source_us: "US-000"` with an empty `covered_acs`.
 
 Key structure:
-- `schema_version` (exactly `"5.0"`) and `checkpoint_approvals[]` in all three; the rest differs per level. Every schema is `additionalProperties: false`, so a **missing** field and an **extra** field both fail validation (G23):
+- `schema_version` (exactly `"1.0"`) and `checkpoint_approvals[]` in all three; the rest differs per level. Every schema is `additionalProperties: false`, so a **missing** field and an **extra** field both fail validation (G23):
   - **TASK** (`23-metrics/tasks/`): `task{id,type,ref,sources,generation,review_ready_at,review_started_at,acceptance{review_ready_at,review_started_at}}` + `spec_revisions[]` + `delivery_loops[]`.
   - **US** (`23-metrics/user-stories/`): `us{id,ref,sources,generation,review_ready_at,review_started_at}` + `story_points` + `tasks[]`. **No** `spec_revisions`, **no** `delivery_loops`.
   - **TC** (`23-metrics/test-cases/`): `tc{id,ref,sources,generation,review_ready_at,review_started_at}` + `verifies{source_task,source_us,covered_acs}` + `test_tasks[]`.
@@ -593,8 +593,8 @@ resurrecting a file the new version deliberately removed.
   it, read the previous content from the **last commit** — that is the
   fallback, and the reason the tree must be committed before you start. No
   marker, or more than one → stop and ask: the boundary is not inferable. The
-  platform agent definitions (`CLAUDE.md`, `.51-agents/skills/`,
-  `.github/51-agents/`, `.opencode/51-agents/`) have no such split — they are pure
+  platform agent definitions (`CLAUDE.md`, `.agents/skills/`,
+  `.github/agents/`, `.opencode/agents/`) have no such split — they are pure
   framework and are overwritten.
 - **Place each file by its ID against the routing table (§5.15)**, not by where it
   sat in `metaflowOLD/` — that is how a relocated family lands correctly. An
@@ -617,12 +617,7 @@ resurrecting a file the new version deliberately removed.
   (§3.12): add the new schema's fields as `null`, apply its renames, carry every
   recorded value across untouched. `3.0` → `4.0` is exactly that — the timing
   fields (`review_ready_at`, `review_started_at`, `acceptance`) arrive `null` and
-  the file moves from the `23-metrics/` root to `23-metrics/tasks/`. `4.0` → `5.0`
-  renames `checkpoint_approvals[]` → `checkpoint_approvals[]` and reshapes each entry
-  (`decided_by` `{user,role}` → `{actor:"human:<user>", role, model: null}`;
-  `created_by` → `human:<user>`; each `runs[]` gains `agent: null`; checkpoint
-  names re-expressed `CITL-*`→`CITL-*` — decision immutable, the v5 enum is
-  `CITL-*`-only, v4 history stays in the frozen v4 schema, G36). Then **build the
+  the file moves from the `23-metrics/` root to `23-metrics/tasks/`. `4.0` → `5.0` is a rename of the previous family: the approval array gains a richer approver shape; checkpoint names are re-expressed in the current vocabulary (`CP-<CODE>-Approval`); the decision — actor, timestamp, outcome — is immutable. The v1 `checkpoint` enum accepts **only** `CP-*`; a manifest of the previous family validates against its own frozen schema (G36).. Then **build the
   levels the old version had none of** (v3 had TASKs only; without US and TC
   manifests, G33 makes every migrated US and TC nonexistent), reading each field
   off the repository: frontmatter `sources:` / `author:` / `date:` — or the

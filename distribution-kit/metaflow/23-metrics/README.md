@@ -1,4 +1,4 @@
-# Metrics (Manifest Family v5)
+# Metrics (Manifest Family v1)
 
 **Methodology version:** 1.1
 
@@ -174,13 +174,13 @@ order; they are never backdated.
 
 ---
 
-## Schema family v5 — structure
+## Schema family v1 — structure
 
 The normative contracts are the three `manifest-v1*.schema.json` files.
 Key shared structure:
 
 ### Common (all three)
-- `schema_version` — exactly `"5.0"`.
+- `schema_version` — exactly `"1.0"`.
 - Artifact object (`us` / `task` / `tc`): `id` (pattern per type), `ref`,
   `sources`, `generation`, `review_ready_at`, `review_started_at`.
 - `generation` — `created_at` (ISO 8601), `created_by` (the human who
@@ -249,7 +249,7 @@ is a validation error; it does not transfer authority to the manifest.
 
 ---
 
-## Deliberately outside manifest v5
+## Deliberately outside manifest v1
 
 The following remain in their own artifacts and are never stored in the
 manifests:

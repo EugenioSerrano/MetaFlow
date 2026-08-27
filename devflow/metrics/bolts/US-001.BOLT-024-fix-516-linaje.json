@@ -1,0 +1,223 @@
+{
+  "schema_version": "5.0",
+  "bolt": {
+    "id": "US-001.BOLT-024",
+    "type": "functional",
+    "ref": "devflow/functional/bolts/US-001.BOLT-024-fix-516-linaje.md",
+    "sources": [
+      "devflow/functional/user-stories/US-001-toolkit-transformacion.md",
+      "devflow/bugs/BUG-019-seccion-516-linaje-mezclado.md",
+      "devflow/reviews/REV-004-analisis-fresco-kit.md",
+      "devflow/adrs/ADR-001-toolkit-transformacion.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-27T10:30:00-03:00",
+      "created_by": "human:eugenioserrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek/deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-27T10:30:00-03:00",
+    "review_started_at": "2026-08-27T10:29:01-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-27T10:34:00-03:00",
+      "review_started_at": "2026-08-27T10:34:00-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "devflow/spec/SPEC-260827-1029-fix-516-linaje.md",
+      "sources": [
+        "devflow/functional/bolts/US-001.BOLT-024-fix-516-linaje.md",
+        "devflow/bugs/BUG-019-seccion-516-linaje-mezclado.md",
+        "devflow/reviews/REV-004-analisis-fresco-kit.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-27T10:29:01-03:00",
+        "created_by": "human:eugenioserrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek/deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-27T10:29:01-03:00",
+      "review_started_at": "2026-08-27T10:29:01-03:00"
+    }
+  ],
+  "v_bounces": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-27T10:34:00-03:00",
+        "created_by": "human:eugenioserrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek/deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "devflow/memory/MEM-260827-1034-fix-516-linaje.md",
+        "generation": {
+          "created_at": "2026-08-27T10:34:00-03:00",
+          "created_by": "human:eugenioserrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek/deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-27T10:34:00-03:00",
+      "review_started_at": "2026-08-27T10:34:00-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "AITL-US-Approval",
+      "subject": {
+        "ref": "devflow/functional/user-stories/US-001-toolkit-transformacion.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T01:17:43-03:00",
+      "comment": "Origen: US-001 aprobada (5 SP)"
+    },
+    {
+      "checkpoint": "AITL-BUG-Approval",
+      "subject": {
+        "ref": "devflow/bugs/BUG-019-seccion-516-linaje-mezclado.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T10:30:00-03:00",
+      "comment": "Origen: BUG-019 aprobado (REV-004, AITL-REV-Approval 2026-08-27)"
+    },
+    {
+      "checkpoint": "AITL-BOLT-READY-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-001.BOLT-024-fix-516-linaje.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T10:29:01-03:00",
+      "comment": "DoR verificado: US-001 aprobada, BUG-NNN aprobado, REV-004 aprobado, ADR-001 accepted; riesgo low confirmado (aprobación en bloque BOLT-018..024)"
+    },
+    {
+      "checkpoint": "AITL-SPEC-Approval",
+      "subject": {
+        "ref": "devflow/spec/SPEC-260827-1029-fix-516-linaje.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T10:29:01-03:00",
+      "comment": "Aprobación sin hallazgos; autoriza el V-Bounce de US-001.BOLT-024 (TDD estricto, red→green)"
+    },
+    {
+      "checkpoint": "AITL-MEM-Approval",
+      "subject": {
+        "ref": "devflow/memory/MEM-260827-1034-fix-516-linaje.md",
+        "v_bounce": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T10:34:00-03:00",
+      "comment": "Aprobación sin hallazgos — paquete aprobado en bloque (BOLT-018..024); diff + evidencia RED/GREEN + MEM + manifest revisados; 91 tests OK, cero restos"
+    },
+    {
+      "checkpoint": "AITL-BOLT-DONE-Approval",
+      "subject": {
+        "ref": "devflow/functional/bolts/US-001.BOLT-024-fix-516-linaje.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T10:34:00-03:00",
+      "comment": "Aceptación del propietario (PO autoasignado) — demo: kit regenerado sin el patrón del BUG; suite 91/91; BOLT Done"
+    }
+  ]
+}

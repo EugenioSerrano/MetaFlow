@@ -8,8 +8,8 @@ methodology. You MUST follow it in every task.
 - **Onboarding:** read `metaflow/ONBOARDING.md` on your first task in this repository.
 - **Framework map:** `metaflow/README.md` — folders, flow, cheat sheet.
 - **Platform agent definition:** your tool loads its own definition from its
-  own location (`CLAUDE.md` at the root, `.51-agents/skills/`, `.github/51-agents/`,
-  `.opencode/51-agents/`). That file is the compact orchestration of the
+  own location (`CLAUDE.md` at the root, `.agents/skills/`, `.github/agents/`,
+  `.opencode/agents/`). That file is the compact orchestration of the
   methodology; this one is the cross-tool entry point that points at it.
 - **Language:** prose, filename slugs and 02-analysis/US/TC headings follow
   `metaflow/LANGUAGE`; the schema (YAML keys, enums, IDs) is always English.

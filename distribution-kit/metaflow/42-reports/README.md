@@ -25,9 +25,7 @@ evidence** — never citable as the source of a SPEC, TASK, ADR, US, TC or BUG.
 
 > **Read this before using anything in this folder.**
 
-`TEMPLATE-REPORT.html` is currently a **design
-reference**, not a fillable template: a self-contained mockup, populated with
-example data, that shows the target shape of the report — Executive Summary,
+A report template design reference is planned for the tooling track: a self-contained mockup, populated with example data, showing the target shape of the report — Executive Summary,
 US and TASK Progress, Backlog Status, TASK Detail, Quality & Risks, Project
 Gantt and Management View.
 
@@ -42,7 +40,7 @@ canonical tree, §5.1). Until then:
 - No Python, and no tooling of any kind, is required to use this methodology.
 
 **The manifest family is unaffected.** `23-metrics/` is the *source* of a future
-report, never its output: the timing contract, the three v5 schemas and their
+report, never its output: the timing contract, the three v1 schemas and their
 examples stand exactly as they are, and nothing here changes what an agent
 must record (G23, G33, §3.12). A report is a consumer of that data; the
 absence of a consumer changes nothing upstream.

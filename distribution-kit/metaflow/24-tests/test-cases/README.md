@@ -101,5 +101,4 @@ never silently normalized to the code.
 YAML keys, status enums, and IDs stay in **English**
 (the schema). Section headings and all prose — descriptions, context,
 rationale, findings — go in the project's `content_language`, declared in
-[`../../LANGUAGE`](../../LANGUAGE) (see §3.15). `CITL-*` codes are never
-translated.
+[`../../LANGUAGE`](../../LANGUAGE) (see §3.15). `CP-*-Approval` codes are never translated.

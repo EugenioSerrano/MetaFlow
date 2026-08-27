@@ -39,7 +39,7 @@ tags: []
   TASKs (TC-NNN.TASK-NNN). Approval is recorded in the review block.
 
   ⚠️ Manifest v1 (§3.12, G33): when creating this TC, create its manifest
-  JSON in metaflow/23-metrics/test-cases/ (schema_version "5.0", tc, verifies,
+  JSON in metaflow/23-metrics/test-cases/ (schema_version "1.0", tc, verifies,
   test_tasks: [], checkpoint_approvals: []). A TC without its manifest does not exist.
   Validate against manifest-v1-tc.schema.json.
 -->

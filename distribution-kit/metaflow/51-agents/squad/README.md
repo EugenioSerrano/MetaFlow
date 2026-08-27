@@ -11,8 +11,8 @@ definition contract as everywhere, see [`../README.md`](../README.md)).
   definition from [`../TEMPLATE-new-role/`](../TEMPLATE-new-role/) + the
   closest [`../examples/`](../examples/) reference into this folder — then
   installs the platform wrapper into your tool's spawn folder
-  (`.claude/51-agents/`, `.opencode/51-agents/`, `.github/51-agents/`,
-  `.codex/51-agents/`) per the mapping in
+  (`.claude/agents/`, `.opencode/agents/`, `.github/agents/`,
+  `.codex/agents/`) per the mapping in
   [`../VERIFICATION.md`](../VERIFICATION.md).
 - **The only roster-referenced folder.** The roster's (`53-actors/`)
   `definition:` pointers reference `51-agents/squad/<id>/…` — never

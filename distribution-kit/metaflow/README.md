@@ -56,7 +56,7 @@ metaflow/
 ├── 11-adrs/               ← Architecture Decision Records (ADR-NNN, CP-ADR-Approval)
 ├── 21-spec/               ← One canonical SPEC per TASK (SPEC-YYMMDD-HHmm, CP-SPEC-Approval)
 ├── 22-memory/             ← One MEM per Delivery Loop (MEM-YYMMDD-HHmm, CP-MEM-Approval)
-├── 23-metrics/            ← Manifest family v5 (tasks/ · user-stories/ · test-cases/) + schemas
+├── 23-metrics/            ← Manifest family v1 (tasks/ · user-stories/ · test-cases/) + schemas
 ├── 42-reports/            ← Sprint progress reports (PM; generator planned, tools track)
 ├── 24-tests/              ← Human-facing verification
 │   ├── test-cases/         Test Cases (TC-NNN, CP-TC-Approval)
@@ -78,7 +78,7 @@ metaflow/
 Alongside `metaflow/`, the repository root also carries **`AGENTS.md`** — the
 cross-tool entry point several agents auto-load — and the **agent definition
 for the tool your team uses**, at the location that tool expects (`CLAUDE.md`
-at the root, `.github/51-agents/`, `.opencode/51-agents/`, `.51-agents/skills/`). Both
+at the root, `.github/agents/`, `.opencode/agents/`, `.agents/skills/`). Both
 are installed from the MetaFlow distribution (§5.2).
 
 ---
@@ -111,7 +111,7 @@ flowchart TB
         SP["21-spec/<br>one canonical SPEC"]
         CO["src/<br>code + tests"]
         MM["22-memory/<br>one MEM per Delivery Loop"]
-        MT["23-metrics/<br>manifest family v5"]
+        MT["23-metrics/<br>manifest family v1"]
     end
 
     subgraph P5["🛡️ GOVERN"]
@@ -174,7 +174,7 @@ Every forward stop is governed by a named CITL checkpoint (see [CITL Checkpoints
 | **📥 Input** | Raw material lands here. Read-only. Everything starts from this. |
 | **🔍 Understand** | `02-analysis/` extracts domain knowledge. `03-discovery/` researches material unknowns (DISC). |
 | **📐 Define** | `12-functional/` defines WHAT (feature US / US-000 + TASKs). `11-adrs/` decides HOW. `24-tests/test-cases/` defines the independent verification contracts (TC). |
-| **⚡ Delivery Loop** | One canonical SPEC per TASK → AI generates the intended-final change + tests → one MEM + manifest v5 entry → human review. |
+| **⚡ Delivery Loop** | One canonical SPEC per TASK → AI generates the intended-final change + tests → one MEM + manifest v1 entry → human review. |
 | **🛡️ Govern** | Reviews, adversarial reviews, bugs, incidents, risks and retros feed the flow. |
 
 ### One path into Delivery Loop
@@ -184,12 +184,11 @@ from a feature, a defect, a review finding, or a QA Automation need:
 
 ```
 Trigger (US | BUG | TC | DISC | REV | AREV | ADR)
-  → origin approved (CITL-US | CITL-BUG | CITL-TC | CITL-DISC | CITL-REV |
-                     CITL-AREV-VERDICT | CITL-ADR)
+  → origin approved (CP-US-Approval | CP-BUG-Approval | CP-TC-Approval | CP-DISC-Approval | CP-REV-Approval | CP-AREV-VERDICT-Approval | CP-ADR-Approval)
   → TASK (CP-TASK-READY-Approval — includes DoR)
   → SPEC (CP-SPEC-Approval)
   → Delivery Loop → 24-tests/gates
-  → MEM + manifest v5 update
+  → MEM + manifest v1 update
   → CP-MEM-Approval → CP-TASK-DONE-Approval
 ```
 
@@ -241,7 +240,7 @@ An approved checkpoint is **non-negotiable** — the approver is an **actor**, a
 **human by default** and a virtual MetaFlow Agent only by explicit, valid
 configuration (with no or invalid config this is pure Human-in-the-Loop; **no
 AI-signed approval is possible**). Checkpoints are named
-`CP-<CODE>-Approval`; the legacy  is invalid.
+`CP-<CODE>-Approval`; the legacy checkpoint prefix is invalid.
 Every approval requires a named reviewer (a human by default), review timestamps
 and review-quality evidence (see [GUARDRAILS.md](GUARDRAILS.md) for the full map).
 
@@ -255,7 +254,7 @@ and review-quality evidence (see [GUARDRAILS.md](GUARDRAILS.md) for the full map
 | `CP-SPEC-Approval` | Dev-validator + domain owners | One-TASK implementation plan approved |
 | `CP-MEM-Approval` | Dev-validator who executed the TASK (one approver, any risk; QA/Sec/domain optional) | MEM + Delivery Loop approved |
 | `CP-TASK-DONE-Approval` | PO/PM (functional) · technical owner (non-functional) · QA Lead / QA Automation Lead (test) | TASK `Done` |
-| `CP-DISC-Approval` · `CP-REV-Approval` · `CITL-AREV-{CRITIQUE,DEFENSE,VERDICT}-Approval` | Qualified humans | Conditional: mandatory once triggered |
+| `CP-DISC-Approval` · `CP-REV-Approval` · `CP-AREV-{CRITIQUE,DEFENSE,VERDICT}-Approval` | Qualified humans | Conditional: mandatory once triggered |
 
 No TASK moves forward without its **required checkpoints signed with
 review-quality evidence** (coverage by TASK type in GUARDRAILS.md).
@@ -353,7 +352,7 @@ What this version deliberately does **not** cover yet — read before adopting:
 | **Multi-repo / shared-monorepo `metaflow/`** | Out of scope — SPEC, manifest and MEM resolve paths against a single repository baseline. To adapt: relocate `metaflow/` and redefine the manifest's repository-relative `ref`/`sources` semantics. | §1 "Repository topology assumption" |
 | **Monetary cost** | Deferred — no price catalog, no cost metric. Manifests keep recording provider/model/token usage in `runs[]`, so when pricing returns, costs are computable retroactively over all historical manifests. | §3.12 — `runs[]` keeps the token model; cost stays computable retroactively |
 | **Validation tooling** | No validator ships with the methodology — G23/G33 schema and lifecycle validation remains procedural (agents and humans). Tooling arrives with the tools track, not with the methodology: optional by contract, with `metaflow/bin/` reserved in the canonical tree for when it lands (§5.1). | `GUARDRAILS.md` G23/G33, §5.1 — tools track (arrives with `metaflow/bin/`) |
-| **Report generation** | Planned — `42-reports/TEMPLATE-REPORT.html` ships as a design reference with example data, not a generator. The manifest family already records everything a report needs (§3.12 timing contract), so reports stay computable retroactively once the tooling lands. | `42-reports/README.md`, §5.12 |
+| **Report generation** | Planned — a report template design reference ships with the tooling track, not a generator. The manifest family already records everything a report needs (§3.12 timing contract), so reports stay computable retroactively once the tooling lands. | `42-reports/README.md`, §5.12 |
 
 ---
 
@@ -371,8 +370,8 @@ translated (§3.15).
 
 ## Further Reading
 
-- **`ai-sdlc/MetaFlow.md`** — The full methodology (normative source): Delivery Loop, three TASK types, named CITL checkpoints, Delivery Flow Five metrics, gates, manifest family v5 and governance.
+- **`ai-sdlc/MetaFlow.md`** — The full methodology (normative source): Delivery Loop, three TASK types, named CITL checkpoints, Delivery Flow Five metrics, gates, manifest family v1 and governance.
 - **`GUARDRAILS.md`** — Agent-enforced rules: CITL stops, blocking/warning guardrails, naming, traceability.
 - **`ONBOARDING.md`** — Recommended reading order and role-based map.
-- **`23-metrics/README.md`** — Manifest family v5 schemas and lifecycle.
+- **`23-metrics/README.md`** — Manifest family v1 schemas and lifecycle.
 - Every subfolder has its own `README.md` — read it before creating documents there.

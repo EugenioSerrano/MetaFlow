@@ -37,8 +37,7 @@ review: # CP-MEM-Approval — filled by the human reviewer (§3.0)
   ⚠️ MANDATORY LLM: Fill the llm field with the exact model generating this document.
   ⚠️ MANDATORY — Manifest update: After writing this MEM, the agent MUST update the TASK
      manifest in metaflow/23-metrics/tasks/US-NNN.TASK-NNN-<description>.json by appending a new
-     delivery_loops[] entry (number, spec_revision, git_commit, execution_outcome,
-     code_generation, mem). The manifest is the mechanical evidence of the TASK (§3.12).
+     delivery_loops[] entry (number, spec_revision, git_commit, execution_outcome, code_generation, mem, review_ready_at, review_started_at). The manifest is the mechanical evidence of the TASK (§3.12).
      Flow: US/TC → TASK → SPEC → Delivery Loop (code) → MEM + manifest delivery_loops[] entry.
   ⚠️ The MEM has NO mutable status: its state is derived from the associated
      CP-MEM-Approval decision (§2.12). The agent never self-approves it.

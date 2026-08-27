@@ -1,6 +1,6 @@
 ---
 title: MetaFlow — AI-Native SDLC
-version: "5.1"
+version: "1.1"
 ---
 
 # 0 — Quick Start
@@ -181,8 +181,7 @@ an accelerator** of these capabilities.
 
 This document presents **MetaFlow** as the operational methodology and
 framework for AI-assisted software development, based on the paper *"AI-Driven
-Development Life Cycle: Reimagining Software Engineering"* by ,
-Principal Solutions Architect at AWS.
+Development Life Cycle: Reimagining Software Engineering"* published on the AWS DevOps Blog.
 
 <https://aws.amazon.com/es/blogs/devops/ai-driven-development-life-cycle/>
 
@@ -1374,8 +1373,7 @@ we act. It can be used as a "working contract" for the team.
 **Checkpoint-in-the-Loop (CITL)** is the **load-bearing principle** of MetaFlow.
 The AI agent is the generator; the **actor** at each checkpoint is the governor —
 a **human by default**, and a virtual MetaFlow Agent only by explicit, valid
-configuration. **Checkpoint-in-the-Loop (CITL) is the default case
-of CITL** (actor = human), not a separate paradigm: with no or invalid
+configuration. **A human actor is the default case inside CITL** (actor = human), not a separate paradigm: with no or invalid
 configuration every checkpoint is a human approval and **no AI-signed approval is
 possible** (the safe-default invariant). Speed is never traded for the loss of a
 checkpoint.
@@ -1775,8 +1773,7 @@ US, architect → ADR, developer → SPEC + code, QA → TC/tests — in
 **executor** mode; and it **participates** in CITL approvals in
 **approver** mode when configured, under the independence floor. By
 default an Actor is a **human**; a **virtual MetaFlow Agent** participates
-only by explicit, valid project configuration. **CITL is the default case
-inside CITL** (actor = human): with no agents configured every checkpoint
+only by explicit, valid project configuration. **A human actor is the default case** (actor = human): with no agents configured every checkpoint
 is a human approval and **no AI-signed approval is possible** (the
 safe-default invariant). An Actor's relationship to a checkpoint is
 **executor**, **approver** or **neither** — e.g. the Coordinator routes
@@ -2905,7 +2902,7 @@ three canonical TASK types or their parents.
 A `feature` TASK without a PO sign-off is **not Done**, regardless of how
 green the gates are.
 
-## 3.12 Manifest family v5 (minimal traceability, timing and AI usage)
+## 3.12 Manifest family v1 (minimal traceability, timing and AI usage)
 
 Every **User Story, TASK, and Test Case** produces exactly one JSON manifest
 in `metaflow/23-metrics/`, created by the agent at the same moment the artifact
@@ -2919,7 +2916,7 @@ artifact document with `.md` replaced by `.json`:
   (US-000 is a container and has none).
 - `23-metrics/test-cases/TC-NNN-<description>.json` — Test Cases.
 
-The manifest family **v5** is intentionally small. Each manifest records
+The manifest family **v1** is intentionally small. Each manifest records
 only:
 
 1. the artifact, its documentary sources and its AI-generation usage;
@@ -2945,7 +2942,7 @@ The normative machine-readable contracts are:
 Every manifest must validate against its matching schema. The example below
 is illustrative but valid against the TASK contract.
 
-**Schema v5 example (valid JSON):**
+**Schema v1 example (valid JSON):**
 
 ```json
 {
@@ -3153,7 +3150,7 @@ is illustrative but valid against the TASK contract.
         }
       ],
       "decided_at": "2026-08-02T11:05:00-03:00",
-      "comment": "Agregar manejo explícito de concurrencia."
+      "comment": "Add explicit concurrency handling."
     },
     {
       "checkpoint": "CP-SPEC-Approval",
@@ -3265,13 +3262,12 @@ no virtual approver configured — records only `human:<user>` actors (CITL,
 
 **Rules:**
 
-- `schema_version` is exactly `5.0` for this family — the `<major>.0` convention: the manifest family carries its own major, bumped when the schema changes (the v4→v5 change that renamed `checkpoint_approvals[]` → `checkpoint_approvals[]` and moved identity to the actor grammar), so the family major may lead the methodology version.
+- `schema_version` is exactly `"1.0"` for this family — the `<major>.0` convention: the manifest family carries its own major, bumped when the schema changes (the change that renamed the approval array to `checkpoint_approvals[]` and moved identity to the actor grammar), so the family major may lead the methodology version.
 
   **Schema evolution policy — one schema version per repository.** A project
   runs under a single methodology version (§5.16) and its manifests follow it
   by **major**: `schema_version` is the `<major>.0` of the family that the
-  repository's `metaflow/VERSION` declares — `4.x` keeps `4.0`, a schema change
-  means `5.0` — which is exactly what the normative filenames
+  repository's `metaflow/VERSION` declares — `1.x` keeps `1.0`, a schema change means a new major — which is exactly what the normative filenames
   (`manifest-v1*.schema.json`) already say. Within the same major, a version
   bump changes documentation, templates and structure — never the manifest
   family: no manifest is converted and `schema_version` does not change. If
@@ -3381,7 +3377,7 @@ no virtual approver configured — records only `human:<user>` actors (CITL,
   evidence. When used, their paths appear in `sources`; their internal content
   is not copied into the manifest.
 
-The following remain deliberately outside manifest v5:
+The following remain deliberately outside manifest v1:
 
 - test and gate results, TDD evidence and modified-file lists, which belong in
   the MEM and CI evidence;
@@ -4169,8 +4165,8 @@ for the tool the team uses, installed wherever that tool expects it (§5.2).
 <project-repo>/
 ├── AGENTS.md                  ← cross-tool agent entry point
 ├── CLAUDE.md                  ← the agent definition for the tool in use;
-│                                other tools read it from .github/51-agents/,
-│                                .opencode/51-agents/ or .51-agents/skills/
+│                                other tools read it from .github/agents/,
+│                                .opencode/agents/ or .agents/skills/
 ├── CHANGELOG.md               ← the project's own history, including its
 │                                methodology upgrades (§5.16). MetaFlow does
 │                                not ship one — this file belongs to the
@@ -4250,7 +4246,7 @@ methodology distribution, and they are separate concerns:
 | Installed file | Where it goes | What it is |
 |----------------|---------------|------------|
 | `AGENTS.md` | the project's repository root, next to `metaflow/` | Cross-tool entry point, auto-loaded from the root by several agents regardless of platform. It points at the platform definition rather than replacing it. **Two owners, one file:** everything above its `METAFLOW:PROJECT-SECTION` marker is framework and is replaced on upgrade; everything from the marker onward is the project's own and is never touched (§5.16). |
-| One platform definition | wherever that tool expects it — `CLAUDE.md` at the root, `.51-agents/skills/`, `.github/51-agents/`, `.opencode/51-agents/` | The compact orchestration of the methodology for that specific tool |
+| One platform definition | wherever that tool expects it — `CLAUDE.md` at the root, `.agents/skills/`, `.github/agents/`, `.opencode/agents/` | The compact orchestration of the methodology for that specific tool |
 
 Both files are installed from the MetaFlow distribution, which ships one
 definition per supported tool with the exact destination for each. They are
@@ -4449,7 +4445,7 @@ and mechanically measurable evidence.
 |--------|---------|
 | `21-spec/` | One canonical implementation specification (`SPEC-YYMMDD-HHmm-<description>.md`) per TASK. Before generating it, the agent verifies the required CITL approvals and inventories the approved BUG when applicable, approved TCs, relevant US/ACs, ADRs, DISC/REV/AREV evidence, `01-input/`, `02-analysis/`, repository code, tests, configuration, schemas and interfaces. A Test TASK SPEC references exactly one approved parent TC and limits changes to QA Automation code and supporting test assets. The SPEC records its exact TASK, source paths, approval references and repository baseline, then defines implementation phases, impacted components, test strategy, observability, gates, migration/rollback needs, risks and stop conditions. A BUG SPEC must explicitly enforce reproduction-test red before production changes and targeted/regression green afterward in the same Delivery Loop. It remains draft until `CP-SPEC-Approval`; no code-run or Delivery Loop may begin before that checkpoint. Material revisions update the same canonical SPEC and require re-approval. |
 | `22-memory/` | Mandatory narrative implementation records (`MEM-YYMMDD-HHmm-<description>.md`), exactly one per Delivery Loop. All MEMs for the same TASK and canonical SPEC reuse the identical `<description>` slug; only their creation timestamp changes. The Delivery Loop number is stored inside the MEM and manifest, never appended to the filename. Each MEM identifies the TASK, SPEC version, Delivery Loop iteration, repository baseline and ADRs; summarizes the implementation; enumerates every added, modified, renamed or deleted file with its reason; records tests, gates, decisions, deviations, risks, manual interventions and evidence links; and links to the final `CP-MEM-Approval`. The MEM has no mutable approval status: its state is derived from the associated CITL decision. Approval of this checkpoint approves the Delivery Loop; changes requested preserves the MEM as immutable evidence and requires a new Delivery Loop with a new timestamped MEM. |
-| `23-metrics/` | The manifest family v5: three normative schemas (`manifest-v1-task.schema.json`, `manifest-v1-us.schema.json`, `manifest-v1-tc.schema.json`) plus one validating manifest JSON per User Story (`user-stories/US-NNN-<description>.json`), per TASK (`tasks/US-NNN.TASK-NNN-<description>.json` or `tasks/TC-NNN.TASK-NNN-<description>.json`) and per Test Case (`test-cases/TC-NNN-<description>.json`). Each manifest records sources, provider/tool/model runs and token/time usage for generation, material SPEC revisions, `delivery_loops[]`, lifecycle CITL decisions, and the timing of every step (`created_at`, `review_ready_at`, `review_started_at`, `decided_at`). Gates, Delivery Flow, deployment and pre-calculated cost remain outside it. |
+| `23-metrics/` | The manifest family v1: three normative schemas (`manifest-v1-task.schema.json`, `manifest-v1-us.schema.json`, `manifest-v1-tc.schema.json`) plus one validating manifest JSON per User Story (`user-stories/US-NNN-<description>.json`), per TASK (`tasks/US-NNN.TASK-NNN-<description>.json` or `tasks/TC-NNN.TASK-NNN-<description>.json`) and per Test Case (`test-cases/TC-NNN-<description>.json`). Each manifest records sources, provider/tool/model runs and token/time usage for generation, material SPEC revisions, `delivery_loops[]`, lifecycle CITL decisions, and the timing of every step (`created_at`, `review_ready_at`, `review_started_at`, `decided_at`). Gates, Delivery Flow, deployment and pre-calculated cost remain outside it. |
 
 Internal autonomous agent retries remain inside a single Delivery Loop and are not
 added as separate `delivery_loops[]` entries. If `CP-MEM-Approval` records changes
@@ -4471,7 +4467,7 @@ subfolders the agent creates when archiving closed documents (§5.4).
 |--------|---------|
 | `52-agents-data/` | Per-agent shared knowledge area, versioned with the repository and shared with the whole team. There are no pre-created subfolders: each agent creates its own `52-agents-data/<agent-name>/` folder on first use and is **responsible for everything inside it** — free to create files and subfolders there. It holds durable, useful knowledge (patterns, decisions, reusable information), never temporary data (W21). It is not governed input: it may not be cited as the source or justification of any governed artifact or checkpoint (G32), carries no CITL checkpoint, agents do not scan other agents' folders by default (token economy), and it is not a substitute for `22-memory/` MEMs (§2.12). |
 | `41-prompts/` | Project prompts (`PROMPT-NNN-<description>.md`) — versioned, team-shared, copy-paste ready. Prompts are living data: created, modified and improved in this folder, with no approval and no manifest; they are never scattered into `52-agents-data/` (§5.12). |
-| `42-reports/` | Sprint progress reports for project management, generated from the manifest family in `23-metrics/`. Self-contained HTML (one per sprint). **Report generation is planned**: `TEMPLATE-REPORT.html` ships as a design reference with example data, and no generator — nothing in `metaflow/` reads the manifests to emit a report yet; the generator arrives with the tooling track (`tools/`), not with the methodology. Reports are not governed evidence — never citable as the source of a SPEC, TASK, ADR, US, TC or BUG (same class as derivative documents, §5.5). Reports follow the naming `REPORT-YYYY-Www.html` and may be archived under `_archive/` (§5.4). |
+| `42-reports/` | Sprint progress reports for project management, generated from the manifest family in `23-metrics/`. Self-contained HTML (one per sprint). **Report generation is planned**: a report template design reference ships with the tooling track, and no generator — nothing in `metaflow/` reads the manifests to emit a report yet; the generator arrives with the tooling track (`tools/`), not with the methodology. Reports are not governed evidence — never citable as the source of a SPEC, TASK, ADR, US, TC or BUG (same class as derivative documents, §5.5). Reports follow the naming `REPORT-YYYY-Www.html` and may be archived under `_archive/` (§5.4). |
 | `31-reviews/` | Optional, stakeholder-triggered Reviews (`REV-NNN`) of any functional or non-functional characteristic or artifact. Any team member or stakeholder may initiate one. Findings remain draft until `CP-REV-Approval`, after which they may feed any MetaFlow artifact; each affected artifact still follows its own lifecycle and approval. |
 | `32-adv-reviews/` | Optional, stakeholder-triggered Adversarial Reviews (`AREV-NNN-<description>/`) composed of `01-CRITIQUE.md`, `02-DEFENSE.md`, and `03-VERDICT.md`. Each phase requires its corresponding CITL approval before the next begins. At each approved checkpoint, the human manually selects the agent/model for the next phase in the development tool. Each phase records its own agent/model; only an approved Verdict exposes actionable findings, and no AREV state or approval is written to a TASK manifest. |
 | `13-bugs/` | Defect records (`BUG-NNN`) that may be drafted by Functional Analysts, Developers, or QA. A functional BUG requires Functional Analyst `CP-BUG-Approval`; a non-functional BUG requires `CP-BUG-Approval` from an Architect or Tech Lead when `severity: critical`, otherwise from any team member, the BUG's own author included. Only then may its exactly one dedicated TASK be created under the affected approved feature US or US-000 respectively. The BUG, TASK, canonical SPEC, red→green Delivery Loop evidence, MEMs, and manifest remain bidirectionally traceable. |
@@ -4732,7 +4728,7 @@ rewords the human-facing explanation beside it does not break the merge for
 projects already carrying it.
 
 The platform agent definitions have no such split: `CLAUDE.md`,
-`.51-agents/skills/`, `.github/51-agents/` and `.opencode/51-agents/` are pure framework,
+`.agents/skills/`, `.github/agents/` and `.opencode/agents/` are pure framework,
 carry nothing the project authored, and are **overwritten** from the new
 version like any other framework file.
 
@@ -4758,29 +4754,7 @@ from another family has an unfinished migration, not preserved history.
 
 Conversion follows the lossless rule of §3.12: add the fields the new schema
 introduces — `null` wherever the value was never captured — apply its renames,
-and carry every recorded value across untouched. `3.0` → `4.0` is exactly this
-shape: the timing fields (`review_ready_at`, `review_started_at` and the TASK's
-`acceptance` object) did not exist in `3.0`, so they arrive as `null`, and the
-manifest moves from the `23-metrics/` root to `23-metrics/tasks/`. Every value the
-manifest already recorded under `task`, `spec_revisions[]`, `delivery_loops[]` and
-`checkpoint_approvals[]` crosses unchanged. Anything that cannot be converted under
-that rule is **unresolved** — reported, never guessed (G36).
-
-`4.0` → `5.0` is a rename with a shape change: the approval array
-`checkpoint_approvals[]` becomes `checkpoint_approvals[]` with a richer approver.
-Every `4.0` approval was recorded by a human (agents did not exist in `4.0`), so
-each entry converts its `decided_by` `{user, role}` → `{actor: "human:<user>",
-role, model: null}`; likewise `created_by` becomes `human:<user>` and every
-`runs[]` entry gains `agent: null` — the actor grammar (§3.0).
-The checkpoint **name** in each converted entry is **re-expressed** in the
-  current vocabulary (`CP-<CODE>-Approval` → `CP-<CODE>-Approval`): the decision — actor, timestamp, outcome — is immutable, only the
-vocabulary label tracks the version, and because CITL ⊇ CITL the label becomes
-truer, not falser (a historical `CP-MEM-Approval` *is* an `CP-MEM-Approval`
-in human mode). The v5 `checkpoint` enum accepts **only** `CITL-*`; a v4 manifest
-validates against the frozen v4 schema, which keeps `CITL-*`. G36 still forbids
-altering the recorded actor, timestamp, outcome or evidence, or rewriting an
-approved MEM/ADR body. `schema_version` becomes `"5.0"`; every other value
-crosses unchanged.
+and carry every recorded value across untouched. **History of the previous family (not applicable to MetaFlow v1.1):** the earlier lineage migrated manifests `3.0` → `4.0` → `5.0` (timing fields arriving as `null`, the approval array gaining a richer approver shape, the actor grammar). Under MetaFlow v1.1 the family is v1: a conversion adds the new schema's fields as `null`, applies its renames, and keeps `schema_version` at `"1.0"` with checkpoints `CP-*`. G36 still forbids altering the recorded actor, timestamp, outcome or evidence, or rewriting an approved MEM/ADR body. Every other value crosses unchanged.
 
 **A manifest level the old version lacked is reconstructed from the
 repository's own evidence.** A new version may introduce a level that did not
@@ -4859,7 +4833,7 @@ separately, and the report states what happened to each:
 
 | Installed file | Disposition |
 |----------------|-------------|
-| The platform agent definitions (`CLAUDE.md`, `.51-agents/skills/`, `.github/51-agents/`, `.opencode/51-agents/`) | **overwritten** from the new version — pure framework |
+| The platform agent definitions (`CLAUDE.md`, `.agents/skills/`, `.github/agents/`, `.opencode/agents/`) | **overwritten** from the new version — pure framework |
 | `AGENTS.md` at the repository root | **merged** at its `METAFLOW:PROJECT-SECTION` marker — framework above replaced, project section below preserved byte for byte |
 
 Anything else the project keeps at its repository root is the project's own and
@@ -4872,7 +4846,7 @@ the upgrade entry is recorded in the repository-root `CHANGELOG.md`.
 
 # References
 
-- **,** , Principal Solutions Architect at AWS.
+- **AWS DevOps Blog**.
   <https://aws.amazon.com/es/blogs/devops/ai-driven-development-life-cycle/>
 
 - **Amershi, S., Begel, A., Bird, C., DeLine, R., Gall, H., Kamar, E., Nagappan, N., Nushi, B., & Zimmermann, T.** (2019). Software engineering for machine learning: A case study. *2019 IEEE/ACM 41st International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP)*, 291–300. IEEE. <https://doi.org/10.1109/ICSE-SEIP.2019.00042>

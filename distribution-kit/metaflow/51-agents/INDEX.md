@@ -7,8 +7,8 @@ create-your-own-agent guide live in [README.md](README.md); the
 per-platform wrappers are projected by the **Coordinator** (the
 MetaFlow agent itself, one per tool) from the **live definitions in
 [`squad/`](squad/)** into the project's platform folders
-(`.claude/51-agents/`, `.opencode/51-agents/`, `.github/51-agents/`,
-`.codex/51-agents/`) following the mapping in [VERIFICATION.md](VERIFICATION.md)
+(`.claude/agents/`, `.opencode/agents/`, `.github/agents/`,
+`.codex/agents/`) following the mapping in [VERIFICATION.md](VERIFICATION.md)
 (N×4 parity verified) — the kit ships no pre-built role wrappers.
 
 ## Examples (shipped — read-only references)
@@ -38,8 +38,8 @@ MetaFlow agent itself, one per tool) from the **live definitions in
 ## The Coordinator
 
 **No separate folder** — the Coordinator is the MetaFlow agent
-itself, shipped per platform (`CLAUDE.md`, `.51-agents/skills/…`,
-`.github/51-agents/…`, `.opencode/51-agents/…`) and **evolved** to act as the
+itself, shipped per platform (`CLAUDE.md`, `.agents/skills/…`,
+`.github/agents/…`, `.opencode/agents/…`) and **evolved** to act as the
 orchestrator: the shared body carries the "The Coordinator (the
 orchestrator)" paragraph (routes, delegates production, spawns approvers,
 records — **never signs**, `approves: []`), and each platform preamble
