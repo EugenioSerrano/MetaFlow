@@ -32,8 +32,8 @@
     "review_ready_at": "2026-08-27T02:37:29-03:00",
     "review_started_at": "2026-08-27T02:39:49-03:00",
     "acceptance": {
-      "review_ready_at": null,
-      "review_started_at": null
+      "review_ready_at": "2026-08-27T16:53:31-03:00",
+      "review_started_at": "2026-08-27T16:53:31-03:00"
     }
   },
   "spec_revisions": [
@@ -188,6 +188,22 @@
       ],
       "decided_at": "2026-08-27T02:46:11-03:00",
       "comment": "Aprobación sin hallazgos — numeración ADR-002 aplicada, 0 refs viejas, 0 links rotos; tests 72/72; TASK-004 Development Completed"
+    },
+    {
+      "checkpoint": "CP-TASK-DONE-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/tasks/US-001.TASK-004-numeracion-carpetas-kit.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T16:53:31-03:00",
+      "comment": "Aceptacion del propietario (PO autoasignado) sin hallazgos - demo: numeracion de carpetas internas por ciclo de uso (ADR-002->003) + test de integridad de links; 72 tests OK (MEM-260827-0244); TASK Done (cierre en bloque TASK-003/004/006)"
     }
   ]
 }

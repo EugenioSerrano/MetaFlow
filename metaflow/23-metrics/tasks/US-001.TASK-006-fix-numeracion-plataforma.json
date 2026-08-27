@@ -31,8 +31,8 @@
     "review_ready_at": "2026-08-27T03:04:43-03:00",
     "review_started_at": "2026-08-27T03:05:50-03:00",
     "acceptance": {
-      "review_ready_at": null,
-      "review_started_at": null
+      "review_ready_at": "2026-08-27T16:53:31-03:00",
+      "review_started_at": "2026-08-27T16:53:31-03:00"
     }
   },
   "spec_revisions": [
@@ -201,6 +201,22 @@
       ],
       "decided_at": "2026-08-27T03:09:09-03:00",
       "comment": "Aprobación sin hallazgos — RED/GREEN registrados, plataforma restaurada, tests 73/73; TASK-006 Development Completed"
+    },
+    {
+      "checkpoint": "CP-TASK-DONE-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/tasks/US-001.TASK-006-fix-numeracion-plataforma.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T16:53:31-03:00",
+      "comment": "Aceptacion del propietario (PO autoasignado) sin hallazgos - demo: kit con .github/agents/ y .opencode/agents/ sin numerar (BUG-001 resuelto); 73 tests OK (MEM-260827-0308); TASK Done (cierre en bloque TASK-003/004/006)"
     }
   ]
 }

@@ -32,8 +32,8 @@
     "review_ready_at": "2026-08-27T02:10:15-03:00",
     "review_started_at": "2026-08-27T02:11:30-03:00",
     "acceptance": {
-      "review_ready_at": null,
-      "review_started_at": null
+      "review_ready_at": "2026-08-27T16:53:31-03:00",
+      "review_started_at": "2026-08-27T16:53:31-03:00"
     }
   },
   "spec_revisions": [
@@ -300,6 +300,22 @@
       ],
       "decided_at": "2026-08-27T02:26:19-03:00",
       "comment": "Aprobación sin hallazgos — familia de manifests v1 y regla genérica −4; tests 64/64"
+    },
+    {
+      "checkpoint": "CP-TASK-DONE-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/tasks/US-001.TASK-003-versionado-y-limpieza.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T16:53:31-03:00",
+      "comment": "Aceptacion del propietario (PO autoasignado) sin hallazgos - demo: versionado -4 por contexto (VERSION 1.1), limpieza de citas Accelerate, familia de manifests v1; 64 tests OK (MEM-260827-0225); TASK Done (cierre en bloque TASK-003/004/006)"
     }
   ]
 }

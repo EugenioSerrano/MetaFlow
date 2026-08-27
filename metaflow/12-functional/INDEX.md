@@ -44,10 +44,10 @@ configuration — the methodology prescribes no mechanism (see README).
 |----|----------|-----------|-------|
 | [US-001.TASK-001](tasks/US-001.TASK-001-engine-transformacion.md) | Engine de transformación + CLI (dry-run y ejecución real) | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 | [US-001.TASK-002](tasks/US-001.TASK-002-verificador-reporte.md) | Verificador de tokens prohibidos + reporte + aceptación E2E | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
-| [US-001.TASK-003](tasks/US-001.TASK-003-versionado-y-limpieza.md) | Versionado −4 por contexto + limpieza de citas *Accelerate* + familia de manifests v1 | US-001 | Development Completed (MEM-260827-0217/0225 approved) |
-| [US-001.TASK-004](tasks/US-001.TASK-004-numeracion-carpetas-kit.md) | Numeración de carpetas internas por ciclo de uso (ADR-002) + test de integridad de links | US-001 | Development Completed (MEM-260827-0244 approved) |
+| [US-001.TASK-003](tasks/US-001.TASK-003-versionado-y-limpieza.md) | Versionado −4 por contexto + limpieza de citas *Accelerate* + familia de manifests v1 | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
+| [US-001.TASK-004](tasks/US-001.TASK-004-numeracion-carpetas-kit.md) | Numeración de carpetas internas por ciclo de uso (ADR-002) + test de integridad de links | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 | [US-001.TASK-005](tasks/US-001.TASK-005-correccion-numeracion.md) | Corrección del sobre-match de numeración (REV-002) + rename `32-adv-reviews` (ADR-003) | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
-| [US-001.TASK-006](tasks/US-001.TASK-006-fix-numeracion-plataforma.md) | Fix BUG-001: no numerar carpetas de plataforma | US-001 | Development Completed (MEM-260827-0308 approved) |
+| [US-001.TASK-006](tasks/US-001.TASK-006-fix-numeracion-plataforma.md) | Fix BUG-001: no numerar carpetas de plataforma | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 | [US-001.TASK-007](tasks/US-001.TASK-007-fix-schema-version-metodologia.md) | Fix BUG-002: restos v5 en MetaFlow.md §3.12/§5.16 | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 | [US-001.TASK-008](tasks/US-001.TASK-008-fix-schema-version-agentes.md) | Fix BUG-003: schema_version "5.0" en agent definitions | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 | [US-001.TASK-009](tasks/US-001.TASK-009-fix-schema-version-contradicciones.md) | Fix BUG-004: contradicciones "5.0" vs "1.0" | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |

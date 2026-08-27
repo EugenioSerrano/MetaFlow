@@ -6,7 +6,7 @@ author: "human:eugenioserrano"
 llm: "deepseek/deepseek-v4-flash"
 severity: "high"
 nature: "functional"
-status: "approved"
+status: "fixed"
 owner: "eugenioserrano"
 detected_in: "production"
 detected_at: "2026-08-27T03:03:38-03:00"
@@ -18,8 +18,8 @@ affected_artifacts:
 expected_result: "Las carpetas ocultas de plataforma (`.agents/`, `.github/`, `.opencode/`) no se numeran — la ADR-003 (y la ADR-002) lo declara explícitamente; `.github/agents/` y `.opencode/agents/` deben conservar sus nombres para que las plataformas reconozcan los agentes"
 actual_result: "Las reglas de ruta PN (`^agents$` → `51-agents`) renombraron el componente `agents` dentro de `.github/` y `.opencode/`, dejando `.github/51-agents/` y `.opencode/51-agents/` — las plataformas ya no reconocen los agentes en el kit adoptado"
 task: "US-001.TASK-006"
-spec: ""
-mem: ""
+spec: "SPEC-260827-0305-bolt006-fix-numeracion-plataforma"
+mem: "MEM-260827-0308-bolt006-fix-numeracion-plataforma"
 sources: ["informe del propietario 2026-08-27"]
 review_ready_at: "2026-08-27T03:03:38-03:00"
 review:
@@ -97,9 +97,9 @@ ocultas (primer componente con `.`).
 
 | Stage | Evidence | Status |
 |-------|----------|--------|
-| Reproduction test | RED: test que exige `.github/agents/` y `.opencode/agents/` en el kit transformado | Pending |
-| Production fix | GREEN: `build_plan` excluye reglas PN* bajo carpetas ocultas (primer componente `.`); kit regenerado | Pending |
-| MEM | MEM-YYMMDD-HHmm — red y green por separado | Pending |
+| Reproduction test | RED: test que exige `.github/agents/` y `.opencode/agents/` en el kit transformado | **Done** |
+| Production fix | GREEN: `build_plan` excluye reglas PN* bajo carpetas ocultas (primer componente `.`); kit regenerado | **Done** |
+| MEM | [MEM-260827-0308-bolt006-fix-numeracion-plataforma.md](../22-memory/MEM-260827-0308-bolt006-fix-numeracion-plataforma.md) — red y green por separado | **Done** (CP-MEM-Approval 2026-08-27) |
 
 > El fix es estrictamente TDD en el V-Bounce del TASK dedicado (TASK-006).
 
@@ -125,6 +125,15 @@ ocultas (primer componente con `.`).
 > y el ruteo; no aprueba el TASK, la SPEC, la implementación, el MEM ni la
 > aceptación — cada uno mantiene su propio checkpoint.
 
+| Field | Value |
+|-------|-------|
+| **Approver** | human:eugenioserrano (rol autoasignado) |
+| **Decision** | **approved** |
+| **review_ready_at** | `2026-08-27T03:03:38-03:00` |
+| **review.started_at** | `2026-08-27T03:04:43-03:00` |
+| **review.decided_at** | `2026-08-27T03:04:43-03:00` |
+| **Findings** | Ninguno — aprobado sin comentarios |
+
 ---
 
 ## 9. History
@@ -133,3 +142,5 @@ ocultas (primer componente con `.`).
 |------|--------|--------|
 | 2026-08-27 | Defect reported (draft) — informe del propietario | @eugenioserrano |
 | 2026-08-27 | **CP-BUG-Approval** — aprobado; defecto confirmado por smoke test; TASK-006 asignado | @eugenioserrano |
+| 2026-08-27 | **Fix entregado** — MEM-260827-0308 aprobado (CP-MEM-Approval); BUG fixed | @eugenioserrano |
+| 2026-08-27 | **CP-TASK-DONE-Approval** — US-001.TASK-006 Done; BUG cerrado | @eugenioserrano |

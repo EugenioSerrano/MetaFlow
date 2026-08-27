@@ -20,12 +20,13 @@ Delivery Loop (red evidence → fix → green). No TASK may be created before
 
 | ID | Document | Severity | Nature | Dedicated TASK | Status |
 |----|----------|----------|--------|----------------|--------|
-| [BUG-001](BUG-001-numeracion-plataforma.md) | Carpetas de plataforma numeradas (.github/agents, .opencode/agents) | high | functional | [US-001.TASK-006](../12-functional/tasks/US-001.TASK-006-fix-numeracion-plataforma.md) | approved |
+| —  | —        | —        | —      | —              | —      |
 
 ## 🏁 Fixed / Closed
 
 | ID | Document | Status | Fix MEM | Closed date |
 |----|----------|--------|---------|-------------|
+| [BUG-001](BUG-001-numeracion-plataforma.md) | Carpetas de plataforma numeradas (.github/agents, .opencode/agents) | fixed | [MEM-260827-0308-bolt006-fix-numeracion-plataforma.md](../22-memory/MEM-260827-0308-bolt006-fix-numeracion-plataforma.md) | 2026-08-27 |
 | [BUG-020](BUG-020-front-door-raiz-stale.md) | Front door raíz stale: README Avenga DevFlow 5.1 + skill avenga-devflow instalado + AGENTS.md sin sección de proyecto | fixed | [MEM-260827-1632-front-door-raiz.md](../22-memory/MEM-260827-1632-front-door-raiz.md) | 2026-08-27 |
 | [BUG-002](BUG-002-schema-version-metodologia.md) | Restos v5 en MetaFlow.md §3.12/§5.16 | fixed | [MEM-260827-0406-fix-schema-version-metodologia.md](../22-memory/MEM-260827-0406-fix-schema-version-metodologia.md) | 2026-08-27 |
 | [BUG-003](BUG-003-schema-version-agentes.md) | schema_version "5.0" en agent definitions | fixed | [MEM-260827-0406-fix-schema-version-agentes.md](../22-memory/MEM-260827-0406-fix-schema-version-agentes.md) | 2026-08-27 |
