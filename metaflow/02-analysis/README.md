@@ -43,7 +43,7 @@ code, MEMs — rests on the artifacts produced here.
 >   them and fans them out into the artifacts above (see the routing table
 >   below).
 > - **UAT minutes** live in [`../24-tests/uat/`](../24-tests/uat/) — **dormant/reserved
->   in v4.2**; the UAT approval checkpoint was removed. When active they
+>   in the previous lineage**; the UAT approval checkpoint was removed. When active they
 >   verify the build, not the analysis.
 > - **Project risks** live in [`../33-risks/`](../33-risks/) (transversal register,
 >   technical + project + team). Only *business risks* identified during
@@ -262,7 +262,7 @@ Use this table when you're unsure where something belongs:
 | `11-adrs/`        | Domain-modelling decisions are formalized as ADRs                              |
 | `21-spec/`        | Specs implement what analysis defined — entities, processes and acceptance criteria |
 | `33-risks/`       | **Project risk register** (technical / team / dependency / process). Fed from `business-risks/` and from many other sources during the full project lifecycle. See ["Risks: where they live"](#risks-where-they-live). |
-| `24-tests/uat/`   | UAT minutes — **dormant/reserved in v4.2**; the UAT approval checkpoint was removed          |
+| `24-tests/uat/`   | UAT minutes — **dormant/reserved**; the UAT approval checkpoint was removed          |
 | `open-questions/` | Analysis-phase question backlog. Sunsets at readiness: an `open` or `in-validation` OQ targeting a TASK's parent or governing artifacts blocks its `CP-TASK-READY-Approval` — it is part of the TASK DoR (§2.9, §3.2, G35). See [`open-questions/README.md`](open-questions/README.md). |
 
 ---

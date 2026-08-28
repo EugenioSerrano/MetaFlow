@@ -70,7 +70,7 @@
     {
       "number": 1,
       "spec_revision": 1,
-      "git_commit": null,
+      "git_commit": "055b594",
       "execution_outcome": "ready_for_review",
       "code_generation": {
         "created_at": "2026-08-27T22:38:35-03:00",

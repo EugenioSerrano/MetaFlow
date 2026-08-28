@@ -67,7 +67,7 @@ existing behaviour.
 |--------|------------|
 | US / TASK / TC counts and states | derived from approvals (never stored) |
 | ~~Story points delivered~~ | **Not a report metric.** Summing `story_points` per sprint is velocity, and §2.6/W18 forbid deriving any velocity or performance target from them. Forecasting uses throughput and TASK Lead Time (§4.3). |
-| TASK lead time | TASK-DONE − TASK-READY `decided_at` |
+| TASK lead time | `CP-TASK-DONE-Approval` − `CP-TASK-READY-Approval` `decided_at` |
 | US lead time | last child TASK DONE − US `CP-US-Approval` `decided_at` |
 | Review queue time | `review_started_at` − `review_ready_at` (Time-to-Human-Review, target < 4 h — §3.0, §3.7.3) |
 | Active review time | `decided_at` − `review_started_at` |

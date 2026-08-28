@@ -24,13 +24,13 @@ exercise, sign off and use as audit evidence.
 ```
 24-tests/
 ├── README.md
-├── uat/           # dormant/reserved — the UAT approval layer was removed in v4.2
+├── uat/           # dormant/reserved — the UAT approval layer was removed in the previous lineage
 └── test-cases/    # Test Cases (TC-NNN) — independent verification contracts
 ```
 
 | Subfolder | Purpose | Owner | Cadence |
 |-----------|---------|-------|---------|
-| [uat/](uat/)               | **Dormant/reserved** — the UAT approval layer was removed in v4.2; release/acceptance follows the team's own process | — | — |
+| [uat/](uat/)               | **Dormant/reserved** — the UAT approval layer was removed in the previous lineage; release/acceptance follows the team's own process | — | — |
 | [test-cases/](test-cases/) | Test Cases: implementation-independent verification contracts (manual or QA-Automation-ready) | QA / Analyst | per TASK / as needed |
 
 ---
@@ -69,7 +69,7 @@ exercise, sign off and use as audit evidence.
   plus its `covered_acs`; a **non-functional TC still records
   `source_us: US-000`** — for traceability only, never as the source of the
   expected result — plus its governing ADRs, with `covered_acs` empty.
-- **UAT is dormant/reserved in v4.2:** the UAT approval layer was
+- **UAT is dormant/reserved:** the UAT approval layer was
   removed; release and customer acceptance follow the adopting team's own
   process until a redesigned model ships.
 

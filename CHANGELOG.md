@@ -16,6 +16,37 @@ conventions and flows of Dev Flow.
 
 ---
 
+## [1.1 kit refresh] — 2026-08-28 — §5.16: reinstalled the repo's own tree from the regenerated MetaFlow 1.1 kit
+
+**Tree refresh with the regenerated kit.** This repository reinstalled its own
+`metaflow/` tree from the regenerated distribution kit (`distribution-kit/`,
+corrida 20260827-165601): the previous installed tree was renamed to
+`metaflowOLD/` and every project artifact was migrated forward per §5.16.
+Source and target versions are both **MetaFlow v1.1** — the refresh carries
+the kit fixes (BUG-007..025) into the repo's own tree.
+
+- **Project artifacts migrated:** 1 feature US (US-001), 30 TASKs, 31 SPECs,
+  25 BUGs, 5 REVs, 4 OQs, 4 BRs, 1 PROC, 13 ID-less `02-analysis/` documents,
+  32 MEMs (immutable, byte-for-byte), 3 ADRs (immutable, byte-for-byte).
+- **Manifests:** 31 (30 TASK + 1 US) carried across unchanged — schemas
+  identical (`manifest-v1-*.schema.json`), no conversion needed (G36).
+- **INDEXes rebuilt** from the migrated files (12-functional, 11-adrs,
+  13-bugs, 31-reviews, 02-analysis/*: business-context, business-risks,
+  domain-model, glossary, introduction, open-questions, personas, process,
+  scope, user-journeys, vision); numbering continues from the highest
+  migrated ID (next free: US-002, TASK-031, ADR-004, BUG-026, REV-006,
+  OQ-005, BR-005, PROC-002).
+- **`AGENTS.md` merged** at the `METAFLOW:PROJECT-SECTION` marker: new
+  framework block (byte-identical to the previous one) + project section
+  preserved byte-for-byte from the last commit (the kit copy had emptied it).
+- **`LANGUAGE` preserved:** `en`. **`VERSION`:** 1.1 (written last).
+- **Framework files superseded** (README/INDEX/TEMPLATE/schemas/
+  GUARDRAILS/ONBOARDING/ai-sdlc/US-000/VERSION + `01-input/` scaffolding —
+  identical, no evidence files present) come from the new version; the old
+  tree remains at `metaflowOLD/` until the human reviews the migration.
+
+---
+
 ## [1.1 migration] — 2026-08-27 — This repository executed §5.16: installed Avenga DevFlow 5.1 → MetaFlow 1.1
 
 **Second migration, to the MetaFlow lineage.** This repository upgraded its
