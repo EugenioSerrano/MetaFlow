@@ -17,17 +17,17 @@ The manifest family has three constraints that a hand edit breaks easily:
 
 An agent editing JSON by hand can violate all three and only find out at
 validation time — or never, while no validator ships (the tools track
-delivers it; `devflow/bin/` is already part of the canonical tree, §5.1).
+delivers it; `metaflow/bin/` is already part of the canonical tree, §5.1).
 
 ## What it does
 
 ```
-devflow manifest ready      --ref <artifact>
-devflow manifest started    --ref <artifact>
-devflow manifest approval   --checkpoint HITL-MEM-Approval --v-bounce 2
+metaflow manifest ready      --ref <artifact>
+metaflow manifest started    --ref <artifact>
+metaflow manifest approval   --checkpoint HITL-MEM-Approval --v-bounce 2
                             --decision approved --by user:role
-devflow manifest spec-rev   --bolt US-012.BOLT-003 --ref <spec> --sources ...
-devflow manifest vbounce    --bolt US-012.BOLT-003 --spec-revision 2
+metaflow manifest spec-rev   --bolt US-012.BOLT-003 --ref <spec> --sources ...
+metaflow manifest vbounce    --bolt US-012.BOLT-003 --spec-revision 2
                             --outcome ready_for_review --mem <ref>
 ```
 

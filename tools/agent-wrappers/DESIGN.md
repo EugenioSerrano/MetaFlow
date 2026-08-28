@@ -1,7 +1,7 @@
-# agent-wrappers — canonical DevFlow Agent definitions → per-platform wrappers
+# agent-wrappers — canonical metaflow Agent definitions → per-platform wrappers
 
 Maintainer-run tooling (US-023.BOLT-002). Projects the canonical
-`agent.yaml` definitions (`distribution-kit/devflow/agents/`) into the
+`agent.yaml` definitions (`distribution-kit/metaflow/agents/`) into the
 four platform wrapper shapes and verifies the **N×4 parity** — the
 four-agent sync philosophy extended to N roles × 4 platforms.
 
@@ -23,7 +23,7 @@ pre-built, no adoption-time generation (DISC-002 §5.5).
 
 **MODEL Y (the Coordinator is NOT generated):** only the **ROLE agents**
 get wrappers. The Coordinator is the platform agent itself (the
-AvengaDevFlow files — CLAUDE.md, `.agents/skills/…`, `.github/agents/…`,
+MetaFlow files — CLAUDE.md, `.agents/skills/…`, `.github/agents/…`,
 `.opencode/agents/…`); its projections are those four main files, which
 carry the orchestrator identity (spawn allowlist + never-signs) in their
 preambles/shared body. The generator skips `role: coordinator`
@@ -42,13 +42,13 @@ at every implementation pass (DISC-002 rec #6).
 
 ```bash
 # generate (default target: distribution-kit/ — the kit's platform folders)
-python tools/agent-wrappers/generate.py distribution-kit/devflow/agents
+python tools/agent-wrappers/generate.py distribution-kit/metaflow/agents
 
 # generate into an explicit output tree (used by the deployment Bolt)
-python tools/agent-wrappers/generate.py distribution-kit/devflow/agents --out /tmp/wrappers
+python tools/agent-wrappers/generate.py distribution-kit/metaflow/agents --out /tmp/wrappers
 
 # parity: regenerate into a temp dir and diff against the committed set
-python tools/agent-wrappers/parity.py distribution-kit/devflow/agents distribution-kit
+python tools/agent-wrappers/parity.py distribution-kit/metaflow/agents distribution-kit
 
 # tests
 python -m unittest discover -s tools/agent-wrappers/tests

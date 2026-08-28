@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0",
+  "task": {
+    "id": "US-001.TASK-027",
+    "type": "functional",
+    "ref": "metaflow/12-functional/tasks/US-001.TASK-027-fix-shorthands-metricas.md",
+    "sources": [
+      "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md",
+      "metaflow/13-bugs/BUG-022-shorthands-checkpoints-metricas.md",
+      "metaflow/31-reviews/REV-005-analisis-profundo-kit-vs-input.md",
+      "metaflow/11-adrs/ADR-001-toolkit-transformacion.md"
+    ],
+    "generation": {
+      "created_at": "2026-08-27T17:13:56-03:00",
+      "created_by": "human:eugenioserrano",
+      "runs": [
+        {
+          "tool": "opencode",
+          "provider": "deepseek",
+          "model": "deepseek/deepseek-v4-flash",
+          "tokens": {
+            "input_uncached": null,
+            "input_cached_read": null,
+            "input_cache_write": null,
+            "output": null
+          },
+          "agent": null
+        }
+      ],
+      "duration_seconds": null
+    },
+    "review_ready_at": "2026-08-27T17:04:54-03:00",
+    "review_started_at": "2026-08-27T17:15:36-03:00",
+    "acceptance": {
+      "review_ready_at": "2026-08-27T21:53:37-03:00",
+      "review_started_at": "2026-08-27T21:53:37-03:00"
+    }
+  },
+  "spec_revisions": [
+    {
+      "revision": 1,
+      "ref": "metaflow/21-spec/SPEC-260827-1715-fix-shorthands-metricas.md",
+      "sources": [
+        "metaflow/12-functional/tasks/US-001.TASK-027-fix-shorthands-metricas.md"
+      ],
+      "git_commit": null,
+      "generation": {
+        "created_at": "2026-08-27T17:04:54-03:00",
+        "created_by": "human:eugenioserrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek/deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "review_ready_at": "2026-08-27T17:04:54-03:00",
+      "review_started_at": "2026-08-27T17:18:20-03:00"
+    }
+  ],
+  "delivery_loops": [
+    {
+      "number": 1,
+      "spec_revision": 1,
+      "git_commit": null,
+      "execution_outcome": "ready_for_review",
+      "code_generation": {
+        "created_at": "2026-08-27T17:25:30-03:00",
+        "created_by": "human:eugenioserrano",
+        "runs": [
+          {
+            "tool": "opencode",
+            "provider": "deepseek",
+            "model": "deepseek/deepseek-v4-flash",
+            "tokens": {
+              "input_uncached": null,
+              "input_cached_read": null,
+              "input_cache_write": null,
+              "output": null
+            },
+            "agent": null
+          }
+        ],
+        "duration_seconds": null
+      },
+      "mem": {
+        "ref": "metaflow/22-memory/MEM-260827-1725-fix-shorthands-metricas.md",
+        "generation": {
+          "created_at": "2026-08-27T17:25:30-03:00",
+          "created_by": "human:eugenioserrano",
+          "runs": [
+            {
+              "tool": "opencode",
+              "provider": "deepseek",
+              "model": "deepseek/deepseek-v4-flash",
+              "tokens": {
+                "input_uncached": null,
+                "input_cached_read": null,
+                "input_cache_write": null,
+                "output": null
+              },
+              "agent": null
+            }
+          ],
+          "duration_seconds": null
+        }
+      },
+      "review_ready_at": "2026-08-27T17:25:30-03:00",
+      "review_started_at": "2026-08-27T21:52:28-03:00"
+    }
+  ],
+  "checkpoint_approvals": [
+    {
+      "checkpoint": "CP-US-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/user-stories/US-001-toolkit-transformacion.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T01:17:43-03:00",
+      "comment": "Origen: US-001 aprobada (5 SP)"
+    },
+    {
+      "checkpoint": "CP-BUG-Approval",
+      "subject": {
+        "ref": "metaflow/13-bugs/BUG-022-shorthands-checkpoints-metricas.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T17:13:56-03:00",
+      "comment": "Origen: BUG-022 aprobado en bloque BUG-021..024 (REV-005, CP-REV-Approval 2026-08-27)"
+    },
+    {
+      "checkpoint": "CP-TASK-READY-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/tasks/US-001.TASK-027-fix-shorthands-metricas.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "functional_analyst",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T17:15:36-03:00",
+      "comment": "Aprobacion del propietario (Functional Analyst autoasignado) sin hallazgos — DoR verificado: US-001 aprobada, BUG aprobado (bloque BUG-021..024), REV-005 aprobado, ADR-001 accepted, OQ-001..004 answered, dependencias Done; riesgo low confirmado. CP-TASK-READY-Approval 2026-08-27 (aprobacion en bloque TASK-026..029)"
+    },
+    {
+      "checkpoint": "CP-SPEC-Approval",
+      "subject": {
+        "ref": "metaflow/21-spec/SPEC-260827-1715-fix-shorthands-metricas.md",
+        "revision": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T17:18:20-03:00",
+      "comment": "Aprobacion sin hallazgos (bloque TASK-026..029); autoriza el Delivery Loop con TDD estricto (red→green)"
+    },
+    {
+      "checkpoint": "CP-MEM-Approval",
+      "subject": {
+        "ref": "metaflow/22-memory/MEM-260827-1725-fix-shorthands-metricas.md",
+        "delivery_loop": 1
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "dev_validator",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T21:52:28-03:00",
+      "comment": "Aprobacion del propietario (Dev-validator autoasignado) sin hallazgos — diff + evidencia RED/GREEN + gates + MEM + manifest revisados; 118 tests OK. CP-MEM-Approval 2026-08-27 (aprobacion en bloque TASK-026..029)"
+    },
+    {
+      "checkpoint": "CP-TASK-DONE-Approval",
+      "subject": {
+        "ref": "metaflow/12-functional/tasks/US-001.TASK-027-fix-shorthands-metricas.md"
+      },
+      "decision": "approved",
+      "decided_by": [
+        {
+          "actor": "human:eugenioserrano",
+          "role": "product_owner",
+          "model": null
+        }
+      ],
+      "decided_at": "2026-08-27T21:53:37-03:00",
+      "comment": "Aceptacion del propietario (PO autoasignado) sin hallazgos — demo: checkpoints canonicos en tablas de metricas; 118 tests OK; suite 104+14=118 tests OK; BUG fixed. CP-TASK-DONE-Approval 2026-08-27 (aprobacion en bloque TASK-026..029)"
+    }
+  ]
+}

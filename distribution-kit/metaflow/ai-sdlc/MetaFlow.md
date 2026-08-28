@@ -200,8 +200,7 @@ a **horizontal iteration cycle** (SPEC approved through `CP-SPEC-Approval`
 **vertical V&V mapping** (unit/integration/system/acceptance). We borrow the
 *spirit* of explicit V&V, not the geometry.
 
-**MetaFlow is the proprietary methodology and framework of Eugenio Serrano
-LATAM**, developed by the research team to systematize AI-assisted software
+**MetaFlow is the proprietary methodology and framework of Eugenio Serrano**, developed by the research team to systematize AI-assisted software
 development.
 
 The process is governed by **flow and quality metrics** aligned with empirical
@@ -3974,7 +3973,7 @@ the approved SPEC.
 
 ## 4.7 Release and customer acceptance (not prescribed in this release)
 
-The Unit/UAT approval-and-release layer was removed in v4.2: the governed flow
+The Unit/UAT approval-and-release layer was removed in the previous lineage: the governed flow
 ends at TASK acceptance (`CP-TASK-DONE-Approval`), and grouping into a
 deployable unit, environment promotion and customer acceptance (UAT) follow the
 **adopting team's own process**. A redesigned model — informed by real

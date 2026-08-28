@@ -19,10 +19,10 @@ sorts, and hopes.
 ## What it does
 
 ```
-devflow next-id BUG                      -> BUG-004
-devflow next-id BOLT --parent US-012     -> US-012.BOLT-005
-devflow next-id BOLT --parent US-000     -> US-000.BOLT-1003
-devflow next-id TC                       -> TC-028
+metaflow next-id BUG                      -> BUG-004
+metaflow next-id BOLT --parent US-012     -> US-012.BOLT-005
+metaflow next-id BOLT --parent US-000     -> US-000.BOLT-1003
+metaflow next-id TC                       -> TC-028
 ```
 
 **Two sources, cross-checked.** The INDEX is where the number is claimed, but

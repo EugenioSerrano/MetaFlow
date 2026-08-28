@@ -2,8 +2,8 @@
 
 **Methodology version:** 1.1
 
-> ⛔ **DORMANT / RESERVED (v4.2).** The UNIT/UAT approval-and-release layer was
-> **removed from the active flow in v4.2** — `CP-UAT-Approval` is **not an
+> ⛔ **DORMANT / RESERVED.** The UNIT/UAT approval-and-release layer was
+> **removed from the active flow in the previous lineage** — `CP-UAT-Approval` is **not an
 > active checkpoint** in this release. The governed flow ends at TASK
 > acceptance (`CP-TASK-DONE-Approval`); release and customer acceptance
 > follow the adopting team's own process. This folder and its template are kept
@@ -29,7 +29,7 @@ staging UNIT → UAT → production UNIT.
 
 > `CP-UNIT-Approval` is **reserved** (pending `units/` governance, §3.11
 > entry 14): the sequence above is the intended rule and becomes blocking
-> once the Unit recording artifact exists. In v4.2 this whole layer is
+> once the Unit recording artifact exists. In the previous lineage this whole layer is
 > **dormant/reserved** (see the banner above) — not an active checkpoint.
 
 > UAT lives in `24-tests/` (not in `02-analysis/`) because it is a

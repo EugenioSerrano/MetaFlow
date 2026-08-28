@@ -1,4 +1,4 @@
-# Building the `devflow` binary
+# Building the `metaflow` binary
 
 **Status:** specification. No code exists yet — this describes what we are about
 to build and the constraints the build itself has to satisfy.
@@ -28,9 +28,9 @@ what gets copied into a project. That boundary already governs this folder
 (`tools/README.md`), and the build honours it:
 
 - The Go module is **`tools/`** — self-contained, so the methodology repository
-  does not become a Go module at its root and the distributed `devflow/` never
+  does not become a Go module at its root and the distributed `metaflow/` never
   sits inside one.
-- The compiled binaries land in **`distribution-kit/devflow/bin/`**, because
+- The compiled binaries land in **`distribution-kit/metaflow/bin/`**, because
   that is the folder that travels with the methodology.
 
 Source in the workshop, artifact in the product. Nothing else crosses.
@@ -43,12 +43,12 @@ tools/
 ├── BUILD.md                    this file
 ├── README.md                   why the toolchain exists, and its constraints
 ├── cmd/
-│   └── devflow/
+│   └── metaflow/
 │       └── main.go             flag parsing and subcommand dispatch, nothing else
 ├── internal/
-│   ├── repo/                   locate the devflow/ root, walk artifact folders
+│   ├── repo/                   locate the metaflow/ root, walk artifact folders
 │   ├── artifact/               frontmatter parsing and the shared artifact model
-│   ├── manifest/               the three v4 manifest shapes
+│   ├── manifest/               the three v1 manifest shapes
 │   ├── vocab/                  §3.15 status vocabulary and the emoji convention
 │   ├── rules/                  the G/W/N/T predicates
 │   └── <one package per subcommand>
@@ -80,7 +80,7 @@ foreach ($t in 'windows/amd64','windows/arm64','darwin/amd64','darwin/arm64','li
   $os, $arch = $t.Split('/')
   $ext = if ($os -eq 'windows') { '.exe' } else { '' }
   $env:GOOS = $os; $env:GOARCH = $arch
-  go build -trimpath -ldflags="-s -w" -o "../distribution-kit/devflow/bin/devflow-$os-$arch$ext" ./cmd/devflow
+  go build -trimpath -ldflags="-s -w" -o "../distribution-kit/metaflow/bin/metaflow-$os-$arch$ext" ./cmd/metaflow
 }
 ```
 
@@ -89,7 +89,7 @@ Three flags, three reasons — none of them cosmetic:
 | Flag | What it prevents |
 |------|------------------|
 | `CGO_ENABLED=0` | A binary linked against the build machine's system C library. Without it, a Linux build can carry a glibc dependency and fail on a different distro. With it, the binary is fully static and runs anywhere its OS/arch matches |
-| `-trimpath` | Absolute build paths baked into the binary. Without it every committed executable would carry `C:\GitHubRepos\AvengaDevFlow\...` inside it, and the same source built by two people would differ byte for byte |
+| `-trimpath` | Absolute build paths baked into the binary. Without it every committed executable would carry `C:\GitHubRepos\MetaFlow\...` inside it, and the same source built by two people would differ byte for byte |
 | `-ldflags="-s -w"` | Debug symbols and the DWARF table. These binaries are committed to a git repository; carrying symbols nobody uses inflates every clone, forever |
 
 ## Reproducible by construction
@@ -103,14 +103,14 @@ require trusting whoever ran the build.
 The answer is a checksum file committed next to the binaries:
 
 ```
-distribution-kit/devflow/bin/SHA256SUMS
+distribution-kit/metaflow/bin/SHA256SUMS
 ```
 
 and the verification any reviewer can run:
 
 ```powershell
-go build -trimpath -ldflags="-s -w" -o devflow-check.exe ./cmd/devflow
-(Get-FileHash devflow-check.exe -Algorithm SHA256).Hash
+go build -trimpath -ldflags="-s -w" -o metaflow-check.exe ./cmd/metaflow
+(Get-FileHash metaflow-check.exe -Algorithm SHA256).Hash
 # must match the SHA256SUMS row for this platform
 ```
 
@@ -125,9 +125,9 @@ hurry. Since the constraint is mechanical, the build should check it
 mechanically.
 
 `TestNoWrites` walks the module's own source and fails if any package outside
-`cmd/devflow` references a write path — `os.Create`, `os.WriteFile`,
+`cmd/metaflow` references a write path — `os.Create`, `os.WriteFile`,
 `os.OpenFile` with a write flag, `os.Remove`, `os.Rename`, `os.MkdirAll`. The
-allowance for `cmd/devflow` is only so it can write to stdout, which is not the
+allowance for `cmd/metaflow` is only so it can write to stdout, which is not the
 filesystem.
 
 The result is that "this tool cannot modify your repository" stops being
@@ -161,7 +161,7 @@ Go on typed structs — and the timestamp rule was never expressible in JSON
 Schema anyway (§3.12 says so explicitly), so that code has to exist regardless.
 
 The cost is that the schemas end up described twice: once as JSON in
-`devflow/metrics/`, once as structs here. That is a real duplication and it
+`metaflow/23-metrics/`, once as structs here. That is a real duplication and it
 should be named as such — with a test that loads each `TEMPLATE-MANIFEST-*.json`
 and round-trips it through the structs, so the two descriptions cannot silently
 diverge.
@@ -182,9 +182,9 @@ same change, never on its own.
 1. **Module path.** Nothing imports this module, so the path is close to
    arbitrary — but it is baked into every import line and changing it later
    touches every file. Worth choosing once, deliberately.
-2. **Binary naming.** `devflow-windows-amd64.exe` in one folder, or
-   `bin/windows-amd64/devflow.exe` so a user adds one directory to `PATH` and
-   types `devflow`. The second is friendlier for humans; the first is simpler
+2. **Binary naming.** `metaflow-windows-amd64.exe` in one folder, or
+   `bin/windows-amd64/metaflow.exe` so a user adds one directory to `PATH` and
+   types `metaflow`. The second is friendlier for humans; the first is simpler
    for an agent resolving a path. The answer depends on how the agent is
    expected to reach the tool — see *How a tool reaches the agent* in
    `tools/README.md`.

@@ -580,7 +580,7 @@ resurrecting a file the new version deliberately removed.
 
 - **`LANGUAGE` is the only exception** — keep the OLD value (it is the project's
   `content_language`). **`VERSION`** takes the new value and is written **last**.
-- **`metaflow/CHANGELOG.md` is gone** — versions up to 4.1 shipped one inside
+- **`metaflow/CHANGELOG.md` is gone** — the previous lineage shipped one inside
   `metaflow/`. If `metaflowOLD/` has it, it is **superseded** like any other
   framework file, with one step first: if the project wrote its own entries
   there, move them to the repository-root `CHANGELOG.md` before discarding it.

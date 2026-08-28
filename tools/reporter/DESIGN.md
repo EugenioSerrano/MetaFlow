@@ -5,14 +5,14 @@ methodology release.
 
 ## The problem
 
-`devflow/reports/README.md` already specifies what a report must show and which
+`metaflow/reports/README.md` already specifies what a report must show and which
 derivation produces each number. `TEMPLATE-REPORT.html` already shows the target
-shape. What is missing is the thing in between: **nothing in `devflow/` reads a
+shape. What is missing is the thing in between: **nothing in `metaflow/` reads a
 manifest and emits a report.**
 
 A generator was built and hardened during the 4.0 cycle and then pulled before
 release, together with the decision about where delivery tooling lives. This is
-its replacement, built here and shipped as an executable in `devflow/bin/`.
+its replacement, built here and shipped as an executable in `metaflow/bin/`.
 
 ## What it does
 

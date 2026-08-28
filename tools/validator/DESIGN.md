@@ -1,7 +1,7 @@
-# DevFlow validator — design
+# metaflow validator — design
 
 **Status:** specification. The implementation lives beside it in `tools/`;
-what ships to a project is the compiled executable in `devflow/bin/`.
+what ships to a project is the compiled executable in `metaflow/bin/`.
 
 ## It is not a new concept — it is a missing implementation
 
@@ -21,9 +21,9 @@ implementation. The validator fills that hole. It invents nothing.
 
 ## Hard constraints
 
-1. **Optional by contract.** `devflow/reports/README.md` promises that no
+1. **Optional by contract.** `metaflow/reports/README.md` promises that no
    tooling is required. The validator can never become a dependency: if it is
-   absent, DevFlow works exactly as documented.
+   absent, metaflow works exactly as documented.
 2. **Strictly read-only, like every tool here.** It reports; it never writes.
    **There is no `--fix`** — not for an artifact, not for framework hygiene,
    not for anything. It names the defect and the agent decides what to do,
@@ -33,7 +33,7 @@ implementation. The validator fills that hole. It invents nothing.
    change first.
 4. **No mandatory runtime.** A single self-contained binary per platform (Go or
    Rust) removes the "install Python 3.x" problem that made the previous
-   generator awkward, and matches the `devflow/bin/` delivery shape: a project
+   generator awkward, and matches the `metaflow/bin/` delivery shape: a project
    receives an executable, never a toolchain.
 5. **Cheap enough to actually run.** Verifying one rule by hand costs an agent a
    dozen file reads; the same rule as code costs one command. That difference is
@@ -46,8 +46,8 @@ repository and version markers from a project.
 
 | Mode | Subject | Checks |
 |------|---------|--------|
-| `--project` | A repository that *uses* DevFlow | Manifests, artifact naming and routing, traceability, HITL coverage, document `status`, OQ readiness |
-| `--framework` | The repository where DevFlow is *authored* | Four-agent body sync, guardrail count invariant, 69/69 version markers, `§` resolution, `status` table vs templates, and **no sentence in `devflow/` that is false inside a project** |
+| `--project` | A repository that *uses* metaflow | Manifests, artifact naming and routing, traceability, HITL coverage, document `status`, OQ readiness |
+| `--framework` | The repository where metaflow is *authored* | Four-agent body sync, guardrail count invariant, 69/69 version markers, `§` resolution, `status` table vs templates, and **no sentence in `metaflow/` that is false inside a project** |
 
 `--framework` is not governance validation — it is **lint of the distributable**.
 Its question is *"is this template complete, internally consistent and safe to
@@ -60,7 +60,7 @@ Each rule declares `id`, `severity`, `mode`, `verdict` (`full` / `partial` /
 possible:
 
 ```
-devflow-validate --coverage
+metaflow-validate --coverage
 ```
 
 emits the rule inventory, and **CI fails when `GUARDRAILS.md` gains a rule the

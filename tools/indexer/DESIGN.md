@@ -20,8 +20,8 @@ Two situations demand a rebuild:
 ## What it does
 
 ```
-devflow index --check              -> diff between every INDEX and its folder
-devflow index --render <folder>    -> print the INDEX this folder should have
+metaflow index --check              -> diff between every INDEX and its folder
+metaflow index --render <folder>    -> print the INDEX this folder should have
 ```
 
 `--render` prints; it never writes. The agent compares the output against the

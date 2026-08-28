@@ -57,7 +57,11 @@
     "metaflow/12-functional/tasks/US-001.TASK-022-fix-citl-asterisco.md",
     "metaflow/12-functional/tasks/US-001.TASK-023-fix-g05-pre-v5.md",
     "metaflow/12-functional/tasks/US-001.TASK-024-fix-516-linaje.md",
-    "metaflow/12-functional/tasks/US-001.TASK-025-front-door-raiz.md"
+    "metaflow/12-functional/tasks/US-001.TASK-025-front-door-raiz.md",
+    "metaflow/12-functional/tasks/US-001.TASK-026-fix-historia-linaje.md.md",
+    "metaflow/12-functional/tasks/US-001.TASK-027-fix-shorthands-metricas.md.md",
+    "metaflow/12-functional/tasks/US-001.TASK-028-fix-propiedad-identidad.md.md",
+    "metaflow/12-functional/tasks/US-001.TASK-029-fix-tools-linaje.md.md"
   ],
   "checkpoint_approvals": [
     {

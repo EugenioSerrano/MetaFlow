@@ -21,8 +21,8 @@ review: # CP-UAT-Approval — filled by the stakeholders (§3.0)
   acknowledgment_reason: ""
 ---
 
-> ⛔ **DORMANT / RESERVED (v4.2).** The UNIT/UAT approval-and-release layer was
-> **removed from the active flow in v4.2** — `CP-UAT-Approval` is **not an
+> ⛔ **DORMANT / RESERVED.** The UNIT/UAT approval-and-release layer was
+> **removed from the active flow in the previous lineage** — `CP-UAT-Approval` is **not an
 > active checkpoint** in this release. The governed flow ends at TASK
 > acceptance (`CP-TASK-DONE-Approval`). This template is kept **dormant** for
 > a redesigned model planned in a future version. The frontmatter and

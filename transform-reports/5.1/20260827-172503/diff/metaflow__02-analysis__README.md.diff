@@ -1,0 +1,253 @@
+--- devflow/analysis/README.md
++++ metaflow/02-analysis/README.md
+@@ -1,10 +1,10 @@
+ # Analysis (AI-assisted Domain Analysis)
+ 
+-**Methodology version:** 5.1
++**Methodology version:** 1.1
+ 
+ ## Purpose
+ 
+-This folder is where **raw material from `input/` becomes structured product
++This folder is where **raw material from `01-input/` becomes structured product
+ knowledge**. Using AI as the primary analyst, we extract from interviews,
+ legacy code, databases and reference documents the information needed to
+ answer the core question of any project:
+@@ -12,11 +12,11 @@
+ > **What are we building, for whom, in what world, with which language, with
+ > which entities, through which processes — and how will we know it's done?**
+ 
+-`analysis/` is therefore the **bridge between `input/` (raw evidence) and
+-`functional/` (User Stories + Bolts)**. Everything downstream — ADRs, Specs,
++`02-analysis/` is therefore the **bridge between `01-input/` (raw evidence) and
++`12-functional/` (User Stories + TASKs)**. Everything downstream — ADRs, Specs,
+ code, MEMs — rests on the artifacts produced here.
+ 
+-> See Avenga DevFlow §2.2 (Intent), §4.1 (Input-driven inception and
++> See MetaFlow §2.2 (Intent), §4.1 (Input-driven inception and
+ > functional analysis).
+ 
+ ---
+@@ -39,13 +39,13 @@
+ | `open-questions/`    | **Centralized backlog of unresolved questions / assumptions during the analysis phase** | One file per question (`OQ-NNN-*.md`) — see [`open-questions/README.md`](open-questions/README.md) |
+ > **Notes on boundaries:**
+ > - **Interview transcripts** are raw input, not analysis output — they live
+->   in [`../input/interviews/`](../input/interviews/). Analysis *consumes*
++>   in [`../01-input/interviews/`](../01-input/interviews/). Analysis *consumes*
+ >   them and fans them out into the artifacts above (see the routing table
+ >   below).
+-> - **UAT minutes** live in [`../tests/uat/`](../tests/uat/) — **dormant/reserved
+->   in v4.2**; the UAT approval checkpoint was removed. When active they
++> - **UAT minutes** live in [`../24-tests/uat/`](../24-tests/uat/) — **dormant/reserved
++>   in the previous lineage**; the UAT approval checkpoint was removed. When active they
+ >   verify the build, not the analysis.
+-> - **Project risks** live in [`../risks/`](../risks/) (transversal register,
++> - **Project risks** live in [`../33-risks/`](../33-risks/) (transversal register,
+ >   technical + project + team). Only *business risks* identified during
+ >   analysis live here, inside [`business-risks/`](business-risks/). See
+ >   the ["Risks: where they live"](#risks-where-they-live) section below.
+@@ -56,7 +56,7 @@
+ 
+ ```mermaid
+ flowchart LR
+-    subgraph IN["input/ (raw)"]
++    subgraph IN["01-input/ (raw)"]
+         INT["interviews/<br>(transcripts)"]
+         DOCS["documentation/<br>(client docs, PDFs)"]
+         DB["databases/<br>(schemas, dumps)"]
+@@ -64,7 +64,7 @@
+         UI["ui-ux/<br>(mockups, screens)"]
+     end
+ 
+-    subgraph AN["analysis/ (AI-assisted)"]
++    subgraph AN["02-analysis/ (AI-assisted)"]
+         VIS["vision/"]
+         BC["business-context/"]
+         BR["business-risks/"]
+@@ -79,12 +79,12 @@
+     end
+ 
+     subgraph DOWN["downstream"]
+-        FA["functional/<br>(US + Bolts)"]
+-        ADR["adrs/"]
+-        SPEC["spec/"]
+-        DISC["discovery/<br>(legacy/tech findings)"]
+-        RSK["risks/<br>(project risk register)"]
+-        UAT["tests/uat/<br>(dormant)"]
++        FA["12-functional/<br>(US + TASKs)"]
++        ADR["11-adrs/"]
++        SPEC["21-spec/"]
++        DISC["03-discovery/<br>(legacy/tech findings)"]
++        RSK["33-risks/<br>(project risk register)"]
++        UAT["24-tests/uat/<br>(dormant)"]
+     end
+ 
+     INT --> VIS
+@@ -140,8 +140,8 @@
+ 
+ **Reading order for a new project:** `vision/` → `business-context/` →
+ `business-risks/` → `scope/` → `personas/` → `user-journeys/` → `glossary/` →
+-`domain-model/` → `ui/` → `process/` → derive `functional/` → validate via
+-`tests/uat/`.
++`domain-model/` → `ui/` → `process/` → derive `12-functional/` → validate via
++`24-tests/uat/`.
+ 
+ **Writing order note:** `introduction/` is *written last* (it derives from the
+ artifacts above) but *read first* — someone joining the project should start
+@@ -154,11 +154,11 @@
+ 
+ The AI agent is the **first-pass analyst**; the **Functional Analyst governs
+ the result** (§4.1). Processing is iterative and AI-assisted — it is **not**
+-a V-Bounce. Humans validate and consolidate.
+-
+-### 1. Ingest `input/`
++a Delivery Loop. Humans validate and consolidate.
++
++### 1. Ingest `01-input/`
+ Point the agent at the raw material with a clear scope, for example:
+-> *"Read every transcript in `input/interviews/` from sprint-0. Fan the
++> *"Read every transcript in `01-input/interviews/` from sprint-0. Fan the
+ > findings out into the routing table below — create or update files in
+ > each target folder; never let a finding stay in the transcript only."*
+ 
+@@ -174,7 +174,7 @@
+ | Why the product exists, who it serves, what success looks like    | `vision/vision.md` *(create from TEMPLATE-VISION.md)*                     |
+ | Stakeholders, market, competitors, regulations, business metrics  | `business-context/*.md`                                                    |
+ | **Business risks** (market, adoption, regulatory, model)          | `business-risks/BR-NNN-<description>.md` *(create from TEMPLATE-BR.md)*                  |
+-| **Project / technical / team / dependency risks**                 | [`../risks/RISK-NNN-<description>.md`](../risks/) *(transversal register, NOT analysis)* |
++| **Project / technical / team / dependency risks**                 | [`../33-risks/RISK-NNN-<description>.md`](../33-risks/) *(transversal register, NOT analysis)* |
+ | What is in/out of each milestone, phase boundaries, deferrals     | `scope/<milestone>-scope.md` *(create from TEMPLATE-SCOPE.md)*              |
+ | End-user archetypes, goals, pain points, context of use           | `personas/<PersonaName>.md`                                                |
+ | End-to-end user experiences across channels                       | `user-journeys/<goal>.md`                                                  |
+@@ -182,9 +182,9 @@
+ | Candidate entities, properties, relationships, enums              | `domain-model/entities/`, `relationships/`, `enumerations/`                |
+ | Surfaces, screens, UI patterns, their states, parity with a surface being replaced | `ui/*.md` *(create from TEMPLATE-UI.md)*                  |
+ | Business workflows: triggers, activities, decisions, exceptions   | `process/PROC-*.md`                                                        |
+-| Business-level acceptance criteria for a Unit / Milestone         | [`../tests/uat/UAT-*.md`](../tests/uat/)                                   |
++| Business-level acceptance criteria for a Unit / Milestone         | [`../24-tests/uat/UAT-*.md`](../24-tests/uat/)                                   |
+ | Open questions / assumptions to validate later                    | [`open-questions/OQ-NNN-*.md`](open-questions/) *(single source of truth during analysis; artifact's *Open questions* section just links here)* |
+-| Legacy code / DB / API observations ("how it works today")        | [`../discovery/DISC-*.md`](../discovery/)                                  |
++| Legacy code / DB / API observations ("how it works today")        | [`../03-discovery/DISC-*.md`](../03-discovery/)                                  |
+ 
+ **For the AI agent:** when you ingest an interview, your job is not to
+ produce one summary — it is to **fan out**. Walk the table top to bottom
+@@ -193,18 +193,18 @@
+ 
+ ### 3. Human consolidation
+ For each draft the analyst:
+-- Validates with stakeholders (new interviews if needed → `input/interviews/`).
++- Validates with stakeholders (new interviews if needed → `01-input/interviews/`).
+ - Resolves conflicts (same term, different meanings → glossary decides).
+ - Marks state (`draft` / `stable` / `deprecated`).
+ - Cross-links: every entity / process / persona / journey / risk should
+-  trace back to at least one source in `input/`.
++  trace back to at least one source in `01-input/`.
+ 
+ ### 4. Feed downstream
+ Once `domain-model/` and `process/` are stable enough, the team writes
+-**User Stories** in `functional/` using those terms, entities and personas.
+-Feature USs stop at `AITL-US-Approval` (Functional Analyst) before being
++**User Stories** in `12-functional/` using those terms, entities and personas.
++Feature USs stop at `CP-US-Approval` (Functional Analyst) before being
+ decomposed; US-000 is a permanent container with no approval lifecycle.
+-ADR-class decisions surfaced during analysis become `adrs/` entries.
++ADR-class decisions surfaced during analysis become `11-adrs/` entries.
+ 
+ ---
+ 
+@@ -216,7 +216,7 @@
+ | Risk type | Examples | Home | Why there |
+ |-----------|----------|------|-----------|
+ | **Business risk** | Market shrinks, regulation changes, low adoption, business model fails | [`business-risks/BR-NNN-<description>.md`](business-risks/) | Part of *understanding threats to the product's viability*. Stabilizes early. |
+-| **Project / technical / team risk** | Third-party integration unreliable, key dependency at risk, scaling unknowns, team capacity, security exposure, schedule pressure | [`../risks/RISK-NNN-<description>.md`](../risks/) | Lives during the **entire project**, fed by Discovery, Reviews, Retros, Incidents — not just analysis. Has its own lifecycle (open / mitigated / materialized / closed) and contingency plans. |
++| **Project / technical / team risk** | Third-party integration unreliable, key dependency at risk, scaling unknowns, team capacity, security exposure, schedule pressure | [`../33-risks/RISK-NNN-<description>.md`](../33-risks/) | Lives during the **entire project**, fed by Discovery, Reviews, Retros, Incidents — not just analysis. Has its own lifecycle (open / mitigated / materialized / closed) and contingency plans. |
+ 
+ **Operational implication for the AI agent:** when a finding from an
+ interview reads like *"if X happens, the project / product is in trouble"*,
+@@ -225,11 +225,11 @@
+ - *Is it about the **business** (market, customers, regulation, adoption)?*
+   → create `business-risks/BR-NNN-<description>.md`.
+ - *Is it about **execution** (technology, integrations, team, dependencies,
+-  delivery)?* → create `../risks/RISK-NNN-<description>.md`.
++  delivery)?* → create `../33-risks/RISK-NNN-<description>.md`.
+ - *Both?* → record in both, cross-link.
+ 
+ The `business-risks/` register is the *input* to the project
+-risk register; the register `../risks/` is what the team manages weekly.
++risk register; the register `../33-risks/` is what the team manages weekly.
+ 
+ ---
+ 
+@@ -239,16 +239,16 @@
+ 
+ | You're investigating…                                              | Goes in       |
+ |--------------------------------------------------------------------|---------------|
+-| Business rules, domain entities, processes, stakeholders           | `analysis/`   |
+-| Legacy code, DB schemas, external APIs, integrations               | `discovery/`  |
+-| A stakeholder interview                                            | raw → `input/interviews/`; extracted knowledge → `analysis/` |
+-| A legacy database analysis                                         | `discovery/`  |
+-| A glossary of business terms                                       | `analysis/glossary/` |
+-| Endpoint map of a legacy system                                    | `discovery/`  |
+-| Both at once                                                       | Domain in `analysis/`, tech in `discovery/`, cross-link them. |
++| Business rules, domain entities, processes, stakeholders           | `02-analysis/`   |
++| Legacy code, DB schemas, external APIs, integrations               | `03-discovery/`  |
++| A stakeholder interview                                            | raw → `01-input/interviews/`; extracted knowledge → `02-analysis/` |
++| A legacy database analysis                                         | `03-discovery/`  |
++| A glossary of business terms                                       | `02-analysis/glossary/` |
++| Endpoint map of a legacy system                                    | `03-discovery/`  |
++| Both at once                                                       | Domain in `02-analysis/`, tech in `03-discovery/`, cross-link them. |
+ 
+ **Rule of thumb:** if the finding describes **what the business does** →
+-`analysis/`. If it describes **how the current system works** → `discovery/`.
++`02-analysis/`. If it describes **how the current system works** → `03-discovery/`.
+ 
+ ---
+ 
+@@ -256,14 +256,14 @@
+ 
+ | Folder         | Relation                                                                      |
+ |----------------|-------------------------------------------------------------------------------|
+-| `input/`       | Raw evidence (recordings, client docs, legacy code) — read-only input to analysis |
+-| `discovery/`   | Technical / legacy findings that complement the business analysis             |
+-| `functional/`  | User Stories and Bolts are derived from entities, processes, personas, journeys, surfaces and their states, and scope decisions |
+-| `adrs/`        | Domain-modelling decisions are formalized as ADRs                              |
+-| `spec/`        | Specs implement what analysis defined — entities, processes and acceptance criteria |
+-| `risks/`       | **Project risk register** (technical / team / dependency / process). Fed from `business-risks/` and from many other sources during the full project lifecycle. See ["Risks: where they live"](#risks-where-they-live). |
+-| `tests/uat/`   | UAT minutes — **dormant/reserved in v4.2**; the UAT approval checkpoint was removed          |
+-| `open-questions/` | Analysis-phase question backlog. Sunsets at readiness: an `open` or `in-validation` OQ targeting a Bolt's parent or governing artifacts blocks its `AITL-BOLT-READY-Approval` — it is part of the Bolt DoR (§2.9, §3.2, G35). See [`open-questions/README.md`](open-questions/README.md). |
++| `01-input/`       | Raw evidence (recordings, client docs, legacy code) — read-only input to analysis |
++| `03-discovery/`   | Technical / legacy findings that complement the business analysis             |
++| `12-functional/`  | User Stories and TASKs are derived from entities, processes, personas, journeys, surfaces and their states, and scope decisions |
++| `11-adrs/`        | Domain-modelling decisions are formalized as ADRs                              |
++| `21-spec/`        | Specs implement what analysis defined — entities, processes and acceptance criteria |
++| `33-risks/`       | **Project risk register** (technical / team / dependency / process). Fed from `business-risks/` and from many other sources during the full project lifecycle. See ["Risks: where they live"](#risks-where-they-live). |
++| `24-tests/uat/`   | UAT minutes — **dormant/reserved**; the UAT approval checkpoint was removed          |
++| `open-questions/` | Analysis-phase question backlog. Sunsets at readiness: an `open` or `in-validation` OQ targeting a TASK's parent or governing artifacts blocks its `CP-TASK-READY-Approval` — it is part of the TASK DoR (§2.9, §3.2, G35). See [`open-questions/README.md`](open-questions/README.md). |
+ 
+ ---
+ 
+@@ -278,7 +278,7 @@
+   where its documents carry no sequential ID, §5.15) plus templates. Start
+   from those.
+ 
+-### Status lifecycle in `analysis/`
++### Status lifecycle in `02-analysis/`
+ 
+ | Status | Meaning | Used in |
+ |--------|---------|---------|
+@@ -296,7 +296,7 @@
+ 
+ - **`version` in the frontmatter** is carried only by the artifacts that are
+   replaced *as a whole* by a numbered successor — `vision/` and `scope/`.
+-  Everywhere else in `analysis/` the document is a living one:
++  Everywhere else in `02-analysis/` the document is a living one:
+   it is edited in place and its history is the git log, so a version field
+   would sit at `1.0` forever. This is the same boundary as the `superseded`
+   status above.
+@@ -304,5 +304,5 @@
+   (frontmatter keys, status enums, IDs, tags) stays in
+   **English**; section headings and prose follow the project's
+   `content_language`, declared in
+-  [`../LANGUAGE`](../LANGUAGE). See Avenga DevFlow
++  [`../LANGUAGE`](../LANGUAGE). See MetaFlow
+   **§3.15**.

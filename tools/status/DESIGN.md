@@ -15,11 +15,11 @@ records, and return it.**
 ## What it does
 
 ```
-devflow status bugs/                      every BUG with its status
-devflow status functional/bolts/          every Bolt in the folder
-devflow status US-012.BOLT-003            one artifact
-devflow status --pending                  everything waiting on a human
-devflow status --json                     for the agent
+metaflow status bugs/                      every BUG with its status
+metaflow status functional/bolts/          every Bolt in the folder
+metaflow status US-012.BOLT-003            one artifact
+metaflow status --pending                  everything waiting on a human
+metaflow status --json                     for the agent
 ```
 
 Per artifact it reports the `status:` its frontmatter already holds — the same
@@ -56,7 +56,7 @@ per artifact.
 {
   "tool": "status",
   "output_version": 1,
-  "folder": "devflow/bugs/",
+  "folder": "metaflow/bugs/",
   "artifacts": [
     { "id": "BUG-004", "slug": "invoice-pdf-timeout",
       "file": "BUG-004-invoice-pdf-timeout.md",
@@ -172,7 +172,7 @@ about wall clock versus working time.
 
 No — but it is the same binary, and it shares most of its engine.
 
-| | `devflow validate` | `devflow status` |
+| | `metaflow validate` | `metaflow status` |
 |---|---|---|
 | Question | Is anything **wrong**? | Where is everything **at**? |
 | Output | Violations, each with its rule id | State, as recorded |
@@ -211,6 +211,6 @@ team. Three ways out, in order of appetite:
 3. **Report both**, wall clock always and working time when a calendar exists.
 
 Option 2 is the only one that satisfies §3.0 literally, and it is also the only
-one that adds a file to `devflow/` — so it is a methodology decision, not a
+one that adds a file to `metaflow/` — so it is a methodology decision, not a
 tooling one, and it does not belong to this repository's toolchain to make
 unilaterally.

@@ -115,8 +115,8 @@ the discipline without blocking early lifecycle stages.
 | Queue time (waiting for human) | `review_started_at` − `review_ready_at` (Time-to-Human-Review, target < 4 h, §3.0) |
 | Active review time | `decided_at` − `review_started_at` |
 | Total review latency | `decided_at` − `review_ready_at` (informational, no target) |
-| TASK lead time | TASK-DONE `decided_at` − TASK-READY `decided_at` (§3.7) |
-| US lead time | last child TASK TASK-DONE `decided_at` − US `CP-US-Approval` `decided_at` |
+| TASK lead time | `CP-TASK-DONE-Approval` `decided_at` − `CP-TASK-READY-Approval` `decided_at` (§3.7) |
+| US lead time | last child TASK’s `CP-TASK-DONE-Approval` `decided_at` − US `CP-US-Approval` `decided_at` |
 | Delivery Loop cycle | MEM approval `decided_at` − code `generation.created_at` |
 | AI generation time | `generation.duration_seconds` |
 

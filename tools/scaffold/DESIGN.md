@@ -16,10 +16,10 @@ the half most likely to be skipped under pressure.
 ## What it does
 
 ```
-devflow new bug   --title "Race condition on invoice download"
-devflow new bolt  --parent US-012 --type functional
-devflow new tc    --source-bolt US-012.BOLT-003
-devflow new spec  --bolt US-012.BOLT-003
+metaflow new bug   --title "Race condition on invoice download"
+metaflow new bolt  --parent US-012 --type functional
+metaflow new tc    --source-bolt US-012.BOLT-003
+metaflow new spec  --bolt US-012.BOLT-003
 ```
 
 For each, it **prints** two things: the filled document and — for a US, Bolt or

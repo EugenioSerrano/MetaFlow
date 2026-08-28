@@ -2,7 +2,7 @@
 
 **Methodology version:** 1.1
 
-> ⛔ **DORMANT / RESERVED (v4.2).** `CP-UAT-Approval` is not an active
+> ⛔ **DORMANT / RESERVED.** `CP-UAT-Approval` is not an active
 > checkpoint in this release (the UNIT/UAT approval-and-release layer was
 > removed). This folder is kept dormant for a redesigned model planned in a
 > future version.

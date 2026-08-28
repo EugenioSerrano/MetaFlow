@@ -20,12 +20,15 @@ Delivery Loop (red evidence → fix → green). No TASK may be created before
 
 | ID | Document | Severity | Nature | Dedicated TASK | Status |
 |----|----------|----------|--------|----------------|--------|
-| —  | —        | —        | —      | —              | —      |
 
 ## 🏁 Fixed / Closed
 
 | ID | Document | Status | Fix MEM | Closed date |
 |----|----------|--------|---------|-------------|
+| [BUG-021](BUG-021-historia-linaje-previo.md) | Historia del linaje previo como propia del kit ("v4.2" ×17 + "versions up to 4.1" ×4) | fixed | [MEM-260827-1725-fix-historia-linaje.md](../22-memory/MEM-260827-1725-fix-historia-linaje.md) | 2026-08-27 |
+| [BUG-022](BUG-022-shorthands-checkpoints-metricas.md) | Shorthands no canónicos "TASK-DONE/TASK-READY" en tablas de métricas | fixed | [MEM-260827-1725-fix-shorthands-metricas.md](../22-memory/MEM-260827-1725-fix-shorthands-metricas.md) | 2026-08-27 |
+| [BUG-023](BUG-023-propiedad-identidad.md) | Declaración de propiedad "Eugenio Serrano LATAM" → Eugenio Serrano | fixed | [MEM-260827-1725-fix-propiedad-identidad.md](../22-memory/MEM-260827-1725-fix-propiedad-identidad.md) | 2026-08-27 |
+| [BUG-024](BUG-024-tools-linaje-devflow.md) | Restos devflow en tools/ (BUILD.md/README → metaflow/bin) | fixed | [MEM-260827-1725-fix-tools-linaje.md](../22-memory/MEM-260827-1725-fix-tools-linaje.md) | 2026-08-27 |
 | [BUG-001](BUG-001-numeracion-plataforma.md) | Carpetas de plataforma numeradas (.github/agents, .opencode/agents) | fixed | [MEM-260827-0308-bolt006-fix-numeracion-plataforma.md](../22-memory/MEM-260827-0308-bolt006-fix-numeracion-plataforma.md) | 2026-08-27 |
 | [BUG-020](BUG-020-front-door-raiz-stale.md) | Front door raíz stale: README Avenga DevFlow 5.1 + skill avenga-devflow instalado + AGENTS.md sin sección de proyecto | fixed | [MEM-260827-1632-front-door-raiz.md](../22-memory/MEM-260827-1632-front-door-raiz.md) | 2026-08-27 |
 | [BUG-002](BUG-002-schema-version-metodologia.md) | Restos v5 en MetaFlow.md §3.12/§5.16 | fixed | [MEM-260827-0406-fix-schema-version-metodologia.md](../22-memory/MEM-260827-0406-fix-schema-version-metodologia.md) | 2026-08-27 |

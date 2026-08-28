@@ -150,7 +150,7 @@ Limitations & Roadmap*.
 
 ---
 
-**MetaFlow is the proprietary methodology and framework of Eugenio Serrano
-LATAM**, developed by the research team to systematize AI-assisted software
+**MetaFlow is the proprietary methodology and framework of Eugenio Serrano**,
+developed by the research team to systematize AI-assisted software
 development. It is based on *AI-Driven Development Life Cycle: Reimagining
 Software Engineering* (Raja SP, AWS).

@@ -1,6 +1,6 @@
 # The 39 blocking rules — validator coverage
 
-Every `G` rule from `devflow/GUARDRAILS.md`, classified by whether a validator
+Every `G` rule from `metaflow/GUARDRAILS.md`, classified by whether a validator
 can decide it from the repository alone.
 
 **Method.** Each rule was read verbatim, its `§` references followed into the
@@ -53,11 +53,11 @@ each predicate needs:
 | **G27** | Same shape as G26 for DISC / REV / AREV: any such artifact in `sources` must carry its approval; an AREV needs all three phases | Optional mechanisms that were never initiated |
 | **G28** | No `sources` entry resolves to `analysis/introduction/`, to `reports/`, or to a file with `derivative: true` | — |
 | **G29** | BUG with `nature: non-functional`: if `severity: critical`, reviewer `role` ∈ {`architect`, `tech_lead`}; otherwise reviewer `user` ≠ BUG `owner`. The dedicated Bolt mirrors both | Functional BUGs route to the Functional Analyst regardless of severity |
-| **G30** | Walk `devflow/`; every directory must appear in §5.1 or be a sanctioned exception: `agents-data/<agent>/`, `adversarial-reviews/AREV-NNN-*/`, any `_archive/` | — |
+| **G30** | Walk `metaflow/`; every directory must appear in §5.1 or be a sanctioned exception: `agents-data/<agent>/`, `adversarial-reviews/AREV-NNN-*/`, any `_archive/` | — |
 | **G32** | No `sources` entry starts with `agents-data/` | — |
 | **G33** | Bijection: `functional/user-stories/US-NNN-*.md` ↔ `metrics/user-stories/*.json`, and `tests/test-cases/TC-NNN-*.md` ↔ `metrics/test-cases/*.json`. **Both directions** — an orphan manifest is also a defect | `US-000-non-functional.md` carries no manifest |
 | **G35** | At each Bolt's `HITL-BOLT-READY-Approval.decided_at`, no `OQ-NNN` with `status` ∈ {`open`, `in-validation`} whose `targets` include that Bolt's parent or governing sources | Historical accuracy needs git; current-state is the practical approximation |
-| **G36** | On a commit that changes `devflow/VERSION`: no modification to an approved MEM or ADR, to a recorded HITL decision, or to existing `CHANGELOG.md` lines; and every `metrics/**/*.json` declares the `schema_version` of the family `VERSION` now names | Appending a new CHANGELOG entry is expected. Manifests are *expected* to change on such a commit (§5.16), so the check is the shape of the change, not its absence: diff each manifest against its pre-commit version and require the new one to be a superset — every previous key and value present and equal, additions confined to the fields the new schema introduces, and those set to `null` |
+| **G36** | On a commit that changes `metaflow/VERSION`: no modification to an approved MEM or ADR, to a recorded HITL decision, or to existing `CHANGELOG.md` lines; and every `metrics/**/*.json` declares the `schema_version` of the family `VERSION` now names | Appending a new CHANGELOG entry is expected. Manifests are *expected* to change on such a commit (§5.16), so the check is the shape of the change, not its absence: diff each manifest against its pre-commit version and require the new one to be a superset — every previous key and value present and equal, additions confined to the fields the new schema introduces, and those set to `null` |
 | **G37** | Per AREV Verdict artifact: `judge_model` ∉ {`implementor_model`, `challenger_model`}, or it is `human:<name>` with the VERDICT stating why no third model was available (§3.13) | A human Verdict is valid; models compared by identifier |
 
 ## Partially checkable (12)
@@ -73,7 +73,7 @@ each predicate needs:
 | **G20** | Acceptance: `HITL-BOLT-DONE-Approval` requires a prior approved `HITL-MEM-Approval` on the latest V-Bounce | Merge and promotion: deployment data is **deliberately outside manifest v4** (§3.12) |
 | **G22** | No artifact or INDEX row asserts `Done` without the acceptance decision | Bolt state is derived, never stored, so there is no field to contradict |
 | **G24** | **The artifact `review:` block matches its manifest projection** — §3.0 already calls a mismatch a validation error, and nothing checks it today | Whether a recorded decision was fabricated by a human acting in bad faith |
-| **G31** | Files exist under `devflow/input/` that no human deposited | Authorship: under G34 the human commits everything, so git author cannot distinguish agent from human. Mostly an **agent-behavior** rule |
+| **G31** | Files exist under `metaflow/input/` that no human deposited | Authorship: under G34 the human commits everything, so git author cannot distinguish agent from human. Mostly an **agent-behavior** rule |
 | **G38** | Walk every `_archive/`: each document's frontmatter `status` must sit in the closed set for its family — ADR `superseded\|deprecated`, BUG closed, RISK retired, DISC/REV/AREV closed, Bolt `Done` with its `HITL-BOLT-DONE-Approval` recorded and its package (Bolt, SPEC, MEMs) present alongside it. An `accepted` ADR or an `open` BUG under `_archive/` is a defect | Whether a closed REV/DISC/AREV's findings were each **routed** to the artifacts they affect — routing lives in prose. And like G31 it is partly **agent behaviour**: the repository records where a file sits, never who moved it there |
 | **G39** | Every document's frontmatter `status` belongs to its family's row of the §3.15 table — decidable per artifact type, with US-000 as the known exception (`status: active` outside every family) and the derived states (Bolt development state, MEM review state, US/TC progress) checked only for absence, never for correctness | Whether the family↔status mapping the validator assumes matches the routing the §5.15 table defines — the mapping is itself prose; and `status` vs the derived states is a semantic distinction that only misses when the document author mislabeled a field |
 

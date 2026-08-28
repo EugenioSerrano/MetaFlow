@@ -6,181 +6,1505 @@
     "devflow/reports/TEMPLATE-REPORT.html"
   ],
   "rules": [
-    { "id": "M5",  "type": "rename", "pattern": "proprietary methodology of Avenga LATAM", "replacement": "proprietary methodology of Eugenio Serrano", "order": 1, "scope": "content" },
-    { "id": "M11", "type": "rename", "pattern": "devflow/avenga-devflow/Avenga-DevFlow.md", "replacement": "metaflow/ai-sdlc/MetaFlow.md", "order": 2, "scope": "content" },
-    { "id": "M7b", "type": "rename", "pattern": "Avenga-DevFlow.md", "replacement": "MetaFlow.md", "order": 3, "scope": "content" },
-    { "id": "M7c", "type": "rename", "pattern": "Avenga-DevFlow", "replacement": "MetaFlow", "order": 4, "scope": "content" },
-    { "id": "M1",  "type": "rename", "pattern": "AvengaDevFlow", "replacement": "MetaFlow", "order": 6, "scope": "content" },
-    { "id": "M2",  "type": "rename", "pattern": "Avenga DevFlow", "replacement": "MetaFlow", "order": 7, "scope": "content" },
-    { "id": "M6b", "type": "rename", "pattern": "avenga-devflow", "replacement": "ai-sdlc", "order": 8, "scope": "content" },
-    { "id": "M3",  "type": "rename", "pattern": "DevFlow", "replacement": "MetaFlow", "order": 9, "scope": "content" },
-    { "id": "M4",  "type": "rename", "pattern": "Avenga LATAM", "replacement": "Eugenio Serrano", "order": 10, "scope": "content" },
-    { "id": "M10", "type": "rename", "pattern": "AVENGA-DEVFLOW:PROJECT-SECTION", "replacement": "METAFLOW:PROJECT-SECTION", "order": 11, "scope": "content" },
-    { "id": "C1a", "type": "rename", "pattern": "AITL-<CODE>-Approval", "replacement": "CP-<CODE>-Approval", "order": 12, "scope": "content" },
-    { "id": "C1b", "type": "regex_rename", "pattern": "AITL-([A-Z0-9-]+)-Approval", "replacement": "CP-$1-Approval", "order": 13, "scope": "content" },
-    { "id": "C1e", "type": "rename", "pattern": "AITL-*-Approval", "replacement": "CP-*-Approval", "order": 14, "scope": "content" },
-    { "id": "C1f", "type": "rename", "pattern": "AITL-Approval", "replacement": "CP-Approval", "order": 15, "scope": "content" },
-    { "id": "C2a", "type": "rename", "pattern": "HITL-<CODE>-Approval", "replacement": "CP-<CODE>-Approval", "order": 16, "scope": "content" },
-    { "id": "C2b", "type": "regex_rename", "pattern": "HITL-([A-Z0-9-]+)-Approval", "replacement": "CP-$1-Approval", "order": 17, "scope": "content" },
-    { "id": "C2e", "type": "rename", "pattern": "HITL-*-Approval", "replacement": "CP-*-Approval", "order": 18, "scope": "content" },
-    { "id": "C2f", "type": "rename", "pattern": "HITL-Approval", "replacement": "CP-Approval", "order": 19, "scope": "content" },
-    { "id": "B6",  "type": "rename", "pattern": "BOLT-READY-Approval", "replacement": "TASK-READY-Approval", "order": 20, "scope": "content" },
-    { "id": "B7",  "type": "rename", "pattern": "BOLT-DONE-Approval", "replacement": "TASK-DONE-Approval", "order": 21, "scope": "content" },
-    { "id": "B2",  "type": "rename", "pattern": "BOLT-", "replacement": "TASK-", "order": 22, "scope": "both" },
-    { "id": "C5a", "type": "remove", "pattern": "pre-v5 `HITL-*` prefix", "order": 23, "scope": "content" },
-    { "id": "C5b", "type": "remove", "pattern": "legacy checkpoint names", "order": 24, "scope": "content" },
-    { "id": "C5c", "type": "remove", "pattern": "survives only in migrated history", "order": 25, "scope": "content" },
-    { "id": "C3a", "type": "rename", "pattern": "Actor-in-the-Loop (AITL)", "replacement": "Checkpoint-in-the-Loop (CITL)", "order": 26, "scope": "content" },
-    { "id": "C3b", "type": "rename", "pattern": "Human-in-the-Loop (HITL)", "replacement": "Checkpoint-in-the-Loop (CITL)", "order": 27, "scope": "content" },
-    { "id": "C4",  "type": "rename", "pattern": "AITL", "replacement": "CITL", "order": 28, "scope": "content" },
-    { "id": "C4b", "type": "rename", "pattern": "HITL", "replacement": "CITL", "order": 29, "scope": "content" },
-    { "id": "B15a", "type": "rename", "pattern": "V-Bounces per Bolt", "replacement": "Delivery Loops per TASK", "order": 30, "scope": "content" },
-    { "id": "D2",  "type": "rename", "pattern": "V-Bounces", "replacement": "Delivery Loops", "order": 31, "scope": "content" },
-    { "id": "D1",  "type": "rename", "pattern": "V-Bounce", "replacement": "Delivery Loop", "order": 32, "scope": "content" },
-    { "id": "D3",  "type": "rename", "pattern": "v_bounces", "replacement": "delivery_loops", "order": 33, "scope": "content" },
-    { "id": "B12", "type": "rename", "pattern": "test_bolts", "replacement": "test_tasks", "order": 34, "scope": "content" },
-    { "id": "B15b", "type": "rename", "pattern": "per Bolt", "replacement": "per TASK", "order": 35, "scope": "content" },
-    { "id": "B13", "type": "rename", "pattern": "Bolt-First Rule", "replacement": "TASK-First Rule", "order": 36, "scope": "content" },
-    { "id": "B14", "type": "rename", "pattern": "Bolt Lead Time", "replacement": "TASK Lead Time", "order": 37, "scope": "content" },
-    { "id": "B1a", "type": "rename", "pattern": "Bolts", "replacement": "TASKs", "order": 38, "scope": "content" },
-    { "id": "B1b", "type": "rename", "pattern": "Bolt", "replacement": "TASK", "order": 39, "scope": "content" },
-    { "id": "B3a", "type": "rename", "pattern": "bolts", "replacement": "tasks", "order": 40, "scope": "content" },
-    { "id": "B3b", "type": "rename", "pattern": "bolt", "replacement": "task", "order": 41, "scope": "content" },
-    { "id": "B2b", "type": "rename", "pattern": "BOLTS", "replacement": "TASKs", "order": 42, "scope": "content" },
-    { "id": "B2c", "type": "rename", "pattern": "BOLT", "replacement": "TASK", "order": 43, "scope": "content" },
-    { "id": "C7",  "type": "rename", "pattern": "hitl_approvals", "replacement": "checkpoint_approvals", "order": 44, "scope": "content" },
-    { "id": "C8",  "type": "rename", "pattern": "actor-in-the-loop--aitl", "replacement": "checkpoint-in-the-loop--citl", "order": 45, "scope": "content" },
-    { "id": "M12", "type": "rename", "pattern": "Avenga", "replacement": "Eugenio Serrano", "order": 46, "scope": "content" },
-    { "id": "M13", "type": "rename", "pattern": "avenga.com", "replacement": "metaflow.com", "order": 47, "scope": "content" },
-    { "id": "M14", "type": "rename", "pattern": "avenga", "replacement": "metaflow", "order": 48, "scope": "content" },
-    { "id": "D7",  "type": "rename", "pattern": "V-BOUNCE", "replacement": "DELIVERY LOOP", "order": 49, "scope": "content" },
-    { "id": "D8",  "type": "rename", "pattern": "v_bounce", "replacement": "delivery_loop", "order": 50, "scope": "content" },
-    { "id": "D10", "type": "rename", "pattern": "VBOUNCE", "replacement": "DELIVERYLOOP", "order": 51, "scope": "content" },
-    { "id": "M15", "type": "rename", "pattern": "devflow/", "replacement": "metaflow/", "order": 52, "scope": "content" },
-    { "id": "M16", "type": "rename", "pattern": "devflow", "replacement": "metaflow", "order": 53, "scope": "content" },
-    { "id": "M17", "type": "rename", "pattern": "Devflow", "replacement": "MetaFlow", "order": 54, "scope": "content" },
-    { "id": "M18", "type": "rename", "pattern": "DEVFLOW", "replacement": "METAFLOW", "order": 58, "scope": "content" },
-    { "id": "R2a", "type": "regex_remove", "pattern": "(?m)^- \\*\\*DevOps Research and Assessment.*\\n", "replacement": "", "order": 55, "scope": "content" },
-    { "id": "R2b", "type": "regex_remove", "pattern": "(?m)^- \\*\\*Forsgren, N.*\\n", "replacement": "", "order": 56, "scope": "content" },
-    { "id": "D9",  "type": "rename", "pattern": "DORA", "replacement": "Delivery Flow", "order": 57, "scope": "content" },
-    { "id": "R1a", "type": "remove", "pattern": "AI-Driven Development Life Cycle: Reimagining Software Engineering", "order": 60, "scope": "content" },
-    { "id": "R1b", "type": "remove", "pattern": "Raja SP", "order": 61, "scope": "content" },
-    { "id": "V0",  "type": "rename", "pattern": "{{VERSION_IN}}", "replacement": "{{VERSION_OUT}}", "path": "metaflow/VERSION", "order": 70, "scope": "content" },
-    { "id": "V1",  "type": "rename", "pattern": "**Methodology version:** {{VERSION_IN}}", "replacement": "**Methodology version:** {{VERSION_OUT}}", "order": 71, "scope": "content" },
-    { "id": "V2",  "type": "rename", "pattern": "**Agent version:** {{VERSION_IN}} — implements methodology v{{VERSION_IN}}", "replacement": "**Agent version:** {{VERSION_OUT}} — implements methodology v{{VERSION_OUT}}", "order": 72, "scope": "content" },
-    { "id": "V3",  "type": "rename", "pattern": "v{{VERSION_IN}} (Methodology)", "replacement": "v{{VERSION_OUT}} (Methodology)", "order": 73, "scope": "content" },
-    { "id": "V4",  "type": "rename", "pattern": "v{{VERSION_IN}} methodology", "replacement": "v{{VERSION_OUT}} methodology", "order": 74, "scope": "content" },
-    { "id": "V5",  "type": "rename", "pattern": "(v{{VERSION_IN}})", "replacement": "(v{{VERSION_OUT}})", "order": 75, "scope": "content" },
-    { "id": "A1",  "type": "rename", "pattern": "The longitudinal research synthesized in ***Accelerate*** shows that", "replacement": "The longitudinal research on software delivery shows that", "order": 76, "scope": "content" },
-    { "id": "A2",  "type": "rename", "pattern": "(*Accelerate* / Delivery Flow)", "replacement": "(Delivery Flow)", "order": 77, "scope": "content" },
-    { "id": "V6",  "type": "rename", "pattern": "MetaFlow v{{VERSION_IN}}", "replacement": "MetaFlow v{{VERSION_OUT}}", "order": 78, "scope": "content" },
-    { "id": "V7",  "type": "rename", "pattern": "v{{VERSION_IN}})", "replacement": "v{{VERSION_OUT}})", "order": 79, "scope": "content" },
-    { "id": "S1b", "type": "rename", "pattern": "manifest-v{{FAMILY_IN}}-bolt.schema.json", "replacement": "manifest-v{{FAMILY_OUT}}-task.schema.json", "order": 80, "scope": "content" },
-    { "id": "S1",  "type": "rename", "pattern": "manifest-v{{FAMILY_IN}}", "replacement": "manifest-v{{FAMILY_OUT}}", "order": 81, "scope": "content" },
-    { "id": "S2",  "type": "rename", "pattern": "Manifest v{{FAMILY_IN}}", "replacement": "Manifest v{{FAMILY_OUT}}", "order": 82, "scope": "content" },
-    { "id": "S3",  "type": "rename", "pattern": "\"schema_version\": \"{{FAMILY_IN}}.0\"", "replacement": "\"schema_version\": \"{{FAMILY_OUT}}.0\"", "order": 83, "scope": "content" },
-    { "id": "S3b", "type": "rename", "pattern": "schema_version: \"{{FAMILY_IN}}.0\"", "replacement": "schema_version: \"{{FAMILY_OUT}}.0\"", "order": 84, "scope": "content" },
-    { "id": "S4",  "type": "regex_rename", "pattern": "manifest:(task|us|tc):v{{FAMILY_IN}}", "replacement": "manifest:$1:v{{FAMILY_OUT}}", "order": 85, "scope": "content" },
-    { "id": "S5",  "type": "rename", "pattern": "\"const\": \"{{FAMILY_IN}}.0\"", "replacement": "\"const\": \"{{FAMILY_OUT}}.0\"", "order": 86, "scope": "content" },
-    { "id": "N01", "type": "regex_rename", "pattern": "(?<![\\w-])input/", "replacement": "01-input/", "order": 90, "scope": "content" },
-    { "id": "N02", "type": "regex_rename", "pattern": "(?<![\\w-])analysis/", "replacement": "02-analysis/", "order": 91, "scope": "content" },
-    { "id": "N03", "type": "regex_rename", "pattern": "(?<![\\w-])discovery/", "replacement": "03-discovery/", "order": 92, "scope": "content" },
-    { "id": "N11", "type": "regex_rename", "pattern": "(?<![\\w-])adrs/", "replacement": "11-adrs/", "order": 93, "scope": "content" },
-    { "id": "N12", "type": "regex_rename", "pattern": "(?<![\\w-])functional/", "replacement": "12-functional/", "order": 94, "scope": "content" },
-    { "id": "N13", "type": "regex_rename", "pattern": "(?<![\\w-])bugs/", "replacement": "13-bugs/", "order": 95, "scope": "content" },
-    { "id": "N21", "type": "regex_rename", "pattern": "(?<![\\w-])spec/", "replacement": "21-spec/", "order": 96, "scope": "content" },
-    { "id": "N22", "type": "regex_rename", "pattern": "(?<![\\w-])memory/", "replacement": "22-memory/", "order": 97, "scope": "content" },
-    { "id": "N23", "type": "regex_rename", "pattern": "(?<![\\w-])metrics/", "replacement": "23-metrics/", "order": 98, "scope": "content" },
-    { "id": "N24", "type": "regex_rename", "pattern": "(?<![\\w-])tests/", "replacement": "24-tests/", "order": 99, "scope": "content" },
-    { "id": "N32", "type": "regex_rename", "pattern": "(?<![\\w-])adversarial-reviews/", "replacement": "32-adv-reviews/", "order": 100, "scope": "content" },
-    { "id": "N31", "type": "regex_rename", "pattern": "(?<![\\w-])reviews/", "replacement": "31-reviews/", "order": 101, "scope": "content" },
-    { "id": "N33", "type": "regex_rename", "pattern": "(?<![\\w-])risks/", "replacement": "33-risks/", "order": 102, "scope": "content" },
-    { "id": "N34", "type": "regex_rename", "pattern": "(?<![\\w-])incidents/", "replacement": "34-incidents/", "order": 103, "scope": "content" },
-    { "id": "N35", "type": "regex_rename", "pattern": "(?<![\\w-])retros/", "replacement": "35-retros/", "order": 104, "scope": "content" },
-    { "id": "N41", "type": "regex_rename", "pattern": "(?<![\\w-])prompts/", "replacement": "41-prompts/", "order": 105, "scope": "content" },
-    { "id": "N42", "type": "regex_rename", "pattern": "(?<![\\w-])reports/", "replacement": "42-reports/", "order": 106, "scope": "content" },
-    { "id": "N52", "type": "regex_rename", "pattern": "(?<![\\w-])agents-data/", "replacement": "52-agents-data/", "order": 107, "scope": "content" },
-    { "id": "N51", "type": "regex_rename", "pattern": "(?<![\\w-])agents/", "replacement": "51-agents/", "order": 108, "scope": "content" },
-    { "id": "N53", "type": "regex_rename", "pattern": "(?<![\\w-])actors/", "replacement": "53-actors/", "order": 109, "scope": "content" },
-    { "id": "L01", "type": "rename", "pattern": "[`TEMPLATE-REPORT.html`](./TEMPLATE-REPORT.html)", "replacement": "`TEMPLATE-REPORT.html`", "order": 110, "scope": "content" },
-    { "id": "P-M7",  "type": "path_rename", "pattern": "Avenga-DevFlow.md", "replacement": "MetaFlow.md", "order": 1001, "scope": "path" },
-    { "id": "P-M8a", "type": "path_rename", "pattern": "AvengaDevFlow.agent.md", "replacement": "MetaFlow.agent.md", "order": 1002, "scope": "path" },
-    { "id": "P-M8b", "type": "path_rename", "pattern": "AvengaDevFlow.md", "replacement": "MetaFlow.md", "order": 1003, "scope": "path" },
-    { "id": "P-B10", "type": "path_rename", "pattern": "TEMPLATE-MANIFEST-BOLT", "replacement": "TEMPLATE-MANIFEST-TASK", "order": 1004, "scope": "path" },
-    { "id": "P-B4",  "type": "path_rename", "pattern": "TEMPLATE-BOLT.md", "replacement": "TEMPLATE-TASK.md", "order": 1005, "scope": "path" },
-    { "id": "P-B9a", "type": "path_rename", "pattern": "manifest-v{{FAMILY_IN}}-bolt.schema.json", "replacement": "manifest-v{{FAMILY_OUT}}-task.schema.json", "order": 1006, "scope": "path" },
-    { "id": "P-B9b", "type": "path_rename", "pattern": "manifest-v{{FAMILY_IN}}-us.schema.json", "replacement": "manifest-v{{FAMILY_OUT}}-us.schema.json", "order": 1007, "scope": "path" },
-    { "id": "P-B9c", "type": "path_rename", "pattern": "manifest-v{{FAMILY_IN}}-tc.schema.json", "replacement": "manifest-v{{FAMILY_OUT}}-tc.schema.json", "order": 1008, "scope": "path" },
-    { "id": "P-M6",  "type": "path_rename", "pattern": "avenga-devflow", "replacement": "ai-sdlc", "order": 1009, "scope": "path" },
-    { "id": "P-B2",  "type": "path_rename", "pattern": "BOLT-", "replacement": "TASK-", "order": 1010, "scope": "path" },
-    { "id": "P-B8",  "type": "path_rename", "pattern": "bolts", "replacement": "tasks", "order": 1011, "scope": "path" },
-    { "id": "P-M15", "type": "path_rename", "pattern": "devflow", "replacement": "metaflow", "order": 1012, "scope": "path" },
-    { "id": "PN01", "type": "regex_rename", "pattern": "^input$", "replacement": "01-input", "order": 1020, "scope": "path" },
-    { "id": "PN02", "type": "regex_rename", "pattern": "^analysis$", "replacement": "02-analysis", "order": 1021, "scope": "path" },
-    { "id": "PN03", "type": "regex_rename", "pattern": "^discovery$", "replacement": "03-discovery", "order": 1022, "scope": "path" },
-    { "id": "PN11", "type": "regex_rename", "pattern": "^adrs$", "replacement": "11-adrs", "order": 1023, "scope": "path" },
-    { "id": "PN12", "type": "regex_rename", "pattern": "^functional$", "replacement": "12-functional", "order": 1024, "scope": "path" },
-    { "id": "PN13", "type": "regex_rename", "pattern": "^bugs$", "replacement": "13-bugs", "order": 1025, "scope": "path" },
-    { "id": "PN21", "type": "regex_rename", "pattern": "^spec$", "replacement": "21-spec", "order": 1026, "scope": "path" },
-    { "id": "PN22", "type": "regex_rename", "pattern": "^memory$", "replacement": "22-memory", "order": 1027, "scope": "path" },
-    { "id": "PN23", "type": "regex_rename", "pattern": "^metrics$", "replacement": "23-metrics", "order": 1028, "scope": "path" },
-    { "id": "PN24", "type": "regex_rename", "pattern": "^tests$", "replacement": "24-tests", "order": 1029, "scope": "path" },
-    { "id": "PN32", "type": "regex_rename", "pattern": "^adversarial-reviews$", "replacement": "32-adv-reviews", "order": 1030, "scope": "path" },
-    { "id": "PN31", "type": "regex_rename", "pattern": "^reviews$", "replacement": "31-reviews", "order": 1031, "scope": "path" },
-    { "id": "PN33", "type": "regex_rename", "pattern": "^risks$", "replacement": "33-risks", "order": 1032, "scope": "path" },
-    { "id": "PN34", "type": "regex_rename", "pattern": "^incidents$", "replacement": "34-incidents", "order": 1033, "scope": "path" },
-    { "id": "PN35", "type": "regex_rename", "pattern": "^retros$", "replacement": "35-retros", "order": 1034, "scope": "path" },
-    { "id": "PN41", "type": "regex_rename", "pattern": "^prompts$", "replacement": "41-prompts", "order": 1035, "scope": "path" },
-    { "id": "PN42", "type": "regex_rename", "pattern": "^reports$", "replacement": "42-reports", "order": 1036, "scope": "path" },
-    { "id": "PN52", "type": "regex_rename", "pattern": "^agents-data$", "replacement": "52-agents-data", "order": 1037, "scope": "path" },
-    { "id": "PN51", "type": "regex_rename", "pattern": "^agents$", "replacement": "51-agents", "order": 1038, "scope": "path" },
-    { "id": "PN53", "type": "regex_rename", "pattern": "^actors$", "replacement": "53-actors", "order": 1039, "scope": "path" },
-    { "id": "R7-1", "type": "rename", "pattern": "is exactly `{{FAMILY_IN}}.0` for this family", "replacement": "is exactly `\"{{FAMILY_OUT}}.0\"` for this family", "order": 201, "scope": "content" },
-    { "id": "R7-2", "type": "rename", "pattern": "(the v4→v5 change that renamed `checkpoint_approvals[]` → `checkpoint_approvals[]` and moved identity to the actor grammar)", "replacement": "(the change that renamed the approval array to `checkpoint_approvals[]` and moved identity to the actor grammar)", "order": 202, "scope": "content" },
-    { "id": "R7-3", "type": "regex_rename", "pattern": "`4\\.x` keeps `4\\.0`, a schema change\\s+means `5\\.0`", "replacement": "`1.x` keeps `1.0`, a schema change means a new major", "order": 203, "scope": "content" },
-    { "id": "R7-4", "type": "rename", "pattern": "the approval array\n`checkpoint_approvals[]` becomes `checkpoint_approvals[]` with a richer approver", "replacement": "the approval array\n`checkpoint_approvals[]` gains a richer approver shape", "order": 204, "scope": "content" },
-    { "id": "R7-5", "type": "regex_rename", "pattern": "(?s)The checkpoint \\*\\*name\\*\\* in each converted entry.*?keeps `CITL-\\*`\\.", "replacement": "The checkpoint **name** in each converted entry is **re-expressed** in the\ncurrent vocabulary (`CP-<CODE>-Approval`): the decision — actor, timestamp,\noutcome — is immutable; only the vocabulary label tracks the version. The v1\n`checkpoint` enum accepts **only** `CP-*`; a manifest of the previous family\nvalidates against its own frozen schema, which keeps the legacy names.", "order": 205, "scope": "content" },
-    { "id": "R7-6", "type": "rename", "pattern": "becomes `\"{{FAMILY_IN}}.0\"`", "replacement": "becomes `\"{{FAMILY_OUT}}.0\"`", "order": 206, "scope": "content" },
-    { "id": "R8-1", "type": "rename", "pattern": "(exactly `\"{{FAMILY_IN}}.0\"`)", "replacement": "(exactly `\"{{FAMILY_OUT}}.0\"`)", "order": 207, "scope": "content" },
-    { "id": "R9-1", "type": "rename", "pattern": "schema_version \"{{FAMILY_IN}}.0\"", "replacement": "schema_version \"{{FAMILY_OUT}}.0\"", "order": 208, "scope": "content" },
-    { "id": "R9-2", "type": "rename", "pattern": "— exactly `\"{{FAMILY_IN}}.0\"`", "replacement": "— exactly `\"{{FAMILY_OUT}}.0\"`", "order": 209, "scope": "content" },
-    { "id": "R10-1", "type": "rename", "pattern": "Manifest family v{{FAMILY_IN}}", "replacement": "Manifest family v{{FAMILY_OUT}}", "order": 210, "scope": "content" },
-    { "id": "R10-2", "type": "rename", "pattern": "Manifest Family v{{FAMILY_IN}}", "replacement": "Manifest Family v{{FAMILY_OUT}}", "order": 211, "scope": "content" },
-    { "id": "R10-3", "type": "rename", "pattern": "Schema family v{{FAMILY_IN}}", "replacement": "Schema family v{{FAMILY_OUT}}", "order": 212, "scope": "content" },
-    { "id": "R10-4", "type": "rename", "pattern": "Schema v{{FAMILY_IN}} example", "replacement": "Schema v{{FAMILY_OUT}} example", "order": 213, "scope": "content" },
-    { "id": "R10-5", "type": "rename", "pattern": "outside manifest v{{FAMILY_IN}}", "replacement": "outside manifest v{{FAMILY_OUT}}", "order": 214, "scope": "content" },
-    { "id": "R10-6", "type": "rename", "pattern": "three v{{FAMILY_IN}} schemas", "replacement": "three v{{FAMILY_OUT}} schemas", "order": 215, "scope": "content" },
-    { "id": "R10-7", "type": "rename", "pattern": "family **v{{FAMILY_IN}}**", "replacement": "family **v{{FAMILY_OUT}}**", "order": 216, "scope": "content" },
-    { "id": "R10-8", "type": "rename", "pattern": "manifest v{{FAMILY_IN}}", "replacement": "manifest v{{FAMILY_OUT}}", "order": 217, "scope": "content" },
-    { "id": "R11-1", "type": "rename", "pattern": "Use  (the ) or non-canonical `CITL-*` identifiers", "replacement": "Use a legacy checkpoint name (the pre-v5 checkpoint prefix) or non-canonical identifiers", "order": 218, "scope": "content" },
-    { "id": "R11-2", "type": "rename", "pattern": "The  is invalid", "replacement": "The legacy checkpoint prefix is invalid", "order": 219, "scope": "content" },
-    { "id": "R11-3", "type": "rename", "pattern": "the legacy  is invalid", "replacement": "the legacy checkpoint prefix is invalid", "order": 220, "scope": "content" },
-    { "id": "R12-1", "type": "regex_rename", "pattern": "origin approved \\(CITL-US \\| CITL-BUG \\| CITL-TC \\| CITL-DISC \\| CITL-REV \\|\\s*CITL-AREV-VERDICT \\| CITL-ADR\\)", "replacement": "origin approved (CP-US-Approval | CP-BUG-Approval | CP-TC-Approval | CP-DISC-Approval | CP-REV-Approval | CP-AREV-VERDICT-Approval | CP-ADR-Approval)", "order": 221, "scope": "content" },
-    { "id": "R12-2", "type": "rename", "pattern": "CITL-AREV-{CRITIQUE,DEFENSE,VERDICT}-Approval", "replacement": "CP-AREV-{CRITIQUE,DEFENSE,VERDICT}-Approval", "order": 222, "scope": "content" },
-    { "id": "R12-3", "type": "rename", "pattern": "CITL-US / CITL-TC / CP-BUG-Approval", "replacement": "CP-US-Approval / CP-TC-Approval / CP-BUG-Approval", "order": 223, "scope": "content" },
-    { "id": "R12-4", "type": "rename", "pattern": "origin approved (CITL-US/BUG/TC/DISC/REV/AREV-VERDICT/ADR)", "replacement": "origin approved (CP-US/CP-BUG/CP-TC/CP-DISC/CP-REV/CP-AREV-VERDICT/CP-ADR-Approval)", "order": 224, "scope": "content" },
-    { "id": "R12-5", "type": "rename", "pattern": "CITL-DISC/REV/AREV-*-Approval", "replacement": "CP-DISC/CP-REV/CP-AREV-*-Approval", "order": 225, "scope": "content" },
-    { "id": "R13-1", "type": "rename", "pattern": ".github/51-agents/", "replacement": ".github/agents/", "order": 226, "scope": "content" },
-    { "id": "R13-2", "type": "rename", "pattern": ".opencode/51-agents/", "replacement": ".opencode/agents/", "order": 227, "scope": "content" },
-    { "id": "R13-3", "type": "rename", "pattern": ".claude/51-agents/", "replacement": ".claude/agents/", "order": 228, "scope": "content" },
-    { "id": "R13-4", "type": "rename", "pattern": ".codex/51-agents/", "replacement": ".codex/agents/", "order": 229, "scope": "content" },
-    { "id": "R13-5", "type": "rename", "pattern": ".51-agents/skills/", "replacement": ".agents/skills/", "order": 230, "scope": "content" },
-    { "id": "R14-1", "type": "regex_rename", "pattern": "(?s)`TEMPLATE-REPORT\\.html` is currently a \\*\\*design\\s+reference\\*\\*, not a fillable template: a self-contained mockup, populated with\\s+example data, that shows the target shape of the report", "replacement": "A report template design reference is planned for the tooling track: a self-contained mockup, populated with example data, showing the target shape of the report", "order": 231, "scope": "content" },
-    { "id": "R15-2", "type": "regex_rename", "pattern": "by Raja SP,\\s+Principal Solutions Architect at AWS", "replacement": "published on the AWS DevOps Blog", "order": 59, "scope": "content" },
-    { "id": "R15-3", "type": "rename", "pattern": "**,** , Principal Solutions Architect at AWS", "replacement": "**AWS DevOps Blog**", "order": 232, "scope": "content" },
-    { "id": "R15-1", "type": "rename", "pattern": "version: \"{{VERSION_IN}}\"", "replacement": "version: \"{{VERSION_OUT}}\"", "order": 233, "scope": "content" },
-    { "id": "R16-1", "type": "regex_rename", "pattern": "\\(number, spec_revision, git_commit, execution_outcome,\\s+code_generation, mem\\)", "replacement": "(number, spec_revision, git_commit, execution_outcome, code_generation, mem, review_ready_at, review_started_at)", "order": 234, "scope": "content" },
-    { "id": "R17-1", "type": "rename", "pattern": "Agregar manejo explícito de concurrencia.", "replacement": "Add explicit concurrency handling.", "order": 235, "scope": "content" },
-    { "id": "R17-2", "type": "rename", "pattern": "the product tree (distribution-kit/, tools/) + governed records", "replacement": "the product tree (src/ + metaflow/) + governed records", "order": 236, "scope": "content" },
-    { "id": "R10-9", "type": "rename", "pattern": "manifest family v{{FAMILY_IN}}", "replacement": "manifest family v{{FAMILY_OUT}}", "order": 237, "scope": "content" },
-    { "id": "R18-1", "type": "regex_rename", "pattern": "(?s)`4\\.0` → `5\\.0`\\s+renames `checkpoint_approvals\\[\\]` → `checkpoint_approvals\\[\\]`\\s+and reshapes each entry.*?frozen v4 schema, G36\\)", "replacement": "`4.0` → `5.0` is a rename of the previous family: the approval array gains a richer approver shape; checkpoint names are re-expressed in the current vocabulary (`CP-<CODE>-Approval`); the decision — actor, timestamp, outcome — is immutable. The v1 `checkpoint` enum accepts **only** `CP-*`; a manifest of the previous family validates against its own frozen schema (G36).", "order": 238, "scope": "content" },
-    { "id": "R19-1", "type": "regex_rename", "pattern": "(?s)Legacy checkpoint names \\(the \\) or any non-canonical `CITL-\\*` identifier \\(canonical is `CITL-\\*`; `CITL-\\*` , G36\\)", "replacement": "Use a legacy checkpoint name (the pre-v5 checkpoint prefix) or non-canonical identifiers (canonical is `CP-<CODE>-Approval`; `CP-*`, G36)", "order": 239, "scope": "content" },
-    { "id": "R20-1", "type": "regex_rename", "pattern": "(?s)\\*\\*Checkpoint-in-the-Loop \\(CITL\\) is the default case\\s+of CITL\\*\\* \\(actor = human\\), not a separate paradigm", "replacement": "**A human actor is the default case inside CITL** (actor = human), not a separate paradigm", "order": 240, "scope": "content" },
-    { "id": "R20-2", "type": "regex_rename", "pattern": "(?s)\\*\\*CITL is the default case\\s+inside CITL\\*\\* \\(actor = human\\)", "replacement": "**A human actor is the default case** (actor = human)", "order": 241, "scope": "content" },
-    { "id": "R21-1", "type": "regex_rename", "pattern": "(?s)`(?:42-reports/)?TEMPLATE-REPORT\\.html` ships as a design reference with example data", "replacement": "a report template design reference ships with the tooling track", "order": 242, "scope": "content" },
-    { "id": "R22-1", "type": "regex_rename", "pattern": "(?s)`CITL-\\*` codes are never\\s+translated", "replacement": "`CP-*-Approval` codes are never translated", "order": 243, "scope": "content" },
-    { "id": "R22-2", "type": "rename", "pattern": "each artifact's `CITL-*` decision", "replacement": "each artifact's `CP-*` decision", "order": 244, "scope": "content" },
-    { "id": "R23-1", "type": "rename", "pattern": "the pre-v5 `CITL-*` names", "replacement": "the pre-v5 legacy checkpoint names", "order": 245, "scope": "content" },
-    { "id": "R24-1", "type": "regex_rename", "pattern": "(?s)`3\\.0` → `4\\.0` is exactly this\\s+shape.*?every other value\\s+crosses unchanged\\.", "replacement": "**History of the previous family (not applicable to MetaFlow v1.1):** the earlier lineage migrated manifests `3.0` → `4.0` → `5.0` (timing fields arriving as `null`, the approval array gaining a richer approver shape, the actor grammar). Under MetaFlow v1.1 the family is v1: a conversion adds the new schema's fields as `null`, applies its renames, and keeps `schema_version` at `\"1.0\"` with checkpoints `CP-*`. G36 still forbids altering the recorded actor, timestamp, outcome or evidence, or rewriting an approved MEM/ADR body. Every other value crosses unchanged.", "order": 246, "scope": "content" }
+    {
+      "id": "M5",
+      "type": "rename",
+      "pattern": "proprietary methodology of Avenga LATAM",
+      "replacement": "proprietary methodology of Eugenio Serrano",
+      "order": 1,
+      "scope": "content"
+    },
+    {
+      "id": "M11",
+      "type": "rename",
+      "pattern": "devflow/avenga-devflow/Avenga-DevFlow.md",
+      "replacement": "metaflow/ai-sdlc/MetaFlow.md",
+      "order": 2,
+      "scope": "content"
+    },
+    {
+      "id": "M7b",
+      "type": "rename",
+      "pattern": "Avenga-DevFlow.md",
+      "replacement": "MetaFlow.md",
+      "order": 3,
+      "scope": "content"
+    },
+    {
+      "id": "M7c",
+      "type": "rename",
+      "pattern": "Avenga-DevFlow",
+      "replacement": "MetaFlow",
+      "order": 4,
+      "scope": "content"
+    },
+    {
+      "id": "M1",
+      "type": "rename",
+      "pattern": "AvengaDevFlow",
+      "replacement": "MetaFlow",
+      "order": 6,
+      "scope": "content"
+    },
+    {
+      "id": "M2",
+      "type": "rename",
+      "pattern": "Avenga DevFlow",
+      "replacement": "MetaFlow",
+      "order": 7,
+      "scope": "content"
+    },
+    {
+      "id": "M6b",
+      "type": "rename",
+      "pattern": "avenga-devflow",
+      "replacement": "ai-sdlc",
+      "order": 8,
+      "scope": "content"
+    },
+    {
+      "id": "M3",
+      "type": "rename",
+      "pattern": "DevFlow",
+      "replacement": "MetaFlow",
+      "order": 9,
+      "scope": "content"
+    },
+    {
+      "id": "M4",
+      "type": "rename",
+      "pattern": "Avenga LATAM",
+      "replacement": "Eugenio Serrano",
+      "order": 10,
+      "scope": "content"
+    },
+    {
+      "id": "M10",
+      "type": "rename",
+      "pattern": "AVENGA-DEVFLOW:PROJECT-SECTION",
+      "replacement": "METAFLOW:PROJECT-SECTION",
+      "order": 11,
+      "scope": "content"
+    },
+    {
+      "id": "C1a",
+      "type": "rename",
+      "pattern": "AITL-<CODE>-Approval",
+      "replacement": "CP-<CODE>-Approval",
+      "order": 12,
+      "scope": "content"
+    },
+    {
+      "id": "C1b",
+      "type": "regex_rename",
+      "pattern": "AITL-([A-Z0-9-]+)-Approval",
+      "replacement": "CP-$1-Approval",
+      "order": 13,
+      "scope": "content"
+    },
+    {
+      "id": "C1e",
+      "type": "rename",
+      "pattern": "AITL-*-Approval",
+      "replacement": "CP-*-Approval",
+      "order": 14,
+      "scope": "content"
+    },
+    {
+      "id": "C1f",
+      "type": "rename",
+      "pattern": "AITL-Approval",
+      "replacement": "CP-Approval",
+      "order": 15,
+      "scope": "content"
+    },
+    {
+      "id": "C2a",
+      "type": "rename",
+      "pattern": "HITL-<CODE>-Approval",
+      "replacement": "CP-<CODE>-Approval",
+      "order": 16,
+      "scope": "content"
+    },
+    {
+      "id": "C2b",
+      "type": "regex_rename",
+      "pattern": "HITL-([A-Z0-9-]+)-Approval",
+      "replacement": "CP-$1-Approval",
+      "order": 17,
+      "scope": "content"
+    },
+    {
+      "id": "C2e",
+      "type": "rename",
+      "pattern": "HITL-*-Approval",
+      "replacement": "CP-*-Approval",
+      "order": 18,
+      "scope": "content"
+    },
+    {
+      "id": "C2f",
+      "type": "rename",
+      "pattern": "HITL-Approval",
+      "replacement": "CP-Approval",
+      "order": 19,
+      "scope": "content"
+    },
+    {
+      "id": "B6",
+      "type": "rename",
+      "pattern": "BOLT-READY-Approval",
+      "replacement": "TASK-READY-Approval",
+      "order": 20,
+      "scope": "content"
+    },
+    {
+      "id": "B7",
+      "type": "rename",
+      "pattern": "BOLT-DONE-Approval",
+      "replacement": "TASK-DONE-Approval",
+      "order": 21,
+      "scope": "content"
+    },
+    {
+      "id": "B2",
+      "type": "rename",
+      "pattern": "BOLT-",
+      "replacement": "TASK-",
+      "order": 22,
+      "scope": "both"
+    },
+    {
+      "id": "C5a",
+      "type": "remove",
+      "pattern": "pre-v5 `HITL-*` prefix",
+      "order": 23,
+      "scope": "content"
+    },
+    {
+      "id": "C5b",
+      "type": "remove",
+      "pattern": "legacy checkpoint names",
+      "order": 24,
+      "scope": "content"
+    },
+    {
+      "id": "C5c",
+      "type": "remove",
+      "pattern": "survives only in migrated history",
+      "order": 25,
+      "scope": "content"
+    },
+    {
+      "id": "C3a",
+      "type": "rename",
+      "pattern": "Actor-in-the-Loop (AITL)",
+      "replacement": "Checkpoint-in-the-Loop (CITL)",
+      "order": 26,
+      "scope": "content"
+    },
+    {
+      "id": "C3b",
+      "type": "rename",
+      "pattern": "Human-in-the-Loop (HITL)",
+      "replacement": "Checkpoint-in-the-Loop (CITL)",
+      "order": 27,
+      "scope": "content"
+    },
+    {
+      "id": "C4",
+      "type": "rename",
+      "pattern": "AITL",
+      "replacement": "CITL",
+      "order": 28,
+      "scope": "content"
+    },
+    {
+      "id": "C4b",
+      "type": "rename",
+      "pattern": "HITL",
+      "replacement": "CITL",
+      "order": 29,
+      "scope": "content"
+    },
+    {
+      "id": "B15a",
+      "type": "rename",
+      "pattern": "V-Bounces per Bolt",
+      "replacement": "Delivery Loops per TASK",
+      "order": 30,
+      "scope": "content"
+    },
+    {
+      "id": "D2",
+      "type": "rename",
+      "pattern": "V-Bounces",
+      "replacement": "Delivery Loops",
+      "order": 31,
+      "scope": "content"
+    },
+    {
+      "id": "D1",
+      "type": "rename",
+      "pattern": "V-Bounce",
+      "replacement": "Delivery Loop",
+      "order": 32,
+      "scope": "content"
+    },
+    {
+      "id": "D3",
+      "type": "rename",
+      "pattern": "v_bounces",
+      "replacement": "delivery_loops",
+      "order": 33,
+      "scope": "content"
+    },
+    {
+      "id": "B12",
+      "type": "rename",
+      "pattern": "test_bolts",
+      "replacement": "test_tasks",
+      "order": 34,
+      "scope": "content"
+    },
+    {
+      "id": "B15b",
+      "type": "rename",
+      "pattern": "per Bolt",
+      "replacement": "per TASK",
+      "order": 35,
+      "scope": "content"
+    },
+    {
+      "id": "B13",
+      "type": "rename",
+      "pattern": "Bolt-First Rule",
+      "replacement": "TASK-First Rule",
+      "order": 36,
+      "scope": "content"
+    },
+    {
+      "id": "B14",
+      "type": "rename",
+      "pattern": "Bolt Lead Time",
+      "replacement": "TASK Lead Time",
+      "order": 37,
+      "scope": "content"
+    },
+    {
+      "id": "B1a",
+      "type": "rename",
+      "pattern": "Bolts",
+      "replacement": "TASKs",
+      "order": 38,
+      "scope": "content"
+    },
+    {
+      "id": "B1b",
+      "type": "rename",
+      "pattern": "Bolt",
+      "replacement": "TASK",
+      "order": 39,
+      "scope": "content"
+    },
+    {
+      "id": "B3a",
+      "type": "rename",
+      "pattern": "bolts",
+      "replacement": "tasks",
+      "order": 40,
+      "scope": "content"
+    },
+    {
+      "id": "B3b",
+      "type": "rename",
+      "pattern": "bolt",
+      "replacement": "task",
+      "order": 41,
+      "scope": "content"
+    },
+    {
+      "id": "B2b",
+      "type": "rename",
+      "pattern": "BOLTS",
+      "replacement": "TASKs",
+      "order": 42,
+      "scope": "content"
+    },
+    {
+      "id": "B2c",
+      "type": "rename",
+      "pattern": "BOLT",
+      "replacement": "TASK",
+      "order": 43,
+      "scope": "content"
+    },
+    {
+      "id": "C7",
+      "type": "rename",
+      "pattern": "hitl_approvals",
+      "replacement": "checkpoint_approvals",
+      "order": 44,
+      "scope": "content"
+    },
+    {
+      "id": "C8",
+      "type": "rename",
+      "pattern": "actor-in-the-loop--aitl",
+      "replacement": "checkpoint-in-the-loop--citl",
+      "order": 45,
+      "scope": "content"
+    },
+    {
+      "id": "M12",
+      "type": "rename",
+      "pattern": "Avenga",
+      "replacement": "Eugenio Serrano",
+      "order": 46,
+      "scope": "content"
+    },
+    {
+      "id": "M13",
+      "type": "rename",
+      "pattern": "avenga.com",
+      "replacement": "metaflow.com",
+      "order": 47,
+      "scope": "content"
+    },
+    {
+      "id": "M14",
+      "type": "rename",
+      "pattern": "avenga",
+      "replacement": "metaflow",
+      "order": 48,
+      "scope": "content"
+    },
+    {
+      "id": "D7",
+      "type": "rename",
+      "pattern": "V-BOUNCE",
+      "replacement": "DELIVERY LOOP",
+      "order": 49,
+      "scope": "content"
+    },
+    {
+      "id": "D8",
+      "type": "rename",
+      "pattern": "v_bounce",
+      "replacement": "delivery_loop",
+      "order": 50,
+      "scope": "content"
+    },
+    {
+      "id": "D10",
+      "type": "rename",
+      "pattern": "VBOUNCE",
+      "replacement": "DELIVERYLOOP",
+      "order": 51,
+      "scope": "content"
+    },
+    {
+      "id": "M15",
+      "type": "rename",
+      "pattern": "devflow/",
+      "replacement": "metaflow/",
+      "order": 52,
+      "scope": "content"
+    },
+    {
+      "id": "M16",
+      "type": "rename",
+      "pattern": "devflow",
+      "replacement": "metaflow",
+      "order": 53,
+      "scope": "content"
+    },
+    {
+      "id": "M17",
+      "type": "rename",
+      "pattern": "Devflow",
+      "replacement": "MetaFlow",
+      "order": 54,
+      "scope": "content"
+    },
+    {
+      "id": "M18",
+      "type": "rename",
+      "pattern": "DEVFLOW",
+      "replacement": "METAFLOW",
+      "order": 58,
+      "scope": "content"
+    },
+    {
+      "id": "R2a",
+      "type": "regex_remove",
+      "pattern": "(?m)^- \\*\\*DevOps Research and Assessment.*\\n",
+      "replacement": "",
+      "order": 55,
+      "scope": "content"
+    },
+    {
+      "id": "R2b",
+      "type": "regex_remove",
+      "pattern": "(?m)^- \\*\\*Forsgren, N.*\\n",
+      "replacement": "",
+      "order": 56,
+      "scope": "content"
+    },
+    {
+      "id": "D9",
+      "type": "rename",
+      "pattern": "DORA",
+      "replacement": "Delivery Flow",
+      "order": 57,
+      "scope": "content"
+    },
+    {
+      "id": "R1a",
+      "type": "remove",
+      "pattern": "AI-Driven Development Life Cycle: Reimagining Software Engineering",
+      "order": 60,
+      "scope": "content"
+    },
+    {
+      "id": "R1b",
+      "type": "remove",
+      "pattern": "Raja SP",
+      "order": 61,
+      "scope": "content"
+    },
+    {
+      "id": "V0",
+      "type": "rename",
+      "pattern": "{{VERSION_IN}}",
+      "replacement": "{{VERSION_OUT}}",
+      "path": "metaflow/VERSION",
+      "order": 70,
+      "scope": "content"
+    },
+    {
+      "id": "V1",
+      "type": "rename",
+      "pattern": "**Methodology version:** {{VERSION_IN}}",
+      "replacement": "**Methodology version:** {{VERSION_OUT}}",
+      "order": 71,
+      "scope": "content"
+    },
+    {
+      "id": "V2",
+      "type": "rename",
+      "pattern": "**Agent version:** {{VERSION_IN}} — implements methodology v{{VERSION_IN}}",
+      "replacement": "**Agent version:** {{VERSION_OUT}} — implements methodology v{{VERSION_OUT}}",
+      "order": 72,
+      "scope": "content"
+    },
+    {
+      "id": "V3",
+      "type": "rename",
+      "pattern": "v{{VERSION_IN}} (Methodology)",
+      "replacement": "v{{VERSION_OUT}} (Methodology)",
+      "order": 73,
+      "scope": "content"
+    },
+    {
+      "id": "V4",
+      "type": "rename",
+      "pattern": "v{{VERSION_IN}} methodology",
+      "replacement": "v{{VERSION_OUT}} methodology",
+      "order": 74,
+      "scope": "content"
+    },
+    {
+      "id": "V5",
+      "type": "rename",
+      "pattern": "(v{{VERSION_IN}})",
+      "replacement": "(v{{VERSION_OUT}})",
+      "order": 75,
+      "scope": "content"
+    },
+    {
+      "id": "A1",
+      "type": "rename",
+      "pattern": "The longitudinal research synthesized in ***Accelerate*** shows that",
+      "replacement": "The longitudinal research on software delivery shows that",
+      "order": 76,
+      "scope": "content"
+    },
+    {
+      "id": "A2",
+      "type": "rename",
+      "pattern": "(*Accelerate* / Delivery Flow)",
+      "replacement": "(Delivery Flow)",
+      "order": 77,
+      "scope": "content"
+    },
+    {
+      "id": "V6",
+      "type": "rename",
+      "pattern": "MetaFlow v{{VERSION_IN}}",
+      "replacement": "MetaFlow v{{VERSION_OUT}}",
+      "order": 78,
+      "scope": "content"
+    },
+    {
+      "id": "V7",
+      "type": "rename",
+      "pattern": "v{{VERSION_IN}})",
+      "replacement": "v{{VERSION_OUT}})",
+      "order": 79,
+      "scope": "content"
+    },
+    {
+      "id": "S1b",
+      "type": "rename",
+      "pattern": "manifest-v{{FAMILY_IN}}-bolt.schema.json",
+      "replacement": "manifest-v{{FAMILY_OUT}}-task.schema.json",
+      "order": 80,
+      "scope": "content"
+    },
+    {
+      "id": "S1",
+      "type": "rename",
+      "pattern": "manifest-v{{FAMILY_IN}}",
+      "replacement": "manifest-v{{FAMILY_OUT}}",
+      "order": 81,
+      "scope": "content"
+    },
+    {
+      "id": "S2",
+      "type": "rename",
+      "pattern": "Manifest v{{FAMILY_IN}}",
+      "replacement": "Manifest v{{FAMILY_OUT}}",
+      "order": 82,
+      "scope": "content"
+    },
+    {
+      "id": "S3",
+      "type": "rename",
+      "pattern": "\"schema_version\": \"{{FAMILY_IN}}.0\"",
+      "replacement": "\"schema_version\": \"{{FAMILY_OUT}}.0\"",
+      "order": 83,
+      "scope": "content"
+    },
+    {
+      "id": "S3b",
+      "type": "rename",
+      "pattern": "schema_version: \"{{FAMILY_IN}}.0\"",
+      "replacement": "schema_version: \"{{FAMILY_OUT}}.0\"",
+      "order": 84,
+      "scope": "content"
+    },
+    {
+      "id": "S4",
+      "type": "regex_rename",
+      "pattern": "manifest:(task|us|tc):v{{FAMILY_IN}}",
+      "replacement": "manifest:$1:v{{FAMILY_OUT}}",
+      "order": 85,
+      "scope": "content"
+    },
+    {
+      "id": "S5",
+      "type": "rename",
+      "pattern": "\"const\": \"{{FAMILY_IN}}.0\"",
+      "replacement": "\"const\": \"{{FAMILY_OUT}}.0\"",
+      "order": 86,
+      "scope": "content"
+    },
+    {
+      "id": "N01",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])input/",
+      "replacement": "01-input/",
+      "order": 90,
+      "scope": "content"
+    },
+    {
+      "id": "N02",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])analysis/",
+      "replacement": "02-analysis/",
+      "order": 91,
+      "scope": "content"
+    },
+    {
+      "id": "N03",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])discovery/",
+      "replacement": "03-discovery/",
+      "order": 92,
+      "scope": "content"
+    },
+    {
+      "id": "N11",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])adrs/",
+      "replacement": "11-adrs/",
+      "order": 93,
+      "scope": "content"
+    },
+    {
+      "id": "N12",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])functional/",
+      "replacement": "12-functional/",
+      "order": 94,
+      "scope": "content"
+    },
+    {
+      "id": "N13",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])bugs/",
+      "replacement": "13-bugs/",
+      "order": 95,
+      "scope": "content"
+    },
+    {
+      "id": "N21",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])spec/",
+      "replacement": "21-spec/",
+      "order": 96,
+      "scope": "content"
+    },
+    {
+      "id": "N22",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])memory/",
+      "replacement": "22-memory/",
+      "order": 97,
+      "scope": "content"
+    },
+    {
+      "id": "N23",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])metrics/",
+      "replacement": "23-metrics/",
+      "order": 98,
+      "scope": "content"
+    },
+    {
+      "id": "N24",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])tests/",
+      "replacement": "24-tests/",
+      "order": 99,
+      "scope": "content"
+    },
+    {
+      "id": "N32",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])adversarial-reviews/",
+      "replacement": "32-adv-reviews/",
+      "order": 100,
+      "scope": "content"
+    },
+    {
+      "id": "N31",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])reviews/",
+      "replacement": "31-reviews/",
+      "order": 101,
+      "scope": "content"
+    },
+    {
+      "id": "N33",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])risks/",
+      "replacement": "33-risks/",
+      "order": 102,
+      "scope": "content"
+    },
+    {
+      "id": "N34",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])incidents/",
+      "replacement": "34-incidents/",
+      "order": 103,
+      "scope": "content"
+    },
+    {
+      "id": "N35",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])retros/",
+      "replacement": "35-retros/",
+      "order": 104,
+      "scope": "content"
+    },
+    {
+      "id": "N41",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])prompts/",
+      "replacement": "41-prompts/",
+      "order": 105,
+      "scope": "content"
+    },
+    {
+      "id": "N42",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])reports/",
+      "replacement": "42-reports/",
+      "order": 106,
+      "scope": "content"
+    },
+    {
+      "id": "N52",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])agents-data/",
+      "replacement": "52-agents-data/",
+      "order": 107,
+      "scope": "content"
+    },
+    {
+      "id": "N51",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])agents/",
+      "replacement": "51-agents/",
+      "order": 108,
+      "scope": "content"
+    },
+    {
+      "id": "N53",
+      "type": "regex_rename",
+      "pattern": "(?<![\\w-])actors/",
+      "replacement": "53-actors/",
+      "order": 109,
+      "scope": "content"
+    },
+    {
+      "id": "L01",
+      "type": "rename",
+      "pattern": "[`TEMPLATE-REPORT.html`](./TEMPLATE-REPORT.html)",
+      "replacement": "`TEMPLATE-REPORT.html`",
+      "order": 110,
+      "scope": "content"
+    },
+    {
+      "id": "P-M7",
+      "type": "path_rename",
+      "pattern": "Avenga-DevFlow.md",
+      "replacement": "MetaFlow.md",
+      "order": 1001,
+      "scope": "path"
+    },
+    {
+      "id": "P-M8a",
+      "type": "path_rename",
+      "pattern": "AvengaDevFlow.agent.md",
+      "replacement": "MetaFlow.agent.md",
+      "order": 1002,
+      "scope": "path"
+    },
+    {
+      "id": "P-M8b",
+      "type": "path_rename",
+      "pattern": "AvengaDevFlow.md",
+      "replacement": "MetaFlow.md",
+      "order": 1003,
+      "scope": "path"
+    },
+    {
+      "id": "P-B10",
+      "type": "path_rename",
+      "pattern": "TEMPLATE-MANIFEST-BOLT",
+      "replacement": "TEMPLATE-MANIFEST-TASK",
+      "order": 1004,
+      "scope": "path"
+    },
+    {
+      "id": "P-B4",
+      "type": "path_rename",
+      "pattern": "TEMPLATE-BOLT.md",
+      "replacement": "TEMPLATE-TASK.md",
+      "order": 1005,
+      "scope": "path"
+    },
+    {
+      "id": "P-B9a",
+      "type": "path_rename",
+      "pattern": "manifest-v{{FAMILY_IN}}-bolt.schema.json",
+      "replacement": "manifest-v{{FAMILY_OUT}}-task.schema.json",
+      "order": 1006,
+      "scope": "path"
+    },
+    {
+      "id": "P-B9b",
+      "type": "path_rename",
+      "pattern": "manifest-v{{FAMILY_IN}}-us.schema.json",
+      "replacement": "manifest-v{{FAMILY_OUT}}-us.schema.json",
+      "order": 1007,
+      "scope": "path"
+    },
+    {
+      "id": "P-B9c",
+      "type": "path_rename",
+      "pattern": "manifest-v{{FAMILY_IN}}-tc.schema.json",
+      "replacement": "manifest-v{{FAMILY_OUT}}-tc.schema.json",
+      "order": 1008,
+      "scope": "path"
+    },
+    {
+      "id": "P-M6",
+      "type": "path_rename",
+      "pattern": "avenga-devflow",
+      "replacement": "ai-sdlc",
+      "order": 1009,
+      "scope": "path"
+    },
+    {
+      "id": "P-B2",
+      "type": "path_rename",
+      "pattern": "BOLT-",
+      "replacement": "TASK-",
+      "order": 1010,
+      "scope": "path"
+    },
+    {
+      "id": "P-B8",
+      "type": "path_rename",
+      "pattern": "bolts",
+      "replacement": "tasks",
+      "order": 1011,
+      "scope": "path"
+    },
+    {
+      "id": "P-M15",
+      "type": "path_rename",
+      "pattern": "devflow",
+      "replacement": "metaflow",
+      "order": 1012,
+      "scope": "path"
+    },
+    {
+      "id": "PN01",
+      "type": "regex_rename",
+      "pattern": "^input$",
+      "replacement": "01-input",
+      "order": 1020,
+      "scope": "path"
+    },
+    {
+      "id": "PN02",
+      "type": "regex_rename",
+      "pattern": "^analysis$",
+      "replacement": "02-analysis",
+      "order": 1021,
+      "scope": "path"
+    },
+    {
+      "id": "PN03",
+      "type": "regex_rename",
+      "pattern": "^discovery$",
+      "replacement": "03-discovery",
+      "order": 1022,
+      "scope": "path"
+    },
+    {
+      "id": "PN11",
+      "type": "regex_rename",
+      "pattern": "^adrs$",
+      "replacement": "11-adrs",
+      "order": 1023,
+      "scope": "path"
+    },
+    {
+      "id": "PN12",
+      "type": "regex_rename",
+      "pattern": "^functional$",
+      "replacement": "12-functional",
+      "order": 1024,
+      "scope": "path"
+    },
+    {
+      "id": "PN13",
+      "type": "regex_rename",
+      "pattern": "^bugs$",
+      "replacement": "13-bugs",
+      "order": 1025,
+      "scope": "path"
+    },
+    {
+      "id": "PN21",
+      "type": "regex_rename",
+      "pattern": "^spec$",
+      "replacement": "21-spec",
+      "order": 1026,
+      "scope": "path"
+    },
+    {
+      "id": "PN22",
+      "type": "regex_rename",
+      "pattern": "^memory$",
+      "replacement": "22-memory",
+      "order": 1027,
+      "scope": "path"
+    },
+    {
+      "id": "PN23",
+      "type": "regex_rename",
+      "pattern": "^metrics$",
+      "replacement": "23-metrics",
+      "order": 1028,
+      "scope": "path"
+    },
+    {
+      "id": "PN24",
+      "type": "regex_rename",
+      "pattern": "^tests$",
+      "replacement": "24-tests",
+      "order": 1029,
+      "scope": "path"
+    },
+    {
+      "id": "PN32",
+      "type": "regex_rename",
+      "pattern": "^adversarial-reviews$",
+      "replacement": "32-adv-reviews",
+      "order": 1030,
+      "scope": "path"
+    },
+    {
+      "id": "PN31",
+      "type": "regex_rename",
+      "pattern": "^reviews$",
+      "replacement": "31-reviews",
+      "order": 1031,
+      "scope": "path"
+    },
+    {
+      "id": "PN33",
+      "type": "regex_rename",
+      "pattern": "^risks$",
+      "replacement": "33-risks",
+      "order": 1032,
+      "scope": "path"
+    },
+    {
+      "id": "PN34",
+      "type": "regex_rename",
+      "pattern": "^incidents$",
+      "replacement": "34-incidents",
+      "order": 1033,
+      "scope": "path"
+    },
+    {
+      "id": "PN35",
+      "type": "regex_rename",
+      "pattern": "^retros$",
+      "replacement": "35-retros",
+      "order": 1034,
+      "scope": "path"
+    },
+    {
+      "id": "PN41",
+      "type": "regex_rename",
+      "pattern": "^prompts$",
+      "replacement": "41-prompts",
+      "order": 1035,
+      "scope": "path"
+    },
+    {
+      "id": "PN42",
+      "type": "regex_rename",
+      "pattern": "^reports$",
+      "replacement": "42-reports",
+      "order": 1036,
+      "scope": "path"
+    },
+    {
+      "id": "PN52",
+      "type": "regex_rename",
+      "pattern": "^agents-data$",
+      "replacement": "52-agents-data",
+      "order": 1037,
+      "scope": "path"
+    },
+    {
+      "id": "PN51",
+      "type": "regex_rename",
+      "pattern": "^agents$",
+      "replacement": "51-agents",
+      "order": 1038,
+      "scope": "path"
+    },
+    {
+      "id": "PN53",
+      "type": "regex_rename",
+      "pattern": "^actors$",
+      "replacement": "53-actors",
+      "order": 1039,
+      "scope": "path"
+    },
+    {
+      "id": "R7-1",
+      "type": "rename",
+      "pattern": "is exactly `{{FAMILY_IN}}.0` for this family",
+      "replacement": "is exactly `\"{{FAMILY_OUT}}.0\"` for this family",
+      "order": 201,
+      "scope": "content"
+    },
+    {
+      "id": "R7-2",
+      "type": "rename",
+      "pattern": "(the v4→v5 change that renamed `checkpoint_approvals[]` → `checkpoint_approvals[]` and moved identity to the actor grammar)",
+      "replacement": "(the change that renamed the approval array to `checkpoint_approvals[]` and moved identity to the actor grammar)",
+      "order": 202,
+      "scope": "content"
+    },
+    {
+      "id": "R7-3",
+      "type": "regex_rename",
+      "pattern": "`4\\.x` keeps `4\\.0`, a schema change\\s+means `5\\.0`",
+      "replacement": "`1.x` keeps `1.0`, a schema change means a new major",
+      "order": 203,
+      "scope": "content"
+    },
+    {
+      "id": "R7-4",
+      "type": "rename",
+      "pattern": "the approval array\n`checkpoint_approvals[]` becomes `checkpoint_approvals[]` with a richer approver",
+      "replacement": "the approval array\n`checkpoint_approvals[]` gains a richer approver shape",
+      "order": 204,
+      "scope": "content"
+    },
+    {
+      "id": "R7-5",
+      "type": "regex_rename",
+      "pattern": "(?s)The checkpoint \\*\\*name\\*\\* in each converted entry.*?keeps `CITL-\\*`\\.",
+      "replacement": "The checkpoint **name** in each converted entry is **re-expressed** in the\ncurrent vocabulary (`CP-<CODE>-Approval`): the decision — actor, timestamp,\noutcome — is immutable; only the vocabulary label tracks the version. The v1\n`checkpoint` enum accepts **only** `CP-*`; a manifest of the previous family\nvalidates against its own frozen schema, which keeps the legacy names.",
+      "order": 205,
+      "scope": "content"
+    },
+    {
+      "id": "R7-6",
+      "type": "rename",
+      "pattern": "becomes `\"{{FAMILY_IN}}.0\"`",
+      "replacement": "becomes `\"{{FAMILY_OUT}}.0\"`",
+      "order": 206,
+      "scope": "content"
+    },
+    {
+      "id": "R8-1",
+      "type": "rename",
+      "pattern": "(exactly `\"{{FAMILY_IN}}.0\"`)",
+      "replacement": "(exactly `\"{{FAMILY_OUT}}.0\"`)",
+      "order": 207,
+      "scope": "content"
+    },
+    {
+      "id": "R9-1",
+      "type": "rename",
+      "pattern": "schema_version \"{{FAMILY_IN}}.0\"",
+      "replacement": "schema_version \"{{FAMILY_OUT}}.0\"",
+      "order": 208,
+      "scope": "content"
+    },
+    {
+      "id": "R9-2",
+      "type": "rename",
+      "pattern": "— exactly `\"{{FAMILY_IN}}.0\"`",
+      "replacement": "— exactly `\"{{FAMILY_OUT}}.0\"`",
+      "order": 209,
+      "scope": "content"
+    },
+    {
+      "id": "R10-1",
+      "type": "rename",
+      "pattern": "Manifest family v{{FAMILY_IN}}",
+      "replacement": "Manifest family v{{FAMILY_OUT}}",
+      "order": 210,
+      "scope": "content"
+    },
+    {
+      "id": "R10-2",
+      "type": "rename",
+      "pattern": "Manifest Family v{{FAMILY_IN}}",
+      "replacement": "Manifest Family v{{FAMILY_OUT}}",
+      "order": 211,
+      "scope": "content"
+    },
+    {
+      "id": "R10-3",
+      "type": "rename",
+      "pattern": "Schema family v{{FAMILY_IN}}",
+      "replacement": "Schema family v{{FAMILY_OUT}}",
+      "order": 212,
+      "scope": "content"
+    },
+    {
+      "id": "R10-4",
+      "type": "rename",
+      "pattern": "Schema v{{FAMILY_IN}} example",
+      "replacement": "Schema v{{FAMILY_OUT}} example",
+      "order": 213,
+      "scope": "content"
+    },
+    {
+      "id": "R10-5",
+      "type": "rename",
+      "pattern": "outside manifest v{{FAMILY_IN}}",
+      "replacement": "outside manifest v{{FAMILY_OUT}}",
+      "order": 214,
+      "scope": "content"
+    },
+    {
+      "id": "R10-6",
+      "type": "rename",
+      "pattern": "three v{{FAMILY_IN}} schemas",
+      "replacement": "three v{{FAMILY_OUT}} schemas",
+      "order": 215,
+      "scope": "content"
+    },
+    {
+      "id": "R10-7",
+      "type": "rename",
+      "pattern": "family **v{{FAMILY_IN}}**",
+      "replacement": "family **v{{FAMILY_OUT}}**",
+      "order": 216,
+      "scope": "content"
+    },
+    {
+      "id": "R10-8",
+      "type": "rename",
+      "pattern": "manifest v{{FAMILY_IN}}",
+      "replacement": "manifest v{{FAMILY_OUT}}",
+      "order": 217,
+      "scope": "content"
+    },
+    {
+      "id": "R11-1",
+      "type": "rename",
+      "pattern": "Use  (the ) or non-canonical `CITL-*` identifiers",
+      "replacement": "Use a legacy checkpoint name (the pre-v5 checkpoint prefix) or non-canonical identifiers",
+      "order": 218,
+      "scope": "content"
+    },
+    {
+      "id": "R11-2",
+      "type": "rename",
+      "pattern": "The  is invalid",
+      "replacement": "The legacy checkpoint prefix is invalid",
+      "order": 219,
+      "scope": "content"
+    },
+    {
+      "id": "R11-3",
+      "type": "rename",
+      "pattern": "the legacy  is invalid",
+      "replacement": "the legacy checkpoint prefix is invalid",
+      "order": 220,
+      "scope": "content"
+    },
+    {
+      "id": "R12-1",
+      "type": "regex_rename",
+      "pattern": "origin approved \\(CITL-US \\| CITL-BUG \\| CITL-TC \\| CITL-DISC \\| CITL-REV \\|\\s*CITL-AREV-VERDICT \\| CITL-ADR\\)",
+      "replacement": "origin approved (CP-US-Approval | CP-BUG-Approval | CP-TC-Approval | CP-DISC-Approval | CP-REV-Approval | CP-AREV-VERDICT-Approval | CP-ADR-Approval)",
+      "order": 221,
+      "scope": "content"
+    },
+    {
+      "id": "R12-2",
+      "type": "rename",
+      "pattern": "CITL-AREV-{CRITIQUE,DEFENSE,VERDICT}-Approval",
+      "replacement": "CP-AREV-{CRITIQUE,DEFENSE,VERDICT}-Approval",
+      "order": 222,
+      "scope": "content"
+    },
+    {
+      "id": "R12-3",
+      "type": "rename",
+      "pattern": "CITL-US / CITL-TC / CP-BUG-Approval",
+      "replacement": "CP-US-Approval / CP-TC-Approval / CP-BUG-Approval",
+      "order": 223,
+      "scope": "content"
+    },
+    {
+      "id": "R12-4",
+      "type": "rename",
+      "pattern": "origin approved (CITL-US/BUG/TC/DISC/REV/AREV-VERDICT/ADR)",
+      "replacement": "origin approved (CP-US/CP-BUG/CP-TC/CP-DISC/CP-REV/CP-AREV-VERDICT/CP-ADR-Approval)",
+      "order": 224,
+      "scope": "content"
+    },
+    {
+      "id": "R12-5",
+      "type": "rename",
+      "pattern": "CITL-DISC/REV/AREV-*-Approval",
+      "replacement": "CP-DISC/CP-REV/CP-AREV-*-Approval",
+      "order": 225,
+      "scope": "content"
+    },
+    {
+      "id": "R13-1",
+      "type": "rename",
+      "pattern": ".github/51-agents/",
+      "replacement": ".github/agents/",
+      "order": 226,
+      "scope": "content"
+    },
+    {
+      "id": "R13-2",
+      "type": "rename",
+      "pattern": ".opencode/51-agents/",
+      "replacement": ".opencode/agents/",
+      "order": 227,
+      "scope": "content"
+    },
+    {
+      "id": "R13-3",
+      "type": "rename",
+      "pattern": ".claude/51-agents/",
+      "replacement": ".claude/agents/",
+      "order": 228,
+      "scope": "content"
+    },
+    {
+      "id": "R13-4",
+      "type": "rename",
+      "pattern": ".codex/51-agents/",
+      "replacement": ".codex/agents/",
+      "order": 229,
+      "scope": "content"
+    },
+    {
+      "id": "R13-5",
+      "type": "rename",
+      "pattern": ".51-agents/skills/",
+      "replacement": ".agents/skills/",
+      "order": 230,
+      "scope": "content"
+    },
+    {
+      "id": "R14-1",
+      "type": "regex_rename",
+      "pattern": "(?s)`TEMPLATE-REPORT\\.html` is currently a \\*\\*design\\s+reference\\*\\*, not a fillable template: a self-contained mockup, populated with\\s+example data, that shows the target shape of the report",
+      "replacement": "A report template design reference is planned for the tooling track: a self-contained mockup, populated with example data, showing the target shape of the report",
+      "order": 231,
+      "scope": "content"
+    },
+    {
+      "id": "R15-2",
+      "type": "regex_rename",
+      "pattern": "by Raja SP,\\s+Principal Solutions Architect at AWS",
+      "replacement": "published on the AWS DevOps Blog",
+      "order": 59,
+      "scope": "content"
+    },
+    {
+      "id": "R15-3",
+      "type": "rename",
+      "pattern": "**,** , Principal Solutions Architect at AWS",
+      "replacement": "**AWS DevOps Blog**",
+      "order": 232,
+      "scope": "content"
+    },
+    {
+      "id": "R15-1",
+      "type": "rename",
+      "pattern": "version: \"{{VERSION_IN}}\"",
+      "replacement": "version: \"{{VERSION_OUT}}\"",
+      "order": 233,
+      "scope": "content"
+    },
+    {
+      "id": "R16-1",
+      "type": "regex_rename",
+      "pattern": "\\(number, spec_revision, git_commit, execution_outcome,\\s+code_generation, mem\\)",
+      "replacement": "(number, spec_revision, git_commit, execution_outcome, code_generation, mem, review_ready_at, review_started_at)",
+      "order": 234,
+      "scope": "content"
+    },
+    {
+      "id": "R17-1",
+      "type": "rename",
+      "pattern": "Agregar manejo explícito de concurrencia.",
+      "replacement": "Add explicit concurrency handling.",
+      "order": 235,
+      "scope": "content"
+    },
+    {
+      "id": "R17-2",
+      "type": "rename",
+      "pattern": "the product tree (distribution-kit/, tools/) + governed records",
+      "replacement": "the product tree (src/ + metaflow/) + governed records",
+      "order": 236,
+      "scope": "content"
+    },
+    {
+      "id": "R10-9",
+      "type": "rename",
+      "pattern": "manifest family v{{FAMILY_IN}}",
+      "replacement": "manifest family v{{FAMILY_OUT}}",
+      "order": 237,
+      "scope": "content"
+    },
+    {
+      "id": "R18-1",
+      "type": "regex_rename",
+      "pattern": "(?s)`4\\.0` → `5\\.0`\\s+renames `checkpoint_approvals\\[\\]` → `checkpoint_approvals\\[\\]`\\s+and reshapes each entry.*?frozen v4 schema, G36\\)",
+      "replacement": "`4.0` → `5.0` is a rename of the previous family: the approval array gains a richer approver shape; checkpoint names are re-expressed in the current vocabulary (`CP-<CODE>-Approval`); the decision — actor, timestamp, outcome — is immutable. The v1 `checkpoint` enum accepts **only** `CP-*`; a manifest of the previous family validates against its own frozen schema (G36).",
+      "order": 238,
+      "scope": "content"
+    },
+    {
+      "id": "R19-1",
+      "type": "regex_rename",
+      "pattern": "(?s)Legacy checkpoint names \\(the \\) or any non-canonical `CITL-\\*` identifier \\(canonical is `CITL-\\*`; `CITL-\\*` , G36\\)",
+      "replacement": "Use a legacy checkpoint name (the pre-v5 checkpoint prefix) or non-canonical identifiers (canonical is `CP-<CODE>-Approval`; `CP-*`, G36)",
+      "order": 239,
+      "scope": "content"
+    },
+    {
+      "id": "R20-1",
+      "type": "regex_rename",
+      "pattern": "(?s)\\*\\*Checkpoint-in-the-Loop \\(CITL\\) is the default case\\s+of CITL\\*\\* \\(actor = human\\), not a separate paradigm",
+      "replacement": "**A human actor is the default case inside CITL** (actor = human), not a separate paradigm",
+      "order": 240,
+      "scope": "content"
+    },
+    {
+      "id": "R20-2",
+      "type": "regex_rename",
+      "pattern": "(?s)\\*\\*CITL is the default case\\s+inside CITL\\*\\* \\(actor = human\\)",
+      "replacement": "**A human actor is the default case** (actor = human)",
+      "order": 241,
+      "scope": "content"
+    },
+    {
+      "id": "R21-1",
+      "type": "regex_rename",
+      "pattern": "(?s)`(?:42-reports/)?TEMPLATE-REPORT\\.html` ships as a design reference with example data",
+      "replacement": "a report template design reference ships with the tooling track",
+      "order": 242,
+      "scope": "content"
+    },
+    {
+      "id": "R22-1",
+      "type": "regex_rename",
+      "pattern": "(?s)`CITL-\\*` codes are never\\s+translated",
+      "replacement": "`CP-*-Approval` codes are never translated",
+      "order": 243,
+      "scope": "content"
+    },
+    {
+      "id": "R22-2",
+      "type": "rename",
+      "pattern": "each artifact's `CITL-*` decision",
+      "replacement": "each artifact's `CP-*` decision",
+      "order": 244,
+      "scope": "content"
+    },
+    {
+      "id": "R23-1",
+      "type": "rename",
+      "pattern": "the pre-v5 `CITL-*` names",
+      "replacement": "the pre-v5 legacy checkpoint names",
+      "order": 245,
+      "scope": "content"
+    },
+    {
+      "id": "R24-1",
+      "type": "regex_rename",
+      "pattern": "(?s)`3\\.0` → `4\\.0` is exactly this\\s+shape.*?every other value\\s+crosses unchanged\\.",
+      "replacement": "**History of the previous family (not applicable to MetaFlow v1.1):** the earlier lineage migrated manifests `3.0` → `4.0` → `5.0` (timing fields arriving as `null`, the approval array gaining a richer approver shape, the actor grammar). Under MetaFlow v1.1 the family is v1: a conversion adds the new schema's fields as `null`, applies its renames, and keeps `schema_version` at `\"1.0\"` with checkpoints `CP-*`. G36 still forbids altering the recorded actor, timestamp, outcome or evidence, or rewriting an approved MEM/ADR body. Every other value crosses unchanged.",
+      "order": 246,
+      "scope": "content"
+    },
+    {
+      "id": "M4b",
+      "type": "regex_rename",
+      "pattern": "Avenga\\s+LATAM",
+      "replacement": "Eugenio Serrano",
+      "order": 5,
+      "scope": "content"
+    },
+    {
+      "id": "X01",
+      "type": "rename",
+      "pattern": "removed in v4.2",
+      "replacement": "removed in the previous lineage",
+      "order": 88,
+      "scope": "content"
+    },
+    {
+      "id": "X02",
+      "type": "rename",
+      "pattern": "dormant/reserved in v4.2",
+      "replacement": "dormant/reserved",
+      "order": 62,
+      "scope": "content"
+    },
+    {
+      "id": "X03",
+      "type": "rename",
+      "pattern": "DORMANT / RESERVED (v4.2)",
+      "replacement": "DORMANT / RESERVED",
+      "order": 63,
+      "scope": "content"
+    },
+    {
+      "id": "X04",
+      "type": "rename",
+      "pattern": "removed from the active flow in v4.2",
+      "replacement": "removed from the active flow in the previous lineage",
+      "order": 64,
+      "scope": "content"
+    },
+    {
+      "id": "X05",
+      "type": "rename",
+      "pattern": "In v4.2 this whole layer",
+      "replacement": "In the previous lineage this whole layer",
+      "order": 65,
+      "scope": "content"
+    },
+    {
+      "id": "X06",
+      "type": "rename",
+      "pattern": "Removed in v4.2",
+      "replacement": "Removed in the previous lineage",
+      "order": 66,
+      "scope": "content"
+    },
+    {
+      "id": "X07",
+      "type": "rename",
+      "pattern": "versions up to 4.1 shipped one inside",
+      "replacement": "the previous lineage shipped one inside",
+      "order": 67,
+      "scope": "content"
+    },
+    {
+      "id": "X08",
+      "type": "rename",
+      "pattern": "| TASK lead time | TASK-DONE `decided_at` − TASK-READY `decided_at` (§3.7) |",
+      "replacement": "| TASK lead time | `CP-TASK-DONE-Approval` `decided_at` − `CP-TASK-READY-Approval` `decided_at` (§3.7) |",
+      "order": 68,
+      "scope": "content"
+    },
+    {
+      "id": "X09",
+      "type": "rename",
+      "pattern": "| US lead time | last child TASK TASK-DONE `decided_at` − US `CP-US-Approval` `decided_at` |",
+      "replacement": "| US lead time | last child TASK’s `CP-TASK-DONE-Approval` `decided_at` − US `CP-US-Approval` `decided_at` |",
+      "order": 69,
+      "scope": "content"
+    },
+    {
+      "id": "X10",
+      "type": "rename",
+      "pattern": "| TASK lead time | TASK-DONE − TASK-READY `decided_at` |",
+      "replacement": "| TASK lead time | `CP-TASK-DONE-Approval` − `CP-TASK-READY-Approval` `decided_at` |",
+      "order": 89,
+      "scope": "content"
+    },
+    {
+      "id": "X11",
+      "type": "rename",
+      "pattern": "in v4.2",
+      "replacement": "in the previous lineage",
+      "order": 111,
+      "scope": "content"
+    }
   ]
 }

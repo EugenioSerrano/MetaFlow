@@ -39,9 +39,9 @@ Resolve one identity, in this order, stopping at the first that answers:
 ## Interface sketch
 
 ```
-devflow whoami                 -> eugenio.serrano
-devflow whoami --display       -> Eugenio Serrano
-devflow whoami --json          -> { "user": "...", "display": "...", "source": "github" }
+metaflow whoami                 -> eugenio.serrano
+metaflow whoami --display       -> Eugenio Serrano
+metaflow whoami --json          -> { "user": "...", "display": "...", "source": "github" }
 ```
 
 `--json` reports `source` so an agent can tell a resolved identity from a

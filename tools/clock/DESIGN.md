@@ -19,9 +19,9 @@ same Bolt sort in the wrong order and nothing complains. `spec/` and `memory/`
 have no INDEX precisely because the timestamp *is* the ordering — so when the
 offset drifts, the ordering guarantee drifts with it.
 
-## The proposal: `devflow/LOCATION`
+## The proposal: `metaflow/LOCATION`
 
-A file beside `devflow/LANGUAGE`, holding the project's canonical time zone.
+A file beside `metaflow/LANGUAGE`, holding the project's canonical time zone.
 **An IANA zone name, not a fixed offset:**
 
 ```
@@ -38,9 +38,9 @@ whatever zone the developer happens to sit in.
 ## What it does
 
 ```
-devflow now                    -> 260816-1432          (filename stamp, repo zone)
-devflow now --rfc3339          -> 2026-08-16T14:32:07-03:00
-devflow now --date             -> 2026-08-16
+metaflow now                    -> 260816-1432          (filename stamp, repo zone)
+metaflow now --rfc3339          -> 2026-08-16T14:32:07-03:00
+metaflow now --date             -> 2026-08-16
 ```
 
 ## Boundaries
@@ -54,7 +54,7 @@ devflow now --date             -> 2026-08-16
 
 `LOCATION` does not exist yet. Introducing it touches three places:
 
-- **§5.3** — the `devflow/` root files table, beside `VERSION` and `LANGUAGE`.
+- **§5.3** — the `metaflow/` root files table, beside `VERSION` and `LANGUAGE`.
 - **The naming rules**, which today describe the offset problem as a convention
   to be respected rather than a value to be read.
 - **§5.16** — the migration must add it to the **single exception** beside
