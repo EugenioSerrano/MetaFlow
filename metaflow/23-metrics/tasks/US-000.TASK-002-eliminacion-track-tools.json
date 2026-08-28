@@ -1,15 +1,17 @@
 {
   "schema_version": "1.0",
   "task": {
-    "id": "US-000.TASK-001",
+    "id": "US-000.TASK-002",
     "type": "non-functional",
-    "ref": "metaflow/12-functional/tasks/US-000.TASK-001-ubicacion-mapping-json.md",
+    "ref": "metaflow/12-functional/tasks/US-000.TASK-002-eliminacion-track-tools.md",
     "sources": [
       "metaflow/12-functional/user-stories/US-000-non-functional.md",
-      "metaflow/11-adrs/ADR-004-ubicacion-mapping-json.md"
+      "metaflow/11-adrs/ADR-001-toolkit-transformacion.md",
+      "metaflow/02-analysis/vision/vision.md",
+      "metaflow/02-analysis/scope/mvp-scope.md"
     ],
     "generation": {
-      "created_at": "2026-08-28T01:02:04-03:00",
+      "created_at": "2026-08-28T01:17:51-03:00",
       "created_by": "human:eugenioserrano",
       "runs": [
         {
@@ -27,8 +29,8 @@
       ],
       "duration_seconds": null
     },
-    "review_ready_at": "2026-08-28T01:02:04-03:00",
-    "review_started_at": "2026-08-28T01:02:45-03:00",
+    "review_ready_at": "2026-08-28T01:17:51-03:00",
+    "review_started_at": "2026-08-28T01:18:30-03:00",
     "acceptance": {
       "review_ready_at": "2026-08-28T01:27:00-03:00",
       "review_started_at": "2026-08-28T01:27:05-03:00"
@@ -37,14 +39,14 @@
   "spec_revisions": [
     {
       "revision": 1,
-      "ref": "metaflow/21-spec/SPEC-260828-0103-ubicacion-mapping-json.md",
+      "ref": "metaflow/21-spec/SPEC-260828-0119-eliminacion-track-tools.md",
       "sources": [
-        "metaflow/12-functional/tasks/US-000.TASK-001-ubicacion-mapping-json.md",
-        "metaflow/11-adrs/ADR-004-ubicacion-mapping-json.md"
+        "metaflow/12-functional/tasks/US-000.TASK-002-eliminacion-track-tools.md",
+        "metaflow/11-adrs/ADR-001-toolkit-transformacion.md"
       ],
       "git_commit": null,
       "generation": {
-        "created_at": "2026-08-28T01:03:18-03:00",
+        "created_at": "2026-08-28T01:19:22-03:00",
         "created_by": "human:eugenioserrano",
         "runs": [
           {
@@ -62,8 +64,8 @@
         ],
         "duration_seconds": null
       },
-      "review_ready_at": "2026-08-28T01:03:18-03:00",
-      "review_started_at": "2026-08-28T01:04:30-03:00"
+      "review_ready_at": "2026-08-28T01:19:22-03:00",
+      "review_started_at": "2026-08-28T01:21:30-03:00"
     }
   ],
   "delivery_loops": [
@@ -73,7 +75,7 @@
       "git_commit": null,
       "execution_outcome": "ready_for_review",
       "code_generation": {
-        "created_at": "2026-08-28T01:05:22-03:00",
+        "created_at": "2026-08-28T01:22:27-03:00",
         "created_by": "human:eugenioserrano",
         "runs": [
           {
@@ -92,9 +94,9 @@
         "duration_seconds": null
       },
       "mem": {
-        "ref": "metaflow/22-memory/MEM-260828-0107-ubicacion-mapping-json.md",
+        "ref": "metaflow/22-memory/MEM-260828-0125-eliminacion-track-tools.md",
         "generation": {
-          "created_at": "2026-08-28T01:07:51-03:00",
+          "created_at": "2026-08-28T01:25:28-03:00",
           "created_by": "human:eugenioserrano",
           "runs": [
             {
@@ -113,15 +115,15 @@
           "duration_seconds": null
         }
       },
-      "review_ready_at": "2026-08-28T01:07:51-03:00",
-      "review_started_at": "2026-08-28T01:12:00-03:00"
+      "review_ready_at": "2026-08-28T01:25:28-03:00",
+      "review_started_at": "2026-08-28T01:26:00-03:00"
     }
   ],
   "checkpoint_approvals": [
     {
       "checkpoint": "CP-TASK-READY-Approval",
       "subject": {
-        "ref": "metaflow/12-functional/tasks/US-000.TASK-001-ubicacion-mapping-json.md"
+        "ref": "metaflow/12-functional/tasks/US-000.TASK-002-eliminacion-track-tools.md"
       },
       "decision": "approved",
       "decided_by": [
@@ -131,13 +133,13 @@
           "model": null
         }
       ],
-      "decided_at": "2026-08-28T01:03:00-03:00",
-      "comment": "DoR validado: ADR-004 aprobado, riesgos identificados, evidencia de completitud definida"
+      "decided_at": "2026-08-28T01:19:22-03:00",
+      "comment": "DoR validado: revisión de referencias hecha (2026-08-28), alcance y exclusiones definidos"
     },
     {
       "checkpoint": "CP-SPEC-Approval",
       "subject": {
-        "ref": "metaflow/21-spec/SPEC-260828-0103-ubicacion-mapping-json.md",
+        "ref": "metaflow/21-spec/SPEC-260828-0119-eliminacion-track-tools.md",
         "revision": 1
       },
       "decision": "approved",
@@ -148,13 +150,13 @@
           "model": null
         }
       ],
-      "decided_at": "2026-08-28T01:05:00-03:00",
+      "decided_at": "2026-08-28T01:22:27-03:00",
       "comment": null
     },
     {
       "checkpoint": "CP-MEM-Approval",
       "subject": {
-        "ref": "metaflow/22-memory/MEM-260828-0107-ubicacion-mapping-json.md",
+        "ref": "metaflow/22-memory/MEM-260828-0125-eliminacion-track-tools.md",
         "delivery_loop": 1
       },
       "decision": "approved",
@@ -165,13 +167,13 @@
           "model": null
         }
       ],
-      "decided_at": "2026-08-28T01:13:29-03:00",
-      "comment": "Evidencia revisada: diff + 107 tests OK + transformación real desde cero (kit byte-idéntico)"
+      "decided_at": "2026-08-28T01:26:57-03:00",
+      "comment": "Evidencia revisada: diff + 106 tests OK + AC-1..AC-5 verificadas"
     },
     {
       "checkpoint": "CP-TASK-DONE-Approval",
       "subject": {
-        "ref": "metaflow/12-functional/tasks/US-000.TASK-001-ubicacion-mapping-json.md"
+        "ref": "metaflow/12-functional/tasks/US-000.TASK-002-eliminacion-track-tools.md"
       },
       "decision": "approved",
       "decided_by": [
@@ -182,7 +184,7 @@
         }
       ],
       "decided_at": "2026-08-28T01:27:22-03:00",
-      "comment": "Aceptación (routing refactor → Tech Lead): diff before/after + paridad de tests + transformación real byte-idéntica"
+      "comment": "Aceptación (routing debt → Tech Lead): repo sin track heredado, suite 106 OK, grep sin restos"
     }
   ]
 }

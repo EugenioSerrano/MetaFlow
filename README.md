@@ -94,8 +94,8 @@ MetaFlow ships **no `CHANGELOG.md`**. Your repository's own changelog, at its
 root, is where methodology upgrades get recorded (§5.16).
 
 **No tooling is required.** The methodology is enforced by agents and humans
-following it; everything under `tools/` is optional by contract — if the
-tooling is absent, MetaFlow works exactly as documented.
+following it — no tooling ships with it, and MetaFlow works exactly as
+documented.
 
 ---
 
@@ -129,12 +129,11 @@ Read [`AGENTS.md`](AGENTS.md) first. It is this repository's MetaFlow entry
 point and its authoring contract, and it carries the two-partition model in
 its project section.
 
-[`tools/`](tools/) holds the **source code of the tools built around the
-methodology** — validator designs, agent-wrapper tooling and the
-classification of the 39 blocking rules by whether a tool can decide them.
-The folder is **never distributed**: what reaches a project is what the kit
-ships in `metaflow/`. Everything built there stays **optional by contract**:
-`metaflow/` must remain runnable with no toolchain at all.
+**No tooling ships with the methodology.** The legacy tooling track
+inherited from the original lineage was removed on 2026-08-28
+(US-000.TASK-002): the methodology is enforced by agents and humans and
+works exactly as documented with no toolchain at all — see *No tooling is
+required* above.
 
 [`CHANGELOG.md`](CHANGELOG.md) at the repository root is the history of the
 framework itself, and the same file records this repository's own methodology

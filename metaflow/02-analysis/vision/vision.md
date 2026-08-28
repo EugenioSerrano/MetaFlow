@@ -39,7 +39,7 @@ tags: [metaf low, transformacion, metodologia]
 - AG1 — **No es una traducción** de la metodología: el contenido se hereda tal cual; solo cambian los nombres.
 - AG2 — **No es una reescritura** de los conceptos: la funcionalidad (guardrails G01–G39, checkpoints, manifests, vocabulario US/TC/ADR…) se conserva íntegra.
 - AG3 — **No es una filiación con Avenga**: no se presenta como versión oficial ni derivada de Avenga LATAM.
-- AG4 — **No busca** reimplementar la pista de herramientas (`tools/`) del repositorio original.
+- AG4 — **No busca** reimplementar la pista de herramientas (`tools/`) del repositorio original — resuelto 2026-08-28: la pista heredada fue eliminada (US-000.TASK-002); el anti-objetivo permanece.
 
 ## 4. Métricas de éxito tentativas
 

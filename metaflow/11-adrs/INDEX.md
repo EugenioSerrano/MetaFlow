@@ -35,7 +35,7 @@ for the decisions it records.
 
 | ID | Document | Superseded by |
 |----|----------|---------------|
-| [ADR-002](ADR-002-numeracion-carpetas-kit.md) | Numeración de carpetas internas del kit por ciclo de uso | [ADR-003](ADR-003-ajuste-numeracion-32-adv-reviews.md) (2026-08-27) |
+| [ADR-002](_archive/ADR-002-numeracion-carpetas-kit.md) | Numeración de carpetas internas del kit por ciclo de uso — archivado 2026-08-28 (vida cerrada) | [ADR-003](ADR-003-ajuste-numeracion-32-adv-reviews.md) (2026-08-27) |
 
 ## ⛔ Deprecated
 

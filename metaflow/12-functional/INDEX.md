@@ -77,7 +77,8 @@ configuration — the methodology prescribes no mechanism (see README).
 
 | ID | Document | State |
 |----|----------|-------|
-| [US-000.TASK-001](tasks/US-000.TASK-001-ubicacion-mapping-json.md) | Traslado de `mapping.json` a `src/` — toolkit autocontenido (ADR-004) | Development Completed (CP-MEM-Approval 2026-08-28) |
+| [US-000.TASK-001](tasks/US-000.TASK-001-ubicacion-mapping-json.md) | Traslado de `mapping.json` a `src/` — toolkit autocontenido (ADR-004) | **Done** (CP-TASK-DONE-Approval 2026-08-28) |
+| [US-000.TASK-002](tasks/US-000.TASK-002-eliminacion-track-tools.md) | Eliminación del track heredado `tools/` (legado AvengaDevFlow) | **Done** (CP-TASK-DONE-Approval 2026-08-28) |
 
 ### Test TASKs (`TC-NNN.TASK-NNN`)
 

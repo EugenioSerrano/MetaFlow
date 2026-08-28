@@ -1,13 +1,13 @@
-"""Tests de reproducción — BUG-021..024 (REV-005): linaje, shorthands, propiedad, tools.
+"""Tests de reproducción — BUG-021..023 (REV-005): linaje, shorthands, propiedad.
 
 Verifican la AUSENCIA de los patrones en el output REAL:
 - BUG-021: historia del linaje previo ("v4.2", "versions up to 4.1") sin declarar.
 - BUG-022: shorthands de checkpoints no canónicos ("TASK-DONE"/"TASK-READY", "TASK TASK-DONE").
 - BUG-023: entidad inexistente "Eugenio Serrano LATAM" (kit + front door).
-- BUG-024: resto del linaje en tools/ ("devflow").
+- BUG-024: el track heredado tools/ fue eliminado (US-000.TASK-002, 2026-08-28)
+  — guard de ausencia al final del archivo.
 RED = los patrones están presentes (falla); GREEN = desaparecieron tras el fix.
 """
-import re
 import unittest
 from pathlib import Path
 
@@ -87,18 +87,14 @@ class TestBug023Propiedad(unittest.TestCase):
         self.assertIn("framework of Eugenio Serrano", t, "MetaFlow.md sin la entidad real")
 
 
-class TestBug024ToolsLinaje(unittest.TestCase):
-    def test_tools_sin_devflow(self):
-        bad = []
-        for p in (ROOT / "tools").rglob("*.md"):
-            t = p.read_text(encoding="utf-8")
-            if re.search(r"devflow", t, re.I):
-                bad.append(str(p.relative_to(ROOT)))
-        self.assertEqual(bad, [], "referencias devflow en tools/*.md: " + ", ".join(bad[:10]))
+class TestToolsAusente(unittest.TestCase):
+    """Guard de ausencia — US-000.TASK-002 (2026-08-28): el track heredado
+    tools/ (legado AvengaDevFlow) fue eliminado del repositorio; no debe
+    reaparecer sin un cambio deliberado."""
 
-    def test_build_destino_metaflow_bin(self):
-        t = read(ROOT, "tools", "BUILD.md")
-        self.assertIn("distribution-kit/metaflow/bin/", t, "BUILD.md sin destino metaflow/bin")
+    def test_tools_no_existe(self):
+        self.assertFalse((ROOT / "tools").exists(),
+                         "tools/ reapareció — el track heredado fue eliminado (US-000.TASK-002, 2026-08-28)")
 
 
 if __name__ == "__main__":

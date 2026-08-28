@@ -44,7 +44,7 @@ numeración de salida = entrada − 4: 5.1 → 1.1).
 | X1 | Archivo de licencia en el kit | Decidido: licencia propietaria a nombre de Eugenio Serrano (OQ-002); falta definir cómo se materializa en el kit (regla de transformación o archivo del proyecto) | v1 | OQ-002 (respondida) |
 | X2 | Traducción del contenido de la metodología | Decidido: el kit queda en inglés (hereda `en` — OQ-001); traducir es otro proyecto | — | OQ-001 (respondida) |
 | X3 | Migración del `metaflow/` raíz de este repositorio | Decidido: migrar cuando el kit esté estable (§5.16 — OQ-003); mientras tanto el árbol de gobernanza sigue operando bajo AvengaDevFlow instalado (v5.0) | Cuando el kit esté estable | OQ-003 (respondida) |
-| X4 | Pista de herramientas `tools/` (binario Go, validator, etc.) | No es parte del kit de entrada; es del repo original | Cuando se decida el futuro de la pista | OQ-004 |
+| X4 | Pista de herramientas `tools/` (binario Go, validator, etc.) | No es parte del kit de entrada; es del repo original — **Decidido 2026-08-28: eliminación del track (US-000.TASK-002)** | Cerrado | OQ-004 |
 | X5 | Merge inteligente de contenido nuevo de futuras versiones | Decidido: re-transformación completa por versión (OQ-004); diff/merge queda como futuro | Futuro | OQ-004 (respondida) |
 | X6 | Template HTML de reportes de MetaFlow | El template de Avenga (`metaflow/42-reports/TEMPLATE-REPORT.html`) tiene branding embebido (CSS/logo); no se migra — el pipeline lo excluye (lista `exclude` de `mapping.json`, glossary §7) | v1 (entregable nuevo con branding propio) | glossary §7 |
 
