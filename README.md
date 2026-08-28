@@ -26,8 +26,8 @@ the **Delivery Loop** — approved SPEC → autonomous generation and verificati
 >
 > **The rule that keeps the two apart:** nothing edits the root `metaflow/`
 > except that migration. Methodology work happens in `distribution-kit/`,
-> generated from `input-kit/` by the transformation pipeline (`src/` +
-> `mapping.json`).
+> generated from `input-kit/` by the transformation pipeline (`src/` —
+> engine, `mapping.json` dictionary and tests).
 >
 > To **use** MetaFlow on a project, start at *Adopting it* below. To **change**
 > the methodology, read [`AGENTS.md`](AGENTS.md) first.

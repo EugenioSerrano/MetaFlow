@@ -7,7 +7,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import transform
 
-MAPPING = transform.load_mapping(Path(__file__).resolve().parents[2] / "mapping.json")
+MAPPING = transform.load_mapping(Path(__file__).resolve().parents[1] / "mapping.json")
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
 KIT_IN = FIXTURES / "kit-mini"
 KIT_EXPECTED = FIXTURES / "kit-mini-expected"

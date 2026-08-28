@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_MAPPING = REPO_ROOT / "mapping.json"
+DEFAULT_MAPPING = Path(__file__).resolve().parent / "mapping.json"
 DEFAULT_INPUT = REPO_ROOT / "input-kit"
 DEFAULT_OUTPUT = REPO_ROOT / "distribution-kit"
 DEFAULT_REPORTS = REPO_ROOT / "transform-reports"
@@ -352,7 +352,7 @@ def main(argv=None) -> int:
     parser.add_argument("--dry-run", action="store_true",
                         help="mostrar el plan sin escribir ni borrar nada")
     parser.add_argument("--mapping", default=str(DEFAULT_MAPPING),
-                        help="ruta del diccionario (default: mapping.json en la raíz)")
+                        help="ruta del diccionario (default: src/mapping.json)")
     parser.add_argument("--input", default=str(DEFAULT_INPUT),
                         help="kit de entrada (default: input-kit/)")
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT),

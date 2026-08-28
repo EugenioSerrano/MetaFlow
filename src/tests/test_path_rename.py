@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import transform
 
-MAPPING = Path(__file__).resolve().parents[2] / "mapping.json"
+MAPPING = Path(__file__).resolve().parents[1] / "mapping.json"
 _PATH_RULES = [r for r in transform.render_rules(
     transform.load_mapping(MAPPING).rules, "5.1")
     if r.type == "path_rename"]

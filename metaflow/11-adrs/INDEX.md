@@ -21,8 +21,9 @@ for the decisions it records.
 
 | ID | Document | Description |
 |----|----------|-------------|
-| [ADR-001](ADR-001-toolkit-transformacion.md) | Toolkit de transformación: Python, librerías y ubicación del código | Python 3 + stdlib únicamente, `src/` como ubicación, `mapping.json` en la raíz — **CP-ADR-Approval 2026-08-27** |
+| [ADR-001](ADR-001-toolkit-transformacion.md) | Toolkit de transformación: Python, librerías y ubicación del código | Python 3 + stdlib únicamente, `src/` como ubicación, `mapping.json` en la raíz — **CP-ADR-Approval 2026-08-27** — parcialmente superado por [ADR-004](ADR-004-ubicacion-mapping-json.md) (ubicación de `mapping.json`; el resto vigente) |
 | [ADR-003](ADR-003-ajuste-numeracion-32-adv-reviews.md) | Ajuste del esquema de numeración: `32-adv-reviews` + reglas de contenido con barra | Supersede ADR-002; corrige el sobre-match (REV-002 F-04/F-05) — **CP-ADR-Approval 2026-08-27** |
+| [ADR-004](ADR-004-ubicacion-mapping-json.md) | Ubicación de `mapping.json`: traslado a `src/` (toolkit autocontenido) | Supercede parcialmente al ADR-001 (solo la Alternative F); el resto del ADR-001 permanece vigente — **CP-ADR-Approval 2026-08-28** |
 
 ## ❌ Rejected
 

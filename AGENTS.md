@@ -79,8 +79,9 @@ by MetaFlow.
   out exactly as it has to land in an adopting repository. This is where
   methodology changes land first — the next version line.
 - **`input-kit/`** — raw material: the source kit consumed by the
-  transformation pipeline (`src/` + `mapping.json`) that regenerates
-  `distribution-kit/`. It keeps the previous lineage content by design.
+  transformation pipeline (`src/` — engine, `mapping.json` dictionary and
+  tests) that regenerates `distribution-kit/`. It keeps the previous lineage
+  content by design.
 
 Rules: nothing hand-edits `distribution-kit/` (regenerate it instead); nothing
 edits the root `metaflow/` except the §5.16 migration; every change to the

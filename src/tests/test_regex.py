@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import transform
 
-MAPPING = Path(__file__).resolve().parents[2] / "mapping.json"
+MAPPING = Path(__file__).resolve().parents[1] / "mapping.json"
 _RULES = transform.load_mapping(MAPPING).rules
 
 

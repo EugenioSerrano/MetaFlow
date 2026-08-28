@@ -13,7 +13,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import transform
 
-MAPPING = transform.load_mapping(Path(__file__).resolve().parents[2] / "mapping.json")
+MAPPING = transform.load_mapping(Path(__file__).resolve().parents[1] / "mapping.json")
 _RULES = [r for r in transform.render_rules(MAPPING.rules, "5.1") if not r.path]
 _PATH = [r for r in transform.render_rules(MAPPING.rules, "5.1")
          if r.type == "path_rename" or (r.scope in ("path", "both") and r.type == "regex_rename")]

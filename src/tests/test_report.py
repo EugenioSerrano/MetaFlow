@@ -10,7 +10,7 @@ import transform
 import verify
 import report
 
-MAPPING = transform.load_mapping(Path(__file__).resolve().parents[2] / "mapping.json")
+MAPPING = transform.load_mapping(Path(__file__).resolve().parents[1] / "mapping.json")
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
 KIT_IN = FIXTURES / "kit-mini"
 

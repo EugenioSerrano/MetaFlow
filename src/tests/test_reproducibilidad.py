@@ -16,7 +16,7 @@ import transform
 
 ROOT = Path(__file__).resolve().parents[2]
 REAL_KIT = ROOT / "input-kit"
-MAPPING = ROOT / "mapping.json"
+MAPPING = Path(__file__).resolve().parents[1] / "mapping.json"
 
 SKILL_REL = Path(".agents/skills/MetaFlow/SKILL.md")
 SKILL_OLD_REL = Path(".agents/skills/ai-sdlc/SKILL.md")
