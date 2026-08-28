@@ -1,7 +1,7 @@
 {
   "run": {
     "version": "5.1",
-    "generated_at": "20260827-172449"
+    "generated_at": "20260827-223732"
   },
   "totals": {
     "files": 149,
@@ -45,6 +45,7 @@
       "V2": 4,
       "V3": 4,
       "S1": 68,
+      "M6d": 1,
       "N01": 147,
       "N02": 206,
       "N03": 59,
@@ -82,6 +83,7 @@
       "M7b": 22,
       "R17-2": 1,
       "X02": 2,
+      "X11": 1,
       "M4b": 1,
       "C2a": 1,
       "C2b": 1,
@@ -165,7 +167,7 @@
   "files": [
     {
       "src": ".agents/skills/avenga-devflow/SKILL.md",
-      "dst": ".agents/skills/ai-sdlc/SKILL.md",
+      "dst": ".agents/skills/MetaFlow/SKILL.md",
       "status": "changed",
       "rules_applied": {
         "M11": 2,
@@ -204,6 +206,7 @@
         "V2": 1,
         "V3": 1,
         "S1": 2,
+        "M6d": 1,
         "N01": 4,
         "N02": 13,
         "N03": 2,
@@ -1307,7 +1310,8 @@
         "N12": 5,
         "N21": 2,
         "N24": 7,
-        "N33": 10
+        "N33": 10,
+        "X11": 1
       },
       "removals": {}
     },

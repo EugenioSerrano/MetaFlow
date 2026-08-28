@@ -20,8 +20,13 @@ Delivery Loop (red evidence → fix → green). No TASK may be created before
 
 | ID | Document | Severity | Nature | Dedicated TASK | Status |
 |----|----------|----------|--------|----------------|--------|
+| —  | —        | —        | —      | —              | —      |
 
 ## 🏁 Fixed / Closed
+
+| ID | Document | Status | Fix MEM | Closed date |
+|----|----------|--------|---------|-------------|
+| [BUG-025](BUG-025-skill-metaflow-no-reproducible.md) | Skill renombrada ai-sdlc → MetaFlow solo a mano (pipeline genera ai-sdlc — kit no reproducible) + AGENTS.md raíz con sección de proyecto vaciada | fixed | [MEM-260827-2238-fix-skill-metaflow.md](../22-memory/MEM-260827-2238-fix-skill-metaflow.md) | 2026-08-27 |
 
 | ID | Document | Status | Fix MEM | Closed date |
 |----|----------|--------|---------|-------------|

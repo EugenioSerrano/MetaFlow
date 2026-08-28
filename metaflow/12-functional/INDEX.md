@@ -71,6 +71,7 @@ configuration — the methodology prescribes no mechanism (see README).
 | [US-001.TASK-027](tasks/US-001.TASK-027-fix-shorthands-metricas.md) | Fix BUG-022: shorthands de checkpoints no canónicos en tablas de métricas | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 | [US-001.TASK-028](tasks/US-001.TASK-028-fix-propiedad-identidad.md) | Fix BUG-023: declaración de propiedad — Eugenio Serrano (sin LATAM) | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 | [US-001.TASK-029](tasks/US-001.TASK-029-fix-tools-linaje.md) | Fix BUG-024: resto del linaje en tools/ (BUILD.md/README → metaflow/bin) | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
+| [US-001.TASK-030](tasks/US-001.TASK-030-fix-skill-metaflow.md) | Fix BUG-025: codificar rename skill ai-sdlc → MetaFlow en el pipeline (kit reproducible) + restaurar sección de proyecto AGENTS.md raíz | US-001 | **Done** (CP-TASK-DONE-Approval 2026-08-27) |
 
 ### Non-functional TASKs (`US-000.TASK-NNN`)
 

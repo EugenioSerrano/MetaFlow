@@ -1,7 +1,7 @@
 # Reporte de transformación MetaFlow
 
 - Versión: 5.1
-- Generado: 20260827-172503
+- Generado: 20260827-223732
 - Verificación: OK — cero tokens prohibidos
 
 ## Totales
@@ -9,12 +9,12 @@
 - Cambiados: 149
 - Sin cambios: 0
 - Excluidos: 1
-- Reglas aplicadas: A1x1, A2x1, B12x24, B13x4, B14x18, B15ax10, B15bx71, B1ax303, B1bx1505, B2x245, B2cx65, B3ax127, B3bx125, B6x176, B7x100, C1ax20, C1bx1156, C1ex24, C2ax1, C2bx1, C3ax5, C3bx1, C4x247, C4bx22, C7x7, C8x1, D1x542, D10x1, D2x62, D3x90, D7x3, D8x11, D9x98, L01x1, M1x16, M10x13, M11x9, M13x1, M14x3, M15x427, M16x54, M2x90, M3x124, M4bx1, M6bx30, M7bx22, M7cx1, N01x147, N02x206, N03x59, N11x63, N12x123, N13x33, N21x50, N22x58, N23x146, N24x71, N31x26, N32x39, N33x54, N34x15, N35x6, N41x10, N42x19, N51x144, N52x55, N53x50, R10-1x7, R10-2x5, R10-3x1, R10-4x1, R10-5x2, R10-6x1, R10-7x1, R10-8x2, R10-9x3, R11-1x1, R11-2x5, R11-3x1, R12-1x1, R12-2x1, R12-3x1, R12-4x4, R12-5x4, R13-1x19, R13-2x18, R13-3x6, R13-4x6, R13-5x12, R14-1x1, R15-1x1, R15-2x1, R15-3x1, R16-1x1, R17-1x1, R17-2x1, R18-1x4, R19-1x4, R20-1x1, R20-2x1, R21-1x2, R22-1x1, R22-2x1, R23-1x1, R24-1x1, R7-1x1, R7-2x1, R7-3x1, R7-4x1, R7-5x1, R7-6x1, R8-1x4, R9-1x2, R9-2x1, S1x68, S2x10, S3x6, S3bx4, S4x3, S5x3, V0x1, V1x73, V2x4, V3x4, V4x2, V5x2, V6x2, V7x1, X01x4, X02x2, X03x3, X04x2, X05x1, X06x1, X07x4, X08x1, X09x1, X10x1, X11x1
+- Reglas aplicadas: A1x1, A2x1, B12x24, B13x4, B14x18, B15ax10, B15bx71, B1ax303, B1bx1505, B2x245, B2cx65, B3ax127, B3bx125, B6x176, B7x100, C1ax20, C1bx1156, C1ex24, C2ax1, C2bx1, C3ax5, C3bx1, C4x247, C4bx22, C7x7, C8x1, D1x542, D10x1, D2x62, D3x90, D7x3, D8x11, D9x98, L01x1, M1x16, M10x13, M11x9, M13x1, M14x3, M15x427, M16x54, M2x90, M3x124, M4bx1, M6bx30, M6dx1, M7bx22, M7cx1, N01x147, N02x206, N03x59, N11x63, N12x123, N13x33, N21x50, N22x58, N23x146, N24x71, N31x26, N32x39, N33x54, N34x15, N35x6, N41x10, N42x19, N51x144, N52x55, N53x50, R10-1x7, R10-2x5, R10-3x1, R10-4x1, R10-5x2, R10-6x1, R10-7x1, R10-8x2, R10-9x3, R11-1x1, R11-2x5, R11-3x1, R12-1x1, R12-2x1, R12-3x1, R12-4x4, R12-5x4, R13-1x19, R13-2x18, R13-3x6, R13-4x6, R13-5x12, R14-1x1, R15-1x1, R15-2x1, R15-3x1, R16-1x1, R17-1x1, R17-2x1, R18-1x4, R19-1x4, R20-1x1, R20-2x1, R21-1x2, R22-1x1, R22-2x1, R23-1x1, R24-1x1, R7-1x1, R7-2x1, R7-3x1, R7-4x1, R7-5x1, R7-6x1, R8-1x4, R9-1x2, R9-2x1, S1x68, S2x10, S3x6, S3bx4, S4x3, S5x3, V0x1, V1x73, V2x4, V3x4, V4x2, V5x2, V6x2, V7x1, X01x4, X02x2, X03x3, X04x2, X05x1, X06x1, X07x4, X08x1, X09x1, X10x1, X11x1
 - Remociones: C5ax15, C5bx1, C5cx4, R1ax1, R1bx1, R2ax3, R2bx1
 
 ## Archivos
 
-- .agents/skills/avenga-devflow/SKILL.md -> .agents/skills/ai-sdlc/SKILL.md [changed]
+- .agents/skills/avenga-devflow/SKILL.md -> .agents/skills/MetaFlow/SKILL.md [changed]
 - .github/agents/AvengaDevFlow.agent.md -> .github/agents/MetaFlow.agent.md [changed]
 - .opencode/agents/AvengaDevFlow.md -> .opencode/agents/MetaFlow.md [changed]
 - AGENTS.md -> AGENTS.md [changed]

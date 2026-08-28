@@ -1,7 +1,7 @@
 === METAFLOW TRANSFORM (REAL) ===
 input : D:\MetaFlow\input-kit
 output: D:\MetaFlow\distribution-kit
-  [ok]       .agents/skills/avenga-devflow/SKILL.md -> .agents\skills\ai-sdlc\SKILL.md (reglas: B12x3, B13x1, B14x1, B15ax1, B15bx9, B1ax8, B1bx90, B2x14, B2cx5, B3ax9, B3bx5, B6x11, B7x7, C1ax3, C1bx71, C1ex1, C3ax1, C4x22, C4bx3, C7x1, D1x34, D2x1, D3x9, D9x5, M1x2, M10x2, M11x2, M15x40, M16x10, M2x6, M3x11, M6bx2, N01x4, N02x13, N03x2, N11x2, N12x4, N13x3, N21x2, N22x7, N23x14, N24x5, N31x3, N32x5, N33x1, N41x1, N42x1, N51x17, N52x6, N53x4, R10-1x1, R10-2x1, R11-2x1, R12-4x1, R12-5x1, R13-1x1, R13-2x1, R13-4x1, R13-5x1, R18-1x1, R19-1x1, R8-1x1, S1x2, V2x1, V3x1, X07x1; remociones: C5ax3, C5cx1)
+  [ok]       .agents/skills/avenga-devflow/SKILL.md -> .agents\skills\MetaFlow\SKILL.md (reglas: B12x3, B13x1, B14x1, B15ax1, B15bx9, B1ax8, B1bx90, B2x14, B2cx5, B3ax9, B3bx5, B6x11, B7x7, C1ax3, C1bx71, C1ex1, C3ax1, C4x22, C4bx3, C7x1, D1x34, D2x1, D3x9, D9x5, M1x2, M10x2, M11x2, M15x40, M16x10, M2x6, M3x11, M6bx2, M6dx1, N01x4, N02x13, N03x2, N11x2, N12x4, N13x3, N21x2, N22x7, N23x14, N24x5, N31x3, N32x5, N33x1, N41x1, N42x1, N51x17, N52x6, N53x4, R10-1x1, R10-2x1, R11-2x1, R12-4x1, R12-5x1, R13-1x1, R13-2x1, R13-4x1, R13-5x1, R18-1x1, R19-1x1, R8-1x1, S1x2, V2x1, V3x1, X07x1; remociones: C5ax3, C5cx1)
   [ok]       .github/agents/AvengaDevFlow.agent.md -> .github\agents\MetaFlow.agent.md (reglas: B12x3, B13x1, B14x1, B15ax1, B15bx8, B1ax9, B1bx90, B2x14, B2cx5, B3ax9, B3bx5, B6x11, B7x7, C1ax3, C1bx71, C1ex1, C3ax1, C4x22, C4bx3, C7x1, D1x34, D2x1, D3x9, D9x5, M1x3, M10x2, M11x2, M15x39, M16x10, M2x6, M3x11, M6bx1, N01x5, N02x13, N03x2, N11x2, N12x5, N13x3, N21x2, N22x7, N23x14, N24x5, N31x3, N32x5, N33x1, N41x1, N42x1, N51x17, N52x6, N53x4, R10-2x1, R11-2x1, R12-4x1, R12-5x1, R13-1x3, R13-2x1, R13-5x1, R18-1x1, R19-1x1, R8-1x1, S1x2, V2x1, V3x1, V4x1, X07x1; remociones: C5ax3, C5cx1)
   [ok]       .opencode/agents/AvengaDevFlow.md -> .opencode\agents\MetaFlow.md (reglas: B12x3, B13x1, B14x1, B15ax1, B15bx8, B1ax8, B1bx90, B2x14, B2cx5, B3ax9, B3bx5, B6x11, B7x7, C1ax3, C1bx71, C1ex1, C3ax1, C4x23, C4bx3, C7x1, D1x34, D2x1, D3x9, D9x5, M1x3, M10x2, M11x2, M15x38, M16x10, M2x6, M3x11, M6bx1, N01x4, N02x13, N03x2, N11x2, N12x4, N13x3, N21x2, N22x7, N23x14, N24x5, N31x3, N32x5, N33x1, N41x1, N42x1, N51x16, N52x6, N53x4, R10-2x1, R11-2x1, R12-4x1, R12-5x1, R13-1x1, R13-2x2, R13-5x1, R18-1x1, R19-1x1, R8-1x1, S1x2, V2x1, V3x1, V4x1, X07x1; remociones: C5ax3, C5cx1)
   [ok]       AGENTS.md -> AGENTS.md (reglas: B1bx3, B2cx1, B6x1, B7x1, C1ax2, C1bx4, C1ex1, D1x1, M10x1, M11x1, M15x7, M2x1, M3x2, N02x1, N24x1, N51x4, N52x1, N53x1, R13-1x1, R13-2x1, R13-5x1, V5x1)
@@ -152,5 +152,5 @@ output: D:\MetaFlow\distribution-kit
   [ok]       devflow/tests/uat/TEMPLATE-UAT.md -> metaflow\24-tests\uat\TEMPLATE-UAT.md (reglas: B1ax5, B1bx4, B2x3, B3ax2, B7x1, C1bx5, D1x1, M15x1, M2x1, N02x2, N12x1, N22x1, N24x1, X03x1, X04x1)
   [ok]       devflow/VERSION -> metaflow\VERSION (reglas: V0x1)
 ---
-total: 149 archivos, 66 carpetas, 0 binarios copiados, 1 excluidos, 7575 reglas aplicadas, 26 remociones
-purgadas (retención 2 por versión): 20260827-172426
+total: 149 archivos, 66 carpetas, 0 binarios copiados, 1 excluidos, 7576 reglas aplicadas, 26 remociones
+purgadas (retención 2 por versión): 20260827-172449

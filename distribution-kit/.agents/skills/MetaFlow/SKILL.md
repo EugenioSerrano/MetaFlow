@@ -1,5 +1,5 @@
 ---
-name: ai-sdlc
+name: MetaFlow
 description: Follow the MetaFlow AI-native SDLC methodology — named CITL checkpoints, Delivery Loop execution, one canonical SPEC per TASK, exactly one MEM per Delivery Loop, strict TDD for BUGs, and the Manifest family v1. Use for any task in a repository that contains a metaflow/ folder.
 ---
 

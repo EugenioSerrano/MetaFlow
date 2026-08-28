@@ -61,7 +61,8 @@
     "metaflow/12-functional/tasks/US-001.TASK-026-fix-historia-linaje.md.md",
     "metaflow/12-functional/tasks/US-001.TASK-027-fix-shorthands-metricas.md.md",
     "metaflow/12-functional/tasks/US-001.TASK-028-fix-propiedad-identidad.md.md",
-    "metaflow/12-functional/tasks/US-001.TASK-029-fix-tools-linaje.md.md"
+    "metaflow/12-functional/tasks/US-001.TASK-029-fix-tools-linaje.md",
+    "metaflow/12-functional/tasks/US-001.TASK-030-fix-skill-metaflow.md"
   ],
   "checkpoint_approvals": [
     {

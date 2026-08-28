@@ -63,6 +63,15 @@
       "scope": "content"
     },
     {
+      "id": "M6d",
+      "type": "rename",
+      "pattern": "name: ai-sdlc",
+      "replacement": "name: MetaFlow",
+      "order": 87,
+      "scope": "content",
+      "path": ".agents/skills/MetaFlow/SKILL.md"
+    },
+    {
       "id": "M3",
       "type": "rename",
       "pattern": "DevFlow",
@@ -848,6 +857,14 @@
       "pattern": "avenga-devflow",
       "replacement": "ai-sdlc",
       "order": 1009,
+      "scope": "path"
+    },
+    {
+      "id": "P-M6b",
+      "type": "path_rename",
+      "pattern": ".agents/skills/avenga-devflow",
+      "replacement": ".agents/skills/MetaFlow",
+      "order": 1013,
       "scope": "path"
     },
     {

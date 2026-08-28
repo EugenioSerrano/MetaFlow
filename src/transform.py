@@ -220,7 +220,20 @@ def build_plan(input_dir: Path, output_dir: Path, mapping: Mapping) -> list:
             rules_for_path = [r for r in path_rules if not r.id.startswith("PN")]
         else:
             rules_for_path = path_rules
-        new_parts = tuple(apply_path(p, rules_for_path) for p in rel.parts)
+        # BUG-025: las reglas cuyo pattern contiene "/" son full-path: se
+        # aplican sobre la ruta relativa COMPLETA antes del procesamiento por
+        # componente, para distinguir p. ej. .agents/skills/avenga-devflow
+        # (→ MetaFlow) de devflow/avenga-devflow (→ metaflow/ai-sdlc).
+        full_path_rules = [r for r in rules_for_path if "/" in r.pattern]
+        component_rules = [r for r in rules_for_path if "/" not in r.pattern]
+        rel_text = rel_posix
+        for r in full_path_rules:
+            if r.type == "regex_rename":
+                rel_text = re.compile(r.pattern).sub(
+                    _to_python_repl(r.replacement), rel_text)
+            else:
+                rel_text = rel_text.replace(r.pattern, r.replacement)
+        new_parts = tuple(apply_path(p, component_rules) for p in rel_text.split("/"))
         entry["dst"] = output_dir.joinpath(*new_parts)
         if src.is_file():
             if rel_posix in mapping.exclude:

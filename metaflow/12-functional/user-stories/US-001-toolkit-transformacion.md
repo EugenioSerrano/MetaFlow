@@ -199,3 +199,4 @@ flowchart TB
 | 2026-08-27 | Revisión 7 — TASK-004 creado (numeración de carpetas por ciclo de uso, ADR-002 + REV-001 Plan B) | @eugenioserrano |
 | 2026-08-27 | Revisión 8 — TASK-005 creado (corrección del sobre-match de numeración — REV-002 — + rename 32-adv-reviews — ADR-003) | @eugenioserrano |
 | 2026-08-27 | Revisión 9 — TASK-006 creado (fix BUG-001: no numerar carpetas de plataforma) | @eugenioserrano |
+| 2026-08-27 | Corrección puntual autorizada por el propietario — typo en manifest `tasks[28]` (`...TASK-029-fix-tools-linaje.md.md` → `.md`); valor registrado corregido con autorización explícita (G36), manifest re-validado | @eugenioserrano |

@@ -1,5 +1,5 @@
 ---
-name: ai-sdlc
+name: MetaFlow
 description: Follow the MetaFlow AI-native SDLC methodology — named CITL checkpoints, Delivery Loop execution, one canonical SPEC per TASK, exactly one MEM per Delivery Loop, strict TDD for BUGs, and the Manifest family v1. Use for any task in a repository that contains a metaflow/ folder.
 ---
 
@@ -597,7 +597,7 @@ resurrecting a file the new version deliberately removed.
 
 - **`LANGUAGE` is the only exception** — keep the OLD value (it is the project's
   `content_language`). **`VERSION`** takes the new value and is written **last**.
-- **`metaflow/CHANGELOG.md` is gone** — versions up to 4.1 shipped one inside
+- **`metaflow/CHANGELOG.md` is gone** — the previous lineage shipped one inside
   `metaflow/`. If `metaflowOLD/` has it, it is **superseded** like any other
   framework file, with one step first: if the project wrote its own entries
   there, move them to the repository-root `CHANGELOG.md` before discarding it.

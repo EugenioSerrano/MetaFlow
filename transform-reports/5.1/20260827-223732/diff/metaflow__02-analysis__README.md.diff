@@ -37,8 +37,9 @@
  >   them and fans them out into the artifacts above (see the routing table
  >   below).
 -> - **UAT minutes** live in [`../tests/uat/`](../tests/uat/) — **dormant/reserved
+->   in v4.2**; the UAT approval checkpoint was removed. When active they
 +> - **UAT minutes** live in [`../24-tests/uat/`](../24-tests/uat/) — **dormant/reserved
- >   in v4.2**; the UAT approval checkpoint was removed. When active they
++>   in the previous lineage**; the UAT approval checkpoint was removed. When active they
  >   verify the build, not the analysis.
 -> - **Project risks** live in [`../risks/`](../risks/) (transversal register,
 +> - **Project risks** live in [`../33-risks/`](../33-risks/) (transversal register,

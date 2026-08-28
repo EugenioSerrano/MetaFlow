@@ -53,7 +53,7 @@ robocopy distribution-kit <your-repo> /E    # Windows
 | `metaflow/` — the whole folder | `<your-repo>/metaflow/` | Always — the documentary root: methodology, guardrails, templates, folder structure |
 | `AGENTS.md` | `<your-repo>/AGENTS.md` | Always — cross-tool entry point, auto-loaded from the root by several agents |
 | `CLAUDE.md` | `<your-repo>/CLAUDE.md` | Claude Code |
-| `.agents/skills/ai-sdlc/SKILL.md` | same path | OpenAI Codex |
+| `.agents/skills/MetaFlow/SKILL.md` | same path | OpenAI Codex |
 | `.github/agents/MetaFlow.agent.md` | same path | GitHub Copilot |
 | `.opencode/agents/MetaFlow.md` | same path | OpenCode |
 
@@ -66,11 +66,11 @@ and delete the other three.
 - **Claude Code.** `CLAUDE.md` at the repository root is the whole
   installation; it is loaded automatically at the start of every session.
 - **OpenAI Codex.** The folder name must match the `name:` field in the SKILL
-  frontmatter (`ai-sdlc`), and that frontmatter is mandatory — without it
+  frontmatter (`MetaFlow`), and that frontmatter is mandatory — without it
   Codex rejects the file with a parse error and the skill never loads.
   Codex discovers project skills by walking up from the working directory to
   the repository root, so `.agents/skills/` resolves from any subfolder. For a
-  personal install use `~/.agents/skills/ai-sdlc/`; CLIs predating the
+  personal install use `~/.agents/skills/MetaFlow/`; CLIs predating the
   move to `.agents/skills/` use `~/.codex/skills/`. `~/.codex/config.toml` is
   where a skill is enabled or disabled.
 - **GitHub Copilot.** VS Code and Visual Studio 2026 both detect the file

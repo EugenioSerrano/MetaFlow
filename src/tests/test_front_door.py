@@ -18,7 +18,7 @@ FRONT_DOOR = [
     "README.md",
     "AGENTS.md",
     "CLAUDE.md",
-    (".agents", "skills", "ai-sdlc", "SKILL.md"),
+    (".agents", "skills", "MetaFlow", "SKILL.md"),
     (".github", "agents", "MetaFlow.agent.md"),
     (".opencode", "agents", "MetaFlow.md"),
 ]
